@@ -1,16 +1,31 @@
 /* ---------- root variables ---------- */
 :root {
-  --green: rgb(38, 76, 89);
-  --light-green: rgb(172, 198, 201);
-  --light-grey: #f1f1f4;
-  --text-color-light: #f1f1f1;
-  --text-color-dark: #333;
+  --camino-green: #22523C;
+  --camino-blue: #002F38;
+  --text-color-light: #FFF1DD;
+  --text-color-dark: #002F38;
+  --font:
 }
 
 /* ---------- general styling ---------- */
+@font-face {
+  font-family: 'Neucha';
+  src: url('font/Neucha-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Abolition Round';
+  src: url('font/Abolition-Round.otf');
+}
+
+@font-face {
+  font-family: 'Abolition Sharp';
+  src: url('font/Abolition-Sharp.otf');
+}
+
 html {
   color: var(--text-color-dark);
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Candara, Arial, sans-serif;
   height: 100%;
   text-align: center;
   width: 100%;
@@ -21,67 +36,18 @@ body {
   margin: 0;
 }
 
+/* ---------- font styling ---------- */
 h1 {
-  font-size: 2em;
+  font-family: 'Abolition Sharp';
+  font-size: 4em;
   font-weight: 300;
   letter-spacing: 3px;
 }
 
+
 h3 {
   font-weight: 400;
   letter-spacing: 2px;
-}
-
-/* ---------- topbar styling ---------- */
-.topbar {
-  background-color: var(--green);
-  color: var(--text-color-light);
-  padding: 13.5px;
-  text-transform: uppercase;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-}
-
-.topbar h2 {
-  margin: 0;
-  font-weight: 300;
-}
-
-/* ---------- tabbar styling ---------- */
-.tabbar {
-  background-color: var(--green);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-}
-
-/* Style the links inside the navigation bar */
-.tabbar a {
-  display: inline-block;
-  color: var(--text-color-light);
-  text-align: center;
-  padding: 20px 16px;
-  text-decoration: none;
-  font-size: 0.8em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-/* Change the color of links on hover */
-.tabbar a:hover {
-  background-color: var(--light-grey);
-  color: var(--text-color-dark);
-}
-
-/* Add a color to the active/current link */
-.tabbar a.active {
-  background-color: var(--light-green);
-  color: var(--text-color-light);
 }
 
 /* ---------- page styling ---------- */
@@ -155,9 +121,109 @@ h3 {
   }
 }
 
+/* ---------- home page styling ---------- */
+
+/*  map  */
+#mapid {
+  height: 500px;
+  width: 85%;
+}
+
+/* ---------- next page styling ---------- */
+
+.navigationEtape {
+  background-color: var(--camino-blue);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9;
+  width: 15%;
+}
+
+.nav a {
+  display: block;
+}
+
+/* ---------- next page styling ---------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- topbar styling ---------- */
+/* --------------------- Is not used for now -------------------*/
+/* .topbar {
+  background-color: var(--green);
+  color: var(--text-color-light);
+  padding: 13.5px;
+  text-transform: uppercase;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.topbar h2 {
+  margin: 0;
+  font-weight: 300;
+} */
+
+/* ---------- tabbar styling ---------- */
+/* --------------------- Is not used for now -------------------*/
+/* .tabbar {
+  background-color: var(--green);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+} */
+
+/* Style the links inside the navigation bar */
+/* --------------------- Is not used for now -------------------*/
+/* .tabbar a {
+  display: inline-block;
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+} */
+
+/* Change the color of links on hover */
+/* --------------------- Is not used for now -------------------*/
+/* .tabbar a:hover {
+  background-color: var(--light-grey);
+  color: var(--text-color-dark);
+} */
+
+/* Add a color to the active/current link */
+/* --------------------- Is not used for now -------------------*/
+/* .tabbar a.active {
+  background-color: var(--light-green);
+  color: var(--text-color-light);
+} */
+
+
 /* ---------- styling ---------- */
 /* Grid container */
-.grid-container {
+/* --------------------- Is not used for now -------------------*/
+/* .grid-container {
   display: grid;
   grid-template-columns: 100%;
   padding: 10px;
@@ -190,10 +256,11 @@ iframe {
   border: none;
   width: 100%;
   height: 250px;
-}
+} */
 
 /* input form stryling */
-form {
+/* --------------------- Is not used for now -------------------*/
+/* form {
   margin: auto;
 }
 
@@ -223,4 +290,4 @@ select {
   background: #fff;
   border: 0;
   border-radius: 0;
-}
+} */

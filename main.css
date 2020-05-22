@@ -46,8 +46,13 @@ h1 {
 
 
 h3 {
-  font-weight: 400;
-  letter-spacing: 2px;
+  color: var(--text-color-light);
+  font-family: 'Abolition Sharp';
+  font-size: 2em;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* ---------- page styling ---------- */
@@ -143,6 +148,24 @@ h3 {
 
 .navbtn {
   display: block;
+  width: 40px;
+  height: 40px;
+  padding: 1%;
+  border-radius: 50%;
+  background-color: var(--text-color-light);
+  color: var(--text-color-dark);
+  margin: 10% auto;
+  font-family: 'Abolition Sharp';
+  font-size: 1.5em;
+}
+
+span {
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: var(--text-color-light);
+  margin: 1.5% auto;
 }
 
 /* ---------- next page styling ---------- */

@@ -148,13 +148,13 @@ a {
 
 .navbtn {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   padding: 1%;
   border-radius: 50%;
   background-color: var(--text-color-light);
   color: var(--text-color-dark);
-  margin: 10% auto;
+  margin: 8% auto;
   font-family: 'Abolition Sharp';
   font-size: 1.5em;
 }
@@ -165,7 +165,7 @@ span {
   height: 3px;
   border-radius: 50%;
   background-color: var(--text-color-light);
-  margin: 1.5% auto;
+  margin: 1% auto;
 }
 
 /* ---------- next page styling ---------- */

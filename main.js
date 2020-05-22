@@ -26,13 +26,13 @@ export let map = new L.Map("mapid", {
 
 // window.createMap = () => mapService.createMap();
 
- fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed")
-.then(function(response) {
-    return response.json();
-})
-.then(function(json) {
-appendPosts(json)
-});
+fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (json) {
+        appendPosts(json)
+    });
 
 function appendPosts(posts) {
     for (let post of posts) {
@@ -48,5 +48,5 @@ function appendPosts(posts) {
     <p>${post.acf.hvad_siger_andre}</p>
     </article> `
     }
-        
-    };
+
+};

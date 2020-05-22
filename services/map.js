@@ -1,10 +1,7 @@
-// import loaderService from "./loader.js";
+import { map } from "./../main.js";
 class MapService {
   constructor() {
-    // this.loaderService = loaderService;
-
-
-
+    this.fetchGeoJson();
   }
 
   fetchGeoJson() {
@@ -16,19 +13,20 @@ class MapService {
       .then((gpxData) => {
         let gpx = new gpxParser();
         gpx.parse(gpxData);
-        this.createMap(gpx.tracks[0]);
+        this.createMap();
+        this.drawTrack(gpx.tracks[0]);
         // this.drawTrack(gpx.tracks[0]);
 
       });
   }
 
-  createMap(track) {
+  createMap() {
     // console.log(json)
     let layer = new L.StamenTileLayer("terrain");
-    let map = new L.Map("mapid", {
-      center: new L.LatLng(55.366750, 9.057975),
-      zoom: 12
-    });
+    // let map = new L.Map("mapid", {
+    //   center: new L.LatLng(55.366750, 9.057975),
+    //   zoom: 12
+    // });
     map.addLayer(layer);
 
     let marker = L.marker([55.366750, 9.057975]).addTo(map);
@@ -36,12 +34,12 @@ class MapService {
 
     // L.geoJSON(json.features.geometry.coordinates).addTo(map);
 
-    let coordinates = track.points.map(p => [p.lat.toFixed(5), p.lon.toFixed(5)]);
+    // let coordinates = track.points.map(p => [p.lat.toFixed(5), p.lon.toFixed(5)]);
 
-    var polyline = L.polyline(coordinates, { weight: 6, color: 'darkred' }).addTo(map);
+    // var polyline = L.polyline(coordinates, { weight: 6, color: 'darkred' }).addTo(map);
 
-    // zoom the map to the polyline
-    map.fitBounds(polyline.getBounds());
+    // // zoom the map to the polyline
+    // map.fitBounds(polyline.getBounds());
 
   }
 

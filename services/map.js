@@ -30,29 +30,31 @@ class MapService {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
     });
-
+    let layer = new L.StamenTileLayer("terrain");
     // let map = new L.Map("mapid", {
     //   center: new L.LatLng(55.366750, 9.057975),
     //   zoom: 12
     // });
     map.addLayer(OpenStreetMap_HOT);
 
+    // map.addLayer(layer);
 
 
-    let iconClass = L.Icon.extend({
-      options: {
-        // shadowUrl: 'images/and.jpg',
-        iconSize: [30, 30],
-        shadowSize: [40, 44],
-        iconAnchor: [22, 94],
-        shadowAnchor: [4, 62],
-        popupAnchor: [-3, -76]
-      }
-    })
 
-    let greenIcon = new iconClass({ iconUrl: 'images/and.jpg' }),
-      redIcon = new iconClass({ iconUrl: 'images/lyd.png' }),
-      orangeIcon = new iconClass({ iconUrl: 'leaf-orange.png' });
+    // let iconClass = L.Icon.extend({
+    //   options: {
+    //     // shadowUrl: 'images/and.jpg',
+    //     iconSize: [38, 95],
+    //     shadowSize: [50, 64],
+    //     iconAnchor: [22, 94],
+    //     shadowAnchor: [4, 62],
+    //     popupAnchor: [-3, -76]
+    //   }
+    // })
+
+    // let greenIcon = new iconClass({ iconUrl: 'images/and.jpg' }),
+    //   redIcon = new iconClass({ iconUrl: 'images/lyd.png' }),
+    //   orangeIcon = new iconClass({ iconUrl: 'leaf-orange.png' });
 
     mapInfoService.createMarkers();
     // L.marker([55.367515, 9.069192], { icon: greenIcon }).addTo(map).bindPopup("<b>Hello world!</b>I am a popup!<img src='images/and.jpg' style='max-width: 100%'>")

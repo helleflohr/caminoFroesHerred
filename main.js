@@ -12,8 +12,6 @@ let homePage = new HomePage();
 
 // init services
 spaService.init();
-mapService.createMap();
-// mapService.fetchGeoJson();
+mapService.fetchGeoJson();
 
 window.pageChange = () => spaService.pageChange();
-// window.createMap = () => mapService.createMap();

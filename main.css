@@ -126,7 +126,7 @@ h3 {
 /*  map  */
 #mapid {
   height: 500px;
-  width: 85%;
+  width: 90vw;
 }
 
 /* ---------- next page styling ---------- */
@@ -138,10 +138,10 @@ h3 {
   bottom: 0;
   right: 0;
   z-index: 9;
-  width: 15%;
+  width: 10vw;
 }
 
-.nav a {
+.navbtn {
   display: block;
 }
 

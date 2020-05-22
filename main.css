@@ -170,7 +170,16 @@ span {
 
 /* ---------- next page styling ---------- */
 
+/* ---------- styling ---------- */
+/* Grid container */
+.grid-container {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 30%; }
 
+  .grid-item>img {
+    width: 50%
+  }
 
 
 

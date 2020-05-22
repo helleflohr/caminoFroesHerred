@@ -1,4 +1,5 @@
 import { map } from "./../main.js";
+import mapInfoService from "./mapInfo.js"
 class MapService {
   constructor() {
 
@@ -53,10 +54,10 @@ class MapService {
       redIcon = new iconClass({ iconUrl: 'images/lyd.png' }),
       orangeIcon = new iconClass({ iconUrl: 'leaf-orange.png' });
 
-
-    L.marker([55.367515, 9.069192], { icon: greenIcon }).addTo(map).bindPopup("<b>Hello world!</b>I am a popup!<img src='images/and.jpg' style='max-width: 100%'>")
-    L.marker([55.379615, 9.089192], { icon: redIcon }).addTo(map).bindPopup("<b>Hello world!</b>I am a popup!<img src='images/lyd.png' style='max-width: 100%'>")
-    L.marker([55.379615, 9.049192], { icon: redIcon }).addTo(map).bindPopup("<b>Hello world!</b>I am a popup!<img src='images/lyd.png' style='max-width: 100%'>")
+    mapInfoService.createMarkers();
+    // L.marker([55.367515, 9.069192], { icon: greenIcon }).addTo(map).bindPopup("<b>Hello world!</b>I am a popup!<img src='images/and.jpg' style='max-width: 100%'>")
+    // L.marker([55.379615, 9.089192], { icon: redIcon }).addTo(map).bindPopup("<b>Hello world!</b>I am a popup!<img src='images/lyd.png' style='max-width: 100%'>")
+    // L.marker([55.379615, 9.049192], { icon: redIcon }).addTo(map).bindPopup("<b>Hello world!</b>I am a popup!<img src='images/lyd.png' style='max-width: 100%'>")
 
     // let marker = L.marker([55.366750, 9.057975]).addTo(map);
     // L.marker([55.3658, 9.0532]).addTo(map);

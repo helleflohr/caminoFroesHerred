@@ -10,18 +10,20 @@ import mapService from "./services/map.js";
 let homePage = new HomePage();
 
 
+
 // init services
 spaService.init();
+
 mapService.fetchGeoJson();
-// mapService.fetchGeoJson();
+// mapService.createMap();
 
 window.pageChange = () => spaService.pageChange();
 
-
 export let map = new L.Map("mapid", {
     center: new L.LatLng(55.366750, 9.057975),
-    zoom: 12
+    zoom: 11
 });
+
 // window.createMap = () => mapService.createMap();
 
 /* fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts")

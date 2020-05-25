@@ -181,20 +181,48 @@ span {
     width: 50%
   }
 
-  .baggrundsbillede {
+  @media screen and (min-width: 1440px) {
+
+  .backgroundimg {
     background-image: url("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-content/uploads/2020/05/rapsmark-scaled.jpg");
     background-color: #cccccc;
     height: 40vh;
+    position: relative;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 25px;
+    border: 7px solid  var(--camino-green);
+    width: 50vh;
+    height: 30vh;
   }
 
-  .etape-titel-km {
+  .title-distance {
 display: flex;
 flex-direction: row;
+align-items: center; 
   }
 
-  .start-slut {
+  .title-distance h3, .title-distance h4, .start-end h5 {
+    margin: 0; padding: 0 2% 0 2%; color: var(--text-color-light);
+  }
+
+  .title-distance h4 {
+    margin-top: 5%;
+  }
+
+  .start-end {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; align-items: center;
+    color: var(--text-color-light); padding-bottom: 2%;
+  }
+
+  #text-backgroundimg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(25, 57, 42, 0.8);
+    border-radius: 0 0 17px 17px;
+  }
   }
 
 

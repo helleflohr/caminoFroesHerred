@@ -41,20 +41,23 @@ function appendPosts(posts) {
     
         <article class="grid-item">
 
-    <section class="baggrundsbillede">
-    <div class="etape-titel-km">
+    <section class="backgroundimg">
+    <div id="text-backgroundimg">
+    <div class="title-distance">
     <h3>${post.title.rendered}</h3>
-    <h4>${post.acf.distance}</h4>
+    <h4> (${post.acf.distance} km)</h4>
     </div>
-    <div class="start-slut">
-    <h5>${post.acf.startpoint}</h5> -
+    <div class="start-end">
+    <h5>${post.acf.startpoint}</h5> 
+    -
     <h5>${post.acf.endpoint}</h5>
+    </div>
     </div>
     </section>
 
     <section>
     <p>${post.content.rendered}</p>
-    <img src="${post.acf.images.url}">
+    <img src="${post.acf.images}">
     <p>${post.acf.crud}</p>
     </section>
 

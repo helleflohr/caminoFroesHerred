@@ -8,11 +8,19 @@
 }
 
 /* ---------- general styling ---------- */
+@font-face {
+  font-family: 'JosefinSans';
+  src: url('font/JosefinSans.ttf');
+}
 
+@font-face {
+  font-family: 'JosefinSansItallic';
+  src: url('font/JosefinSans-Italic.ttf');
+}
 
 html {
   color: var(--text-color-dark);
-  font-family: Candara, Arial, sans-serif;
+  font-family: 'JosefinSans', Arial, sans-serif;
   height: 100%;
   text-align: center;
   width: 100%;
@@ -24,22 +32,28 @@ body {
 }
 
 /* ---------- font styling ---------- */
-h1 {
+h1,
+h2,
+h3 {
   font-family: 'abolition-soft', sans-serif;
   font-weight: 400;
   font-style: normal;
+  color: var(--text-color-light);
+}
+
+h1 {
   font-size: 4em;
   letter-spacing: 3px;
   letter-spacing: 0.2em;
 }
 
+h2 {
+  font-size: 3em;
+  letter-spacing: 0.2em;
+}
 
 h3 {
-  color: var(--text-color-light);
-  font-family: 'abolition-soft', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 2em;
+  font-size: 2.2em;
   letter-spacing: 0.2em;
 }
 
@@ -49,23 +63,38 @@ a {
 
 p {
   color: var(--text-color-light);
-  text-align: justify;
+  text-align: left;
   letter-spacing: 0em;
-  font-family: 'josefin-sans', sans-serif;
-  font-weight: 600;
-  font-style: normal;
+  line-height: 1.5em;
+  font-size: 1.5em;
 }
 
 /* ---------- page styling ---------- */
 .page {
   display: none;
   /*min heigh is screen heigh minus height of tab and top bar */
-  min-height: calc(100vh - 110px);
-  background: var(--light-grey);
+  /* min-height: calc(100vh - 110px); */
+  /* background: var(--light-grey); */
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */
-  padding: 55px 0;
+  /* padding: 55px 0; */
 }
+
+aside {
+  background-color: var(--camino-blue);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9;
+  width: 10vw;
+}
+
+#content {
+  width: 90vw;
+  background-image: url(./images/lake.JPG);
+}
+
 
 /* ---------- animations ---------- */
 /* fade in */
@@ -129,17 +158,17 @@ p {
 
 /* ---------- home page styling ---------- */
 /* frontpageImage */
-#frontpageImage {
+/* #frontpageImage {
   max-width: 100%;
-  /* height: 80vh; */
+  height: 80vh;
   margin: 0;
   overflow: hidden;
-  background-position: center;
-}
+} */
 
 #frontpageSection {
-  width: 89vw;
-  height: 10vw;
+  text-align: left;
+  width: 90vw;
+  height: 13vw;
   background-color: var(--camino-green);
   display: flex;
   flex-wrap: wrap;
@@ -149,38 +178,79 @@ p {
 
 #frontpageSection div {
   width: 29%;
-  letter-spacing: 0.5em;
-  margin: 2%;
+  margin: 0 2%;
 }
 
 /*  map  */
 #mapid {
   height: 500px;
-  width: 89vw;
+  width: 90vw;
+  position: absolute;
+  z-index: 0;
+}
+
+.maparea{
+  position: relative;
+  height: 500px;
+  /* overflow: visible; */
+}
+
+#infoBox{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border: 3px solid var(--camino-blue);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  width: 13em;
+  color: var(--text-color-light);
+  /* height: 200px; */
+  z-index: 5;
+
+}
+
+img {
+  width: 100%;
+}
+
+.boxIcon{
+  display: flex;
+  flex-wrap: wrap;
+
+
+}
+
+.boxIcon input{
+  align-self: center;
+  cursor: pointer;
+}
+
+.boxIcon p{
+  width: 50%;
+  text-align: left;
+  padding-left: 0.2em;
+  align-self: center;
+}
+.boxIcon img{
+  max-width: 15%;
+  height: 15%;
+  overflow: hidden;
+  align-self: center;
+
 }
 
 /* ---------- navigation styling ---------- */
 
-.navigationEtape {
-  background-color: var(--camino-blue);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 9;
-  width: 10vw;
-}
-
 .navbtn {
   display: block;
-  width: 35px;
-  height: 35px;
+  width: 55px;
+  height: 55px;
   padding: 1%;
   border-radius: 50%;
   background-color: var(--text-color-light);
   color: var(--text-color-dark);
   margin: 8% auto;
-  font-family: 'Abolition Sharp';
+  font-family: 'abolition-soft';
   font-size: 1.5em;
 }
 

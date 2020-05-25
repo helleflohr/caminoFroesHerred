@@ -22,6 +22,7 @@ window.pageChange = () => spaService.pageChange();
 export let map = new L.Map("mapid", {
     center: new L.LatLng(55.366750, 9.057975),
     zoom: 11
+    // layers: [cities]
 });
 
 // window.createMap = () => mapService.createMap();

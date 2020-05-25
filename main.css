@@ -51,6 +51,9 @@ p {
   color: var(--text-color-light);
   text-align: justify;
   letter-spacing: 0em;
+  font-family: 'josefin-sans', sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
 /* ---------- page styling ---------- */
@@ -145,8 +148,9 @@ p {
 }
 
 #frontpageSection div {
-  width: 33%;
+  width: 29%;
   letter-spacing: 0.5em;
+  margin: 2%;
 }
 
 /*  map  */

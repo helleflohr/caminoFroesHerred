@@ -40,12 +40,20 @@ function appendPosts(posts) {
         document.querySelector("#grid-posts").innerHTML += `
     <article class="grid-item">
     <h3>${post.title.rendered}</h3>
-    <h4>${post.acf.kilometer}</h4>
-    <h5>${post.acf.start}</h5>
-    <h5>${post.acf.slut}</h5>
-    <p>${post.acf.rutebeskrivelse}</p>
-    <img src="${post.acf.billeder.url}">
-    <p>${post.acf.hvad_siger_andre}</p>
+    <h4>${post.acf.distance}</h4>
+    </div>
+    <div class="start-slut">
+    <h5>${post.acf.startpoint}</h5> -
+    <h5>${post.acf.endpoint}</h5>
+    </div>
+    </section>
+
+    <section>
+    <p>${post.content.rendered}</p>
+    <img src="${post.acf.images.url}">
+    <p>${post.acf.crud}</p>
+    </section>
+
     </article> `
     }
 

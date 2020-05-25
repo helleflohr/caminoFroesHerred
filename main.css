@@ -225,7 +225,7 @@ align-items: center;
   }
 
   .title-distance h3, .title-distance h4, .start-end h5 {
-    margin: 0; padding: 0 2% 0 2%; color: var(--text-color-light);
+    margin: 0; padding: 0 2% 0 2%; color: var(--text-color-light); text-transform: uppercase;
   }
 
   .title-distance h4 {

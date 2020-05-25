@@ -271,6 +271,8 @@ span {
   display: flex;
   flex-direction: column-reverse;
   width: 30%;
+  float: right;
+  margin: 4% 7% 0 0;
 }
 
 .grid-item img {

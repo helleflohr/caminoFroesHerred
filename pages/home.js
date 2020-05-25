@@ -15,6 +15,7 @@ export default class HomePage {
         
           <div id="mapid"></div>
           <div id="infoBox"></div>
+          <div id="grid-posts" class="grid-container"></div>
         
         </div>
         
@@ -22,6 +23,7 @@ export default class HomePage {
     `;
   }
 
+/*   --------------  Johanne ------------------- */
 fetchDescription () {
   fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
     .then( (response) => {
@@ -54,14 +56,23 @@ fetchDescription () {
     </section>
 
     <section>
-    <p>${post.content.rendered}</p>
+    <p id="etape-description">${post.content.rendered}</p>
     <img src="${post.acf.images}">
     <p>${post.acf.crud}</p>
     </section>
 
     </article> `
     }
-
 };
   
+function bindingFunction(){
+  document.getElementsByClassName('backgrundimg').onclick = function() {
+    var x = document.getElementById("etape-description");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+appendbindingFunction
 }

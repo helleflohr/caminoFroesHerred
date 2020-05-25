@@ -15,6 +15,7 @@ export default class HomePage {
         
           <div id="mapid"></div>
           <div id="infoBox"></div>
+          
         
         </div>
         
@@ -22,20 +23,20 @@ export default class HomePage {
     `;
   }
 
-fetchDescription () {
-  fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
-    .then( (response) => {
+  fetchDescription() {
+    fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
+      .then((response) => {
         return response.json();
-    })
-    .then((json) => {
+      })
+      .then((json) => {
         this.appendPosts(json)
-    });
+      });
   }
 
-    appendPosts(posts) {
+  appendPosts(posts) {
     for (let post of posts) {
-        console.log(post);
-        document.querySelector("#grid-posts").innerHTML += `
+      console.log(post);
+      document.querySelector("#grid-posts").innerHTML += `
     
         <article class="grid-item">
 
@@ -62,6 +63,6 @@ fetchDescription () {
     </article> `
     }
 
-};
-  
+  };
+
 }

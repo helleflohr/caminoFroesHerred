@@ -24,7 +24,7 @@ html {
   height: 100%;
   text-align: left;
   width: 100%;
-  font-weight: 200;
+  /* font-weight: 200; */
 }
 
 body {
@@ -87,11 +87,11 @@ aside {
   bottom: 0;
   right: 0;
   z-index: 9;
-  width: 17vh;
+  width: 10vw;
 }
 
 #content {
-  width: 83vh;
+  width: 90vw;
 }
 
 
@@ -165,11 +165,10 @@ aside {
   display: block;
   width: 3.7vh;
   height: 3.7vh;
-  padding: 1%;
   border-radius: 50%;
   background-color: var(--text-color-light);
   color: var(--text-color-dark);
-  margin: 6% auto;
+  margin: 1vh auto;
   font-family: 'abolition-soft';
   font-size: 1.5em;
 }
@@ -180,7 +179,7 @@ span {
   height: .3vh;
   border-radius: 50%;
   background-color: var(--text-color-light);
-  margin: 1% auto;
+  margin: .3vh auto;
 }
 
 /* ---------- home page styling ---------- */
@@ -189,7 +188,7 @@ span {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  width: 180vh;
+  width: 90vw;
   height: 75vh;
   margin: 0;
   overflow: hidden;
@@ -197,7 +196,7 @@ span {
 
 #frontpageSection {
   text-align: left;
-  width: 180vh;
+  width: 90vw;
   height: 25vh;
   background-color: var(--camino-green);
   display: flex;
@@ -212,7 +211,7 @@ span {
 /*  map  */
 #mapid {
   height: 500px;
-  width: 180vh;
+  width: 90vw;
   position: absolute;
   z-index: 0;
 }

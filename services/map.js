@@ -71,14 +71,16 @@ class MapService {
 
 
   drawTrack(track) {
+    if (track) {
 
-    // console.log(track)
-    let coordinates = track.points.map(p => [p.lat.toFixed(5), p.lon.toFixed(5)]);
+      // console.log(track)
+      let coordinates = track.points.map(p => [p.lat.toFixed(5), p.lon.toFixed(5)]);
 
-    L.polyline(coordinates, { weight: 5, color: '#000000' }).addTo(map);
+      L.polyline(coordinates, { weight: 5, color: '#000000' }).addTo(map);
 
-    // zoom the map to the polyline
-    // map.fitBounds(polyline.getBounds());
+      // zoom the map to the polyline
+      // map.fitBounds(polyline.getBounds());
+    }
   }
 
 

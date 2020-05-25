@@ -17,7 +17,7 @@ class MapService {
           let gpx = new gpxParser();
           gpx.parse(gpxData);
           this.createMap();
-          this.drawTrack(gpx.tracks[0]);
+          this.drawTrack(gpx.tracks[0], i);
 
         });
     }
@@ -70,15 +70,17 @@ class MapService {
 
 
 
-  drawTrack(track) {
+  drawTrack(track, number) {
+    if (track) {
 
-    // console.log(track)
-    let coordinates = track.points.map(p => [p.lat.toFixed(5), p.lon.toFixed(5)]);
+      // console.log(track)
+      let coordinates = track.points.map(p => [p.lat.toFixed(5), p.lon.toFixed(5)]);
 
-    L.polyline(coordinates, { weight: 5, color: '#000000' }).addTo(map);
+      L.polyline(coordinates, { weight: 5, color: 'var(--camino-blue)', className: `line${number}`, lineCap: 'round' }).addTo(map);
 
-    // zoom the map to the polyline
-    // map.fitBounds(polyline.getBounds());
+      // zoom the map to the polyline
+      // map.fitBounds(polyline.getBounds());
+    }
   }
 
 

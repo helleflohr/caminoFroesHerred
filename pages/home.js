@@ -1,7 +1,10 @@
+import fetchService from "./../services/fetch.js"
 export default class HomePage {
   constructor() {
     this.template();
     this.fetchDescription();
+
+
   }
 
   template() {
@@ -54,16 +57,21 @@ export default class HomePage {
         return response.json();
       })
       .then((json) => {
+        this.descriptions = json;
+        // console.log(this.descriptions)
         this.appendPosts(json)
+
+
       });
   }
 
   appendPosts(posts) {
+
     for (let post of posts) {
       console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
     
-        <article class="grid-item">
+        <article id="stage${post.acf.stageNumber}" class="grid-item">
 
     <section onclick="dropdownDescription()" class="backgroundimg">
     <div id="text-backgroundimg">

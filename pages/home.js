@@ -90,7 +90,7 @@ fetchDescription () {
 };
   
 dropdownDescription() {
-  var x = document.getElementById("dropdown");
+  var x = document.getElementsByClassName("dropdown");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {

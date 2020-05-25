@@ -40,13 +40,14 @@ export default class HomePage {
         
           <div id="mapid"></div>
           <div id="infoBox"></div>
-          
+          <div id="grid-posts" class="grid-container"></div>
         
         
       </section>
     `;
   }
 
+  /*   --------------  Johanne ------------------- */
   fetchDescription() {
     fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
       .then((response) => {
@@ -64,7 +65,7 @@ export default class HomePage {
     
         <article class="grid-item">
 
-    <section class="backgroundimg">
+    <section onclick="dropdownDescription()" class="backgroundimg">
     <div id="text-backgroundimg">
     <div class="title-distance">
     <h3>${post.title.rendered}</h3>
@@ -78,15 +79,23 @@ export default class HomePage {
     </div>
     </section>
 
-    <section>
-    <p>${post.content.rendered}</p>
+    <section class="dropdown">
+    <p id="etape-description">${post.content.rendered}</p>
     <img src="${post.acf.images}">
     <p>${post.acf.crud}</p>
     </section>
 
     </article> `
     }
-
   };
 
-}
+  dropdownDescription() {
+    var x = document.getElementsByClassName("dropdown");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+};

@@ -22,7 +22,7 @@ html {
   color: var(--text-color-dark);
   font-family: 'JosefinSans', Arial, sans-serif;
   height: 100%;
-  text-align: center;
+  text-align: left;
   width: 100%;
   font-weight: 200;
 }
@@ -63,7 +63,6 @@ a {
 
 p {
   color: var(--text-color-light);
-  text-align: left;
   letter-spacing: 0em;
   line-height: 1.5em;
   font-size: 1.5em;
@@ -82,6 +81,7 @@ p {
 
 aside {
   background-color: var(--camino-blue);
+  text-align: center;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -92,7 +92,6 @@ aside {
 
 #content {
   width: 90vw;
-  background-image: url(./images/lake.JPG);
 }
 
 
@@ -156,24 +155,52 @@ aside {
   }
 }
 
+/* ---------- navigation styling ---------- */
+#logoDark {
+  width: 60%;
+}
+
+.navbtn {
+  display: block;
+  width: 2vw;
+  height: 2vw;
+  padding: 1%;
+  border-radius: 50%;
+  background-color: var(--text-color-light);
+  color: var(--text-color-dark);
+  margin: 6% auto;
+  font-family: 'abolition-soft';
+  font-size: 1.5em;
+}
+
+span {
+  display: block;
+  width: .1vw;
+  height: .1vw;
+  border-radius: 50%;
+  background-color: var(--text-color-light);
+  margin: 1% auto;
+}
+
 /* ---------- home page styling ---------- */
-/* frontpageImage */
-/* #frontpageImage {
+#frontpageImage {
+  background-image: url(/images/lake.JPG);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   max-width: 100%;
-  height: 80vh;
+  height: 75vh;
   margin: 0;
   overflow: hidden;
-} */
+}
 
 #frontpageSection {
   text-align: left;
   width: 90vw;
-  height: 13vw;
+  height: 25vh;
   background-color: var(--camino-green);
   display: flex;
   flex-wrap: wrap;
-  position: absolute;
-  bottom: 0;
 }
 
 #frontpageSection div {
@@ -239,29 +266,7 @@ img {
 
 }
 
-/* ---------- navigation styling ---------- */
 
-.navbtn {
-  display: block;
-  width: 55px;
-  height: 55px;
-  padding: 1%;
-  border-radius: 50%;
-  background-color: var(--text-color-light);
-  color: var(--text-color-dark);
-  margin: 8% auto;
-  font-family: 'abolition-soft';
-  font-size: 1.5em;
-}
-
-span {
-  display: block;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background-color: var(--text-color-light);
-  margin: 1% auto;
-}
 
 /* ---------- next page styling ---------- */
 

@@ -20,16 +20,18 @@ class ScrollService {
     }
 
     chosen(element) {
+        console.log(element)
         let line = document.getElementsByClassName(`line${element.value}`)[0];
         line.style.stroke = 'var(--camino-yellow)'
-        this.goFrom(element.value, 'var(--camino-yellow)')
+        // this.goFrom(element.value, 'var(--camino-yellow)')
         element.style.backgroundColor = 'var(--camino-yellow)'
 
         let etape = document.querySelector(`#stage${element.value}`)
-        let dropdown = etape.getElementsByClassName('dropdown')[0]
-
-        // let dropdown = document.getElementsByClassName('dropdown')[(element.value - 1)];
+        let dropdown = etape.getElementsByClassName('dropdown')[0];
+        console.log(dropdown)
         dropdown.style.display = 'block';
+
+
     }
 }
 const scrollService = new ScrollService();

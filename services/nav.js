@@ -8,7 +8,7 @@ class ScrollService {
         console.log(fetchService.descriptions)
         console.log(number)
         let etape = document.querySelector(`#stage${number}`)
-        etape.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+        etape.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
         let line = document.getElementsByClassName(`line${number}`)[0];
         line.style.stroke = 'var(--camino-yellow)'
     }
@@ -19,10 +19,11 @@ class ScrollService {
         line.style.stroke = `var(${color})`
     }
 
-    chosen(number) {
-        let line = document.getElementsByClassName(`line${number}`)[0];
+    chosen(element) {
+        let line = document.getElementsByClassName(`line${element.value}`)[0];
         line.style.stroke = 'var(--camino-yellow)'
-        this.goFrom(number, '--camino-yellow')
+        this.goFrom(element.value, 'var(--camino-yellow)')
+        element.style.backgroundColor = 'var(--camino-yellow)'
     }
 }
 const scrollService = new ScrollService();

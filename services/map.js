@@ -76,7 +76,7 @@ class MapService {
       // console.log(track)
       let coordinates = track.points.map(p => [p.lat.toFixed(5), p.lon.toFixed(5)]);
 
-      L.polyline(coordinates, { weight: 5, color: 'var(--camino-blue)', className: `line${number}` }).addTo(map);
+      L.polyline(coordinates, { weight: 5, color: 'var(--camino-blue)', className: `line${number}`, lineCap: 'round' }).addTo(map);
 
       // zoom the map to the polyline
       // map.fitBounds(polyline.getBounds());

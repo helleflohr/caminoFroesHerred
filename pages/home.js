@@ -10,8 +10,13 @@ export default class HomePage {
           <h2>Home</h2>
         </header> -->
         <h1>Camino Frøs Herred</h1>
+        <div class="maparea">
         
-        <div id="mapid"></div>
+          <div id="mapid"></div>
+          <div id="infoBox"></div>
+        
+        </div>
+        
       </section>
     `;
   }

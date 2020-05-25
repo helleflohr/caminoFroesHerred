@@ -22,6 +22,7 @@ window.pageChange = () => spaService.pageChange();
 export let map = new L.Map("mapid", {
     center: new L.LatLng(55.366750, 9.057975),
     zoom: 11
+    // layers: [cities]
 });
 
 // window.createMap = () => mapService.createMap();
@@ -36,7 +37,7 @@ fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/post
 
 function appendPosts(posts) {
     for (let post of posts) {
-        console.log(post);
+        // console.log(post);
         document.querySelector("#grid-posts").innerHTML += `
     <article class="grid-item">
     <h3>${post.title.rendered}</h3>

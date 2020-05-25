@@ -25,6 +25,8 @@ mapService.fetchGeoJson();
 window.pageChange = () => spaService.pageChange();
 window.dropdownDescription = () => homePage.dropdownDescription();
 window.goTo = (number) => scrollService.goTo(number);
+window.goFrom = (number, color) => scrollService.goFrom(number, color);
+window.chosen = (number) => scrollService.chosen(number);
 
 export let map = new L.Map("mapid", {
     center: new L.LatLng(55.366750, 9.057975),

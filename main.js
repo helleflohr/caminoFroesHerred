@@ -18,6 +18,7 @@ mapService.fetchGeoJson();
 // mapService.createMap();
 
 window.pageChange = () => spaService.pageChange();
+window.dropdownDescription = () => spaService.dropdownDescription();
 
 export let map = new L.Map("mapid", {
     center: new L.LatLng(55.366750, 9.057975),

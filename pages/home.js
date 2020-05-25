@@ -65,7 +65,7 @@ fetchDescription () {
     
         <article class="grid-item">
 
-    <section class="backgroundimg">
+    <section onclick="dropdownDescription()" class="backgroundimg">
     <div id="text-backgroundimg">
     <div class="title-distance">
     <h3>${post.title.rendered}</h3>
@@ -79,7 +79,7 @@ fetchDescription () {
     </div>
     </section>
 
-    <section>
+    <section class="dropdown">
     <p id="etape-description">${post.content.rendered}</p>
     <img src="${post.acf.images}">
     <p>${post.acf.crud}</p>
@@ -89,14 +89,13 @@ fetchDescription () {
     }
 };
   
-bindingFunction(){
-  document.getElementsByClassName('backgroundimg').onclick = function() {
-    var x = document.getElementById("etape-description");
+dropdownDescription() {
+  var x = document.getElementById("dropdown");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
       x.style.display = "none";
     }
   }
-}
+
 };

@@ -163,8 +163,8 @@ aside {
 
 .navbtn {
   display: block;
-  width: 3.7vh;
-  height: 3.7vh;
+  width: 3.4vh;
+  height: 3.4vh;
   border-radius: 50%;
   background-color: var(--text-color-light);
   color: var(--text-color-dark);

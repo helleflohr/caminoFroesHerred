@@ -87,11 +87,11 @@ aside {
   bottom: 0;
   right: 0;
   z-index: 9;
-  width: 10vw;
+  width: 17vh;
 }
 
 #content {
-  width: 90vw;
+  width: 83vh;
 }
 
 
@@ -157,13 +157,14 @@ aside {
 
 /* ---------- navigation styling ---------- */
 #logoDark {
-  width: 60%;
+  width: 12vh;
+  margin-top: 3vh;
 }
 
 .navbtn {
   display: block;
-  width: 2vw;
-  height: 2vw;
+  width: 3.7vh;
+  height: 3.7vh;
   padding: 1%;
   border-radius: 50%;
   background-color: var(--text-color-light);
@@ -175,8 +176,8 @@ aside {
 
 span {
   display: block;
-  width: .1vw;
-  height: .1vw;
+  width: .3vh;
+  height: .3vh;
   border-radius: 50%;
   background-color: var(--text-color-light);
   margin: 1% auto;
@@ -188,7 +189,7 @@ span {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  max-width: 100%;
+  width: 180vh;
   height: 75vh;
   margin: 0;
   overflow: hidden;
@@ -196,7 +197,7 @@ span {
 
 #frontpageSection {
   text-align: left;
-  width: 90vw;
+  width: 180vh;
   height: 25vh;
   background-color: var(--camino-green);
   display: flex;
@@ -211,18 +212,18 @@ span {
 /*  map  */
 #mapid {
   height: 500px;
-  width: 90vw;
+  width: 180vh;
   position: absolute;
   z-index: 0;
 }
 
-.maparea{
+.maparea {
   position: relative;
   height: 500px;
   /* overflow: visible; */
 }
 
-#infoBox{
+#infoBox {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -240,25 +241,26 @@ img {
   width: 100%;
 }
 
-.boxIcon{
+.boxIcon {
   display: flex;
   flex-wrap: wrap;
 
 
 }
 
-.boxIcon input{
+.boxIcon input {
   align-self: center;
   cursor: pointer;
 }
 
-.boxIcon p{
+.boxIcon p {
   width: 50%;
   text-align: left;
   padding-left: 0.2em;
   align-self: center;
 }
-.boxIcon img{
+
+.boxIcon img {
   max-width: 15%;
   height: 15%;
   overflow: hidden;
@@ -284,7 +286,7 @@ img {
   width: 50%;
 }
 
-  @media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
 
   .backgroundimg {
     background-image: url("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-content/uploads/2020/05/rapsmark-scaled.jpg");
@@ -294,19 +296,24 @@ img {
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 25px;
-    border: 7px solid  var(--camino-green);
+    border: 7px solid var(--camino-green);
     width: 50vh;
     height: 30vh;
   }
 
   .title-distance {
-display: flex;
-flex-direction: row;
-align-items: center; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
-  .title-distance h3, .title-distance h4, .start-end h5 {
-    margin: 0; padding: 0 2% 0 2%; color: var(--text-color-light); text-transform: uppercase; 
+  .title-distance h3,
+  .title-distance h4,
+  .start-end h5 {
+    margin: 0;
+    padding: 0 2% 0 2%;
+    color: var(--text-color-light);
+    text-transform: uppercase;
   }
 
   .title-distance h4 {
@@ -315,8 +322,10 @@ align-items: center;
 
   .start-end {
     display: flex;
-    flex-direction: row; align-items: center;
-    color: var(--text-color-light); padding-bottom: 2%;
+    flex-direction: row;
+    align-items: center;
+    color: var(--text-color-light);
+    padding-bottom: 2%;
   }
 
   #text-backgroundimg {
@@ -326,7 +335,7 @@ align-items: center;
     background-color: rgba(25, 57, 42, 0.8);
     border-radius: 0 0 17px 17px;
   }
-  }
+}
 
 
 

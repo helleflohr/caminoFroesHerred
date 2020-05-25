@@ -134,6 +134,10 @@ a {
   width: 90vw;
 }
 
+img {
+  width: 100%;
+}
+
 /* ---------- next page styling ---------- */
 
 .navigationEtape {

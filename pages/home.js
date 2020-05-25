@@ -65,8 +65,8 @@ fetchDescription () {
     }
 };
   
-function bindingFunction(){
-  document.getElementsByClassName('backgrundimg').onclick = function() {
+bindingFunction(){
+  document.getElementsByClassName('backgroundimg').onclick = function() {
     var x = document.getElementById("etape-description");
     if (x.style.display === "none") {
       x.style.display = "block";
@@ -74,5 +74,5 @@ function bindingFunction(){
       x.style.display = "none";
     }
   }
-appendbindingFunction
 }
+};

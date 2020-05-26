@@ -63,22 +63,31 @@ a {
   text-decoration: none;
 }
 
-p {
+p, li {
   color: var(--text-color-light);
   letter-spacing: 0em;
   line-height: 1.5em;
-  font-size: .8em;
+  font-size: .9em;
+}
+
+li {
+  list-style-type: square;
+  list-style-position: inside;
+
+    display: inline;
+    text-align: justify;
+  
+  /* padding-left: 0; */
+}
+
+strong {
+  font-weight: bold;
 }
 
 /* ---------- page styling ---------- */
 .page {
   display: none;
-  /*min heigh is screen heigh minus height of tab and top bar */
-  /* min-height: calc(100vh - 110px); */
-  /* background: var(--light-grey); */
   animation: fadeIn 0.4s;
-  /* padding equals height of tabbar and topbar */
-  /* padding: 55px 0; */
 }
 
 aside {
@@ -97,6 +106,25 @@ aside {
 }
 
 
+.none{display: none;}
+
+.tabs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.tabNav {
+  list-style: none;
+  /* display: inline; */
+  color: var(--camino-blue);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+
+
 /* ---------- animations ---------- */
 /* fade in */
 @keyframes fadeIn {
@@ -108,6 +136,31 @@ aside {
     opacity: 1
   }
 }
+hr {
+  height: .25rem;
+  width: 27%;
+  margin: 0;
+  background: var(--camino-yellow);
+  border: none;
+  transition: .3s ease-in-out;
+}
+
+/* .descriptionTab:hover ~ hr {
+  margin-left: 0%;
+  width: 27%;
+}
+
+.imagesTab:hover ~ hr {
+  margin-left: 32%;
+  width: 20%;
+}
+
+.commentsTab:hover ~ hr {
+  margin-left: 57%;
+  width: 50%;
+} */
+
+
 
 /* ---------- loader styling ---------- */
 #loader {
@@ -205,7 +258,10 @@ span {
   overflow: hidden;
   text-align: center;
 }
-
+#frontpageImage div{
+  display: inline-block;
+  vertical-align: middle;
+}
 #frontpageImage img {
   height: 40vh;
   vertical-align: middle;
@@ -239,8 +295,8 @@ span {
   margin: 0 2%;
 }
 
-  #frontpageSection img {
-  height: 2.5em; 
+#frontpageSection img {
+  height: 2.5em;
   margin-top: 4%;
 }
 
@@ -337,10 +393,17 @@ aside h3 {
 }
 
 .dropdown{
-  background-color: var(--camino-green);
+  background-color: rgba(255, 241, 221, 0.527);
+  border-radius: 25px;
   display: none;
-
+  padding: 2% 2%;
+  color: var(--camino-blue);
 }
+.dropdown p {
+  color: var(--camino-blue);
+  /* font-size: 1em; */
+}
+
 .backgroundimg {
   /* background-image: url("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-content/uploads/2020/05/rapsmark-scaled.jpg"); */
   background-color: #cccccc;
@@ -353,10 +416,12 @@ aside h3 {
   width: 100%;
   height: 30vh;
 }
+
   .title-distance {
     display: flex;
     flex-direction: row;
     align-items: center;
+    /* font-family: 'JosefinSans', Arial, sans-serif; */
   }
 
   .title-distance h3,
@@ -365,28 +430,38 @@ aside h3 {
     margin: 0;
     padding: 0 2% 0 2%;
     color: var(--text-color-light);
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
+    
+   
+  }
+  .title-distance h4{
+    margin-top: 5%;   
+  }
+  .title-distance h4, .start-end h5 {
+    /* margin-top: 5%; */
+    font-family: 'JosefinSans', Arial, sans-serif;
+    
   }
 
-  .title-distance h4 {
-    margin-top: 5%;
-  }
+.title-distance h4 {
+  margin-top: 5%;
+}
 
-  .start-end {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: var(--text-color-light);
-    padding-bottom: 2%;
-  }
+.start-end {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--text-color-light);
+  padding-bottom: 2%;
+}
 
-  #text-backgroundimg {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(25, 57, 42, 0.8);
-    border-radius: 0 0 24px 24px;
-  }
+#text-backgroundimg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(25, 57, 42, 0.8);
+  border-radius: 0 0 24px 24px;
+}
 
 
 

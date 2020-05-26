@@ -87,10 +87,26 @@ class MapService {
 
       // zoom the map to the polyline
       // map.fitBounds(polyline.getBounds());
+
+
+      let coordinateStart = coordinates[0];
+
+      var dot = L.icon({
+        iconUrl: '../images/circle.svg',
+
+        iconSize: [15, 15], // size of the icon
+        shadowSize: [50, 64], // size of the shadow
+        iconAnchor: [7.5, 7.5], // point of the icon which will correspond to marker's location
+        shadowAnchor: [4, 62], // the same for the shadow
+        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+      });
+
+      L.marker(coordinateStart, {
+        icon: dot
+      }).addTo(map);
+      L.marker([coordinatesEnd]).addTo(map);
     }
   }
-
-
 };
 
 

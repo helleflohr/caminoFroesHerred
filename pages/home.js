@@ -70,6 +70,7 @@ export default class HomePage {
   }
 
   appendPosts(posts) {
+     /* sort the posts by acf stagenumber in ascending order. */
     posts.sort(function (x, y) {
       return x.acf.stageNumber - y.acf.stageNumber;
     });

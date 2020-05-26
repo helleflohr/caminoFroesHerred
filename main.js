@@ -28,6 +28,7 @@ window.dropdownDescription = () => homePage.dropdownDescription();
 window.goTo = (number) => scrollService.goTo(number);
 window.goFrom = (number, color) => scrollService.goFrom(number, color);
 window.chosen = (number) => scrollService.chosen(number);
+window.tabs = (tab, number) => scrollService.tabs(tab, number);
 window.showOrHide = () => mapInfoService.showOrHide();
 
 export let map = new L.Map("mapid", {
@@ -35,5 +36,7 @@ export let map = new L.Map("mapid", {
     zoom: 11
     // layers: [cities]
 });
+
+
 
 // window.createMap = () => mapService.createMap();

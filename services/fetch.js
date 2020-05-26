@@ -6,7 +6,7 @@ class FetchService {
         this.fetchDescription();
     }
     fetchDescription() {
-        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
+        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
             .then((response) => {
                 return response.json();
             })

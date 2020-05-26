@@ -14,9 +14,10 @@ export default class HomePage {
           <!-- frontpage image and info bar -->
   <section id="frontpageImage">
   <img id="frontpageLogo" src="../images/cfhLogo.svg">
-
+<div>
   <h1> Camino Frøs Herred</h1>
   <h2>Åbner sig for natur, kultur og det åndelige</h2>
+  </div>
   
   </section>
 
@@ -57,7 +58,7 @@ export default class HomePage {
 
   /*   --------------  Johanne ------------------- */
   fetchDescription() {
-    fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
+    fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
       .then((response) => {
         return response.json();
       })
@@ -94,9 +95,19 @@ export default class HomePage {
 
     
     <section class="dropdown">
-    <p id="etape-description">${post.content.rendered}</p>
-    <img src="${post.acf.images}">
-    <p>${post.acf.crud}</p>
+
+    <ul id="tabs-swipe-demo" class="tabs">
+    <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
+    <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
+    <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber})">Hvad siger andre?</li>
+    <hr id="hr${post.acf.stageNumber}" />
+  </ul>
+  <div id="description${post.acf.stageNumber}">  <p id="etape-description">${post.content.rendered}</p>
+  <img src="${post.acf.images}">
+  <p>${post.acf.crud}</p></div>
+  <div class="none" id="images${post.acf.stageNumber}">Test 2</div>
+  <div class="none" id="comments${post.acf.stageNumber}">Test 3</div>
+  
     </section>
     
     </article> `

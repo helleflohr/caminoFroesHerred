@@ -24,7 +24,7 @@ class CrudService {
 
 // ========== READ ==========
 // watch the database ref for changes
-userRef.onSnapshot(function(snapshotData) {
+postRef.onSnapshot(function(snapshotData) {
     let posts = [];
     snapshotData.forEach(function(doc) {
       let post = doc.data();
@@ -32,23 +32,23 @@ userRef.onSnapshot(function(snapshotData) {
       post.id = doc.id;
       posts.push(post);
     });
-    appendUsers(posts);
+    appendPosts(posts);
   });
 
 // append users to the DOM
-function appendUsers(users) {
+function appendPosts(posts) {
     let htmlTemplate = "";
-    for (let user of users) {
-      console.log(user.id);
-      console.log(user.name);
+    for (let post of posts) {
+      console.log(post.id);
+      console.log(post.name);
       htmlTemplate += `
       <article>
-        <h2>${user.name}</h2>
-        <p><a href="mailto:${user.mail}">${user.mail}</a></p>
-        <button onclick="selectUser('${user.id}','${user.name}', '${user.mail}')">Update</button>
-        <button onclick="deleteUser('${user.id}')">Delete</button>
+        <h2>${post.image}</h2>
+        <p>${post.text}</p>
+        <p>${post.name}</p>
+        <button></button>
       </article>
       `;
     }
-    document.querySelector('#content').innerHTML = htmlTemplate;
+    document.querySelector('#comments').innerHTML = htmlTemplate;
   }

@@ -49,8 +49,8 @@ class MapInfoService {
 
 
         let Overnatning = new iconClass({
-                iconUrl: 'images/stay.png'
-            }),
+            iconUrl: 'images/stay.png'
+        }),
             Kirke = new iconClass({
                 iconUrl: 'images/lyd.png'
             }),
@@ -88,7 +88,7 @@ class MapInfoService {
             "<p>Toiletter</p><img src='images/and.jpg' />": ToiletterArr
         };
 
-        L.control.layers([], overlayMaps).addTo(map);
+        L.control.layers([], overlayMaps, { position: 'bottomleft' }).addTo(map);
 
 
         let iconArr = [];

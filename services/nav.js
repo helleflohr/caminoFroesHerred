@@ -21,6 +21,7 @@ class ScrollService {
     chosen(element) {
 
         let selected = document.querySelector(".btn.selected");
+        let line = document.getElementsByClassName(`line${element.value}`)[0];
         // Adds the class "selected" to the button wich has been selected
         element.classList.add("selected");
         // Removes the class 
@@ -29,7 +30,7 @@ class ScrollService {
 
 
         // console.log(element)
-        let line = document.getElementsByClassName(`line${element.value}`)[0];
+
         // line.style.stroke = 'var(--camino-yellow)'
         // this.goFrom(element.value, 'var(--camino-yellow)')
         // element.style.backgroundColor = 'var(--camino-yellow)'

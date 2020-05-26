@@ -1,7 +1,7 @@
 // import { map } from "./../main.js";
 import fetchService from "./../services/fetch.js"
 class ScrollService {
-    constructor() {}
+    constructor() { }
     goTo(number) {
         // console.log(fetchService.descriptions)
         console.log(number)
@@ -50,14 +50,11 @@ class ScrollService {
         // line.style.stroke = 'var(--camino-yellow)'
         // this.goFrom(element.value, 'var(--camino-yellow)')
         // element.style.backgroundColor = 'var(--camino-yellow)'
-        etape.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-            inline: "nearest"
-        });
+        let etape = document.querySelector(`#stage${number}`)
+
 
         // Dropdown 
-        let etape = document.querySelector(`#stage${number}`)
+
         etape.scrollIntoView({
             behavior: "smooth",
             block: "start",

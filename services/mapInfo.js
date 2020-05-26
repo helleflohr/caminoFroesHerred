@@ -1,4 +1,6 @@
-import { map } from "./../main.js";
+import {
+    map
+} from "./../main.js";
 class MapInfoService {
     constructor() {
         this.createMarkers();
@@ -40,24 +42,34 @@ class MapInfoService {
                 iconSize: [38, 38], // size of the icon
                 shadowSize: [50, 64], // size of the shadow
                 iconAnchor: [19, 19], // point of the icon which will correspond to marker's location
-                shadowAnchor: [4, 62],  // the same for the shadow
+                shadowAnchor: [4, 62], // the same for the shadow
                 popupAnchor: [0, -15] // point from which the popup should open relative to the iconAnchor
             }
         })
 
 
-        let Overnatning = new iconClass({ iconUrl: 'images/stay.png' }),
-            Kirke = new iconClass({ iconUrl: 'images/lyd.png' }),
-            Toiletter = new iconClass({ iconUrl: 'images/toilets.png' })
+        let Overnatning = new iconClass({
+                iconUrl: 'images/stay.png'
+            }),
+            Kirke = new iconClass({
+                iconUrl: 'images/lyd.png'
+            }),
+            Toiletter = new iconClass({
+                iconUrl: 'images/toilets.png'
+            })
 
         let ToiletterArr = [];
         let overnatningsArr = [];
         for (let post of json) {
             if (post.acf.infotype === "Toiletter") {
-                ToiletterArr.push(L.marker([post.acf.latitude, post.acf.longitude], { icon: Toiletter }).bindPopup(`${post.content.rendered}`));
+                ToiletterArr.push(L.marker([post.acf.latitude, post.acf.longitude], {
+                    icon: Toiletter
+                }).bindPopup(`${post.content.rendered}`));
             }
             if (post.acf.infotype === "Overnatning") {
-                overnatningsArr.push(L.marker([post.acf.latitude, post.acf.longitude], { icon: Overnatning }).bindPopup(`${post.content.rendered}`));
+                overnatningsArr.push(L.marker([post.acf.latitude, post.acf.longitude], {
+                    icon: Overnatning
+                }).bindPopup(`${post.content.rendered}`));
             }
 
         }

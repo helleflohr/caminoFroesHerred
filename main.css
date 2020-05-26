@@ -49,7 +49,7 @@ h1 {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 2.5em;
   letter-spacing: 0.2em;
 }
 
@@ -66,7 +66,7 @@ p {
   color: var(--text-color-light);
   letter-spacing: 0em;
   line-height: 1.5em;
-  font-size: 1.5em;
+  font-size: .8em;
 }
 
 /* ---------- page styling ---------- */
@@ -164,6 +164,7 @@ aside {
 
 nav {
   height: 100vh;
+  width: 10vw;
 }
 
 .navbtn {
@@ -238,7 +239,7 @@ span {
 }
 
   #frontpageSection img {
-  width: 10%; 
+  height: 2.5em; 
   margin-top: 4%;
 }
 
@@ -277,9 +278,11 @@ h2 {
 #grid-posts {
   position: absolute;
   height: 90vh;
-  overflow: scroll;
-  right: 0;
-  margin: 5vh 0;
+  overflow-y: scroll;
+  overflow-x: visible;
+  right: 3em;
+  margin-top: 5vh;
+  width: 30vw;
 }
 
 aside h3 {
@@ -324,39 +327,30 @@ img {
 
 /* ---------- styling ---------- */
 /* Grid container */
-.grid-container {
-  display: flex;
-  flex-direction: column-reverse;
-  width: 30%;
-  /* float: right; 
-  margin: 4% 7% 0 0; */
 
-}
-
-.grid-item img {
-  width: 50%;
+.grid-item {
+  border: 7px solid var(--camino-green);
+  border-radius: 25px;
+  background-color: var(--camino-green);
 }
 
 .dropdown{
+  background-color: var(--camino-green);
   display: none;
+
 }
-
-@media screen and (min-width: 1440px) {
-
-  .backgroundimg {
-    background-image: url("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-content/uploads/2020/05/rapsmark-scaled.jpg");
-    background-color: #cccccc;
-    height: 40vh;
-    position: relative;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 25px;
-    border: 7px solid var(--camino-green);
-    width: 50vh;
-    height: 30vh;
-    margin: 10% 0 10% 0;
-  }
-
+.backgroundimg {
+  background-image: url("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-content/uploads/2020/05/rapsmark-scaled.jpg");
+  background-color: #cccccc;
+  height: 40vh;
+  position: relative;
+  /* -webkit-border-radius: 50px;
+  -moz-border-radius: 50px; */
+  border-radius: 25px;
+  /* border: 7px solid var(--camino-green); */
+  width: 100%;
+  height: 30vh;
+}
   .title-distance {
     display: flex;
     flex-direction: row;
@@ -389,9 +383,9 @@ img {
     bottom: 0;
     width: 100%;
     background-color: rgba(25, 57, 42, 0.8);
-    border-radius: 0 0 17px 17px;
+    border-radius: 0 0 24px 24px;
   }
-}
+
 
 
 

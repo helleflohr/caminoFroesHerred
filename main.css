@@ -87,12 +87,7 @@ strong {
 /* ---------- page styling ---------- */
 .page {
   display: none;
-  /*min heigh is screen heigh minus height of tab and top bar */
-  /* min-height: calc(100vh - 110px); */
-  /* background: var(--light-grey); */
   animation: fadeIn 0.4s;
-  /* padding equals height of tabbar and topbar */
-  /* padding: 55px 0; */
 }
 
 aside {
@@ -300,8 +295,8 @@ span {
   margin: 0 2%;
 }
 
-  #frontpageSection img {
-  height: 2.5em; 
+#frontpageSection img {
+  height: 2.5em;
   margin-top: 4%;
 }
 
@@ -408,6 +403,7 @@ aside h3 {
   color: var(--camino-blue);
   /* font-size: 1em; */
 }
+
 .backgroundimg {
   background-image: url("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-content/uploads/2020/05/rapsmark-scaled.jpg");
   background-color: #cccccc;
@@ -421,7 +417,6 @@ aside h3 {
   height: 30vh;
 }
 
- 
 
   .title-distance {
     display: flex;
@@ -449,21 +444,25 @@ aside h3 {
     
   }
 
-  .start-end {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: var(--text-color-light);
-    padding-bottom: 2%;
-  }
+.title-distance h4 {
+  margin-top: 5%;
+}
 
-  #text-backgroundimg {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(25, 57, 42, 0.8);
-    border-radius: 0 0 24px 24px;
-  }
+.start-end {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--text-color-light);
+  padding-bottom: 2%;
+}
+
+#text-backgroundimg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(25, 57, 42, 0.8);
+  border-radius: 0 0 24px 24px;
+}
 
 
 

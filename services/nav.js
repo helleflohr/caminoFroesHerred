@@ -26,6 +26,11 @@ class ScrollService {
         line.style.stroke = 'var(--camino-yellow)'
         // this.goFrom(element.value, 'var(--camino-yellow)')
         element.style.backgroundColor = 'var(--camino-yellow)'
+        etape.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "nearest"
+        });
 
         // Dropdown
         let etape = document.querySelector(`#stage${element.value}`)

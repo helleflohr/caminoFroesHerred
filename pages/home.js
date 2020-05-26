@@ -75,6 +75,7 @@ export default class HomePage {
     });
 
     for (let post of posts) {
+      // console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
     
         <article id="stage${post.acf.stageNumber}" class="grid-item">

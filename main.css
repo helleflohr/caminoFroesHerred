@@ -162,7 +162,7 @@ aside {
   margin-top: 3vh;
 }
 
-nav{
+nav {
   height: 100vh;
 }
 
@@ -178,7 +178,7 @@ nav{
   font-size: 1.5em;
 }
 
-.navbtn:hover{
+.navbtn:hover {
   border-color: var(--camino-yellow);
 }
 
@@ -201,6 +201,26 @@ span {
   height: 75vh;
   margin: 0;
   overflow: hidden;
+  text-align: center;
+}
+
+#frontpageImage img {
+  width: 40vh;
+  vertical-align: middle;
+  margin-top: 10vh;
+
+}
+
+#frontpageImage h1 {
+  font-size: 10vh;
+  font-weight: 100;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#frontpageImage h2 {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 #frontpageSection {
@@ -215,6 +235,12 @@ span {
 #frontpageSection div {
   width: 29%;
   margin: 0 2%;
+}
+
+.frontpageIcon {
+  width: 5vh;
+  margin-top: 1vh;
+  color: var(--text-color-light);
 }
 
 /*  map  */
@@ -245,7 +271,7 @@ span {
 
 }
 
-#grid-posts{
+#grid-posts {
   position: absolute;
   height: 90vh;
   overflow: scroll;
@@ -253,7 +279,7 @@ span {
   margin: 5vh 0;
 }
 
-aside h3{
+aside h3 {
   font-size: 3vh;
   margin: 5vh 0 3vh;
 }
@@ -301,7 +327,7 @@ img {
   width: 30%;
   /* float: right; 
   margin: 4% 7% 0 0; */
- 
+
 }
 
 .grid-item img {

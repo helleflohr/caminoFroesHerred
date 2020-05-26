@@ -2,7 +2,6 @@
 import fetchService from "./../services/fetch.js"
 class ScrollService {
     constructor() {
-
     }
     goTo(number) {
         console.log(fetchService.descriptions)
@@ -35,17 +34,6 @@ class ScrollService {
 
 
     }
-
-    myFunction() {
-        let etape = document.querySelector(`#stage${number}`)
-        var text = "";
-        var i;
-        for (i = 0; i < etape.length; i++) {
-        text += etape[i] + "<br>";
-}
-        text.sort(function(a, b){return a - b});
-        document.getElementById("grid-posts").innerHTML = text;
-      }
 
 }
 const scrollService = new ScrollService();

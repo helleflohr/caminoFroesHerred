@@ -3,6 +3,7 @@ export default class HomePage {
   constructor() {
     this.template();
     this.fetchDescription();
+    this.etapeSorting();
   }
 
   template() {

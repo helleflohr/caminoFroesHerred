@@ -79,7 +79,7 @@ export default class HomePage {
     
     <article id="stage${post.acf.stageNumber}" class="grid-item">
 
-    <section class="backgroundimg" style="background-image: url(${getFeaturedImageUrl(post)})" onclick="chosen(${post.acf.stageNumber})">
+    <section class="backgroundimg" style="background-image: url('${getFeaturedImageUrl(post)}')" onclick="chosen(${post.acf.stageNumber})">
     <div id="text-backgroundimg">
     <div class="title-distance">
     <h3>${post.title.rendered}</h3>

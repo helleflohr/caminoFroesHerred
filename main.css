@@ -72,12 +72,7 @@ p {
 /* ---------- page styling ---------- */
 .page {
   display: none;
-  /*min heigh is screen heigh minus height of tab and top bar */
-  /* min-height: calc(100vh - 110px); */
-  /* background: var(--light-grey); */
   animation: fadeIn 0.4s;
-  /* padding equals height of tabbar and topbar */
-  /* padding: 55px 0; */
 }
 
 aside {
@@ -237,8 +232,8 @@ span {
   margin: 0 2%;
 }
 
-  #frontpageSection img {
-  width: 10%; 
+#frontpageSection img {
+  width: 10%;
   margin-top: 4%;
 }
 
@@ -337,7 +332,7 @@ img {
   width: 50%;
 }
 
-.dropdown{
+.dropdown {
   display: none;
 }
 

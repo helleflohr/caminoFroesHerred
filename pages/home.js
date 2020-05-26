@@ -55,22 +55,22 @@ export default class HomePage {
     `;
   }
 
-/*   --------------  Johanne ------------------- */
-fetchDescription() {
-  fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
-    .then((response) => {
+  /*   --------------  Johanne ------------------- */
+  fetchDescription() {
+    fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
+      .then((response) => {
         return response.json();
       })
       .then((json) => {
         this.descriptions = json;
         // console.log(this.descriptions)
-                this.appendPosts(json)
+        this.appendPosts(json)
       });
   }
 
   appendPosts(posts) {
     for (let post of posts) {
-      console.log(post);
+      // console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
     
         <article id="stage${post.acf.stageNumber}" class="grid-item">
@@ -97,10 +97,10 @@ fetchDescription() {
 
     </article> `
     }
-};
+  };
 
-dropdownDescription() {
-  var x = document.getElementsByClassName("dropdown");
+  dropdownDescription() {
+    var x = document.getElementsByClassName("dropdown");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {

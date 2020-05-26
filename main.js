@@ -1,4 +1,3 @@
-
 import fetchService from "./services/fetch.js"
 // import your hideAllPages
 import HomePage from "./pages/home.js";
@@ -20,7 +19,7 @@ let homePage = new HomePage();
 spaService.init();
 
 mapService.fetchGeoJson();
-// mapService.createMap();
+
 
 window.pageChange = () => spaService.pageChange();
 window.dropdownDescription = () => homePage.dropdownDescription();
@@ -30,7 +29,7 @@ window.chosen = (number) => scrollService.chosen(number);
 
 export let map = new L.Map("mapid", {
     center: new L.LatLng(55.366750, 9.057975),
-    zoom: 11
+    zoom: 12
     // layers: [cities]
 });
 

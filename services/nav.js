@@ -2,7 +2,7 @@ import { map } from "./../main.js";
 import fetchService from "./../services/fetch.js"
 import mapService from "./map.js"
 class ScrollService {
-    constructor() { }
+    constructor() {}
     goTo(number) {
         // console.log(fetchService.descriptions)
 

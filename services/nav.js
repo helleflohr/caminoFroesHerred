@@ -19,6 +19,8 @@ class ScrollService {
     }
 
     chosen(element) {
+
+
         console.log(element)
         let line = document.getElementsByClassName(`line${element.value}`)[0];
         line.style.stroke = 'var(--camino-yellow)'
@@ -30,9 +32,10 @@ class ScrollService {
             inline: "nearest"
         });
 
+        // Dropdown
         let etape = document.querySelector(`#stage${element.value}`)
+        etape.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
         let dropdown = etape.getElementsByClassName('dropdown')[0];
-        console.log(dropdown)
         dropdown.style.display = 'block';
 
 

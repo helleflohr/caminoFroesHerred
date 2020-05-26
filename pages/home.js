@@ -69,6 +69,10 @@ export default class HomePage {
   }
 
   appendPosts(posts) {
+    posts.sort(function (x, y) {
+      return x.acf.stageNumber - y.acf.stageNumber;
+    });
+
     for (let post of posts) {
       // console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
@@ -89,12 +93,13 @@ export default class HomePage {
     </div>
     </section>
 
+    
     <section class="dropdown">
     <p id="etape-description">${post.content.rendered}</p>
     <img src="${post.acf.images}">
     <p>${post.acf.crud}</p>
     </section>
-
+    
     </article> `
     }
   };

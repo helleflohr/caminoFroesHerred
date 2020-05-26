@@ -3,6 +3,7 @@ class MapInfoService {
     constructor() {
         this.createMarkers();
 
+
     }
 
     createMarkers() {
@@ -45,29 +46,68 @@ class MapInfoService {
         })
 
 
-        let stay = new iconClass({ iconUrl: 'images/stay.png' }),
-            church = new iconClass({ iconUrl: 'images/lyd.png' }),
-            toilets = new iconClass({ iconUrl: 'images/toilets.png' })
+        let Overnatning = new iconClass({ iconUrl: 'images/stay.png' }),
+            Kirke = new iconClass({ iconUrl: 'images/lyd.png' }),
+            Toiletter = new iconClass({ iconUrl: 'images/toilets.png' })
+
+        let toiletArr = [];
+        let overnatningsArr = [];
+        for (let post of json) {
+            if (post.acf.infotype === "Toiletter") {
+                toiletArr.push(L.marker([post.acf.latitude, post.acf.longitude], { icon: Toiletter }).bindPopup(`${post.content.rendered}`));
+            }
+            if (post.acf.infotype === "Overnatning") {
+                overnatningsArr.push(L.marker([post.acf.latitude, post.acf.longitude], { icon: Overnatning }).bindPopup(`${post.content.rendered}`));
+            }
+
+        }
+
+        toiletArr = L.layerGroup(toiletArr);
+        overnatningsArr = L.layerGroup(overnatningsArr);
+        // console.log(toiletArr)
+        map.removeLayer(toiletArr);
+
+        let baseMaps = {};
+        let overlayMaps = {
+            "Toiletter": toiletArr,
+            "Overnatning": overnatningsArr
+        }
+
+        L.control.layers(baseMaps, overlayMaps).addTo(map);
 
         let iconArr = [];
         for (let post of json) {
             iconArr.push(post.acf.infotype);
-            L.marker([post.acf.latitude, post.acf.longitude], { icon: eval(post.acf.infotype) }).addTo(map).bindPopup(`${post.content.rendered}`)
+            let marker = L.marker([post.acf.latitude, post.acf.longitude], { icon: eval(post.acf.infotype) }).addTo(map).bindPopup(`${post.content.rendered}`)
+            marker.addTo(map)
+            // console.log(marker)
+            marker.removeFrom(map)
+            marker.addTo(map)
         }
         iconArr = [...new Set(iconArr)];
 
-        console.log(iconArr);
+
+        // console.log(iconArr);
         let template = "";
         for (const markerType of iconArr) {
             template += /*html*/ `
                     <div class="boxIcon">
-                    <input type="checkbox">
+                    <input type="checkbox" id='check${markerType}' onclick="showOrHide()">
                   <p>${markerType}</p> <img src="images/${markerType}.png">
                   </div>
                   `
         }
         let infoBox = document.querySelector('#infoBox');
         infoBox.innerHTML = template;
+    }
+
+    showOrHide() {
+        let checkBox = document.querySelector('#checkOvernatning');
+        console.log(checkBox.value)
+        if (checkBox.checked == true) {
+            console.log('checked')
+            Toiletter.removeFrom(map)
+        }
     }
 }
 

@@ -354,6 +354,7 @@ img {
     border: 7px solid var(--camino-green);
     width: 50vh;
     height: 30vh;
+    margin: 10% 0 10% 0;
   }
 
   .title-distance {

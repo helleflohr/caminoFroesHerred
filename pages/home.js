@@ -3,7 +3,6 @@ export default class HomePage {
   constructor() {
     this.template();
     this.fetchDescription();
-    this.etapeSorting();
   }
 
   template() {
@@ -78,9 +77,9 @@ export default class HomePage {
     for (let post of posts) {
       document.querySelector("#grid-posts").innerHTML += `
     
-        <article id="stage${post.acf.stageNumber}" class="grid-item">
+    <article id="stage${post.acf.stageNumber}" class="grid-item">
 
-    <section onclick="dropdownDescription()" class="backgroundimg">
+    <section class="backgroundimg" style="background-image: url(${getFeaturedImageUrl(post)})" onclick="chosen(${post.acf.stageNumber})">
     <div id="text-backgroundimg">
     <div class="title-distance">
     <h3>${post.title.rendered}</h3>
@@ -103,6 +102,16 @@ export default class HomePage {
     
     </article> `
     }
+    
   };
+
+// get the featured image url
+getFeaturedImageUrl(post) {
+  let imageUrl = "";
+  if (post._embedded['wp:featuredmedia']) {
+    imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
+  }
+  return imageUrl;
+}
 
 }

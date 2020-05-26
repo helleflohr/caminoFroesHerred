@@ -342,7 +342,7 @@ aside h3 {
 
 }
 .backgroundimg {
-  background-image: url("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-content/uploads/2020/05/rapsmark-scaled.jpg");
+  /* background-image: url("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-content/uploads/2020/05/rapsmark-scaled.jpg"); */
   background-color: #cccccc;
   height: 40vh;
   position: relative;

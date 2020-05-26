@@ -17,22 +17,23 @@ class ScrollService {
         line.style.stroke = `var(${color})`
     }
 
-    chosen(element) {
-
-
-        console.log(element)
-        let line = document.getElementsByClassName(`line${element.value}`)[0];
+    /* ---------- Johanne & Maja ------ */
+    chosen(number) {
+        console.log(number)
+        let line = document.getElementsByClassName(`line${number}`)[0];
         line.style.stroke = 'var(--camino-yellow)'
-        // this.goFrom(element.value, 'var(--camino-yellow)')
-        element.style.backgroundColor = 'var(--camino-yellow)'
+        // this.goFrom(number.value, 'var(--camino-yellow)')
+        /* number.style.backgroundColor = 'var(--camino-yellow)' */
 
-        // Dropdown
-        let etape = document.querySelector(`#stage${element.value}`)
+        // Dropdown 
+        let etape = document.querySelector(`#stage${number}`)
         etape.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
         let dropdown = etape.getElementsByClassName('dropdown')[0];
-        dropdown.style.display = 'block';
-
-
+        if (dropdown.style.display === "none") {
+            dropdown.style.display = "block";
+          } else {
+            dropdown.style.display = "none";
+          }
     }
 
 }

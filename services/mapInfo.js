@@ -64,7 +64,7 @@ class MapInfoService {
 
         toiletArr = L.layerGroup(toiletArr);
         overnatningsArr = L.layerGroup(overnatningsArr);
-        console.log(toiletArr)
+        // console.log(toiletArr)
         map.removeLayer(toiletArr);
 
         let baseMaps = {};
@@ -80,14 +80,14 @@ class MapInfoService {
             iconArr.push(post.acf.infotype);
             let marker = L.marker([post.acf.latitude, post.acf.longitude], { icon: eval(post.acf.infotype) }).addTo(map).bindPopup(`${post.content.rendered}`)
             marker.addTo(map)
-            console.log(marker)
+            // console.log(marker)
             marker.removeFrom(map)
             marker.addTo(map)
         }
         iconArr = [...new Set(iconArr)];
 
 
-        console.log(iconArr);
+        // console.log(iconArr);
         let template = "";
         for (const markerType of iconArr) {
             template += /*html*/ `

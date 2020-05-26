@@ -29,6 +29,7 @@ window.goTo = (number) => scrollService.goTo(number);
 window.goFrom = (number) => scrollService.goFrom(number);
 window.chosen = (number) => scrollService.chosen(number);
 window.tabs = (tab, number) => scrollService.tabs(tab, number);
+window.scrollToElement = (element) => scrollService.scrollToElement(element);
 window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 

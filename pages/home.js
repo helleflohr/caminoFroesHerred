@@ -31,14 +31,14 @@ export default class HomePage {
     </div>
     <div>
     <img src="../images/ikoner/kort.svg">
-      <h2>Kort</h2>
+      <h2 onclick="scrollToElement('mapid')">Kort</h2>
       <p>Du kan nemt få et overblik over hele Caminoen på kortet. Her kan du se alle 11 etaper, og vælge hvilken etape
         du ønsker information om. Du har også mulighed for at få et overblik og rutens faciliteter. Du kan også printe
         kortet hjemmefra og medbringe til turen </p>
     </div>
     <div>
     <img src="../images/ikoner/rutebeskrivelser.svg">
-      <h2>Rutebeskrivelser</h2>
+      <h2 onclick="scrollToElement('stage1')">Rutebeskrivelser</h2>
       <p>Caminoen er inddelt i 11 etaper, som giver muligheden for at gå noget af ruten og derved træne op til at kunne
         gå hele Caminoen en dag. For hver etape er der rutebeskrivelser som udførligt vejleder dig gennem turen. Der er
         også billeder og udtalelser fra andre vandrere</p>
@@ -105,11 +105,10 @@ export default class HomePage {
     
   </ul>
   <hr id="hr${post.acf.stageNumber}" />
-  <div id="description${post.acf.stageNumber}">  <p id="etape-description">${post.content.rendered}</p>
-  <img src="${post.acf.images}">
-  <p>${post.acf.crud}</p></div>
-  <div class="none" id="images${post.acf.stageNumber}">Test 2</div>
-  <div class="none" id="comments${post.acf.stageNumber}">Test 3</div>
+  <div id="description${post.acf.stageNumber}"> <!-- <p id="etape-description">-->${post.content.rendered}<!--</p>-->
+</div>
+  <div class="none" id="images${post.acf.stageNumber}">${post.acf.images}</div>
+  <div class="none" id="comments${post.acf.stageNumber}"><p>${post.acf.crud}</p></div>
   
     </section>
     

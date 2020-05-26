@@ -3,6 +3,17 @@ import fetchService from "./../services/fetch.js"
 import mapService from "./map.js"
 class ScrollService {
     constructor() { }
+
+    scrollToElement(element) {
+        let top = document.querySelector(`#${element}`);
+        top.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
+    }
+
+
     goTo(number) {
         // console.log(fetchService.descriptions)
 

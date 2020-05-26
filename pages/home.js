@@ -3,8 +3,6 @@ export default class HomePage {
   constructor() {
     this.template();
     this.fetchDescription();
-
-
   }
 
   template() {
@@ -20,18 +18,21 @@ export default class HomePage {
 
   <section id="frontpageSection">
     <div>
+      <img src="../images/ikoner/generelt.svg">
       <h2>Generelt</h2>
       <p>Ruten er 108 km, som bølger sig rundt i det gamle Frøs Herred. Den byder på flere spændende oplevelser på
         højderyggen mellem Kongeåen og Gram Å, og grænser op til den gamle grænse fra 1864 og til 1920, som var en
         brydningstid for området </p>
     </div>
     <div>
+    <img src="../images/ikoner/kort.svg">
       <h2>Kort</h2>
       <p>Du kan nemt få et overblik over hele Caminoen på kortet. Her kan du se alle 11 etaper, og vælge hvilken etape
         du ønsker information om. Du har også mulighed for at få et overblik og rutens faciliteter. Du kan også printe
         kortet hjemmefra og medbringe til turen </p>
     </div>
     <div>
+    <img src="../images/ikoner/rutebeskrivelser.svg">
       <h2>Rutebeskrivelser</h2>
       <p>Caminoen er inddelt i 11 etaper, som giver muligheden for at gå noget af ruten og derved træne op til at kunne
         gå hele Caminoen en dag. For hver etape er der rutebeskrivelser som udførligt vejleder dig gennem turen. Der er
@@ -50,23 +51,20 @@ export default class HomePage {
     `;
   }
 
-  /*   --------------  Johanne ------------------- */
-  fetchDescription() {
-    fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
-      .then((response) => {
+/*   --------------  Johanne ------------------- */
+fetchDescription() {
+  fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2")
+    .then((response) => {
         return response.json();
       })
       .then((json) => {
         this.descriptions = json;
         // console.log(this.descriptions)
-        this.appendPosts(json)
-
-
+                this.appendPosts(json)
       });
   }
 
   appendPosts(posts) {
-
     for (let post of posts) {
       console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
@@ -95,10 +93,10 @@ export default class HomePage {
 
     </article> `
     }
-  };
+};
 
-  dropdownDescription() {
-    var x = document.getElementsByClassName("dropdown");
+dropdownDescription() {
+  var x = document.getElementsByClassName("dropdown");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {

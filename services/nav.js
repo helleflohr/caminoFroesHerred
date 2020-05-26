@@ -1,22 +1,22 @@
-// import { map } from "./../main.js";
+import { map } from "./../main.js";
 import fetchService from "./../services/fetch.js"
+import mapService from "./map.js"
 class ScrollService {
     constructor() { }
     goTo(number) {
         // console.log(fetchService.descriptions)
-        console.log(number)
+
 
         let line = document.getElementsByClassName(`line${number}`)[0];
         // line.style.stroke = 'var(--camino-yellow)'
         line.classList.add("hoverLine");
     }
 
-    goFrom(number, color) {
-        console.log(number, color)
+    goFrom(number) {
 
         let line = document.getElementsByClassName(`line${number}`)[0];
         line.classList.remove("hoverLine");
-        // line.style.stroke = `var(${color})`
+
     }
 
     chosen(number) {
@@ -36,17 +36,27 @@ class ScrollService {
         }
         let line = document.getElementsByClassName(`line${number}`)[0];
 
+        console.log(mapService.fitBounds)
+        for (const etape of mapService.fitBounds) {
+            if (etape.number == number) {
+                console.log(etape.southWest.lat, etape.southWest.lng)
+                map.flyToBounds([
+                    [etape.southWest.lat, etape.southWest.lng],
+                    [etape.northEast.lat, etape.northEast.lng]
+                ], { 'padding': [50, 50], 'duration': 1.5 });
+            }
+        }
+
+
+
+
         line.classList.add("selectedLine")
         // Adds the class "selected" to the button wich has been selected
         let allButtons = document.getElementsByClassName('navbtn');
-        console.log(allButtons)
         for (const button of allButtons) {
-            console.log(number, button, button.value)
-            // con
 
             if (button.value == number) {
                 button.classList.add("selected");
-                console.log('this is the number', number)
             } else {
                 button.classList.remove("selected");
             }

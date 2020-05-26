@@ -4,7 +4,7 @@ import {
 import mapInfoService from "./mapInfo.js"
 class MapService {
   constructor() {
-
+    this.fitBounds = [];
   }
 
   fetchGeoJson() {
@@ -77,13 +77,16 @@ class MapService {
 
       // console.log(track)
       let coordinates = track.points.map(p => [p.lat.toFixed(5), p.lon.toFixed(5)]);
-
-      L.polyline(coordinates, {
+      let poly = L.polyline(coordinates, {
         weight: 5,
         color: 'var(--camino-blue)',
         className: `line${number}`,
         lineCap: 'round'
-      }).addTo(map);
+      })
+      this.fitBounds.push({ number: number, bounds: poly._bounds, southWest: poly._bounds._southWest, northEast: poly._bounds._northEast })
+      poly.addTo(map);
+
+
 
       // zoom the map to the polyline
       // map.fitBounds(polyline.getBounds());

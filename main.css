@@ -238,7 +238,8 @@ nav {
 }
 
 .navbtn:hover {
-  border-color: var(--camino-yellow);
+  border: 3px solid var(--camino-yellow);
+  /* border-color: var(--camino-yellow); */
 }
 
 .selected {
@@ -490,7 +491,20 @@ aside h3 {
 
 
 
-
+@media print {
+  html * {
+    visibility: hidden;
+  }
+  #mapid * {
+    visibility: visible;
+  }
+  #mapid {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
 
 
 

@@ -26,10 +26,10 @@ mapService.fetchGeoJson();
 window.pageChange = () => spaService.pageChange();
 window.dropdownDescription = () => homePage.dropdownDescription();
 window.goTo = (number) => scrollService.goTo(number);
-window.goFrom = (number, color) => scrollService.goFrom(number, color);
+window.goFrom = (number) => scrollService.goFrom(number);
 window.chosen = (number) => scrollService.chosen(number);
 window.tabs = (tab, number) => scrollService.tabs(tab, number);
-window.showOrHide = () => mapInfoService.showOrHide();
+window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 
 export let map = new L.Map("mapid", {

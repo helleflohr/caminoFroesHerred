@@ -58,7 +58,7 @@ class MapService {
     //   redIcon = new iconClass({ iconUrl: 'images/lyd.png' }),
     //   orangeIcon = new iconClass({ iconUrl: 'leaf-orange.png' });
 
-    mapInfoService.createMarkers();
+    // mapInfoService.createMarkers();
     // L.marker([55.367515, 9.069192], { icon: greenIcon }).addTo(map).bindPopup("<b>Hello world!</b>I am a popup!<img src='images/and.jpg' style='max-width: 100%'>")
     // L.marker([55.379615, 9.089192], { icon: redIcon }).addTo(map).bindPopup("<b>Hello world!</b>I am a popup!<img src='images/lyd.png' style='max-width: 100%'>")
     // L.marker([55.379615, 9.049192], { icon: redIcon }).addTo(map).bindPopup("<b>Hello world!</b>I am a popup!<img src='images/lyd.png' style='max-width: 100%'>")

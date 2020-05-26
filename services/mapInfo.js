@@ -3,7 +3,7 @@ class MapInfoService {
     constructor() {
         this.createMarkers();
 
-
+        this.moveInfoBox();
     }
 
     createMarkers() {
@@ -72,11 +72,11 @@ class MapInfoService {
 
 
         var overlayMaps = {
-            "Overnatning": overnatningsArr,
-            "Toiletter": ToiletterArr
+            "<p>Overnatning</p><img src='images/lyd.png' />": overnatningsArr,
+            "<p>Toiletter</p><img src='images/and.jpg' />": ToiletterArr
         };
 
-        L.control.layers(overlayMaps).addTo(map);
+        L.control.layers([], overlayMaps).addTo(map);
 
 
         let iconArr = [];
@@ -115,6 +115,13 @@ class MapInfoService {
             console.log(arr)
             map.removeLayer(ToiletterArr);
         }
+    }
+
+    moveInfoBox() {
+        // let mapContainer = document.querySelector('#mapid');
+        let leafletControls = document.querySelector('.leaflet-right');
+        // let personalize = leafletControls.getElementsByTagName('div')[0];
+        console.log(leafletControls)
     }
 }
 

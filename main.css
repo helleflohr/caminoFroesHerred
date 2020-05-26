@@ -63,7 +63,8 @@ a {
   text-decoration: none;
 }
 
-p, li {
+p,
+li {
   color: var(--text-color-light);
   letter-spacing: 0em;
   line-height: 1.5em;
@@ -74,9 +75,9 @@ li {
   list-style-type: square;
   list-style-position: inside;
 
-    display: inline;
-    text-align: justify;
-  
+  display: inline;
+  text-align: justify;
+
   /* padding-left: 0; */
 }
 
@@ -106,9 +107,11 @@ aside {
 }
 
 
-.none{display: none;}
+.none {
+  display: none;
+}
 
-.tabs{
+.tabs {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -136,6 +139,7 @@ aside {
     opacity: 1
   }
 }
+
 hr {
   height: .25rem;
   width: 27%;
@@ -242,6 +246,10 @@ nav {
   stroke: var(--camino-yellow);
 }
 
+.selectedLine {
+  stroke: var(--camino-yellow);
+}
+
 span {
   display: block;
   width: .3vh;
@@ -263,10 +271,12 @@ span {
   overflow: hidden;
   text-align: center;
 }
-#frontpageImage div{
+
+#frontpageImage div {
   display: inline-block;
   vertical-align: middle;
 }
+
 #frontpageImage img {
   height: 40vh;
   vertical-align: middle;
@@ -397,13 +407,14 @@ aside h3 {
   margin: 1em;
 }
 
-.dropdown{
+.dropdown {
   background-color: rgba(255, 241, 221, 0.527);
   border-radius: 25px;
   display: none;
   padding: 2% 2%;
   color: var(--camino-blue);
 }
+
 .dropdown p {
   color: var(--camino-blue);
   /* font-size: 1em; */
@@ -422,31 +433,34 @@ aside h3 {
   height: 30vh;
 }
 
-  .title-distance {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    /* font-family: 'JosefinSans', Arial, sans-serif; */
-  }
+.title-distance {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* font-family: 'JosefinSans', Arial, sans-serif; */
+}
 
-  .title-distance h3,
-  .title-distance h4,
-  .start-end h5 {
-    margin: 0;
-    padding: 0 2% 0 2%;
-    color: var(--text-color-light);
-    /* text-transform: uppercase; */
-    
-   
-  }
-  .title-distance h4{
-    margin-top: 5%;   
-  }
-  .title-distance h4, .start-end h5 {
-    /* margin-top: 5%; */
-    font-family: 'JosefinSans', Arial, sans-serif;
-    
-  }
+.title-distance h3,
+.title-distance h4,
+.start-end h5 {
+  margin: 0;
+  padding: 0 2% 0 2%;
+  color: var(--text-color-light);
+  /* text-transform: uppercase; */
+
+
+}
+
+.title-distance h4 {
+  margin-top: 5%;
+}
+
+.title-distance h4,
+.start-end h5 {
+  /* margin-top: 5%; */
+  font-family: 'JosefinSans', Arial, sans-serif;
+
+}
 
 .title-distance h4 {
   margin-top: 5%;

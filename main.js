@@ -31,7 +31,7 @@ window.tabs = (tab, number) => scrollService.tabs(tab, number);
 window.showOrHide = () => mapInfoService.showOrHide();
 
 export let map = new L.Map("mapid", {
-    center: new L.LatLng(55.366750, 9.057975),
+    center: new L.LatLng(55.356480, 9.157975),
     zoom: 12
     // layers: [cities]
 });

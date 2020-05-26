@@ -250,6 +250,10 @@ nav {
   stroke: var(--camino-yellow);
 }
 
+.hoverLine {
+  stroke: var(--camino-yellow);
+}
+
 span {
   display: block;
   width: .3vh;

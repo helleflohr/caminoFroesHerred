@@ -6,13 +6,16 @@ class ScrollService {
         // console.log(fetchService.descriptions)
         console.log(number)
 
-        // let line = document.getElementsByClassName(`line${number}`)[0];
+        let line = document.getElementsByClassName(`line${number}`)[0];
         // line.style.stroke = 'var(--camino-yellow)'
+        line.classList.add("hoverLine");
     }
 
     goFrom(number, color) {
-        console.log('number, color')
-        // let line = document.getElementsByClassName(`line${number}`)[0];
+        console.log(number, color)
+
+        let line = document.getElementsByClassName(`line${number}`)[0];
+        line.classList.remove("hoverLine");
         // line.style.stroke = `var(${color})`
     }
 

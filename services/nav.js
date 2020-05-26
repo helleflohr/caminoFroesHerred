@@ -4,26 +4,44 @@ class ScrollService {
     constructor() {}
     goTo(number) {
         // console.log(fetchService.descriptions)
-        // console.log(number)
+        console.log(number)
 
         let line = document.getElementsByClassName(`line${number}`)[0];
-        line.style.stroke = 'var(--camino-yellow)'
+        // line.style.stroke = 'var(--camino-yellow)'
+        line.classList.add("hoverLine");
     }
 
     goFrom(number, color) {
-        // console.log('out')
+        console.log(number, color)
+
         let line = document.getElementsByClassName(`line${number}`)[0];
-        line.style.stroke = `var(${color})`
+        line.classList.remove("hoverLine");
+        // line.style.stroke = `var(${color})`
     }
 
     chosen(number) {
 
         let selected = document.querySelector(".btn.selected");
+        let numberOfStages = 11
+
+        for (let i = 1; i < (numberOfStages + 1); i++) {
+            let lines = document.getElementsByClassName(`line${i}`)[0];
+            lines.classList.remove("selectedLine");
+        }
         let line = document.getElementsByClassName(`line${number}`)[0];
+
+        line.classList.add("selectedLine")
         // Adds the class "selected" to the button wich has been selected
-        element.classList.add("selected");
+        let allButtons = document.getElementsByClassName('navbtn');
+        for (const button of allButtons) {
+            if (button.value === number) {
+                button.classList.add("selected");
+            }
+        }
+
         // Removes the class 
         selected.classList.remove("selected");
+
 
 
 

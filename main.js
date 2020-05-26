@@ -8,6 +8,7 @@ import mapService from "./services/map.js";
 
 import scrollService from "./services/nav.js"
 import mapInfoService from "./services/mapInfo.js";
+/* import crudService from "./services/crud.js"; */
 
 
 
@@ -29,6 +30,7 @@ window.goFrom = (number, color) => scrollService.goFrom(number, color);
 window.chosen = (number) => scrollService.chosen(number);
 window.tabs = (tab, number) => scrollService.tabs(tab, number);
 window.showOrHide = () => mapInfoService.showOrHide();
+window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 
 export let map = new L.Map("mapid", {
     center: new L.LatLng(55.356480, 9.157975),

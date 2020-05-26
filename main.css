@@ -237,10 +237,13 @@ span {
   margin: 0 2%;
 }
 
-.frontpageIcon {
-  width: 5vh;
-  margin-top: 1vh;
-  color: var(--text-color-light);
+  #frontpageSection img {
+  width: 10%; 
+  margin-top: 4%;
+}
+
+h2 {
+  margin: 2% 0 0 0;
 }
 
 /*  map  */
@@ -332,6 +335,10 @@ img {
 
 .grid-item img {
   width: 50%;
+}
+
+.dropdown{
+  display: none;
 }
 
 @media screen and (min-width: 1440px) {

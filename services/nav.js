@@ -27,39 +27,54 @@ class ScrollService {
         for (let i = 1; i < (numberOfStages + 1); i++) {
             let lines = document.getElementsByClassName(`line${i}`)[0];
             lines.classList.remove("selectedLine");
+
+
+            let etape = document.querySelector(`#stage${i}`);
+            let headline = etape.querySelector('h4')
+            headline.style.color = 'var(--text-color-light)'
+
         }
         let line = document.getElementsByClassName(`line${number}`)[0];
 
         line.classList.add("selectedLine")
         // Adds the class "selected" to the button wich has been selected
         let allButtons = document.getElementsByClassName('navbtn');
+        console.log(allButtons)
         for (const button of allButtons) {
-            if (button.value === number) {
+            console.log(number, button, button.value)
+            // con
+
+            if (button.value == number) {
                 button.classList.add("selected");
+                console.log('this is the number', number)
+            } else {
+                button.classList.remove("selected");
             }
+
         }
 
         // Removes the class 
-        selected.classList.remove("selected");
 
 
+        let etape = document.querySelector(`#stage${number}`);
+        let headline = etape.querySelector('h4')
+        headline.style.color = 'var(--camino-yellow)'
 
-
-        // console.log(element)
-
-        // line.style.stroke = 'var(--camino-yellow)'
-        // this.goFrom(element.value, 'var(--camino-yellow)')
-        // element.style.backgroundColor = 'var(--camino-yellow)'
-        let etape = document.querySelector(`#stage${number}`)
 
 
         // Dropdown 
 
         etape.scrollIntoView({
             behavior: "smooth",
-            block: "start",
+            block: "center",
             inline: "nearest"
         });
+        let allDropdowns = document.getElementsByClassName('dropdown');
+        for (const dropdown of allDropdowns) {
+            dropdown.style.display = "none";
+        }
+
+
         let dropdown = etape.getElementsByClassName('dropdown')[0];
         dropdown.style.display = 'block';
     }
@@ -80,17 +95,17 @@ class ScrollService {
         let underline = document.querySelector(`#hr${number}`);
         if (tab === "description") {
             underline.style.marginLeft = "0%";
-            underline.style.width = "27%";
-        }
-
-        if (tab === "images") {
-            underline.style.marginLeft = "32%";
             underline.style.width = "20%";
         }
 
+        if (tab === "images") {
+            underline.style.marginLeft = "37%";
+            underline.style.width = "15%";
+        }
+
         if (tab === "comments") {
-            underline.style.marginLeft = "57%";
-            underline.style.width = "50%";
+            underline.style.marginLeft = "69%";
+            underline.style.width = "30%";
         }
 
     }

@@ -70,7 +70,7 @@ export default class HomePage {
   }
 
   appendPosts(posts) {
-     /* sort the posts by acf stagenumber in ascending order. */
+    /* sort the posts by acf stagenumber in ascending order. */
     posts.sort(function (x, y) {
       return x.acf.stageNumber - y.acf.stageNumber;
     });
@@ -79,9 +79,9 @@ export default class HomePage {
       // console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
     
-    <article id="stage${post.acf.stageNumber}" class="grid-item">
+    <article id="stage${post.acf.stageNumber}" class="grid-item" onclick="chosen(${post.acf.stageNumber})">
 
-    <section class="backgroundimg" style="background-image: url('${getFeaturedImageUrl(post)}')" onclick="chosen(${post.acf.stageNumber})">
+    <section class="backgroundimg" style="background-image: url('${getFeaturedImageUrl(post)}')" >
     <div id="text-backgroundimg">
     <div class="title-distance">
     <h3>${post.title.rendered}</h3>
@@ -102,8 +102,9 @@ export default class HomePage {
     <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
     <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
     <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber})">Hvad siger andre?</li>
-    <hr id="hr${post.acf.stageNumber}" />
+    
   </ul>
+  <hr id="hr${post.acf.stageNumber}" />
   <div id="description${post.acf.stageNumber}">  <p id="etape-description">${post.content.rendered}</p>
   <img src="${post.acf.images}">
   <p>${post.acf.crud}</p></div>
@@ -114,16 +115,16 @@ export default class HomePage {
     
     </article> `
     }
-    
+
   };
 
-// get the featured image url
-getFeaturedImageUrl(post) {
-  let imageUrl = "";
-  if (post._embedded['wp:featuredmedia']) {
-    imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
+  // get the featured image url
+  getFeaturedImageUrl(post) {
+    let imageUrl = "";
+    if (post._embedded['wp:featuredmedia']) {
+      imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
+    }
+    return imageUrl;
   }
-  return imageUrl;
-}
 
 }

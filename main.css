@@ -142,8 +142,8 @@ aside {
 
 hr {
   height: .25rem;
-  width: 27%;
-  margin: 0;
+  width: 20%;
+  margin: -1em 0 1em;
   background: var(--camino-yellow);
   border: none;
   transition: .3s ease-in-out;

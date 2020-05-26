@@ -104,7 +104,7 @@ class MapService {
       L.marker(coordinateStart, {
         icon: dot
       }).addTo(map);
-      L.marker([coordinatesEnd]).addTo(map);
+      // L.marker([coordinatesEnd]).addTo(map);
     }
   }
 };

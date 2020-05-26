@@ -179,6 +179,11 @@ nav {
   border-color: var(--camino-yellow);
 }
 
+.selected {
+  background-color: var(--camino-yellow);
+  stroke: var(--camino-yellow);
+}
+
 span {
   display: block;
   width: .3vh;

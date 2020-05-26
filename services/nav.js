@@ -29,7 +29,7 @@ class ScrollService {
 
         // Dropdown
         let etape = document.querySelector(`#stage${element.value}`)
-        etape.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+        etape.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
         let dropdown = etape.getElementsByClassName('dropdown')[0];
         dropdown.style.display = 'block';
 

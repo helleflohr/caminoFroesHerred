@@ -70,6 +70,7 @@ export default class HomePage {
   }
 
   appendPosts(posts) {
+     /* sort the posts by acf stagenumber in ascending order. */
     posts.sort(function (x, y) {
       return x.acf.stageNumber - y.acf.stageNumber;
     });
@@ -78,9 +79,9 @@ export default class HomePage {
       // console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
     
-        <article id="stage${post.acf.stageNumber}" class="grid-item">
+    <article id="stage${post.acf.stageNumber}" class="grid-item">
 
-    <section onclick="dropdownDescription()" class="backgroundimg">
+    <section class="backgroundimg" style="background-image: url('${getFeaturedImageUrl(post)}')" onclick="chosen(${post.acf.stageNumber})">
     <div id="text-backgroundimg">
     <div class="title-distance">
     <h3>${post.title.rendered}</h3>
@@ -113,15 +114,16 @@ export default class HomePage {
     
     </article> `
     }
+    
   };
 
-  dropdownDescription() {
-    var x = document.getElementsByClassName("dropdown");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+// get the featured image url
+getFeaturedImageUrl(post) {
+  let imageUrl = "";
+  if (post._embedded['wp:featuredmedia']) {
+    imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
   }
+  return imageUrl;
+}
 
-};
+}

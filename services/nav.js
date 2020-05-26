@@ -2,7 +2,6 @@
 import fetchService from "./../services/fetch.js"
 class ScrollService {
     constructor() {
-
     }
     goTo(number) {
         console.log(fetchService.descriptions)
@@ -18,11 +17,10 @@ class ScrollService {
         line.style.stroke = `var(${color})`
     }
 
-    chosen(element) {
-
-
-        console.log(element)
-        let line = document.getElementsByClassName(`line${element.value}`)[0];
+    /* ---------- Johanne & Maja ------ */
+    chosen(number) {
+        console.log(number)
+        let line = document.getElementsByClassName(`line${number}`)[0];
         line.style.stroke = 'var(--camino-yellow)'
         // this.goFrom(element.value, 'var(--camino-yellow)')
         element.style.backgroundColor = 'var(--camino-yellow)'
@@ -32,8 +30,8 @@ class ScrollService {
             inline: "nearest"
         });
 
-        // Dropdown
-        let etape = document.querySelector(`#stage${element.value}`)
+        // Dropdown 
+        let etape = document.querySelector(`#stage${number}`)
         etape.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
         let dropdown = etape.getElementsByClassName('dropdown')[0];
         dropdown.style.display = 'block';
@@ -69,6 +67,7 @@ class ScrollService {
         }
 
     }
+
 }
 const scrollService = new ScrollService();
 export default scrollService;

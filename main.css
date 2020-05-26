@@ -277,18 +277,18 @@ span {
   height: 75vh;
   margin: 0;
   overflow: hidden;
-  text-align: center;
   display: flex;
   flex-wrap: wrap;
 }
 
 #frontpageImage div {
-  width: 75%;
-  margin: auto 0;
+  justify-content: start;
+  width: 65%;
+  margin: 23% 0 0 2.5%;
 }
 
 #frontpageImage img {
-  width: 20%;
+  width: 25%;
   margin-left: 5%;
   margin-top: 10vh;
 }
@@ -317,7 +317,7 @@ span {
   margin-top: 4%;
 }
 
-#frontpageSection h2{
+#frontpageSection h2 {
   cursor: pointer;
 }
 
@@ -497,9 +497,11 @@ aside h3 {
   html * {
     visibility: hidden;
   }
+
   #mapid * {
     visibility: visible;
   }
+
   #mapid {
     width: 100%;
     position: absolute;
@@ -511,17 +513,18 @@ aside h3 {
 
 /*  */
 
-.leaflet-control-layers-toggle:after{ 
-  content:"Personliggør kortet"; 
-  color: #000 ;
+.leaflet-control-layers-toggle:after {
+  content: "Personliggør kortet";
+  color: #000;
 }
-.leaflet-control-layers-toggle{ 
+
+.leaflet-control-layers-toggle {
   width: 10vw !important;
   background-position: 3px 50%;
-  padding:3px;
-  padding-left:36px;
-  text-decoration:none;
-  line-height:36px;
+  padding: 3px;
+  padding-left: 36px;
+  text-decoration: none;
+  line-height: 36px;
   background-color: var(--camino-blue-transpartent);
   /* position: absolute;
   bottom: 0;
@@ -536,19 +539,19 @@ aside h3 {
 .leaflet-control-layers-expanded {
   width: 15vw !important;
   /* color: var(--camino-blue); */
-	background-color: var(--camino-blue-transpartent);
+  background-color: var(--camino-blue-transpartent);
 }
 
-.leaflet-control-layers-expanded label div{
-/* background-color: var(--camino-yellow); */
-/* color: var(--camino-yellow); */
-display: flex;
-flex-wrap: wrap;
-justify-content: start;
-align-items: center;
+.leaflet-control-layers-expanded label div {
+  /* background-color: var(--camino-yellow); */
+  /* color: var(--camino-yellow); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
 }
 
-.leaflet-control-layers-expanded label div span{
+.leaflet-control-layers-expanded label div span {
   padding: 0;
   margin: 0;
   display: flex;
@@ -559,12 +562,14 @@ align-items: center;
   height: auto;
   background-color: transparent;
 }
-.leaflet-control-layers-expanded label div span p{
+
+.leaflet-control-layers-expanded label div span p {
   color: var(--camino-blue);
   vertical-align: middle;
   font-weight: bold;
 }
-.leaflet-control-layers-expanded label div span img{
+
+.leaflet-control-layers-expanded label div span img {
   max-height: 100%;
   width: 20%;
   vertical-align: middle;

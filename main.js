@@ -8,6 +8,7 @@ import spaService from "./services/spa.js";
 import mapService from "./services/map.js";
 
 import scrollService from "./services/nav.js"
+import mapInfoService from "./services/mapInfo.js";
 
 
 
@@ -27,6 +28,7 @@ window.dropdownDescription = () => homePage.dropdownDescription();
 window.goTo = (number) => scrollService.goTo(number);
 window.goFrom = (number, color) => scrollService.goFrom(number, color);
 window.chosen = (number) => scrollService.chosen(number);
+window.showOrHide = () => mapInfoService.showOrHide();
 
 export let map = new L.Map("mapid", {
     center: new L.LatLng(55.366750, 9.057975),

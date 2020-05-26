@@ -87,11 +87,13 @@ export default class HomePage {
     </div>
     </section>
 
+    
     <section class="dropdown">
     <p id="etape-description">${post.content.rendered}</p>
     <img src="${post.acf.images}">
     <p>${post.acf.crud}</p>
     </section>
+    
 
     </article> `
     }

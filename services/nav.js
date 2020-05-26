@@ -26,9 +26,9 @@ class ScrollService {
         // this.goFrom(element.value, 'var(--camino-yellow)')
         element.style.backgroundColor = 'var(--camino-yellow)'
 
+        // Dropdown
         let etape = document.querySelector(`#stage${element.value}`)
         let dropdown = etape.getElementsByClassName('dropdown')[0];
-        console.log(dropdown)
         dropdown.style.display = 'block';
 
 

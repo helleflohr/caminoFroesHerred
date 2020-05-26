@@ -309,7 +309,9 @@ img {
 }
 
 .dropdown{
+  background-color: var(--camino-green);
   display: none;
+
 }
 
 @media screen and (min-width: 1440px) {

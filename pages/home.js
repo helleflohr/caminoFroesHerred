@@ -1,8 +1,11 @@
 import fetchService from "./../services/fetch.js"
+import crudService from "./../services/crud.js"
+import slideService from "./../services/slide.js"
 export default class HomePage {
   constructor() {
     this.template();
     this.fetchDescription();
+    /* this.showLoader(); */
   }
 
   template() {
@@ -13,8 +16,10 @@ export default class HomePage {
         </header> -->
           <!-- frontpage image and info bar -->
   <section id="frontpageImage" class="no-print">
-  <img id="frontpageLogo" src="../images/cfhLogo.svg">
-<div>
+  <div id="frontpageLogoDiv">
+  <img id="frontpageLogo" src="../images/cfhlogo.png">
+  </div>
+<div id="frontpageTextDiv">
   <h1> Camino Frøs Herred</h1>
   <h2>Åbner sig for natur, kultur og det åndelige</h2>
   </div>
@@ -57,6 +62,16 @@ export default class HomePage {
   }
 
   /*   ---------------------  Johanne ---------------------- */
+
+  /* showLoader(show) {
+    let loader = document.querySelector('#loader');
+    if (show) {
+      loader.classList.remove("hide");
+    } else {
+      loader.classList.add("hide");
+    }
+  } */
+
   fetchDescription() {
     fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
       .then((response) => {
@@ -66,6 +81,11 @@ export default class HomePage {
         this.descriptions = json;
         // console.log(this.descriptions)
         this.appendPosts(json)
+
+        /* setTimeout(function() {
+          //fjerner spinner efter load.
+        showLoader(false);
+        }, 200); */
       });
   }
 
@@ -100,8 +120,7 @@ export default class HomePage {
     <ul id="tabs-swipe-demo" class="tabs">
     <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
     <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
-    <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber})">Hvad siger andre?</li>
-    
+    <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${this._posts}); showSlides(${slideService.slideIndex})">Hvad siger andre?</li>
   </ul>
   <hr id="hr${post.acf.stageNumber}" />
   <div id="description${post.acf.stageNumber}">
@@ -113,10 +132,22 @@ export default class HomePage {
   <a class="gpx" href="geojson/Camino-Frøs-Herred-${post.acf.stageNumber}.gpx" download>Download GPX-fil (${post.acf.stageNumber})</a>
   </div>
 
-  <div class="none" id="images${post.acf.stageNumber}">${post.acf.images}</div>
-
-  <div class="none" id="comments${post.acf.stageNumber}"><p>${post.acf.crud}</p></div>
+  <div class="none tabImages" id="images${post.acf.stageNumber}">${post.acf.images}</div>
   
+  <div class="none" id="comments${post.acf.stageNumber}">
+    <article class="sayArticle slideshow-container">
+      <section>
+        <div class="numbertext">1 / 3</div>
+        <section id="content${post.acf.stageNumber}">
+        
+        </section>
+      </section>
+      <button>Hvad siger du?</button>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </article>
+  </div>
     </section>
     
     </article> `

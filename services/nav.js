@@ -7,6 +7,7 @@ class ScrollService {
         this.trMargin = [];
         this.numberCounter = [];
         this.numberImageCounter = [];
+        this.numberDescriptionCounter = [];
     }
 
     scrollToElement(element) {
@@ -153,6 +154,21 @@ class ScrollService {
 
         }
 
+
+        let descriptionDiv = etape.getElementsByClassName('descriptionDiv')[0]
+
+        if (this.numberDescriptionCounter.indexOf(number) === -1) {
+            this.numberDescriptionCounter.push(number)
+
+            for (const stage of fetchService.descriptions) {
+                if (stage.acf.stageNumber == number) {
+
+                    descriptionDiv.innerHTML = `${stage.content.rendered}`;
+                }
+            }
+
+        }
+
     }
 
 
@@ -201,30 +217,21 @@ class ScrollService {
             console.log(number)
             let etape = document.querySelector(`#stage${number}`);
             let imageContainer = etape.getElementsByClassName('tabImages')[0];
-            // console.log(fetchService.descriptions[number].acf, fetchService.descriptions[number].acf.images)
             for (const stage of fetchService.descriptions) {
                 if (stage.acf.stageNumber == number) {
                     console.log(number, stage.acf.images, imageContainer)
                     imageContainer.innerHTML = `${stage.acf.images}`;
 
-
-                    // console.log(imageContainer)
-
                     let images = imageContainer.getElementsByTagName('img');
-
-                    // console.log(images)
 
                     for (const image of images) {
                         image.style.cursor = 'pointer';
                         image.onmouseover = function () {
-                            // this.style.outline = "3px solid var(--camino-green)";
                             this.style.opacity = "0.7";
                         }
                         image.onmouseout = function () {
-                            // this.style.outline = "3px solid transparent";
                             this.style.opacity = "1";
                         }
-                        // console.log(image)
                         image.addEventListener("click", function () {
                             // Get the expanded image
                             var expandImg = document.getElementById("expandedImg");
@@ -246,20 +253,6 @@ class ScrollService {
 
 
         }
-
-        // console.log(images)
-        // images.onclick = function () {
-        //     // Get the expanded image
-        //     var expandImg = document.getElementById("expandedImg");
-        //     // Get the image text
-        //     var imgText = document.getElementById("imgtext");
-        //     // Use the same src in the expanded image as the image being clicked on from the grid
-        //     expandImg.src = images.src;
-        //     // Use the value of the alt attribute of the clickable image as text inside the expanded image
-        //     imgText.innerHTML = images.alt;
-        //     // Show the container element (hidden with CSS)
-        //     expandImg.parentElement.style.display = "block";
-        // }
     }
 
 

@@ -130,7 +130,8 @@ export default class HomePage {
             <p class="zoom" onclick="zoomToEtape(${post.acf.stageNumber})">Zoom til etape</p>
             <p class="zoom" onclick="zoomOut()">Zoom ud til hele ruten</p>
           </div>
-          ${post.content.rendered}
+          <div class="descriptionDiv">
+         </div>
           <a class="gpx" href="geojson/Camino-Frøs-Herred-${post.acf.stageNumber}.gpx" download>Download GPX-fil (${post.acf.stageNumber})</a>
         </div>
 

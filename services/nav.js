@@ -47,10 +47,10 @@ class ScrollService {
         }
         let line = document.getElementsByClassName(`line${number}`)[0];
 
-        console.log(mapService.fitBounds)
+        //console.log(mapService.fitBounds)
         for (const etape of mapService.fitBounds) {
             if (etape.number == number) {
-                console.log(etape.southWest.lat, etape.southWest.lng)
+                //console.log(etape.southWest.lat, etape.southWest.lng)
                 map.flyToBounds([
                     [etape.southWest.lat, etape.southWest.lng],
                     [etape.northEast.lat, etape.northEast.lng]

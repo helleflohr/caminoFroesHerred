@@ -1,6 +1,6 @@
 // import { map } from "./../main.js";
 import HomePage from "../pages/home.js"
-class crudService {
+class CrudService {
   constructor() {
     this._dataRef = _db.collection("posts")
     this._posts;

@@ -30,6 +30,22 @@ class ScrollService {
 
     }
 
+    zoomToEtape(number) {
+        for (const etape of mapService.fitBounds) {
+            if (etape.number == number) {
+                console.log(etape.southWest.lat, etape.southWest.lng)
+                map.flyToBounds([
+                    [etape.southWest.lat, etape.southWest.lng],
+                    [etape.northEast.lat, etape.northEast.lng]
+                ], { 'padding': [50, 50], 'duration': 1.5 });
+            }
+        }
+    }
+
+    zoomOut() {
+        map.setView(L.latLng(55.356480, 9.157975), 11)
+    }
+
     chosen(number) {
 
         let selected = document.querySelector(".btn.selected");
@@ -47,16 +63,16 @@ class ScrollService {
         }
         let line = document.getElementsByClassName(`line${number}`)[0];
 
-        console.log(mapService.fitBounds)
-        for (const etape of mapService.fitBounds) {
-            if (etape.number == number) {
-                console.log(etape.southWest.lat, etape.southWest.lng)
-                map.flyToBounds([
-                    [etape.southWest.lat, etape.southWest.lng],
-                    [etape.northEast.lat, etape.northEast.lng]
-                ], { 'padding': [50, 50], 'duration': 1.5 });
-            }
-        }
+        // console.log(mapService.fitBounds)
+        // for (const etape of mapService.fitBounds) {
+        //     if (etape.number == number) {
+        //         console.log(etape.southWest.lat, etape.southWest.lng)
+        //         map.flyToBounds([
+        //             [etape.southWest.lat, etape.southWest.lng],
+        //             [etape.northEast.lat, etape.northEast.lng]
+        //         ], { 'padding': [50, 50], 'duration': 1.5 });
+        //     }
+        // }
 
 
 

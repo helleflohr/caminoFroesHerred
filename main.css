@@ -494,7 +494,21 @@ aside h3 {
   border-radius: 0 0 24px 24px;
 }
 
+.gpx{
+  text-align: center;
+  color: var(--text-color-light);
+  background-color: var(--camino-blue);
+  border-radius: 25px;
+  padding: .5em 2em;
+  margin: 1em auto 0;
+  width: 60%;
+  display: block;
+}
 
+.gpx:hover {
+  /* color: var(--camino-yellow); */
+  background-color: var(--camino-green);
+}
 
 /* ---------- print styling ---------- */
 

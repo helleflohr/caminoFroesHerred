@@ -211,9 +211,19 @@ class ScrollService {
                     // console.log(imageContainer)
 
                     let images = imageContainer.getElementsByTagName('img');
+
                     // console.log(images)
 
                     for (const image of images) {
+                        image.style.cursor = 'pointer';
+                        image.onmouseover = function () {
+                            // this.style.outline = "3px solid var(--camino-green)";
+                            this.style.opacity = "0.7";
+                        }
+                        image.onmouseout = function () {
+                            // this.style.outline = "3px solid transparent";
+                            this.style.opacity = "1";
+                        }
                         // console.log(image)
                         image.addEventListener("click", function () {
                             // Get the expanded image
@@ -226,6 +236,7 @@ class ScrollService {
                             imgText.innerHTML = image.alt;
                             // Show the container element (hidden with CSS)
                             expandImg.parentElement.style.display = "block";
+                            expandImg.parentElement.parentElement.style.display = "block";
                         }, false);
                     }
 

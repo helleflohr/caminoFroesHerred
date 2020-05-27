@@ -257,7 +257,7 @@ nav {
   stroke: var(--camino-yellow);
 }
 
-span {
+nav span {
   display: block;
   width: .3vh;
   height: .3vh;
@@ -656,34 +656,52 @@ aside h3 {
 
 /* ---------- images popup styling ---------- */
 /* The expanding image container (positioning is needed to position the close button and the text) */
+.imagePopup{
+  position: absolute;
+  display: none;
+  top: 100vh;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.662);
+}
 .container {
   position: absolute;
   display: none;
-  top: 125vh;
-  left:10vw;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
   /* width: 100%; */
 }
-.container img{
+.imagePopup .container img{
   max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 /* Expanding image text */
 #imgtext {
   position: absolute;
-  bottom: 15px;
-  left: 15px;
+  bottom: 30%;
+  left: 50%;
+  transform: translate(-50%, 0);
   color: white;
   font-size: 20px;
+  text-align: center;
+  line-height: 1.5em;
 }
 
 /* Closable button inside the image */
 .closebtn {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 2%;
+  left: 90%;
+  /* transform: translate(-50%, -50%); */
   color: white;
-  font-size: 35px;
+  font-size: 75px;
   cursor: pointer;
+  z-index: 2;
 }
 
 /* ---------- print styling ---------- */

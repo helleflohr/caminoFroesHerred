@@ -103,14 +103,18 @@
   <section id="content"></section>
 
   <!-- The expanding image container -->
-  <div class="container">
+  <div class="imagePopup">
     <!-- Close the image -->
     <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <div class="container">
 
-    <!-- Expanded image -->
-    <img id="expandedImg" style="width:100%">
 
-    <!-- Image text -->
+      <!-- Expanded image -->
+      <img id="expandedImg" style="max-width:100%">
+
+      <!-- Image text -->
+
+    </div>
     <div id="imgtext"></div>
   </div>
 

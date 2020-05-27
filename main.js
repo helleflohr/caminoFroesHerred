@@ -53,4 +53,5 @@ export let map = new L.Map("mapid", {
     // layers: [cities]
 });
 
+
 // window.createMap = () => mapService.createMap();

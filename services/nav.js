@@ -246,16 +246,10 @@ class ScrollService {
                             expandedImg.parentElement.parentElement.style.display = "block"; // Show the ancestor
                         }, false);
                     }
-
                 }
-
             }
-
-
         }
     }
-
-
 }
 const scrollService = new ScrollService();
 export default scrollService;

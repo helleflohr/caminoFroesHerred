@@ -8,7 +8,7 @@ import mapService from "./services/map.js";
 
 import scrollService from "./services/nav.js"
 import mapInfoService from "./services/mapInfo.js";
-/* import crudService from "./services/crud.js"; */
+import crudService from "./services/crud.js";
 
 
 

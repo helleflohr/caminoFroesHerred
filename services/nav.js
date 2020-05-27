@@ -61,7 +61,7 @@ class ScrollService {
                 map.flyToBounds([
                     [etape.southWest.lat, etape.southWest.lng],
                     [etape.northEast.lat, etape.northEast.lng]
-                ], { 'padding': [50, 50], 'duration': 1.5 });
+                ], { 'padding': [50, 50], 'duration': 0.1 });
             }
         }
     }

@@ -4,7 +4,7 @@ export default class HomePage {
   constructor() {
     this.template();
     this.fetchDescription();
-    this.showLoader();
+    /* this.showLoader(); */
   }
 
   template() {
@@ -60,14 +60,14 @@ export default class HomePage {
 
   /*   ---------------------  Johanne ---------------------- */
 
-  showLoader(show) {
+  /* showLoader(show) {
     let loader = document.querySelector('#loader');
     if (show) {
       loader.classList.remove("hide");
     } else {
       loader.classList.add("hide");
     }
-  }
+  } */
 
   fetchDescription() {
     fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
@@ -79,10 +79,10 @@ export default class HomePage {
         // console.log(this.descriptions)
         this.appendPosts(json)
 
-        setTimeout(function() {
+        /* setTimeout(function() {
           //fjerner spinner efter load.
         showLoader(false);
-        }, 200);
+        }, 200); */
       });
   }
 

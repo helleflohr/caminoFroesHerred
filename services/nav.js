@@ -129,8 +129,7 @@ class ScrollService {
         }
 
 
-        // this.counter = 0
-        // let numberCounter = []
+
 
         let underline = document.querySelector(`#hr${number}`);
         if (this.numberCounter.indexOf(number) === -1) {
@@ -138,23 +137,6 @@ class ScrollService {
             underline.style.width = `${this.trWidth[0]}px`;
 
         }
-
-
-
-
-        console.log(this.numberCounter)
-
-
-        // if (this.counter === 0) {
-        //     console.log(this.counter)
-        //     let underline = document.querySelector(`#hr${number}`);
-
-        //     underline.style.width = `${this.trWidth[0]}px`;
-
-        //     this.counter++
-        //     // let offse = underline.offsetParent;
-        //     // console.log(offse, underline.offsetLeft)
-        // }
 
     }
 

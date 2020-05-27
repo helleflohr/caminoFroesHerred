@@ -2,7 +2,7 @@
 :root {
   --camino-green: #22523C;
   --camino-blue: #002F38;
-  --camino-blue-transpartent: rgba(0, 47, 56, 0.5);
+  --camino-blue-transpartent: rgba(256, 256, 256, 0.7);
   --camino-yellow: rgb(213, 216, 34);
   --text-color-light: #FFF1DD;
   --text-color-dark: #002F38;
@@ -536,9 +536,14 @@ aside h3 {
 
 .leaflet-control-layers-toggle:after{ 
   content:"Personliggør kortet"; 
+  font-family: 'JosefinSans', Arial, sans-serif;
+  font-size: 1.2em;
+  padding-left: .5em;
   color: #000 ;
 }
 .leaflet-control-layers-toggle{ 
+  border: 2px solid var(--camino-blue);
+  border-radius: 5px;
   width: 10vw !important;
   background-position: 3px 50%;
   padding:3px;
@@ -559,6 +564,7 @@ display: flex;
 flex-wrap: wrap;
 justify-content: start;
 align-items: center;
+
 }
 
 .leaflet-control-layers-expanded label div span{
@@ -571,11 +577,13 @@ align-items: center;
   width: 80%;
   height: auto;
   background-color: transparent;
+  
 }
 .leaflet-control-layers-expanded label div span p{
   color: var(--camino-blue);
   vertical-align: middle;
-  font-weight: bold;
+  font-family: 'JosefinSans', Arial, sans-serif;
+  font-size: 1.2em;
 }
 .leaflet-control-layers-expanded label div span img{
   max-height: 100%;

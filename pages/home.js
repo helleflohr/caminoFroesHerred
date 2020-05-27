@@ -13,7 +13,7 @@ export default class HomePage {
         </header> -->
           <!-- frontpage image and info bar -->
   <section id="frontpageImage" class="no-print">
-  <img id="frontpageLogo" src="../images/cfhLogo.svg">
+  <img id="frontpageLogo" src="../images/cfhlogo.svg">
 <div>
   <h1> Camino Frøs Herred</h1>
   <h2>Åbner sig for natur, kultur og det åndelige</h2>

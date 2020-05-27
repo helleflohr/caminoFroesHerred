@@ -242,7 +242,6 @@ nav {
 
 .navbtn:hover {
   border: 3px solid var(--camino-yellow);
-  /* border-color: var(--camino-yellow); */
 }
 
 .selected {
@@ -376,8 +375,6 @@ aside h3 {
 .boxIcon {
   display: flex;
   flex-wrap: wrap;
-
-
 }
 
 .boxIcon input {
@@ -404,8 +401,7 @@ aside h3 {
 
 /* ---------- next page styling ---------- */
 
-/* ---------- styling ---------- */
-/* Grid container */
+/* ---------- Grid container styling ---------- */
 
 .grid-item {
   border: 7px solid var(--camino-green);

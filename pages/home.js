@@ -1,5 +1,6 @@
 import fetchService from "./../services/fetch.js"
 import crudService from "./../services/crud.js"
+import slideService from "./../services/slide.js"
 export default class HomePage {
   constructor() {
     this.template();
@@ -15,8 +16,10 @@ export default class HomePage {
         </header> -->
           <!-- frontpage image and info bar -->
   <section id="frontpageImage" class="no-print">
+  <div id="frontpageLogoDiv">
   <img id="frontpageLogo" src="../images/cfhlogo.png">
-<div>
+  </div>
+<div id="frontpageTextDiv">
   <h1> Camino Frøs Herred</h1>
   <h2>Åbner sig for natur, kultur og det åndelige</h2>
   </div>
@@ -118,13 +121,27 @@ export default class HomePage {
     <ul id="tabs-swipe-demo" class="tabs">
     <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
     <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
-    <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${this._posts}) ">Hvad siger andre?</li>
+    <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${this._posts}); showSlides(${slideService.slideIndex})">Hvad siger andre?</li>
   </ul>
   <hr id="hr${post.acf.stageNumber}" />
   <div id="description${post.acf.stageNumber}"> <!-- <p id="etape-description">-->${post.content.rendered}<!--</p>-->
 </div>
-  <div class="none" id="images${post.acf.stageNumber}">${post.acf.images}</div>
-  <div class="none" id="comments${post.acf.stageNumber}"></div>
+  <div class="tabImages" id="images${post.acf.stageNumber}">${post.acf.images}</div>
+  
+  <div class="none" id="comments${post.acf.stageNumber}">
+    <article class="sayArticle slideshow-container">
+      <section>
+        <div class="numbertext">1 / 3</div>
+        <section id="content${post.acf.stageNumber}">
+        
+        </section>
+      </section>
+      <button>Hvad siger du?</button>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </article>
+  </div>
   
     </section>
     

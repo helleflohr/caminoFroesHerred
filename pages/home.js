@@ -4,6 +4,7 @@ export default class HomePage {
   constructor() {
     this.template();
     this.fetchDescription();
+    this.showLoader();
   }
 
   template() {
@@ -58,6 +59,16 @@ export default class HomePage {
   }
 
   /*   ---------------------  Johanne ---------------------- */
+
+  showLoader(show) {
+    let loader = document.querySelector('#loader');
+    if (show) {
+      loader.classList.remove("hide");
+    } else {
+      loader.classList.add("hide");
+    }
+  }
+
   fetchDescription() {
     fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
       .then((response) => {
@@ -67,6 +78,11 @@ export default class HomePage {
         this.descriptions = json;
         // console.log(this.descriptions)
         this.appendPosts(json)
+
+        setTimeout(function() {
+          //fjerner spinner efter load.
+        showLoader(false);
+        }, 200);
       });
   }
 
@@ -102,7 +118,7 @@ export default class HomePage {
     <ul id="tabs-swipe-demo" class="tabs">
     <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
     <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
-    <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${crudService._posts}) ">Hvad siger andre?</li>
+    <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${this._posts}) ">Hvad siger andre?</li>
   </ul>
   <hr id="hr${post.acf.stageNumber}" />
   <div id="description${post.acf.stageNumber}"> <!-- <p id="etape-description">-->${post.content.rendered}<!--</p>-->

@@ -23,12 +23,12 @@ this._dataRef.onSnapshot(snapshotData => {
 }
 
 // append users to the DOM
-appendPosts(posts) {
-console.log(posts);
+appendPosts() {
+console.log(this._posts);
   let htmlTemplate = "";
-  for (let post of posts) {
-  console.log(post.id);
-  console.log(post.name);
+  let etape;
+  for (let post of this._posts) {
+    etape = post.etape
     htmlTemplate += `
     <article>
       <img src="${post.image}">
@@ -38,9 +38,8 @@ console.log(posts);
     </article>
     `;
   }
-  document.querySelector(`#comments${post.etape}`).innerHTML = htmlTemplate;
-  console.log(post.etape);
   
+  document.querySelector(`#comments${etape}`).innerHTML = htmlTemplate;
 }
 
 }

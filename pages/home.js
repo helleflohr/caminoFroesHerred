@@ -58,26 +58,6 @@ export default class HomePage {
   }
 
   /*   ---------------------  Johanne ---------------------- */
-
-
-// sidst i vores html har vi placeret en spinner der indikerer om indholdet på
-// siden er hentet eller stadig er ved at downloade.
-
-// Vi opretter variablen "loader" inde i showLoader og sætter
-// den i forbindelse med elementet/div "#loader" fra vores HTML.
-// showLoader har fået (show) da den skal være til stede fra start.
-// efter vi har fetchet vores data fra WP bliver showLoader sat til false og den vil derfor få tildelt classen hide og forsvinder.
-
-showLoader(show) {
-  let loader = document.querySelector('#loader');
-  if (show) {
-    loader.classList.remove("hide");
-  } else {
-    loader.classList.add("hide");
-  }
-}
-
-
   fetchDescription() {
     fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
       .then((response) => {

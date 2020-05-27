@@ -96,6 +96,7 @@ export default class HomePage {
     });
 
     for (let post of posts) {
+
       // console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
     
@@ -119,7 +120,7 @@ export default class HomePage {
       <section class="dropdown">
         <ul id="tabs-swipe-demo" class="tabs">
           <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
-          <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
+          <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber}); bigImg(${post.acf.stageNumber})">Billeder</li>
           <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${this._posts}); showSlides(${slideService.slideIndex})">Hvad siger andre?</li>
         </ul>
         <hr id="hr${post.acf.stageNumber}" />
@@ -133,7 +134,7 @@ export default class HomePage {
           <a class="gpx" href="geojson/Camino-Frøs-Herred-${post.acf.stageNumber}.gpx" download>Download GPX-fil (${post.acf.stageNumber})</a>
         </div>
 
-        <div class="none" id="images${post.acf.stageNumber}"><div class="tabImages">${post.acf.images}</div></div>
+        <div class="none" id="images${post.acf.stageNumber}")"><div class="tabImages" >hi</div></div>
   
         <div class="none" id="comments${post.acf.stageNumber}">
           <article class="sayArticle slideshow-container">
@@ -151,7 +152,9 @@ export default class HomePage {
       </section>
     
     </article> `
+      // console.log(post.acf, post.acf.images)
     }
+
 
   };
 

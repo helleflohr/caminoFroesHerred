@@ -36,6 +36,7 @@ window.zoomToEtape = (number) => scrollService.zoomToEtape(number);
 window.zoomOut = () => scrollService.zoomOut();
 window.tabs = (tab, number) => scrollService.tabs(tab, number);
 window.scrollToElement = (element) => scrollService.scrollToElement(element);
+window.bigImg = (image) => scrollService.bigImg(image);
 window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.underlineTab = () => stageService.underlineTab();
@@ -45,7 +46,7 @@ window.plusSlides = () => slideService.plusSlides();
 
 export let map = new L.Map("mapid", {
     center: new L.LatLng(55.356480, 9.157975),
-    zoom: 11
+    zoom: 12
     // layers: [cities]
 });
 

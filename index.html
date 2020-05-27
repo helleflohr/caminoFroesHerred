@@ -102,11 +102,23 @@
   </aside>
   <section id="content"></section>
 
+  <!-- The expanding image container -->
+  <div class="container">
+    <!-- Close the image -->
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+    <!-- Expanded image -->
+    <img id="expandedImg" style="width:100%">
+
+    <!-- Image text -->
+    <div id="imgtext"></div>
+  </div>
+
   <!-- main js file -->
-   <!-- The core Firebase JS SDK is always required and must be listed first -->
-   <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
-   <!-- Firebase Firestore (database) JS SDK -->
-   <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-firestore.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+  <!-- Firebase Firestore (database) JS SDK -->
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-firestore.js"></script>
   <script src="main.js" type="module"></script>
   <script src="./js/GPXParser.js"></script>
   <script src="./services/firebase_config.js"></script>

@@ -564,7 +564,7 @@ aside h3 {
   background-color: #cccccc;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% 100%;
+  background-size: 100% auto;
   height: 40vh;
   position: relative;
   /* -webkit-border-radius: 50px;
@@ -652,6 +652,38 @@ aside h3 {
 .zoom:hover {
   /* color: var(--camino-yellow); */
   background-color: var(--camino-green);
+}
+
+/* ---------- images popup styling ---------- */
+/* The expanding image container (positioning is needed to position the close button and the text) */
+.container {
+  position: absolute;
+  display: none;
+  top: 125vh;
+  left:10vw;
+  /* width: 100%; */
+}
+.container img{
+  max-width: 100%;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
 }
 
 /* ---------- print styling ---------- */

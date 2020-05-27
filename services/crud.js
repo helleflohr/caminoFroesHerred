@@ -15,7 +15,7 @@ class CrudService {
     this._dataRef.onSnapshot(snapshotData => {
       snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
         let post = doc.data(); // save the data in a variable
-        console.log(post);
+        // console.log(post);
         post.id = doc.id; // add the id to the data variable
         this._posts.push(post); // push the data object to the global array  _posts
       });

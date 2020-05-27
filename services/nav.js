@@ -6,6 +6,7 @@ class ScrollService {
         this.trWidth = [];
         this.trMargin = [];
         this.numberCounter = [];
+        this.numberImageCounter = [];
     }
 
     scrollToElement(element) {
@@ -65,7 +66,7 @@ class ScrollService {
     }
 
     zoomOut() {
-        map.setView(L.latLng(55.356480, 9.157975), 11)
+        map.setView(L.latLng(55.356480, 9.157975), 12)
     }
 
     chosen(number) {
@@ -190,6 +191,66 @@ class ScrollService {
         }
         console.log(underline.style.width)
     }
+
+    bigImg(number) {
+
+        if (this.numberImageCounter.indexOf(number) === -1) {
+            this.numberImageCounter.push(number)
+
+
+            console.log(number)
+            let etape = document.querySelector(`#stage${number}`);
+            let imageContainer = etape.getElementsByClassName('tabImages')[0];
+            // console.log(fetchService.descriptions[number].acf, fetchService.descriptions[number].acf.images)
+            for (const stage of fetchService.descriptions) {
+                if (stage.acf.stageNumber == number) {
+                    console.log(number, stage.acf.images, imageContainer)
+                    imageContainer.innerHTML = `${stage.acf.images}`;
+
+
+                    // console.log(imageContainer)
+
+                    let images = imageContainer.getElementsByTagName('img');
+                    // console.log(images)
+
+                    for (const image of images) {
+                        // console.log(image)
+                        image.addEventListener("click", function () {
+                            // Get the expanded image
+                            var expandImg = document.getElementById("expandedImg");
+                            // Get the image text
+                            var imgText = document.getElementById("imgtext");
+                            // Use the same src in the expanded image as the image being clicked on from the grid
+                            expandImg.src = image.src;
+                            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+                            imgText.innerHTML = image.alt;
+                            // Show the container element (hidden with CSS)
+                            expandImg.parentElement.style.display = "block";
+                        }, false);
+                    }
+
+                }
+
+            }
+
+
+        }
+
+        // console.log(images)
+        // images.onclick = function () {
+        //     // Get the expanded image
+        //     var expandImg = document.getElementById("expandedImg");
+        //     // Get the image text
+        //     var imgText = document.getElementById("imgtext");
+        //     // Use the same src in the expanded image as the image being clicked on from the grid
+        //     expandImg.src = images.src;
+        //     // Use the value of the alt attribute of the clickable image as text inside the expanded image
+        //     imgText.innerHTML = images.alt;
+        //     // Show the container element (hidden with CSS)
+        //     expandImg.parentElement.style.display = "block";
+        // }
+    }
+
 
 }
 const scrollService = new ScrollService();

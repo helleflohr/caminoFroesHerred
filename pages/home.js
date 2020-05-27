@@ -107,7 +107,7 @@ export default class HomePage {
   <hr id="hr${post.acf.stageNumber}" />
   <div id="description${post.acf.stageNumber}"> <!-- <p id="etape-description">-->${post.content.rendered}<!--</p>-->
 </div>
-  <div class="none" id="images${post.acf.stageNumber}">${post.acf.images}</div>
+  <div class="tabImages" id="images${post.acf.stageNumber}">${post.acf.images}</div>
   <div class="none" id="comments${post.acf.stageNumber}"></div>
   
     </section>

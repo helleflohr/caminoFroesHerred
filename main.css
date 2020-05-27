@@ -127,13 +127,14 @@ aside {
   cursor: pointer;
 }
 
-.imagesTab {
+.tabImages {
   display: flex;
   flex-wrap: wrap;
 }
 
-.imagesTab img {
-  max-height: 30px;
+.tabImages img {
+  max-height: 50px;
+  width: auto;
 }
 
 

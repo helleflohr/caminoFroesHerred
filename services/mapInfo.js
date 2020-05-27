@@ -48,59 +48,102 @@ class MapInfoService {
         })
 
 
-        let Overnatning = new iconClass({
-            iconUrl: 'images/stay.png'
+        let Hotel = new iconClass({
+            iconUrl: 'images/Hotel.png'
         }),
             Kirke = new iconClass({
-                iconUrl: 'images/lyd.png'
+                iconUrl: 'images/Kirke.png'
             }),
             Toiletter = new iconClass({
-                iconUrl: 'images/toilets.png'
+                iconUrl: 'images/Toiletter.png'
+            }),
+            Hostel = new iconClass({
+                iconUrl: 'images/Hostel.png'
             })
+        let iconArr = [];
+        let stayArr = [];
 
+        let KirkeArr = [];
         let ToiletterArr = [];
-        let overnatningsArr = [];
+        let OvernatningArr = [];
         for (let post of json) {
-            if (post.acf.infotype === "Toiletter") {
-                ToiletterArr.push(L.marker([post.acf.latitude, post.acf.longitude], {
-                    icon: Toiletter
-                }).bindPopup(`${post.content.rendered}`));
-            }
+            iconArr.push(post.acf.infotype);
+
+
+
+
+            let name = `${post.acf.infotype}Arr`
             if (post.acf.infotype === "Overnatning") {
-                overnatningsArr.push(L.marker([post.acf.latitude, post.acf.longitude], {
-                    icon: Overnatning
+                eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
+                    icon: eval(post.acf.typeOfStay)
+                }).bindPopup(`${post.content.rendered}`));
+                console.log(post.acf.typeOfStay)
+                stayArr.push(post.acf.typeOfStay)
+            } else {
+                eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
+                    icon: eval(post.acf.infotype)
                 }).bindPopup(`${post.content.rendered}`));
             }
+        }
+        iconArr = [...new Set(iconArr)];
+
+        // for (const icon of iconArr) {
+        //     console.log(icon)
+        //     let name = `${icon}Arr`
+        //     name = L.layerGroup(eval(name));
+        //     console.log(name)
+
+        // }
+        KirkeArr = L.layerGroup(KirkeArr);
+        ToiletterArr = L.layerGroup(ToiletterArr);
+        OvernatningArr = L.layerGroup(OvernatningArr);
+
+        // Be on map from start
+        // map.addLayer(ToiletterArr);
+        // map.addLayer(KirkeArr);
+        let overlayMaps = {};
+        for (const icon of iconArr) {
+            let overlayLine;
+            console.log(icon)
+            let name = `${icon}Arr`
+
+            if (icon == "Overnatning") {
+                let stayIcon = "";
+                for (const stay of stayArr) {
+                    console.log(stay)
+                    stayIcon += `<img src='images/${stay}.png' />`
+                }
+                console.log(stayIcon)
+                overlayLine = `<p>${icon}</p>${stayIcon}`;
+            } else {
+                overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
+            }
+
+            // let overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
+            console.log(overlayLine)
+            overlayMaps[overlayLine] = eval(name);
 
         }
 
-        ToiletterArr = L.layerGroup(ToiletterArr);
-        overnatningsArr = L.layerGroup(overnatningsArr);
-        // console.log(toiletArr)
-        map.addLayer(ToiletterArr);
-        // map.removeLayer(ToiletterArr);
 
-
-
-
-        var overlayMaps = {
-            "<p>Overnatning</p><img src='images/lyd.png' />": overnatningsArr,
-            "<p>Toiletter</p><img src='images/and.jpg' />": ToiletterArr
-        };
-
+        // var overlayMaps = {
+        //     "<p>Overnatning</p><img src='images/lyd.png' />": OvernatningArr,
+        //     "<p>Toiletter</p><img src='images/and.jpg' />": ToiletterArr
+        // };
+        console.log(overlayMaps)
         L.control.layers([], overlayMaps, { position: 'bottomleft' }).addTo(map);
 
 
-        let iconArr = [];
-        for (let post of json) {
-            iconArr.push(post.acf.infotype);
-            //     let marker = L.marker([post.acf.latitude, post.acf.longitude], { icon: eval(post.acf.infotype) }).addTo(map).bindPopup(`${post.content.rendered}`)
-            //     marker.addTo(map)
-            //     // console.log(marker)
-            //     marker.removeFrom(map)
-            //     marker.addTo(map)
-        }
-        iconArr = [...new Set(iconArr)];
+        // let iconArr = [];
+        // for (let post of json) {
+        //     iconArr.push(post.acf.infotype);
+        //     //     let marker = L.marker([post.acf.latitude, post.acf.longitude], { icon: eval(post.acf.infotype) }).addTo(map).bindPopup(`${post.content.rendered}`)
+        //     //     marker.addTo(map)
+        //     //     // console.log(marker)
+        //     //     marker.removeFrom(map)
+        //     //     marker.addTo(map)
+        // }
+        // iconArr = [...new Set(iconArr)];
 
 
         // console.log(iconArr);

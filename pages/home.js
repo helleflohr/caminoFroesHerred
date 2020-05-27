@@ -106,6 +106,7 @@ export default class HomePage {
   </ul>
   <hr id="hr${post.acf.stageNumber}" />
   <div id="description${post.acf.stageNumber}"> <!-- <p id="etape-description">-->${post.content.rendered}<!--</p>-->
+  <a href="geojson/Camino-Frøs-Herred-${post.acf.stageNumber}.gpx" download>Download GPX-fil</a>
 </div>
   <div class="none" id="images${post.acf.stageNumber}">${post.acf.images}</div>
   <div class="none" id="comments${post.acf.stageNumber}"><p>${post.acf.crud}</p></div>

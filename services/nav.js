@@ -84,12 +84,20 @@ class ScrollService {
 
 
         // Dropdown 
-
-        etape.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-            inline: "nearest"
-        });
+        if (number == 1) {
+            console.log(number)
+            etape.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest"
+            });
+        } else {
+            etape.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "nearest"
+            });
+        }
         let allDropdowns = document.getElementsByClassName('dropdown');
         for (const dropdown of allDropdowns) {
             dropdown.style.display = "none";

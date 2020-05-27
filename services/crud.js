@@ -1,11 +1,8 @@
 // import { map } from "./../main.js";
-"use strict";
-
-class CrudService {
+export default class CrudService {
     constructor() {
-        this.appendPosts();
     };
-
+/*
 // ========== GLOBAL VARIABLES ========== //
 _dataRef = _db.collection("posts")
 _posts;
@@ -13,7 +10,7 @@ _posts;
 // ========== READ ==========
 // 1: data from firebase
 // watch the database ref for changes
-_dataRef.onSnapshot(snapshotData => {
+ _dataRef.onSnapshot(snapshotData => {
     _posts = []; // reset _posts
     snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
       let post = doc.data(); // save the data in a variable
@@ -40,7 +37,5 @@ appendPosts(posts) {
     }
     document.querySelector('#comments').innerHTML = htmlTemplate;
   }
-}
 
-const crudService = new CrudService();
-export default crudService;
+*/}

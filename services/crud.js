@@ -46,4 +46,4 @@ console.log(posts);
 }
 
 const crudService = new CrudService();
-export default CrudService;
+export default crudService;

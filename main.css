@@ -127,6 +127,15 @@ aside {
   cursor: pointer;
 }
 
+.imagesTab {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imagesTab img {
+  max-height: 30px;
+}
+
 
 
 /* ---------- animations ---------- */

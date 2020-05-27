@@ -47,4 +47,4 @@ class crudService {
 }
 
 const crudService = new CrudService();
-export default crudService;
+export default CrudService;

@@ -79,7 +79,7 @@ export default class HomePage {
       // console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
     
-    <article id="stage${post.acf.stageNumber}" class="grid-item" onclick="chosen(${post.acf.stageNumber})">
+    <article id="stage${post.acf.stageNumber}" class="grid-item" onclick="chosen(${post.acf.stageNumber})" onmouseover="goTo(${post.acf.stageNumber})" onmouseout="goFrom(${post.acf.stageNumber})">
 
     <section class="backgroundimg" style="background-image: url('${getFeaturedImageUrl(post)}')" >
     <div id="text-backgroundimg">
@@ -97,9 +97,6 @@ export default class HomePage {
 
     
     <section class="dropdown">
-    <p class="zoom" onclick="zoomToEtape(${post.acf.stageNumber})">Zoom til etape</p>
-  <p class="zoom" onclick="zoomOut()">Zoom ud til hele ruten</p>
-
     <ul id="tabs-swipe-demo" class="tabs">
     <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
     <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
@@ -108,6 +105,10 @@ export default class HomePage {
   </ul>
   <hr id="hr${post.acf.stageNumber}" />
   <div id="description${post.acf.stageNumber}">
+  <div class="flexcontainer">
+  <p class="zoom" onclick="zoomToEtape(${post.acf.stageNumber})">Zoom til etape</p>
+  <p class="zoom" onclick="zoomOut()">Zoom ud til hele ruten</p>
+  </div>
   ${post.content.rendered}
   <a class="gpx" href="geojson/Camino-Frøs-Herred-${post.acf.stageNumber}.gpx" download>Download GPX-fil (${post.acf.stageNumber})</a>
   </div>

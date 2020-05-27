@@ -4,8 +4,6 @@ import {
 class MapInfoService {
     constructor() {
         this.createMarkers();
-
-        this.moveInfoBox();
     }
 
     createMarkers() {
@@ -77,7 +75,6 @@ class MapInfoService {
                 eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
                     icon: eval(post.acf.typeOfStay)
                 }).bindPopup(`${post.content.rendered}`));
-                console.log(post.acf.typeOfStay)
                 stayArr.push(post.acf.typeOfStay)
             } else {
                 eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
@@ -104,23 +101,19 @@ class MapInfoService {
         let overlayMaps = {};
         for (const icon of iconArr) {
             let overlayLine;
-            console.log(icon)
             let name = `${icon}Arr`
 
             if (icon == "Overnatning") {
                 let stayIcon = "";
                 for (const stay of stayArr) {
-                    console.log(stay)
                     stayIcon += `<img src='images/${stay}.png' />`
                 }
-                console.log(stayIcon)
                 overlayLine = `<p>${icon}</p>${stayIcon}`;
             } else {
                 overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
             }
 
             // let overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
-            console.log(overlayLine)
             overlayMaps[overlayLine] = eval(name);
 
         }
@@ -130,7 +123,7 @@ class MapInfoService {
         //     "<p>Overnatning</p><img src='images/lyd.png' />": OvernatningArr,
         //     "<p>Toiletter</p><img src='images/and.jpg' />": ToiletterArr
         // };
-        console.log(overlayMaps)
+        // console.log(overlayMaps)
         L.control.layers([], overlayMaps, { position: 'bottomleft' }).addTo(map);
 
 
@@ -172,12 +165,7 @@ class MapInfoService {
         }
     }
 
-    moveInfoBox() {
-        // let mapContainer = document.querySelector('#mapid');
-        let leafletControls = document.querySelector('.leaflet-right');
-        // let personalize = leafletControls.getElementsByTagName('div')[0];
-        console.log(leafletControls)
-    }
+
 }
 
 const mapInfoService = new MapInfoService();

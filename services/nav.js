@@ -106,6 +106,20 @@ class ScrollService {
         headline.style.color = 'var(--camino-yellow)'
 
 
+        if (number == 1) {
+            console.log(number)
+            etape.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest"
+            });
+        } else {
+            etape.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "nearest"
+            });
+        }
 
         // Dropdown 
 

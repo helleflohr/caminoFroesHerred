@@ -99,9 +99,9 @@ export default class HomePage {
       // console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
     
-    <article id="stage${post.acf.stageNumber}" class="grid-item" onclick="chosen(${post.acf.stageNumber})" onmouseover="goTo(${post.acf.stageNumber})" onmouseout="goFrom(${post.acf.stageNumber})">
+    <article id="stage${post.acf.stageNumber}" class="grid-item" onmouseover="goTo(${post.acf.stageNumber})" onmouseout="goFrom(${post.acf.stageNumber})">
 
-      <section class="backgroundimg" style="background-image: url('${getFeaturedImageUrl(post)}')" >
+      <section class="backgroundimg" style="background-image: url('${getFeaturedImageUrl(post)}')" onclick="chosen(${post.acf.stageNumber})" >
         <div id="text-backgroundimg">
           <div class="title-distance">
             <h3>${post.title.rendered}</h3>
@@ -123,7 +123,7 @@ export default class HomePage {
           <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${this._posts}); showSlides(${slideService.slideIndex})">Hvad siger andre?</li>
         </ul>
         <hr id="hr${post.acf.stageNumber}" />
-        
+
         <div id="description${post.acf.stageNumber}">
           <div class="flexcontainer">
             <p class="zoom" onclick="zoomToEtape(${post.acf.stageNumber})">Zoom til etape</p>
@@ -133,7 +133,7 @@ export default class HomePage {
           <a class="gpx" href="geojson/Camino-Frøs-Herred-${post.acf.stageNumber}.gpx" download>Download GPX-fil (${post.acf.stageNumber})</a>
         </div>
 
-        <div class="none tabImages" id="images${post.acf.stageNumber}">${post.acf.images}</div>
+        <div class="none" id="images${post.acf.stageNumber}"><div class="tabImages">${post.acf.images}</div></div>
   
         <div class="none" id="comments${post.acf.stageNumber}">
           <article class="sayArticle slideshow-container">

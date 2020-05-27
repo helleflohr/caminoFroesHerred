@@ -562,13 +562,16 @@ aside h3 {
 .backgroundimg {
   /* background-image: url("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-content/uploads/2020/05/rapsmark-scaled.jpg"); */
   background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
   height: 40vh;
   position: relative;
   /* -webkit-border-radius: 50px;
   -moz-border-radius: 50px; */
   border-radius: 25px;
   /* border: 7px solid var(--camino-green); */
-  width: 100%;
+  max-width: 100%;
   height: 30vh;
 }
 

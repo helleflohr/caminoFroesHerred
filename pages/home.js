@@ -101,54 +101,54 @@ export default class HomePage {
     
     <article id="stage${post.acf.stageNumber}" class="grid-item" onclick="chosen(${post.acf.stageNumber})" onmouseover="goTo(${post.acf.stageNumber})" onmouseout="goFrom(${post.acf.stageNumber})">
 
-    <section class="backgroundimg" style="background-image: url('${getFeaturedImageUrl(post)}')" >
-    <div id="text-backgroundimg">
-    <div class="title-distance">
-    <h3>${post.title.rendered}</h3>
-    <h4> (${post.acf.distance} km)</h4>
-    </div>
-    <div class="start-end">
-    <h5>${post.acf.startpoint}</h5> 
-    -
-    <h5>${post.acf.endpoint}</h5>
-    </div>
-    </div>
-    </section>
+      <section class="backgroundimg" style="background-image: url('${getFeaturedImageUrl(post)}')" >
+        <div id="text-backgroundimg">
+          <div class="title-distance">
+            <h3>${post.title.rendered}</h3>
+            <h4> (${post.acf.distance} km)</h4>
+          </div>
+          <div class="start-end">
+            <h5>${post.acf.startpoint}</h5> 
+            -
+            <h5>${post.acf.endpoint}</h5>
+          </div>
+        </div>
+      </section>
 
     
-    <section class="dropdown">
-    <ul id="tabs-swipe-demo" class="tabs">
-    <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
-    <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
-    <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${this._posts}); showSlides(${slideService.slideIndex})">Hvad siger andre?</li>
-  </ul>
-  <hr id="hr${post.acf.stageNumber}" />
-  <div id="description${post.acf.stageNumber}">
-  <div class="flexcontainer">
-  <p class="zoom" onclick="zoomToEtape(${post.acf.stageNumber})">Zoom til etape</p>
-  <p class="zoom" onclick="zoomOut()">Zoom ud til hele ruten</p>
-  </div>
-  ${post.content.rendered}
-  <a class="gpx" href="geojson/Camino-Frøs-Herred-${post.acf.stageNumber}.gpx" download>Download GPX-fil (${post.acf.stageNumber})</a>
-  </div>
-
-  <div class="none tabImages" id="images${post.acf.stageNumber}">${post.acf.images}</div>
-  
-  <div class="none" id="comments${post.acf.stageNumber}">
-    <article class="sayArticle slideshow-container">
-      <section>
-        <div class="numbertext">1 / 3</div>
-        <section id="content${post.acf.stageNumber}">
+      <section class="dropdown">
+        <ul id="tabs-swipe-demo" class="tabs">
+          <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
+          <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
+          <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${this._posts}); showSlides(${slideService.slideIndex})">Hvad siger andre?</li>
+        </ul>
+        <hr id="hr${post.acf.stageNumber}" />
         
-        </section>
-      </section>
-      <button>Hvad siger du?</button>
+        <div id="description${post.acf.stageNumber}">
+          <div class="flexcontainer">
+            <p class="zoom" onclick="zoomToEtape(${post.acf.stageNumber})">Zoom til etape</p>
+            <p class="zoom" onclick="zoomOut()">Zoom ud til hele ruten</p>
+          </div>
+          ${post.content.rendered}
+          <a class="gpx" href="geojson/Camino-Frøs-Herred-${post.acf.stageNumber}.gpx" download>Download GPX-fil (${post.acf.stageNumber})</a>
+        </div>
 
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </article>
-  </div>
-    </section>
+        <div class="none tabImages" id="images${post.acf.stageNumber}">${post.acf.images}</div>
+  
+        <div class="none" id="comments${post.acf.stageNumber}">
+          <article class="sayArticle slideshow-container">
+            <section>
+              <div class="numbertext">1 / 3</div>
+              <section id="content${post.acf.stageNumber}">
+              </section>
+            </section>
+            <button>Hvad siger du?</button>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </article>
+        </div>
+      </section>
     
     </article> `
     }

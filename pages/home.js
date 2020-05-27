@@ -1,4 +1,5 @@
 import fetchService from "./../services/fetch.js"
+import crudService from "./../services/crud.js"
 export default class HomePage {
   constructor() {
     this.template();
@@ -101,14 +102,13 @@ export default class HomePage {
     <ul id="tabs-swipe-demo" class="tabs">
     <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
     <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
-    <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber})">Hvad siger andre?</li>
-    
+    <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${crudService._posts}) ">Hvad siger andre?</li>
   </ul>
   <hr id="hr${post.acf.stageNumber}" />
   <div id="description${post.acf.stageNumber}"> <!-- <p id="etape-description">-->${post.content.rendered}<!--</p>-->
 </div>
   <div class="none" id="images${post.acf.stageNumber}">${post.acf.images}</div>
-  <div class="none" onclick="appendPosts(posts)" id="comments${post.acf.stageNumber}"><p>${post.acf.crud}</p></div>
+  <div class="none" id="comments${post.acf.stageNumber}"></div>
   
     </section>
     

@@ -1,11 +1,11 @@
 // import { map } from "./../main.js";
-import HomePage from "../pages/home.js"
-class crudService {
+
+class CrudService {
     constructor() {
         this._dataRef = _db.collection("posts")
-        this._posts;
         this.read()
-        this.appendPosts(this._posts);
+        this._posts = [];
+        //this.appendPosts(this._posts);
     };
 
 
@@ -13,8 +13,7 @@ class crudService {
 // 1: data from firebase
 // watch the database ref for changes
 read() {
- _dataRef.onSnapshot(snapshotData => {
-    this._posts = []; // reset _posts
+ this._dataRef.onSnapshot(snapshotData => {
     snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
       let post = doc.data(); // save the data in a variable
       console.log(post); 
@@ -26,23 +25,26 @@ read() {
 
 // append users to the DOM
 appendPosts(posts) {
+  console.log(posts);
     let htmlTemplate = "";
     for (let post of posts) {
     console.log(post.id);
     console.log(post.name);
       htmlTemplate += `
       <article>
-        <h2>${post.image}</h2>
+        <img src="${post.image}">
         <p>${post.text}</p>
         <p>${post.name}</p>
         <button></button>
       </article>
       `;
     }
-    document.querySelector(`#comments${post.acf.stageNumber}`).innerHTML = htmlTemplate;
+    document.querySelector(`#comments${post.etape}`).innerHTML = htmlTemplate;
+    console.log(post.etape);
+    
   }
 
 }
 
-const crudService = new crudService();
+const crudService = new CrudService();
 export default crudService;

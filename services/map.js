@@ -56,7 +56,7 @@ class MapService {
         className: `line${number}`,
         lineCap: 'round'
       })
-      this.fitBounds.push({ number: number, bounds: poly._bounds, southWest: poly._bounds._southWest, northEast: poly._bounds._northEast })
+      this.fitBounds.push({ number: number, southWest: poly._bounds._southWest, northEast: poly._bounds._northEast })
       poly.addTo(map);
 
       let coordinateStart = coordinates[0];

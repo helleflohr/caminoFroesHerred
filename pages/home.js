@@ -108,7 +108,7 @@ export default class HomePage {
   <div id="description${post.acf.stageNumber}"> <!-- <p id="etape-description">-->${post.content.rendered}<!--</p>-->
 </div>
   <div class="none" id="images${post.acf.stageNumber}">${post.acf.images}</div>
-  <div class="none" id="comments${post.acf.stageNumber}"><p>${post.acf.crud}</p></div>
+  <div class="none" onclick="appendPosts(posts)" id="comments${post.acf.stageNumber}"><p>${post.acf.crud}</p></div>
   
     </section>
     

@@ -1,8 +1,9 @@
-import fetchService from "./services/fetch.js"
+
 // import your hideAllPages
 import HomePage from "./pages/home.js";
 
 // import your services
+import fetchService from "./services/fetch.js"
 import spaService from "./services/spa.js";
 import mapService from "./services/map.js";
 
@@ -21,6 +22,8 @@ let homePage = new HomePage();
 
 
 // init services
+fetchService.fetchDescription();
+fetchService.fetchMarkers();
 spaService.init();
 
 mapService.fetchGeoJson();

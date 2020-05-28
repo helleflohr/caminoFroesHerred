@@ -87,10 +87,12 @@ myFunctionModal() {
   this.modalSay.style.display = "block";
     };
 }
-/* 
+
 closeFunction() {
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+ // Get the modal
+ this.modalSay = document.getElementById("commentsModal");
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = () => {
@@ -104,7 +106,7 @@ closeOutsideModal(event) {
   if (event.target == modalSay) {
     modalSay.style.display = "none";
   }
-} */
+}
 
 
 

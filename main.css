@@ -674,6 +674,23 @@ aside h3 {
   background-color: var(--camino-green);
 }
 
+.dropdown .zoom {
+  text-align: center;
+  color: var(--text-color-light);
+  background-color: var(--camino-blue);
+  border-radius: 25px;
+  width: 50%;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.zoom:hover {
+  /* color: var(--camino-yellow); */
+  background-color: var(--camino-green);
+}
+
+/* ---------- modal ---------- */
+
 #btnSay {
   margin-top: 10%;
 }
@@ -692,19 +709,46 @@ aside h3 {
   z-index: 1000;
 }
 
-.dropdown .zoom {
-  text-align: center;
-  color: var(--text-color-light);
-  background-color: var(--camino-blue);
-  border-radius: 25px;
-  width: 50%;
-  margin-bottom: 1em;
-  cursor: pointer;
+ /* Modal Content/Box */
+ .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 75%; /* Could be more or less, depending on screen size */
+  height: 70vh;
+  overflow: scroll;
 }
 
-.zoom:hover {
-  /* color: var(--camino-yellow); */
-  background-color: var(--camino-green);
+#postForm {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20%;
+}
+
+#postForm h2, #postForm input, #postForm button {
+  display: block;
+  margin: 0 auto
+}
+
+#postForm h2 {
+  text-align: center; color: var(--camino-green);
+}
+
+ /* The Close Button */
+ .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* ---------- images popup styling ---------- */

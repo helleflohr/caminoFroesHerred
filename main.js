@@ -45,7 +45,8 @@ window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.underlineTab = () => stageService.underlineTab();
 window.plusSlides = () => slideService.plusSlides();
 window.createUser = () => crudService.createUser();
-window.closeOutsideModal = (event) => crudService.closeOutsideModal(event);
+window.closeOutsideModal = (event) => crudService.closeOutsideModal(event); 
+window.closeFunction = () => crudService.closeFunction();
 window.createUser = () => crudService.createUser();
 window.myFunctionModal = () => crudService.myFunctionModal();
 

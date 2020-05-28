@@ -157,13 +157,16 @@ export default class HomePage {
           </div>
 
           <section id="commentsModal" class="modal">
+    <div class="modal-content">
+    <span class="close">&times;</span>
       <form id="postForm">
-    <h2>Create a new post</h2>
+    <h2>Opret et kommentar</h2>
     <input type="text" id="name" placeholder="Type your name" required>
     <input type="text" id="text" placeholder="Type your comment" required>
     <input type="image" id="image" placeholder="Choose image" required>
     <button class="zoom" type="button" name="button" onclick="createUser()">Create User</button>
   </form>
+  </div>
       </section>
         </div>
         

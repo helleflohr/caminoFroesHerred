@@ -1,9 +1,11 @@
 import {
     map
 } from "./../main.js";
+// import fetchService from "./../services/fetch.js"
 class MapInfoService {
     constructor() {
         this.createMarkers();
+        // this.getDataForCheckbox(fetchService.markers);
     }
 
     createMarkers() {

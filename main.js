@@ -1,8 +1,9 @@
-import fetchService from "./services/fetch.js"
+
 // import your hideAllPages
 import HomePage from "./pages/home.js";
 
 // import your services
+import fetchService from "./services/fetch.js"
 import spaService from "./services/spa.js";
 import mapService from "./services/map.js";
 
@@ -21,6 +22,8 @@ let homePage = new HomePage();
 
 
 // init services
+fetchService.fetchDescription();
+fetchService.fetchMarkers();
 spaService.init();
 
 mapService.fetchGeoJson();
@@ -31,8 +34,8 @@ window.dropdownDescription = () => homePage.dropdownDescription();
 window.goTo = (number) => scrollService.goTo(number);
 window.goFrom = (number) => scrollService.goFrom(number);
 window.chosen = (number) => scrollService.chosen(number);
-window.scrollToEtape = (number) => scrollService.scrollToEtape(number);
-window.zoomToEtape = (number) => scrollService.zoomToEtape(number);
+window.scrollToStage = (number) => scrollService.scrollToStage(number);
+window.zoomToStage = (number) => scrollService.zoomToStage(number);
 window.zoomOut = () => scrollService.zoomOut();
 window.tabs = (tab, number) => scrollService.tabs(tab, number);
 window.scrollToElement = (element) => scrollService.scrollToElement(element);
@@ -49,5 +52,6 @@ export let map = new L.Map("mapid", {
     zoom: 12
     // layers: [cities]
 });
+
 
 // window.createMap = () => mapService.createMap();

@@ -127,7 +127,7 @@ export default class HomePage {
 
         <div id="description${post.acf.stageNumber}">
           <div class="flexcontainer">
-            <p class="zoom" onclick="zoomToEtape(${post.acf.stageNumber})">Zoom til etape</p>
+            <p class="zoom" onclick="zoomToStage(${post.acf.stageNumber})">Zoom til etape</p>
             <p class="zoom" onclick="zoomOut()">Zoom ud til hele ruten</p>
           </div>
           <div class="descriptionDiv">

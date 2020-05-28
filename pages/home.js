@@ -10,12 +10,12 @@ export default class HomePage {
 
   template() {
     document.getElementById('content').innerHTML += /*html*/ `
-      <section id="home" class="page no-print">
+      <section id="home" class="page ">
        <!-- <header class="topbar">
           <h2>Home</h2>
         </header> -->
           <!-- frontpage image and info bar -->
-  <section id="frontpageImage" class="no-print">
+  <section id="frontpageImage" >
   <div id="frontpageLogoDiv">
   <img id="frontpageLogo" src="../images/cfhlogo.png">
   </div>
@@ -26,7 +26,7 @@ export default class HomePage {
   
   </section>
 
-  <section id="frontpageSection" class="no-print">
+  <section id="frontpageSection" >
   <img class="arrow generalArrow" src="../images/ikoner/pil-generelt.svg">
     <div>
       <img src="../images/ikoner/generelt.svg">
@@ -60,7 +60,7 @@ export default class HomePage {
         
           <div id="mapid"></div>
           <div id="infoBox"></div>
-          <div id="grid-posts" class="grid-container no-print"></div>
+          <div id="grid-posts" class="grid-container"></div>
         
         
       </section>

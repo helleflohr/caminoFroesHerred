@@ -341,33 +341,34 @@ h2 {
   margin: 2% 0 0 0;
 }
 
-#frontpageSection .arrow{
+#frontpageSection .arrow {
   position: absolute;
   /* height: 10vh; */
   fill: #22523C;
   stroke: #22523C;
 }
 
-#frontpageSection .descriptionArrow{
+#frontpageSection .descriptionArrow {
   right: 10%;
   bottom: 1%;
   height: 15vh;
   /* height: 500px; */
 }
 
-#frontpageSection .mapArrow{
-  left:30%;
+#frontpageSection .mapArrow {
+  left: 30%;
   bottom: 1%;
   height: 15vh;
   /* height: 500px; */
 }
 
-#frontpageSection .generalArrow{
+#frontpageSection .generalArrow {
   left: 15%;
   bottom: 15%;
   height: 10vh;
   /* height: 500px; */
 }
+
 /* ---------- map ---------- */
 #mapid {
   height: 100vh;
@@ -786,6 +787,7 @@ aside h3 {
   padding: 1% 20%;
   text-align: left;
 }
+
 .postForm input:focus {
   outline: 0;
 }
@@ -864,24 +866,6 @@ input[type=file] {
   z-index: 2;
 }
 
-/* ---------- print styling ---------- */
-
-@media print {
-  html * {
-    visibility: hidden;
-  }
-
-  #mapid * {
-    visibility: visible;
-  }
-
-  #mapid {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-}
 
 
 /* ---------- leaflet controle styling ---------- */

@@ -861,7 +861,7 @@ align-items: center;
 
 .leaflet-control-layers-expanded label div span {
   padding: 0;
-  margin: 0;
+  margin: .2em 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

@@ -75,11 +75,26 @@ class MapInfoService {
             Busstop = new iconClass({
                 iconUrl: 'images/ikoner-map/Busstop.svg'
             }),
-            Forplejningsmuligheder = new iconClass({
-                iconUrl: 'images/ikoner-map/Forplejningsmuligheder.svg'
+            Forplejningsmulighed = new iconClass({
+                iconUrl: 'images/ikoner-map/Forplejningsmulighed.svg'
             }),
             SeværdighederAttraktioner = new iconClass({
                 iconUrl: 'images/ikoner-map/SeværdighederAttraktioner.svg'
+            }),
+            Genforeningssten = new iconClass({
+                iconUrl: 'images/ikoner-map/Genforeningssten.svg'
+            }),
+            Legeplads = new iconClass({
+                iconUrl: 'images/ikoner-map/Legeplads.svg'
+            }),
+            Indkøbsmulighed = new iconClass({
+                iconUrl: 'images/ikoner-map/Indkøbsmulighed.svg'
+            }),
+            Parkering = new iconClass({
+                iconUrl: 'images/ikoner-map/Parkering.svg'
+            }),
+            Hvilested = new iconClass({
+                iconUrl: 'images/ikoner-map/Hvilested.svg'
             })
         let iconArr = [];
         let stayArr = [];
@@ -88,12 +103,15 @@ class MapInfoService {
         let ToiletterArr = [];
         let OvernatningArr = [];
         let KanopladsArr = [];
-
         let VandpostArr = [];
         let UdkigspunktArr = [];
-
         let BusstopArr = [];
-        let ForplejningsmulighederArr = [];
+        let ForplejningsmulighedArr = [];
+        let GenforeningsstenArr = [];
+        let LegepladsArr = [];
+        let IndkøbsmulighedArr = [];
+        let ParkeringArr = [];
+        let HvilestedArr = [];
         for (let post of json) {
             iconArr.push(post.acf.infotype);
 
@@ -131,7 +149,12 @@ class MapInfoService {
         UdkigspunktArr = L.layerGroup(UdkigspunktArr);
 
         BusstopArr = L.layerGroup(BusstopArr);
-        ForplejningsmulighederArr = L.layerGroup(ForplejningsmulighederArr);
+        ForplejningsmulighedArr = L.layerGroup(ForplejningsmulighedArr);
+        GenforeningsstenArr = L.layerGroup(GenforeningsstenArr);
+        LegepladsArr = L.layerGroup(LegepladsArr);
+        IndkøbsmulighedArr = L.layerGroup(IndkøbsmulighedArr);
+        ParkeringArr = L.layerGroup(ParkeringArr);
+        HvilestedArr = L.layerGroup(HvilestedArr);
 
 
         // Be on map from start

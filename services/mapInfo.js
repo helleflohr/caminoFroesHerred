@@ -6,6 +6,7 @@ class MapInfoService {
     constructor() {
         this.createMarkers();
         // this.iconSize();
+        this.iconSizes = 29;
 
     }
 
@@ -37,12 +38,14 @@ class MapInfoService {
     };
 
     getDataForCheckbox(json) {
+
+        console.log(this.iconSizes, this.iconSizes / 2)
         let iconClass = L.Icon.extend({
             options: {
                 // shadowUrl: 'images/and.jpg',
-                iconSize: [29, 29], // size of the icon
+                iconSize: [this.iconSizes, this.iconSizes], // size of the icon
                 shadowSize: [50, 64], // size of the shadow
-                iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
+                iconAnchor: [this.iconSizes / 2, this.iconSizes / 2], // point of the icon which will correspond to marker's location
                 shadowAnchor: [4, 62], // the same for the shadow
                 popupAnchor: [0, -15] // point from which the popup should open relative to the iconAnchor
             }
@@ -51,8 +54,8 @@ class MapInfoService {
 
 
         let Seng = new iconClass({
-                iconUrl: 'images/ikoner-map/Seng.svg'
-            }),
+            iconUrl: 'images/ikoner-map/Seng.svg'
+        }),
             Kirke = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirke.svg'
             }),
@@ -215,10 +218,6 @@ class MapInfoService {
         L.control.browserPrint.mode.auto();
         L.control.browserPrint.mode.custom();
 
-        L.control.layers([], overlayMaps, {
-            position: 'bottomleft'
-        }).addTo(map);
-
 
         let template = "";
         for (const markerType of iconArr) {
@@ -239,37 +238,18 @@ class MapInfoService {
             let currentZoom = map.getZoom();
 
 
-            // console.log(document.querySelectorAll('.leaflet-control-layers-selector'));
-            // let leafletCheckboxes = document.querySelectorAll('.leaflet-control-layers-selector');
-            // for (const checkBox of leafletCheckboxes) {
-            //     console.log(checkBox)
-            //     checkBox.addEventListener("onclick", function () { // Listen for a click on an image
-            //         // time
-            //         if (currentZoom < 12) {
-            //             for (const icon of leafletIcons) {
-            //                 icon.style.width = '15px';
-            //                 icon.style.height = '15px';
-            //             }
-            //         } else {
-            //             for (const icon of leafletIcons) {
-            //                 icon.style.width = '29px';
-            //                 icon.style.height = '29px';
-            //             }
-            //         }
-            //     }, 5000);
-            // }
-
-
 
             if (currentZoom < 12) {
+                this.iconSizes = 15;
                 for (const icon of leafletIcons) {
-                    icon.style.width = '15px';
-                    icon.style.height = '15px';
+                    icon.style.width = `${this.iconSizes}px`;
+                    icon.style.height = `${this.iconSizes}px`;
                 }
             } else {
+                this.iconSizes = 29;
                 for (const icon of leafletIcons) {
-                    icon.style.width = '29px';
-                    icon.style.height = '29px';
+                    icon.style.width = `${this.iconSizes}px`;
+                    icon.style.height = `${this.iconSizes}px`;
                 }
             }
         });
@@ -286,14 +266,16 @@ class MapInfoService {
             checkBox.addEventListener("onchange", () => { // Listen for a click on an image
                 // time
                 if (currentZoom < 12) {
+                    this.iconSizes = 15;
                     for (const icon of leafletIcons) {
-                        icon.style.width = '15px';
-                        icon.style.height = '15px';
+                        icon.style.width = `${this.iconSizes}px`;
+                        icon.style.height = `${this.iconSizes}px`;
                     }
                 } else {
+                    this.iconSizes = 29;
                     for (const icon of leafletIcons) {
-                        icon.style.width = '29px';
-                        icon.style.height = '29px';
+                        icon.style.width = `${this.iconSizes}px`;
+                        icon.style.height = `${this.iconSizes}px`;
                     }
                 }
             }, 5000);

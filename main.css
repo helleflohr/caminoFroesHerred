@@ -865,7 +865,7 @@ align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 92%;
   height: auto;
   background-color: transparent;
 
@@ -875,29 +875,30 @@ align-items: center;
  display: flex;
  justify-content: flex-end;
  flex-wrap: wrap;
-  width: 54%;
+  width: 45%;
+  height: auto;
   /* background-color: #22523C; */
 }
 .leaflet-control-layers-expanded label div span div img{
- 
-  width: 30%;
+ margin: 0 3%;
+  width: 25%;
 }
 .leaflet-control-layers-expanded label div span p {
   color: var(--camino-blue);
   vertical-align: middle;
   font-family: 'JosefinSans', Arial, sans-serif;
   font-size: 1.2em;
-  width: 40%;
+  width: 45%;
   cursor: pointer;
 }
 
-.leaflet-control-layers-expanded label div span img {
+/* .leaflet-control-layers-expanded label div span img {
   max-height: 100%;
-  width: 18%;
+  width: 10%;
   margin: 0;
   padding: 0;
   vertical-align: middle;
-}
+} */
 
 
 

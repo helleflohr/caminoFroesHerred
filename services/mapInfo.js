@@ -48,8 +48,8 @@ class MapInfoService {
         })
 
 
-        let Hotel = new iconClass({
-            iconUrl: 'images/ikoner-map/Hotel.svg'
+        let Seng = new iconClass({
+            iconUrl: 'images/ikoner-map/Seng.svg'
         }),
             Kirke = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirke.svg'
@@ -155,7 +155,7 @@ class MapInfoService {
                 stayIcon += `<div>${imageIcons}</div>`
                 overlayLine = `<p>${icon}</p>${stayIcon}`;
             } else {
-                overlayLine = `<p>${icon}</p><img src='images/ikoner-map/${icon}.svg' />`;
+                overlayLine = `<p>${icon}</p><div><img src='images/ikoner-map/${icon}.svg' /></div>`;
             }
 
             // let overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
@@ -190,7 +190,7 @@ class MapInfoService {
             template += /*html*/ `
                     <div class="boxIcon">
                     <input type="checkbox" id='check${markerType}' onclick="showOrHide(${markerType})">
-                  <p>${markerType}</p> <img src="images/${markerType}.png">
+                  <p>${markerType}</p> <img src="images/ikoner-map/${markerType}.svg">
                   </div>
                   `
         }

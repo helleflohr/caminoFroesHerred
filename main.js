@@ -21,8 +21,11 @@ let homePage = new HomePage();
 
 
 // init services
-fetchService.fetchDescription();
-fetchService.fetchMarkers();
+async function Load() {
+    await fetchService.fetchDescription();
+    await fetchService.fetchMarkers();
+}
+Load();
 spaService.init();
 
 mapService.fetchGeoJson();

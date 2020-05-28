@@ -434,11 +434,17 @@ aside h3 {
 }
 
 .sayText {
-  width: 50%;
+  margin-left: 10%;
+  width: 40%;
 }
 
 .sayImage {
-  width: 50%;
+  margin-right: 10%;
+  width: 40%;
+}
+
+.sayImage img {
+  width: 100%;
 }
 
 .sayBtn {

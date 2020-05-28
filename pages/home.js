@@ -121,7 +121,7 @@ export default class HomePage {
         <ul id="tabs-swipe-demo" class="tabs">
           <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
           <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber}); bigImg(${post.acf.stageNumber})">Billeder</li>
-          <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${this._posts}); showSlides(${slideService.slideIndex})">Hvad siger andre?</li>
+          <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${post.acf.stageNumber}); showSlides(${slideService.slideIndex}, ${post.acf.stageNumber})">Hvad siger andre?</li>
         </ul>
         <hr id="hr${post.acf.stageNumber}" />
 
@@ -140,16 +140,16 @@ export default class HomePage {
         <div class="none" id="comments${post.acf.stageNumber}">
           <article class="sayArticle slideshow-container">
             <section>
-              <div class="numbertext">1 / 3</div>
+              
               <section id="content${post.acf.stageNumber}">
               </section>
             </section>
-            <button>Hvad siger du?</button>
-
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            
+            
           </article>
+          <button class="sayBtn">Hvad siger du?</button>
         </div>
+
       </section>
     
     </article> `

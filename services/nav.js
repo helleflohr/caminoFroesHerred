@@ -242,7 +242,6 @@ class ScrollService {
                             let imgText = document.getElementById("imgtext"); // Element for imagetext
                             expandedImg.src = image.src; // Set the expanded image src to the choosen image src
                             imgText.innerHTML = image.alt; // Set the text from the alt attribute
-                            // Show the container element (hidden with CSS)
                             expandedImg.parentElement.parentElement.style.display = "block"; // Show the ancestor
                         }, false);
                     }

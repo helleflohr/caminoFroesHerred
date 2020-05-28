@@ -389,6 +389,8 @@ aside h3 {
 .boxIcon input {
   align-self: center;
   cursor: pointer;
+  border: none;
+  border-style: none;
 }
 
 .boxIcon p {
@@ -589,14 +591,15 @@ aside h3 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% auto;
-  height: 40vh;
   position: relative;
   /* -webkit-border-radius: 50px;
   -moz-border-radius: 50px; */
   border-radius: 25px;
-  /* border: 7px solid var(--camino-green); */
+
   max-width: 100%;
-  height: 30vh;
+
+  height: 15vw;
+  cursor: pointer;
 }
 
 .title-distance {
@@ -612,6 +615,7 @@ aside h3 {
   margin: 0;
   padding: 0 2%;
   color: var(--text-color-light);
+  width: auto;
   /* text-transform: uppercase; */
 
 
@@ -763,10 +767,11 @@ aside h3 {
 }
 
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+ 
+  position: relative;
+  top: 25%;
+  left: 0;
+  width: 100%;
 }
 
 .imagePopup .container img {
@@ -778,14 +783,11 @@ aside h3 {
 
 /* Expanding image text */
 #imgtext {
-  position: absolute;
-  bottom: 30%;
-  left: 50%;
-  transform: translate(-50%, 0);
   color: white;
   font-size: 20px;
   text-align: center;
   line-height: 1.5em;
+  display: block;
 }
 
 /* Closable button inside the image */
@@ -864,7 +866,7 @@ align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 92%;
   height: auto;
   background-color: transparent;
 
@@ -874,29 +876,30 @@ align-items: center;
  display: flex;
  justify-content: flex-end;
  flex-wrap: wrap;
-  width: 54%;
+  width: 45%;
+  height: auto;
   /* background-color: #22523C; */
 }
 .leaflet-control-layers-expanded label div span div img{
- 
-  width: 30%;
+ margin: 0 3%;
+  width: 25%;
 }
 .leaflet-control-layers-expanded label div span p {
   color: var(--camino-blue);
   vertical-align: middle;
   font-family: 'JosefinSans', Arial, sans-serif;
   font-size: 1.2em;
-  width: 40%;
+  width: 45%;
   cursor: pointer;
 }
 
-.leaflet-control-layers-expanded label div span img {
+/* .leaflet-control-layers-expanded label div span img {
   max-height: 100%;
-  width: 18%;
+  width: 10%;
   margin: 0;
   padding: 0;
   vertical-align: middle;
-}
+} */
 
 
 

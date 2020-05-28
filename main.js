@@ -43,6 +43,13 @@ window.bigImg = (image) => scrollService.bigImg(image);
 window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.underlineTab = () => stageService.underlineTab();
+window.plusSlides = () => slideService.plusSlides();
+window.createUser = () => crudService.createUser();
+window.closeOutsideModal = (event) => crudService.closeOutsideModal(event); 
+window.closeFunction = () => crudService.closeFunction();
+window.createUser = () => crudService.createUser();
+window.myFunctionModal = () => crudService.myFunctionModal();
+
 window.appendPosts = (etapeNr) => crudService.appendPosts(etapeNr);
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.showSlides = (n, number) => slideService.showSlides(n, number);

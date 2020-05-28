@@ -6,10 +6,11 @@ import mapInfoService from "./mapInfo.js"
 class MapService {
   constructor() {
     this.fitBounds = [];
+    this.description = fetchService.descriptions
   }
 
-  fetchGeoJson() {
-    console.log(fetchService.descriptions)
+  async fetchGeoJson() {
+    console.log(fetchService.descriptions, this.description)
     let numberOfStages = 11
 
     for (let i = 1; i < (numberOfStages + 1); i++) {

@@ -102,6 +102,7 @@ export default class HomePage {
     
     <article id="stage${post.acf.stageNumber}" class="grid-item" onmouseover="goTo(${post.acf.stageNumber})" onmouseout="goFrom(${post.acf.stageNumber})">
 
+    <!--------- Etapeimages on the map ------->
       <section class="backgroundimg" style="background-image: url('${getFeaturedImageUrl(post)}')" onclick="chosen(${post.acf.stageNumber})" >
         <div id="text-backgroundimg">
           <div class="title-distance">
@@ -116,7 +117,7 @@ export default class HomePage {
         </div>
       </section>
 
-    
+      <!--------- dropdown with description, images and comments ------->
       <section class="dropdown">
         <ul id="tabs-swipe-demo" class="tabs">
           <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
@@ -125,6 +126,7 @@ export default class HomePage {
         </ul>
         <hr id="hr${post.acf.stageNumber}" />
 
+        <!--------- description content ------->
         <div id="description${post.acf.stageNumber}">
           <div class="flexcontainer">
             <p class="zoom" onclick="zoomToStage(${post.acf.stageNumber})">Zoom til etape</p>
@@ -135,8 +137,10 @@ export default class HomePage {
           <a class="gpx" href="geojson/Camino-Frøs-Herred-${post.acf.stageNumber}.gpx" download>Download GPX-fil (${post.acf.stageNumber})</a>
         </div>
 
-        <div class="none" id="images${post.acf.stageNumber}")"><div class="tabImages" >hi</div></div>
+        <!--------- images content ------->
+        <div class="none" id="images${post.acf.stageNumber}"><div class="tabImages"></div></div>
   
+        <!--------- comments content ------->
         <div class="none" id="comments${post.acf.stageNumber}">
           <article class="sayArticle slideshow-container">
             <section>
@@ -144,12 +148,28 @@ export default class HomePage {
               <section id="content${post.acf.stageNumber}">
               </section>
             </section>
-            
-            
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
           </article>
-          <button class="sayBtn">Hvad siger du?</button>
-        </div>
 
+          <div>
+          <button id="btnSay" class="zoom" onclick="myFunctionModal()">Hvad siger du?</button>
+          </div>
+
+          <section id="commentsModal" class="modal">
+    <div class="modal-content">
+    <span class="close">&times;</span>
+      <form id="postForm">
+    <h2>Opret et kommentar</h2>
+    <input type="text" id="name" placeholder="Type your name" required>
+    <input type="text" id="text" placeholder="Type your comment" required>
+    <input type="image" id="image" placeholder="Choose image" required>
+    <button class="zoom" type="button" name="button" onclick="createUser()">Create User</button>
+  </form>
+  </div>
+      </section>
+        </div>
+        
       </section>
     
     </article> `

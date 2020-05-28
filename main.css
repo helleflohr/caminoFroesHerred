@@ -679,6 +679,68 @@ aside h3 {
   background-color: var(--camino-green);
 }
 
+/* ---------- modal ---------- */
+
+#btnSay {
+  margin-top: 10%;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  z-index: 1000;
+}
+
+ /* Modal Content/Box */
+ .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 75%; /* Could be more or less, depending on screen size */
+  height: 70vh;
+  overflow: scroll;
+}
+
+#postForm {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20%;
+}
+
+#postForm h2, #postForm input, #postForm button {
+  display: block;
+  margin: 0 auto
+}
+
+#postForm h2 {
+  text-align: center; color: var(--camino-green);
+}
+
+ /* The Close Button */
+ .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* ---------- images popup styling ---------- */
 /* The expanding image container (positioning is needed to position the close button and the text) */
 .imagePopup {
@@ -773,15 +835,16 @@ aside h3 {
 
 
 .leaflet-control-layers-expanded {
-  width: 15vw !important;
-  background-color: var(--camino-blue-transpartent);
+  width: 20vw !important;
+	background-color: var(--camino-blue-transpartent);
 }
 
-.leaflet-control-layers-expanded label div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  align-items: center;
+.leaflet-control-layers-expanded label div{
+display: flex;
+flex-wrap: wrap;
+justify-content: start;
+align-items: center;
+/* width: 100%; */
 
 }
 
@@ -792,17 +855,30 @@ aside h3 {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 90%;
   height: auto;
   background-color: transparent;
 
 }
 
+.leaflet-control-layers-expanded label div span div {
+ display: flex;
+ justify-content: flex-end;
+ flex-wrap: wrap;
+  width: 54%;
+  /* background-color: #22523C; */
+}
+.leaflet-control-layers-expanded label div span div img{
+ 
+  width: 30%;
+}
 .leaflet-control-layers-expanded label div span p {
   color: var(--camino-blue);
   vertical-align: middle;
   font-family: 'JosefinSans', Arial, sans-serif;
   font-size: 1.2em;
+  width: 40%;
+  cursor: pointer;
 }
 
 .leaflet-control-layers-expanded label div span img {

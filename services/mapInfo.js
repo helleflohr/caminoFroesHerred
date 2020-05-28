@@ -9,7 +9,7 @@ class MapInfoService {
     }
 
     createMarkers() {
-        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3")
+        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=100")
             .then(function (response) {
                 return response.json();
             })
@@ -107,9 +107,12 @@ class MapInfoService {
 
             if (icon == "Overnatning") {
                 let stayIcon = "";
+                let imageIcons = "";
                 for (const stay of stayArr) {
-                    stayIcon += `<img src='images/${stay}.png' />`
+                    imageIcons += `<img src='images/${stay}.png' />`
+
                 }
+                stayIcon += `<div>${imageIcons}</div>`
                 overlayLine = `<p>${icon}</p>${stayIcon}`;
             } else {
                 overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;

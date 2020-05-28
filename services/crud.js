@@ -4,12 +4,12 @@ class CrudService {
     this._dataRef = _db.collection("posts")
     this.read()
     this._posts = [];
-    // this._newPost = {
-    //   name: nameInput.value,
-    //   text: textInput.value,
-    //   image: imageInput.value
-    // };
-
+   /* this._newPost = {
+      name: nameInput.value,
+      text: textInput.value,
+      image: imageInput.value
+    }; */
+  
     //this.appendPosts(this._posts);
 
 

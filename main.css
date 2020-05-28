@@ -718,8 +718,8 @@ aside h3 {
   width: 75%; /* Could be more or less, depending on screen size */
   height: 70vh;
   overflow: scroll;
+  border-radius: 25px;
 }
-
 #postForm {
   width: 50%;
   display: block;
@@ -734,7 +734,16 @@ aside h3 {
 
 #postForm h2 {
   text-align: center; color: var(--camino-green);
+  margin-bottom: 4%;
 }
+
+#postForm input {
+  border-radius: 25px;
+  border-color: var(--camino-green);
+  padding: 1% 20%;
+  text-align: left;
+}
+
 
  /* The Close Button */
  .close {

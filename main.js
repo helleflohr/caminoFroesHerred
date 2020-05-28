@@ -43,9 +43,16 @@ window.bigImg = (image) => scrollService.bigImg(image);
 window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.underlineTab = () => stageService.underlineTab();
-window.appendPosts = () => crudService.appendPosts();
 window.plusSlides = () => slideService.plusSlides();
+window.createUser = () => crudService.createUser();
+window.closeOutsideModal = (event) => crudService.closeOutsideModal(event); 
+window.closeFunction = () => crudService.closeFunction();
+window.createUser = () => crudService.createUser();
+window.myFunctionModal = () => crudService.myFunctionModal();
 
+window.appendPosts = (etapeNr) => crudService.appendPosts(etapeNr);
+window.plusSlides = (n, number) => slideService.plusSlides(n, number);
+window.showSlides = (n, number) => slideService.showSlides(n, number);
 
 export let map = new L.Map("mapid", {
     center: new L.LatLng(55.356480, 9.157975),

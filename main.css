@@ -414,35 +414,25 @@ aside h3 {
 .sayArticle {
   border: 1px solid var(--camino-green);
   border-radius: 10px;
-  height: 150px;
+  height: auto;
 }
 
-/* .sayArticle div {
-  text-align: center;
-  width: 50%;
-}
-
-.sayArticle img {
-  width: 40%;
-}
-
-.sayArticle p {
-  font-style: italic;
-} */
-
-.say {
+/* .say {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 .sayText {
   margin-left: 10%;
-  width: 40%;
+  width: 80%;
+  font-style: italic;
+  margin: 0 auto;
 }
 
 .sayImage {
   margin-right: 10%;
-  width: 40%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .sayImage img {
@@ -519,10 +509,10 @@ aside h3 {
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
+  color: var(--camino-green);
   font-size: 12px;
   padding: 8px 12px;
-  position: absolute;
+  text-align: center;
   top: 0;
 }
 
@@ -721,8 +711,8 @@ aside h3 {
   width: 75%; /* Could be more or less, depending on screen size */
   height: 70vh;
   overflow: scroll;
+  border-radius: 25px;
 }
-
 #postForm {
   width: 50%;
   display: block;
@@ -737,7 +727,16 @@ aside h3 {
 
 #postForm h2 {
   text-align: center; color: var(--camino-green);
+  margin-bottom: 4%;
 }
+
+#postForm input {
+  border-radius: 25px;
+  border-color: var(--camino-green);
+  padding: 1% 20%;
+  text-align: left;
+}
+
 
  /* The Close Button */
  .close {

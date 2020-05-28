@@ -13,7 +13,7 @@ class FetchService {
             })
             .then((json) => {
                 this.descriptions = json;
-                console.log(this.descriptions)
+                // console.log(this.descriptions)
                 // this.appendPosts(json)
 
 
@@ -28,7 +28,7 @@ class FetchService {
             .then((json) => {
                 // this.getDataForCheckbox(json);
                 this.markers = json;
-                console.log(this.markers)
+                // console.log(this.markers)
             });
     }
 }

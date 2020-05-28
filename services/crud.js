@@ -30,23 +30,31 @@ class CrudService {
   appendPosts(etapeNr) {
 
     document.querySelector(`#content${etapeNr}`).innerHTML = "";
-
+    let total = 0;
+    let number = 0;
 
     for (let post of this._posts) {
       if (etapeNr === post.etape) {
+        total += 1
+      }
+    }
+
+    for (let post of this._posts) {
+      if (etapeNr === post.etape) {
+        number += 1
         document.querySelector(`#content${post.etape}`).innerHTML += `
       <div class="mySlides fade">
-        <div class="numbertext">x / y</div>
+        <div class="numbertext">${number} / ${total}</div>
         <div class="say">
+        <div class="sayImage">
+          <img src="${post.image}">
+        </div>
           <div class="sayText">
           <p>"${post.text}"</p>
           <p>-${post.name}</p>
-           
         </div>
-        <div class="sayImage">
-          <img src="${post.image}">
-         
-        </div>
+
+        
         <a class="prev" onclick="plusSlides(-1, ${etapeNr})">&#10094;</a>
         <a class="next" onclick="plusSlides(1, ${etapeNr})">&#10095;</a>
       <div>
@@ -57,13 +65,13 @@ class CrudService {
     // document.querySelector(`#content${etape}`).innerHTML = htmlTemplate;
   }
 
-/*   // ========== CREATE ==========
+  // ========== CREATE ==========
 // add a new user to firestore (database)
 createUser() {
   // references to the input fields
-  let nameInput = document.querySelector('#name');
-  let textInput = document.querySelector('#text');
-  let imageInput = document.querySelector('#image');
+  let nameInput = document.querySelector('.name');
+  let textInput = document.querySelector('.text');
+  let imageInput = document.querySelector('.image');
   console.log(nameInput.value);
   console.log(textInput.value);
   console.log(imageInput.value);
@@ -75,38 +83,29 @@ createUser() {
   };
 
   this._dataRef.add(newPost);
-} */
+} 
 
 // When the user clicks on the button, open the modal
-myFunctionModal() {
+myFunctionModal(number) {
    // Get the modal
-   this.modalSay = document.getElementById("commentsModal");
-  // Get the button that opens the modal
-  this.btnSay = document.getElementById("btnSay");
-  this.btnSay.onclick = () => {
-  this.modalSay.style.display = "block";
+   let modalSay = document.getElementById(`commentsModal${number}`);
+  modalSay.style.display = "block";
     };
-}
 
-closeFunction() {
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
- // Get the modal
- this.modalSay = document.getElementById("commentsModal");
-
+closeFunction(element) {
 // When the user clicks on <span> (x), close the modal
-span.onclick = () => {
-  modalSay.style.display = "none";
-}
+element.parentElement.parentElement.style.display = "none";
 }
 
+/* // When the user clicks anywhere outside of the modal, close it
+closeOutsideModal(event, number) {
+ // Get the modal
+ let modalSay = document.getElementById(`commentsModal${number}`);
 
-// When the user clicks anywhere outside of the modal, close it
-closeOutsideModal(event) {
   if (event.target == modalSay) {
     modalSay.style.display = "none";
-  }
-}
+  } 
+} */
 
 
 

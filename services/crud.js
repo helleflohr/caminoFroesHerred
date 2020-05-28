@@ -19,7 +19,7 @@ class CrudService {
     this._dataRef.onSnapshot(snapshotData => {
       snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
         let post = doc.data(); // save the data in a variable
-        console.log(post);
+        // console.log(post);
         post.id = doc.id; // add the id to the data variable
         this._posts.push(post); // push the data object to the global array  _posts
       });
@@ -27,25 +27,36 @@ class CrudService {
   }
 
   // append users to the DOM
-  appendPosts() {
-    console.log(this._posts);
-    let htmlTemplate = "";
-    let etape;
+  appendPosts(etapeNr) {
+
+    document.querySelector(`#content${etapeNr}`).innerHTML = "";
+
+
     for (let post of this._posts) {
-      etape = post.etape
-      htmlTemplate += `
+      if (etapeNr === post.etape) {
+        document.querySelector(`#content${post.etape}`).innerHTML += `
       <div class="mySlides fade">
-      <p>"${post.text}"</p>
-      <p>-${post.name}</p>
-      </div>
-  
+        <div class="numbertext">x / y</div>
+        <div class="say">
+          <div class="sayText"></div>
+          <p>"${post.text}"</p>
+          <p>-${post.name}</p>
+           
+        </div>
+        <div class="sayImage">
+          <img src="${post.image}">
+          <a class="prev" onclick="plusSlides(-1, ${etapeNr})">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, ${etapeNr})">&#10095;</a>
+        </div>
+       
       <div>
-      <img src="${post.image}">
+      
       </div>
     `;
+      }
     }
 
-    document.querySelector(`#content${etape}`).innerHTML = htmlTemplate;
+    // document.querySelector(`#content${etape}`).innerHTML = htmlTemplate;
   }
 
 /*   // ========== CREATE ==========

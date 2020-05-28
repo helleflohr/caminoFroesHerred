@@ -96,6 +96,7 @@ export default class HomePage {
     });
 
     for (let post of posts) {
+
       // console.log(post);
       document.querySelector("#grid-posts").innerHTML += `
     
@@ -120,29 +121,30 @@ export default class HomePage {
       <section class="dropdown">
         <ul id="tabs-swipe-demo" class="tabs">
           <li class="tabNav descriptionTab" onclick="tabs('description', ${post.acf.stageNumber})">Beskrivelse</li>
-          <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber})">Billeder</li>
-          <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${this._posts}); showSlides(${slideService.slideIndex})">Hvad siger andre?</li>
+          <li class="tabNav imagesTab" onclick="tabs('images', ${post.acf.stageNumber}); bigImg(${post.acf.stageNumber})">Billeder</li>
+          <li class="tabNav commentsTab" onclick="tabs('comments', ${post.acf.stageNumber}); appendPosts(${post.acf.stageNumber}); showSlides(${slideService.slideIndex}, ${post.acf.stageNumber})">Hvad siger andre?</li>
         </ul>
         <hr id="hr${post.acf.stageNumber}" />
 
         <!--------- description content ------->
         <div id="description${post.acf.stageNumber}">
           <div class="flexcontainer">
-            <p class="zoom" onclick="zoomToEtape(${post.acf.stageNumber})">Zoom til etape</p>
+            <p class="zoom" onclick="zoomToStage(${post.acf.stageNumber})">Zoom til etape</p>
             <p class="zoom" onclick="zoomOut()">Zoom ud til hele ruten</p>
           </div>
-          ${post.content.rendered}
+          <div class="descriptionDiv">
+         </div>
           <a class="gpx" href="geojson/Camino-Frøs-Herred-${post.acf.stageNumber}.gpx" download>Download GPX-fil (${post.acf.stageNumber})</a>
         </div>
 
         <!--------- images content ------->
-        <div class="none" id="images${post.acf.stageNumber}"><div class="tabImages">${post.acf.images}</div></div>
+        <div class="none" id="images${post.acf.stageNumber}"><div class="tabImages"></div></div>
   
         <!--------- comments content ------->
         <div class="none" id="comments${post.acf.stageNumber}">
           <article class="sayArticle slideshow-container">
             <section>
-              <div class="numbertext">1 / 3</div>
+              
               <section id="content${post.acf.stageNumber}">
               </section>
             </section>
@@ -168,7 +170,9 @@ export default class HomePage {
       </section>
     
     </article> `
+      // console.log(post.acf, post.acf.images)
     }
+
 
   };
 

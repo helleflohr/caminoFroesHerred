@@ -9,18 +9,19 @@ class SlideService {
 
 
   // Next/previous controls
-  plusSlides(n) {
-    showSlides(this.slideIndex += n);
+  plusSlides(n, number) {
+    showSlides(this.slideIndex += n, number);
+    console.log(n, number);
+
   }
 
-  showSlides(n) {
-    console.log(n);
+  showSlides(n, number) {
 
-
-
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
+    let i;
+    let etape = document.querySelector(`#stage${number}`);
+    let slides = etape.getElementsByClassName("mySlides");
     console.log(slides);
+
     if (n > slides.length) {
       this.slideIndex = 1
     }

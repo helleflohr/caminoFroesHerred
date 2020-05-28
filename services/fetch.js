@@ -6,13 +6,13 @@ class FetchService {
         // this.fetchDescription();
         // this.fetchMarkers();
     }
-    fetchDescription() {
-        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
+    async fetchDescription() {
+        await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
             .then((response) => {
                 return response.json();
             })
             .then((json) => {
-                this.descriptions = json;
+                await this.descriptions = json;
                 console.log(this.descriptions)
                 // this.appendPosts(json)
 
@@ -20,14 +20,14 @@ class FetchService {
             });
     }
 
-    fetchMarkers() {
-        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=100")
+    async fetchMarkers() {
+        await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=100")
             .then(function (response) {
                 return response.json();
             })
             .then((json) => {
                 // this.getDataForCheckbox(json);
-                this.markers = json;
+                await this.markers = json;
                 console.log(this.markers)
             });
     }

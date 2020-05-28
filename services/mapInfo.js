@@ -213,10 +213,15 @@ class MapInfoService {
             manualMode: false
         }).addTo(map)
 
+        L.control.browserPrint.mode.custom();
         L.control.browserPrint.mode.landscape();
         L.control.browserPrint.mode.portrait();
-        L.control.browserPrint.mode.auto();
-        L.control.browserPrint.mode.custom();
+
+        L.Control.BrowserPrint.Event.PrePrint({
+            pageSize,
+            pageBounds,
+            printObjects
+        }).addTo(map)
 
 
         let template = "";

@@ -161,7 +161,11 @@ export default class HomePage {
     <h2>Opret et opslag</h2>
     <input type="text" class="formName" placeholder="Type your name" required>
     <input type="text" class="formText" placeholder="Type your comment" required>
-    <input type="image" class="formImage" placeholder="Choose image" required>
+    <input id="hidefileimg"type="file" ref="fileInput" accept="image/*" onchange="previewImage()"> <!-- skjult via styling -->
+    <button type="button" class="formImage" onclick="triggerChooseImg()" > Vælg billede </button>
+    <div>
+    <img src="" class="image-preview">
+  </div>
     <button class="zoom" type="button" name="button" onclick="createUser()">Create User</button>
   </form>
   </div>

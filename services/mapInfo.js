@@ -88,10 +88,10 @@ class MapInfoService {
         let ToiletterArr = [];
         let OvernatningArr = [];
         let KanopladsArr = [];
-        let ShelterArr = [];
+
         let VandpostArr = [];
         let UdkigspunktArr = [];
-        let TeltArr = [];
+
         let BusstopArr = [];
         let ForplejningsmulighederArr = [];
         for (let post of json) {
@@ -126,10 +126,10 @@ class MapInfoService {
         OvernatningArr = L.layerGroup(OvernatningArr);
 
         KanopladsArr = L.layerGroup(KanopladsArr);
-        ShelterArr = L.layerGroup(ShelterArr);
+
         VandpostArr = L.layerGroup(VandpostArr);
         UdkigspunktArr = L.layerGroup(UdkigspunktArr);
-        TeltArr = L.layerGroup(TeltArr);
+
         BusstopArr = L.layerGroup(BusstopArr);
         ForplejningsmulighederArr = L.layerGroup(ForplejningsmulighederArr);
 

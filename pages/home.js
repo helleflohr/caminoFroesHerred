@@ -153,17 +153,17 @@ export default class HomePage {
           </article>
 
           <div>
-          <button id="btnSay" class="zoom" onclick="myFunctionModal()">Hvad siger du?</button>
+          <button id="btnSay" class="zoom" onclick="myFunctionModal(${post.acf.stageNumber})">Hvad siger du?</button>
           </div>
 
-          <section id="commentsModal" class="modal">
+          <section id="commentsModal${post.acf.stageNumber}" onclick="closeOutsideModal(this,${post.acf.stageNumber})" class="modal">
     <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close" onclick="closeFunction(this)">&times;</span>
       <form id="postForm">
-    <h2>Opret et kommentar</h2>
-    <input type="text" id="name" placeholder="Type your name" required>
-    <input type="text" id="text" placeholder="Type your comment" required>
-    <input type="image" id="image" placeholder="Choose image" required>
+    <h2>Opret et opslag</h2>
+    <input type="text" class="formName" placeholder="Type your name" required>
+    <input type="text" class="formText" placeholder="Type your comment" required>
+    <input type="image" class="formImage" placeholder="Choose image" required>
     <button class="zoom" type="button" name="button" onclick="createUser()">Create User</button>
   </form>
   </div>

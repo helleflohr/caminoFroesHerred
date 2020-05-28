@@ -313,24 +313,27 @@ nav span {
   background-color: var(--camino-green);
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 #frontpageSection div {
-  width: 29%;
+  width: 26%;
   margin: 0 2%;
 }
 
 #frontpageSection img {
-  height: 2.5em;
-  margin-top: 4%;
+  height: 3vh;
+  margin-top: 2vh;
 }
 
 #frontpageSection h2 {
   cursor: pointer;
+  /* font-size: 15%; */
+  height: 5vh;
 }
 
 #frontpageSection p {
-  height: 12vh;
+  height: 13vh;
   overflow-y: auto;
 }
 
@@ -338,7 +341,34 @@ h2 {
   margin: 2% 0 0 0;
 }
 
-/*  map  */
+#frontpageSection .arrow{
+  position: absolute;
+  /* height: 10vh; */
+  fill: #22523C;
+  stroke: #22523C;
+}
+
+#frontpageSection .descriptionArrow{
+  right: 10%;
+  bottom: 1%;
+  height: 15vh;
+  /* height: 500px; */
+}
+
+#frontpageSection .mapArrow{
+  left:30%;
+  bottom: 1%;
+  height: 15vh;
+  /* height: 500px; */
+}
+
+#frontpageSection .generalArrow{
+  left: 15%;
+  bottom: 15%;
+  height: 10vh;
+  /* height: 500px; */
+}
+/* ---------- map ---------- */
 #mapid {
   height: 100vh;
   width: 90vw;
@@ -706,9 +736,9 @@ aside h3 {
   top: 0;
   width: 100%;
   /* Full width */
-  height: 100%;
+  height: 100vh;
   /* Full height */
-  overflow: auto;
+  overflow: hidden;
   /* Enable scroll if needed */
   background-color: rgb(0, 0, 0);
   /* Fallback color */
@@ -727,7 +757,6 @@ aside h3 {
   width: 75%;
   /* Could be more or less, depending on screen size */
   height: 70vh;
-  overflow: scroll;
   border-radius: 25px;
 }
 
@@ -868,7 +897,7 @@ input[type=file] {
 .leaflet-control-layers-toggle {
   border: 2px solid var(--camino-blue);
   border-radius: 5px;
-  width: 10vw !important;
+  width: 13vw !important;
   background-position: 3px 50%;
   padding: 3px;
   padding-left: 36px;

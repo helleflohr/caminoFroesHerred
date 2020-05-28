@@ -21,14 +21,16 @@ let homePage = new HomePage();
 
 
 // init services
-async function Load() {
-    await fetchService.fetchDescription();
-    await fetchService.fetchMarkers();
-}
-Load();
+// async function Load() {
+//     await fetchService.fetchDescription();
+//     await fetchService.fetchMarkers();
+// }
+// Load();
 spaService.init();
 
 mapService.fetchGeoJson();
+// mapInfoService.iconSize();
+
 
 
 window.pageChange = () => spaService.pageChange();
@@ -61,6 +63,8 @@ export let map = new L.Map("mapid", {
     zoom: 12
     // layers: [cities]
 });
+
+
 
 
 // var layer = 'KirkeArr';//define the layer that contains the markers

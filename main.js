@@ -1,4 +1,3 @@
-
 // import your hideAllPages
 import HomePage from "./pages/home.js";
 
@@ -43,9 +42,9 @@ window.bigImg = (image) => scrollService.bigImg(image);
 window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.underlineTab = () => stageService.underlineTab();
-window.plusSlides = () => slideService.plusSlides();
+window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.createUser = () => crudService.createUser();
-window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number); 
+window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number);
 window.closeFunction = (element) => crudService.closeFunction(element);
 window.createUser = () => crudService.createUser();
 window.myFunctionModal = (number) => crudService.myFunctionModal(number);

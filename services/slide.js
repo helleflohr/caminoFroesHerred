@@ -19,6 +19,8 @@ class SlideService {
 
     let i;
     let etape = document.querySelector(`#stage${number}`);
+    console.log(etape);
+
     let slides = etape.getElementsByClassName("mySlides");
     console.log(slides);
 

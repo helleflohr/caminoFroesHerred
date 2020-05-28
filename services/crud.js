@@ -30,23 +30,31 @@ class CrudService {
   appendPosts(etapeNr) {
 
     document.querySelector(`#content${etapeNr}`).innerHTML = "";
-
+    let total = 0;
+    let number = 0;
 
     for (let post of this._posts) {
       if (etapeNr === post.etape) {
+        total += 1
+      }
+    }
+
+    for (let post of this._posts) {
+      if (etapeNr === post.etape) {
+        number += 1
         document.querySelector(`#content${post.etape}`).innerHTML += `
       <div class="mySlides fade">
-        <div class="numbertext">x / y</div>
+        <div class="numbertext">${number} / ${total}</div>
         <div class="say">
+        <div class="sayImage">
+          <img src="${post.image}">
+        </div>
           <div class="sayText">
           <p>"${post.text}"</p>
           <p>-${post.name}</p>
-           
         </div>
-        <div class="sayImage">
-          <img src="${post.image}">
-         
-        </div>
+
+        
         <a class="prev" onclick="plusSlides(-1, ${etapeNr})">&#10094;</a>
         <a class="next" onclick="plusSlides(1, ${etapeNr})">&#10095;</a>
       <div>

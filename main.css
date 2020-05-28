@@ -233,6 +233,7 @@ nav {
   height: 4vh;
   border-radius: 50%;
   background-color: var(--text-color-light);
+  border-color: var(--text-color-light);
   color: var(--text-color-dark);
   margin: 0vh auto;
   font-family: 'abolition-soft';
@@ -242,6 +243,10 @@ nav {
 
 .navbtn:hover {
   border: 3px solid var(--camino-yellow);
+}
+
+.navbtn:focus {
+  outline: 0;
 }
 
 .selected {
@@ -690,30 +695,41 @@ aside h3 {
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
   z-index: 1000;
 }
 
- /* Modal Content/Box */
- .modal-content {
+/* Modal Content/Box */
+.modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
+  /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 75%; /* Could be more or less, depending on screen size */
+  width: 75%;
+  /* Could be more or less, depending on screen size */
   height: 70vh;
   overflow: scroll;
   border-radius: 25px;
 }
+
 #postForm {
   width: 50%;
   display: block;
@@ -721,13 +737,16 @@ aside h3 {
   margin-top: 20%;
 }
 
-#postForm h2, #postForm input, #postForm button {
+#postForm h2,
+#postForm input,
+#postForm button {
   display: block;
   margin: 0 auto
 }
 
 #postForm h2 {
-  text-align: center; color: var(--camino-green);
+  text-align: center;
+  color: var(--camino-green);
   margin-bottom: 4%;
 }
 
@@ -739,12 +758,22 @@ aside h3 {
 }
 
 
- /* The Close Button */
- .close {
+/* The Close Button */
+.close {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
+}
+
+input[type=file] {
+  display: none;
+}
+
+.image-preview {
+  max-width: 350px;
+  width: 100%;
+  padding: 1em 0;
 }
 
 .close:hover,
@@ -767,7 +796,7 @@ aside h3 {
 }
 
 .container {
- 
+
   position: relative;
   top: 25%;
   left: 0;
@@ -847,15 +876,15 @@ aside h3 {
 
 .leaflet-control-layers-expanded {
   width: 20vw !important;
-	background-color: var(--camino-blue-transpartent);
+  background-color: var(--camino-blue-transpartent);
 }
 
-.leaflet-control-layers-expanded label div{
-display: flex;
-flex-wrap: wrap;
-justify-content: start;
-align-items: center;
-/* width: 100%; */
+.leaflet-control-layers-expanded label div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  /* width: 100%; */
 
 }
 
@@ -873,17 +902,19 @@ align-items: center;
 }
 
 .leaflet-control-layers-expanded label div span div {
- display: flex;
- justify-content: flex-end;
- flex-wrap: wrap;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
   width: 45%;
   height: auto;
   /* background-color: #22523C; */
 }
-.leaflet-control-layers-expanded label div span div img{
- margin: 0 3%;
+
+.leaflet-control-layers-expanded label div span div img {
+  margin: 0 3%;
   width: 25%;
 }
+
 .leaflet-control-layers-expanded label div span p {
   color: var(--camino-blue);
   vertical-align: middle;

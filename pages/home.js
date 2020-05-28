@@ -142,14 +142,12 @@ export default class HomePage {
   
         <!--------- comments content ------->
         <div class="none" id="comments${post.acf.stageNumber}">
-          <article class="sayArticle slideshow-container">
+          <article class="slideshow-container">
             <section>
-              
-              <section id="content${post.acf.stageNumber}">
-              </section>
+              <section id="content${post.acf.stageNumber}"></section>
             </section>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <a class="prev" onclick="plusSlides(-1, ${post.acf.stageNumber})">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, ${post.acf.stageNumber})">&#10095;</a>
           </article>
 
           <div>
@@ -163,7 +161,11 @@ export default class HomePage {
     <h2>Opret et opslag</h2>
     <input type="text" class="formName" placeholder="Type your name" required>
     <input type="text" class="formText" placeholder="Type your comment" required>
-    <input type="image" class="formImage" placeholder="Choose image" required>
+    <input id="hidefileimg"type="file" ref="fileInput" accept="image/*" onchange="previewImage()"> <!-- skjult via styling -->
+    <button type="button" class="formImage" onclick="triggerChooseImg()" > Vælg billede </button>
+    <div>
+    <img src="" class="image-preview">
+  </div>
     <button class="zoom" type="button" name="button" onclick="createUser()">Create User</button>
   </form>
   </div>

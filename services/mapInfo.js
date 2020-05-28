@@ -107,9 +107,12 @@ class MapInfoService {
 
             if (icon == "Overnatning") {
                 let stayIcon = "";
+                let imageIcons = "";
                 for (const stay of stayArr) {
-                    stayIcon += `<img src='images/${stay}.png' />`
+                    imageIcons += `<img src='images/${stay}.png' />`
+
                 }
+                stayIcon += `<div>${imageIcons}</div>`
                 overlayLine = `<p>${icon}</p>${stayIcon}`;
             } else {
                 overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;

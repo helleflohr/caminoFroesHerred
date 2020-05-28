@@ -745,7 +745,7 @@ aside h3 {
 
 
 .leaflet-control-layers-expanded {
-  width: 15vw !important;
+  width: 20vw !important;
 	background-color: var(--camino-blue-transpartent);
 }
 
@@ -754,6 +754,7 @@ display: flex;
 flex-wrap: wrap;
 justify-content: start;
 align-items: center;
+/* width: 100%; */
 
 }
 
@@ -764,17 +765,30 @@ align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 90%;
   height: auto;
   background-color: transparent;
   
 }
 
+.leaflet-control-layers-expanded label div span div {
+ display: flex;
+ justify-content: flex-end;
+ flex-wrap: wrap;
+  width: 54%;
+  /* background-color: #22523C; */
+}
+.leaflet-control-layers-expanded label div span div img{
+ 
+  width: 30%;
+}
 .leaflet-control-layers-expanded label div span p {
   color: var(--camino-blue);
   vertical-align: middle;
   font-family: 'JosefinSans', Arial, sans-serif;
   font-size: 1.2em;
+  width: 40%;
+  cursor: pointer;
 }
 
 .leaflet-control-layers-expanded label div span img {

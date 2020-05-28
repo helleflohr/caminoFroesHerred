@@ -34,20 +34,18 @@ class CrudService {
       <div class="mySlides fade">
         <div class="numbertext">x / y</div>
         <div class="say">
-          <div class="sayText"></div>
+          <div class="sayText">
           <p>"${post.text}"</p>
           <p>-${post.name}</p>
            
         </div>
         <div class="sayImage">
           <img src="${post.image}">
-          <a class="prev" onclick="plusSlides(-1, ${etapeNr})">&#10094;</a>
-        <a class="next" onclick="plusSlides(1, ${etapeNr})">&#10095;</a>
+         
         </div>
-       
+        <a class="prev" onclick="plusSlides(-1, ${etapeNr})">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, ${etapeNr})">&#10095;</a>
       <div>
-      
-      </div>
     `;
       }
     }

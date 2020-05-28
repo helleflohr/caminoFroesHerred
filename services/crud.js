@@ -5,6 +5,10 @@ class CrudService {
     this.read()
     this._posts = [];
     //this.appendPosts(this._posts);
+   
+
+    // this.myFunctionModal(x) // Call listener function at run time
+ 
   };
 
 
@@ -43,6 +47,55 @@ class CrudService {
 
     document.querySelector(`#content${etape}`).innerHTML = htmlTemplate;
   }
+
+/*   // ========== CREATE ==========
+// add a new user to firestore (database)
+createUser() {
+  // references to the input fields
+  let nameInput = document.querySelector('#name');
+  let textInput = document.querySelector('#text');
+  let imageInput = document.querySelector('#image');
+  console.log(nameInput.value);
+  console.log(textInput.value);
+  console.log(imageInput.value);
+
+  let newPost = {
+    name: nameInput.value,
+    text: textInput.value,
+    image: textInput.value
+  };
+
+  this._dataRef.add(newPost);
+} */
+
+// When the user clicks on the button, open the modal
+myFunctionModal() {
+   // Get the modal
+   this.modalSay = document.getElementById("commentsModal");
+  // Get the button that opens the modal
+  this.btnSay = document.getElementById("btnSay");
+  this.btnSay.onclick = () => {
+  this.modalSay.style.display = "block";
+    };
+}
+/* 
+closeFunction() {
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = () => {
+  modalSay.style.display = "none";
+}
+}
+
+
+// When the user clicks anywhere outside of the modal, close it
+closeOutsideModal(event) {
+  if (event.target == modalSay) {
+    modalSay.style.display = "none";
+  }
+} */
 
 
 

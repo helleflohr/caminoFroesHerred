@@ -41,6 +41,10 @@ window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.underlineTab = () => stageService.underlineTab();
 window.appendPosts = () => crudService.appendPosts();
 window.plusSlides = () => slideService.plusSlides();
+window.createUser = () => crudService.createUser();
+window.closeOutsideModal = (event) => crudService.closeOutsideModal(event);
+window.createUser = () => crudService.createUser();
+window.myFunctionModal = () => crudService.myFunctionModal();
 
 
 export let map = new L.Map("mapid", {

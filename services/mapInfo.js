@@ -5,9 +5,8 @@ import {
 class MapInfoService {
     constructor() {
         this.createMarkers();
-        // this.getDataForCheckbox(fetchService.markers);
-        this.x = 29;
-        this.y = 29;
+        // this.iconSize();
+
     }
 
     createMarkers() {
@@ -41,13 +40,14 @@ class MapInfoService {
         let iconClass = L.Icon.extend({
             options: {
                 // shadowUrl: 'images/and.jpg',
-                iconSize: [this.x, this.y], // size of the icon
+                iconSize: [29, 29], // size of the icon
                 shadowSize: [50, 64], // size of the shadow
-                iconAnchor: [this.x, this.y], // point of the icon which will correspond to marker's location
+                iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
                 shadowAnchor: [4, 62], // the same for the shadow
                 popupAnchor: [0, -15] // point from which the popup should open relative to the iconAnchor
             }
         })
+        // console.log(iconSize)
 
 
         let Seng = new iconClass({
@@ -114,6 +114,9 @@ class MapInfoService {
         let IndkøbsmulighedArr = [];
         let ParkeringArr = [];
         let HvilestedArr = [];
+
+        // if (this.counter == 0) {
+        // console.log(this.counter)
         for (let post of json) {
             iconArr.push(post.acf.infotype);
 
@@ -189,72 +192,10 @@ class MapInfoService {
         }
 
 
-        // var overlayMaps = {
-        //     "<p>Overnatning</p><img src='images/lyd.png' />": OvernatningArr,
-        //     "<p>Toiletter</p><img src='images/and.jpg' />": ToiletterArr
-        // };
-        // console.log(overlayMaps)
+
         L.control.layers([], overlayMaps, { position: 'bottomleft' }).addTo(map);
 
 
-        // let ar_icon_1 = [20, 20];
-        let ar_icon_2 = [10, 10];
-        // let ar_icon_1_double_size = [30, 30];
-        let ar_icon_2_double_size = [50, 50];
-
-
-        map.on('zoomend', () => {
-            console.log('Im zooming')
-            // let currentZoom = map.getZoom();
-            // this.getDataForCheckbox(json, 50, 50);
-            // if (currentZoom > 12) {
-            //     map.eachLayer(function (layer) {
-            //         console.log(layer)
-            //         // iconClass.options.iconSize = [50, 50]
-            //         return layer.setIcon(ar_icon_2);
-            //     });
-            // } else {
-            //     map.eachLayer(function (layer) {
-            //         console.log(layer)
-            //         // iconClass.options.iconSize = [50, 50];
-
-            //         return layer.setIcon(ar_icon_2_double_size);
-            //     });
-            // }
-        });
-
-
-        // var layer = 'KirkeArr';//define the layer that contains the markers
-        // map.on('zoomend', () => {
-        //     console.log('Im zooming again')
-        //     var currentZoom = map.getZoom();
-        //     if (currentZoom == 13) {
-        //         //Update X and Y based on zoom level
-        //         var x = 50; //Update x 
-        //         var y = 50; //Update Y         
-        //         var LeafIcon = L.Icon.extend({
-        //             options: {
-        //                 iconSize: [x, y] // Change icon size according to zoom level
-        //             }
-        //         });
-        //         layer.setIcon(LeafIcon);
-        //     }
-        // });
-
-
-        // let iconArr = [];
-        // for (let post of json) {
-        //     iconArr.push(post.acf.infotype);
-        //     //     let marker = L.marker([post.acf.latitude, post.acf.longitude], { icon: eval(post.acf.infotype) }).addTo(map).bindPopup(`${post.content.rendered}`)
-        //     //     marker.addTo(map)
-        //     //     // console.log(marker)
-        //     //     marker.removeFrom(map)
-        //     //     marker.addTo(map)
-        // }
-        // iconArr = [...new Set(iconArr)];
-
-
-        // console.log(iconArr);
         let template = "";
         for (const markerType of iconArr) {
             template += /*html*/ `
@@ -266,6 +207,77 @@ class MapInfoService {
         }
         let infoBox = document.querySelector('#infoBox');
         infoBox.innerHTML = template;
+
+
+        map.on('zoomend', () => {
+
+            let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
+            let currentZoom = map.getZoom();
+
+
+            // console.log(document.querySelectorAll('.leaflet-control-layers-selector'));
+            // let leafletCheckboxes = document.querySelectorAll('.leaflet-control-layers-selector');
+            // for (const checkBox of leafletCheckboxes) {
+            //     console.log(checkBox)
+            //     checkBox.addEventListener("onclick", function () { // Listen for a click on an image
+            //         // time
+            //         if (currentZoom < 12) {
+            //             for (const icon of leafletIcons) {
+            //                 icon.style.width = '15px';
+            //                 icon.style.height = '15px';
+            //             }
+            //         } else {
+            //             for (const icon of leafletIcons) {
+            //                 icon.style.width = '29px';
+            //                 icon.style.height = '29px';
+            //             }
+            //         }
+            //     }, 5000);
+            // }
+
+
+
+            if (currentZoom < 12) {
+                for (const icon of leafletIcons) {
+                    icon.style.width = '15px';
+                    icon.style.height = '15px';
+                }
+            } else {
+                for (const icon of leafletIcons) {
+                    icon.style.width = '29px';
+                    icon.style.height = '29px';
+                }
+            }
+        });
+    }
+    iconSize() {
+        let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
+        let currentZoom = map.getZoom();
+
+
+        console.log(document.querySelectorAll('.leaflet-control-layers-selector'));
+        let leafletCheckboxes = document.querySelectorAll('.leaflet-control-layers-selector');
+        for (const checkBox of leafletCheckboxes) {
+            console.log(checkBox)
+            checkBox.addEventListener("onchange", () => { // Listen for a click on an image
+                // time
+                if (currentZoom < 12) {
+                    for (const icon of leafletIcons) {
+                        icon.style.width = '15px';
+                        icon.style.height = '15px';
+                    }
+                } else {
+                    for (const icon of leafletIcons) {
+                        icon.style.width = '29px';
+                        icon.style.height = '29px';
+                    }
+                }
+            }, 5000);
+        }
+
+
+
+
     }
 
     showOrHide(arr) {

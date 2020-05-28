@@ -10,8 +10,8 @@ class MapService {
   }
 
   async fetchGeoJson() {
-    console.log(fetchService.descriptions, this.description)
-    let numberOfStages = 11
+    let descriptions = await fetchService.fetchDescription();
+    let numberOfStages = descriptions.length
 
     for (let i = 1; i < (numberOfStages + 1); i++) {
       fetch(`geojson/Camino-Frøs-Herred-${i}.gpx`)

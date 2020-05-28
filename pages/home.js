@@ -151,18 +151,22 @@ export default class HomePage {
           </article>
 
           <div>
-          <button id="btnSay" class="zoom" onclick="myFunctionModal(${post.acf.stageNumber})">Hvad siger du?</button>
+          <p id="btnSay" class="zoom" onclick="myFunctionModal(${post.acf.stageNumber})">Hvad siger du?</p>
           </div>
 
           <section id="commentsModal${post.acf.stageNumber}" onclick="closeOutsideModal(this,${post.acf.stageNumber})" class="modal">
     <div class="modal-content">
     <span class="close" onclick="closeFunction(this)">&times;</span>
-      <form id="postForm">
-    <h2>Opret et opslag</h2>
-    <input type="text" class="formName" placeholder="Type your name" required>
-    <input type="text" class="formText" placeholder="Type your comment" required>
-    <input type="image" class="formImage" placeholder="Choose image" required>
-    <button class="zoom" type="button" name="button" onclick="createUser()">Create User</button>
+      <form class="postForm">
+    <h2>Hvad siger du?</h2>
+    <input type="text" class="formName" placeholder="Skrv dit navn" required>
+    <input type="text" class="formText" placeholder="Skriv en kommentar" required>
+    <input type="file" ref="fileInput" accept="image/*" onchange="previewImage()"> <!-- skjult via styling -->
+    <button type="button" class="formImage" onclick="triggerChooseImg()" > Vælg billede </button>
+    <div>
+    <img src="" class="image-preview">
+  </div>
+    <p class="zoom" onclick="createUser()">Opret indlæg</p>
   </form>
   </div>
       </section>

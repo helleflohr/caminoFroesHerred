@@ -6,10 +6,12 @@ class MapInfoService {
     constructor() {
         this.createMarkers();
         // this.getDataForCheckbox(fetchService.markers);
+        this.x = 29;
+        this.y = 29;
     }
 
     createMarkers() {
-        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=100")
+        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=300")
             .then(function (response) {
                 return response.json();
             })
@@ -39,9 +41,9 @@ class MapInfoService {
         let iconClass = L.Icon.extend({
             options: {
                 // shadowUrl: 'images/and.jpg',
-                iconSize: [29, 29], // size of the icon
+                iconSize: [this.x, this.y], // size of the icon
                 shadowSize: [50, 64], // size of the shadow
-                iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
+                iconAnchor: [this.x, this.y], // point of the icon which will correspond to marker's location
                 shadowAnchor: [4, 62], // the same for the shadow
                 popupAnchor: [0, -15] // point from which the popup should open relative to the iconAnchor
             }
@@ -75,11 +77,26 @@ class MapInfoService {
             Busstop = new iconClass({
                 iconUrl: 'images/ikoner-map/Busstop.svg'
             }),
-            Forplejningsmuligheder = new iconClass({
-                iconUrl: 'images/ikoner-map/Forplejningsmuligheder.svg'
+            Forplejningsmulighed = new iconClass({
+                iconUrl: 'images/ikoner-map/Forplejningsmulighed.svg'
             }),
             SeværdighederAttraktioner = new iconClass({
                 iconUrl: 'images/ikoner-map/SeværdighederAttraktioner.svg'
+            }),
+            Genforeningssten = new iconClass({
+                iconUrl: 'images/ikoner-map/Genforeningssten.svg'
+            }),
+            Legeplads = new iconClass({
+                iconUrl: 'images/ikoner-map/Legeplads.svg'
+            }),
+            Indkøbsmulighed = new iconClass({
+                iconUrl: 'images/ikoner-map/Indkøbsmulighed.svg'
+            }),
+            Parkering = new iconClass({
+                iconUrl: 'images/ikoner-map/Parkering.svg'
+            }),
+            Hvilested = new iconClass({
+                iconUrl: 'images/ikoner-map/Hvilested.svg'
             })
         let iconArr = [];
         let stayArr = [];
@@ -88,12 +105,15 @@ class MapInfoService {
         let ToiletterArr = [];
         let OvernatningArr = [];
         let KanopladsArr = [];
-
         let VandpostArr = [];
         let UdkigspunktArr = [];
-
         let BusstopArr = [];
-        let ForplejningsmulighederArr = [];
+        let ForplejningsmulighedArr = [];
+        let GenforeningsstenArr = [];
+        let LegepladsArr = [];
+        let IndkøbsmulighedArr = [];
+        let ParkeringArr = [];
+        let HvilestedArr = [];
         for (let post of json) {
             iconArr.push(post.acf.infotype);
 
@@ -131,7 +151,12 @@ class MapInfoService {
         UdkigspunktArr = L.layerGroup(UdkigspunktArr);
 
         BusstopArr = L.layerGroup(BusstopArr);
-        ForplejningsmulighederArr = L.layerGroup(ForplejningsmulighederArr);
+        ForplejningsmulighedArr = L.layerGroup(ForplejningsmulighedArr);
+        GenforeningsstenArr = L.layerGroup(GenforeningsstenArr);
+        LegepladsArr = L.layerGroup(LegepladsArr);
+        IndkøbsmulighedArr = L.layerGroup(IndkøbsmulighedArr);
+        ParkeringArr = L.layerGroup(ParkeringArr);
+        HvilestedArr = L.layerGroup(HvilestedArr);
 
 
         // Be on map from start
@@ -170,6 +195,51 @@ class MapInfoService {
         // };
         // console.log(overlayMaps)
         L.control.layers([], overlayMaps, { position: 'bottomleft' }).addTo(map);
+
+
+        // let ar_icon_1 = [20, 20];
+        let ar_icon_2 = [10, 10];
+        // let ar_icon_1_double_size = [30, 30];
+        let ar_icon_2_double_size = [50, 50];
+
+
+        map.on('zoomend', () => {
+            console.log('Im zooming')
+            // let currentZoom = map.getZoom();
+            // this.getDataForCheckbox(json, 50, 50);
+            // if (currentZoom > 12) {
+            //     map.eachLayer(function (layer) {
+            //         console.log(layer)
+            //         // iconClass.options.iconSize = [50, 50]
+            //         return layer.setIcon(ar_icon_2);
+            //     });
+            // } else {
+            //     map.eachLayer(function (layer) {
+            //         console.log(layer)
+            //         // iconClass.options.iconSize = [50, 50];
+
+            //         return layer.setIcon(ar_icon_2_double_size);
+            //     });
+            // }
+        });
+
+
+        // var layer = 'KirkeArr';//define the layer that contains the markers
+        // map.on('zoomend', () => {
+        //     console.log('Im zooming again')
+        //     var currentZoom = map.getZoom();
+        //     if (currentZoom == 13) {
+        //         //Update X and Y based on zoom level
+        //         var x = 50; //Update x 
+        //         var y = 50; //Update Y         
+        //         var LeafIcon = L.Icon.extend({
+        //             options: {
+        //                 iconSize: [x, y] // Change icon size according to zoom level
+        //             }
+        //         });
+        //         layer.setIcon(LeafIcon);
+        //     }
+        // });
 
 
         // let iconArr = [];

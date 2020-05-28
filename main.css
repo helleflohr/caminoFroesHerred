@@ -232,8 +232,8 @@ nav {
   width: 4vh;
   height: 4vh;
   border-radius: 50%;
+  border: 2px solid var(--text-color-light);
   background-color: var(--text-color-light);
-  border-color: var(--text-color-light);
   color: var(--text-color-dark);
   margin: 0vh auto;
   font-family: 'abolition-soft';
@@ -242,7 +242,7 @@ nav {
 }
 
 .navbtn:hover {
-  border: 3px solid var(--camino-yellow);
+  border: 2px solid var(--camino-yellow);
 }
 
 .navbtn:focus {
@@ -681,6 +681,7 @@ aside h3 {
   width: 50%;
   margin-bottom: 1em;
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .zoom:hover {
@@ -730,31 +731,34 @@ aside h3 {
   border-radius: 25px;
 }
 
-#postForm {
+.postForm {
   width: 50%;
   display: block;
   margin: 0 auto;
   margin-top: 20%;
 }
 
-#postForm h2,
-#postForm input,
-#postForm button {
+.postForm h2,
+.postForm input,
+.postForm button {
   display: block;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
-#postForm h2 {
+.postForm h2 {
   text-align: center;
   color: var(--camino-green);
   margin-bottom: 4%;
 }
 
-#postForm input {
+.postForm input {
   border-radius: 25px;
   border-color: var(--camino-green);
   padding: 1% 20%;
   text-align: left;
+}
+.postForm input:focus {
+  outline: 0;
 }
 
 
@@ -890,7 +894,7 @@ input[type=file] {
 
 .leaflet-control-layers-expanded label div span {
   padding: 0;
-  margin: 0;
+  margin: .2em 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

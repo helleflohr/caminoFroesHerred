@@ -51,8 +51,8 @@ class MapInfoService {
 
 
         let Seng = new iconClass({
-            iconUrl: 'images/ikoner-map/Seng.svg'
-        }),
+                iconUrl: 'images/ikoner-map/Seng.svg'
+            }),
             Kirke = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirke.svg'
             }),
@@ -194,13 +194,23 @@ class MapInfoService {
         //     "<p>Toiletter</p><img src='images/and.jpg' />": ToiletterArr
         // };
         // console.log(overlayMaps)
-        L.control.layers([], overlayMaps, { position: 'bottomleft' }).addTo(map);
+        L.control.layers([], overlayMaps, {
+            position: 'bottomleft'
+        }).addTo(map);
 
+        // Printer funktion - Helle
+        L.control.browserPrint({
+            title: 'Just print me!',
+            documentTitle: 'Map printed using leaflet.browser.print plugin',
 
-        // let ar_icon_1 = [20, 20];
-        let ar_icon_2 = [10, 10];
-        // let ar_icon_1_double_size = [30, 30];
-        let ar_icon_2_double_size = [50, 50];
+            closePopupsOnPrint: false,
+            manualMode: false
+        }).addTo(map)
+
+        L.control.browserPrint.mode.landscape();
+        L.control.browserPrint.mode.portrait();
+        L.control.browserPrint.mode.auto();
+        L.control.browserPrint.mode.custom();
 
 
         map.on('zoomend', () => {

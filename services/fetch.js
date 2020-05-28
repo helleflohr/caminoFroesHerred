@@ -12,7 +12,7 @@ class FetchService {
                 return response.json();
             })
             .then((json) => {
-                await this.descriptions = json;
+                this.descriptions = json;
                 console.log(this.descriptions)
                 // this.appendPosts(json)
 
@@ -27,7 +27,7 @@ class FetchService {
             })
             .then((json) => {
                 // this.getDataForCheckbox(json);
-                await this.markers = json;
+                this.markers = json;
                 console.log(this.markers)
             });
     }

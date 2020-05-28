@@ -39,26 +39,47 @@ class MapInfoService {
         let iconClass = L.Icon.extend({
             options: {
                 // shadowUrl: 'images/and.jpg',
-                iconSize: [38, 38], // size of the icon
+                iconSize: [29, 29], // size of the icon
                 shadowSize: [50, 64], // size of the shadow
-                iconAnchor: [19, 19], // point of the icon which will correspond to marker's location
+                iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
                 shadowAnchor: [4, 62], // the same for the shadow
                 popupAnchor: [0, -15] // point from which the popup should open relative to the iconAnchor
             }
         })
 
 
-        let Hotel = new iconClass({
-            iconUrl: 'images/Hotel.png'
+        let Seng = new iconClass({
+            iconUrl: 'images/ikoner-map/Seng.svg'
         }),
             Kirke = new iconClass({
-                iconUrl: 'images/Kirke.png'
+                iconUrl: 'images/ikoner-map/Kirke.svg'
             }),
             Toiletter = new iconClass({
-                iconUrl: 'images/Toiletter.png'
+                iconUrl: 'images/ikoner-map/Toiletter.svg'
             }),
-            Hostel = new iconClass({
-                iconUrl: 'images/Hostel.png'
+            Kanoplads = new iconClass({
+                iconUrl: 'images/ikoner-map/Kanoplads.svg'
+            }),
+            Shelter = new iconClass({
+                iconUrl: 'images/ikoner-map/Shelter.svg'
+            }),
+            Vandpost = new iconClass({
+                iconUrl: 'images/ikoner-map/Vandpost.svg'
+            }),
+            Udkigspunkt = new iconClass({
+                iconUrl: 'images/ikoner-map/Udkigspunkt.svg'
+            }),
+            Telt = new iconClass({
+                iconUrl: 'images/ikoner-map/Telt.svg'
+            }),
+            Busstop = new iconClass({
+                iconUrl: 'images/ikoner-map/Busstop.svg'
+            }),
+            Forplejningsmuligheder = new iconClass({
+                iconUrl: 'images/ikoner-map/Forplejningsmuligheder.svg'
+            }),
+            SeværdighederAttraktioner = new iconClass({
+                iconUrl: 'images/ikoner-map/SeværdighederAttraktioner.svg'
             })
         let iconArr = [];
         let stayArr = [];
@@ -66,6 +87,13 @@ class MapInfoService {
         let KirkeArr = [];
         let ToiletterArr = [];
         let OvernatningArr = [];
+        let KanopladsArr = [];
+        let ShelterArr = [];
+        let VandpostArr = [];
+        let UdkigspunktArr = [];
+        let TeltArr = [];
+        let BusstopArr = [];
+        let ForplejningsmulighederArr = [];
         for (let post of json) {
             iconArr.push(post.acf.infotype);
 
@@ -97,9 +125,21 @@ class MapInfoService {
         ToiletterArr = L.layerGroup(ToiletterArr);
         OvernatningArr = L.layerGroup(OvernatningArr);
 
+        KanopladsArr = L.layerGroup(KanopladsArr);
+        ShelterArr = L.layerGroup(ShelterArr);
+        VandpostArr = L.layerGroup(VandpostArr);
+        UdkigspunktArr = L.layerGroup(UdkigspunktArr);
+        TeltArr = L.layerGroup(TeltArr);
+        BusstopArr = L.layerGroup(BusstopArr);
+        ForplejningsmulighederArr = L.layerGroup(ForplejningsmulighederArr);
+
+
         // Be on map from start
-        // map.addLayer(ToiletterArr);
-        // map.addLayer(KirkeArr);
+        map.addLayer(ToiletterArr);
+        map.addLayer(KirkeArr);
+        map.addLayer(KanopladsArr);
+        map.addLayer(VandpostArr);
+        map.addLayer(BusstopArr);
         let overlayMaps = {};
         for (const icon of iconArr) {
             let overlayLine;
@@ -109,13 +149,13 @@ class MapInfoService {
                 let stayIcon = "";
                 let imageIcons = "";
                 for (const stay of stayArr) {
-                    imageIcons += `<img src='images/${stay}.png' />`
+                    imageIcons += `<img src='images/ikoner-map/${stay}.svg' />`
 
                 }
                 stayIcon += `<div>${imageIcons}</div>`
                 overlayLine = `<p>${icon}</p>${stayIcon}`;
             } else {
-                overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
+                overlayLine = `<p>${icon}</p><div><img src='images/ikoner-map/${icon}.svg' /></div>`;
             }
 
             // let overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
@@ -150,7 +190,7 @@ class MapInfoService {
             template += /*html*/ `
                     <div class="boxIcon">
                     <input type="checkbox" id='check${markerType}' onclick="showOrHide(${markerType})">
-                  <p>${markerType}</p> <img src="images/${markerType}.png">
+                  <p>${markerType}</p> <img src="images/ikoner-map/${markerType}.svg">
                   </div>
                   `
         }

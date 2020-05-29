@@ -12,6 +12,7 @@ import stageService from "./services/stages.js"
 import slideService from "./services/slide.js";
 
 import crudService from "./services/crud.js";
+import loaderService from "./services/loader.js";
 
 
 
@@ -26,6 +27,7 @@ let homePage = new HomePage();
 //     await fetchService.fetchMarkers();
 // }
 // Load();
+loaderService.show(true);
 spaService.init();
 
 mapService.fetchGeoJson();
@@ -49,11 +51,12 @@ window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.stageSize = () => stageService.stageSize();
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.createUser = () => crudService.createUser();
-window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number);
+/* window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number); */
 window.closeFunction = (element) => crudService.closeFunction(element);
 window.createUser = () => crudService.createUser();
 window.myFunctionModal = (number) => crudService.myFunctionModal(number);
-
+window.previewImage = (file, number) => crudService.previewImage(file, number);
+window.triggerChooseImg = () => crudService.triggerChooseImg();
 window.appendPosts = (etapeNr) => crudService.appendPosts(etapeNr);
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.showSlides = (n, number) => slideService.showSlides(n, number);

@@ -71,7 +71,7 @@ class ScrollService {
 
     // Zoom out to the map overview
     zoomOut() {
-        map.setView(L.latLng(latitude, longitude), zoom) // setView to coordinates and zoomlevel
+        map.flyTo(L.latLng(latitude, longitude), zoom) // setView to coordinates and zoomlevel
     }
 
     // Function which runs when a stage (number) is choosen

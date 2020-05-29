@@ -248,7 +248,7 @@ class MapInfoService {
         });
         map.addLayer(OpenStreetMap_HOT);
 
-        L.control.locate().addTo(map);
+        L.control.locate({ initialZoomLevel: '14', flyTo: 'true' }).addTo(map);
 
 
 

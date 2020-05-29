@@ -118,7 +118,7 @@ class ScrollService {
         } else {
             stage.scrollIntoView({
                 behavior: "smooth",
-                block: "center" //...else scroll to center
+                block: "start" //...else scroll to center
             });
         }
 

@@ -204,9 +204,6 @@ class MapInfoService {
             position: 'bottomleft'
         }).addTo(map);
 
-        L.control.layers([], overlayMaps, {
-            position: 'bottomleft'
-        }).addTo(map);
 
         // --------------- Printer function - Helle ---------------
         L.control.browserPrint({

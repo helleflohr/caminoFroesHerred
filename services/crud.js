@@ -52,23 +52,10 @@ class CrudService {
         total += 1
       }
     }
-    if (total < 1) {
-      document.querySelector(`#content${etapeNr}`).innerHTML += `
-    <div class="mySlides fade">
-      <div class="numbertext">${currentNumber} / ${total}</div>
-        <div class="say">
-          <div class="sayImage">
-          </div>
-          <div class="sayText">
-          <p>Der er endnu ingen beretninger fra denne etape. Skal du være den første?</p>
-          </div>
-        </div>
-    </div>`
-    };
 
     for (let post of this._posts) {
       if (etapeNr === post.etape) {
-        number += 1
+        currentNumber += 1
         document.querySelector(`#content${post.etape}`).innerHTML += `
       <div class="mySlides fade">
         <div class="numbertext">${currentNumber} / ${total}</div>
@@ -88,6 +75,19 @@ class CrudService {
     `;
       }
     }
+    if (total < 1) {
+      document.querySelector(`#content${etapeNr}`).innerHTML += `
+    <div class="mySlides fade">
+      <div class="numbertext">${currentNumber} / ${total}</div>
+        <div class="say">
+          <div class="sayImage">
+          </div>
+          <div class="sayText">
+          <p>Der er endnu ingen beretninger fra denne etape. Skal du være den første?</p>
+          </div>
+        </div>
+    </div>`
+    };
   }
 
   // --------------- Append posts from Wordpress - End ---------------

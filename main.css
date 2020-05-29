@@ -5,6 +5,7 @@
   --camino-blue-transpartent: rgba(256, 256, 256, 0.7);
   --camino-yellow: rgb(213, 216, 34);
   --text-color-light: #FFF1DD;
+  --background-light: rgb(253, 249, 244);
   --text-color-dark: #002F38;
   --font:
 }
@@ -64,22 +65,25 @@ a {
   text-decoration: none;
 }
 
-p,
-li {
+p {
   color: var(--text-color-light);
   letter-spacing: 0em;
   line-height: 1.5em;
   font-size: .9em;
 }
 
+ul {
+  margin-bottom: 1.5%;
+}
+
 li {
+  margin-left: 2.5%;
   list-style-type: square;
-  list-style-position: inside;
-
-  display: inline;
-  text-align: justify;
-
-  /* padding-left: 0; */
+  list-style-position: outside;
+  letter-spacing: 0em;
+  line-height: 1.5em;
+  font-size: .9em;
+  color: var(--text-color-dark);
 }
 
 strong {
@@ -609,7 +613,7 @@ aside h3 {
 }
 
 .dropdown {
-  background-color: rgba(255, 241, 221, 0.527);
+  background-color: var(--background-light);
   border-radius: 25px;
   display: none;
   padding: 2% 2%;
@@ -618,7 +622,7 @@ aside h3 {
 
 .dropdown p {
   color: var(--camino-blue);
-  /* font-size: 1em; */
+  margin-top: 1.5%;
 }
 
 .backgroundimg {

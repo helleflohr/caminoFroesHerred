@@ -56,11 +56,22 @@ class SpaService {
     }
     this.showPage(page);
     if (page === 'grid-posts') {
+      document.querySelector('.navigationEtape').style.display = 'block';
+      document.querySelector('.maparea').style.display = 'block';
       stageService.stageSize();
+    } else if (page === 'home') {
+      if (window.innerWidth < 1024) {
+        document.querySelector('.navigationEtape').style.display = 'none';
+        document.querySelector('.maparea').style.display = 'none';
+      } else {
+        document.querySelector('.navigationEtape').style.display = 'block';
+        document.querySelector('.maparea').style.display = 'block';
+      }
     } else if (page === 'mapid') {
-      mapService.fetchGeoJson();
-      mapInfoService.createMarkers();
+      document.querySelector('.navigationEtape').style.display = 'block';
+      document.querySelector('.maparea').style.display = 'block';
     }
+
   }
 
   // show and hide tabbar

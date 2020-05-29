@@ -11,6 +11,8 @@ class ScrollService {
         this.numberCounter = [];
         this.numberImageCounter = [];
         this.numberDescriptionCounter = [];
+
+        this.chosenNumber;
     }
 
     // Scroll to a specific element
@@ -25,18 +27,18 @@ class ScrollService {
 
     // Scroll to the specific stage (number)
     scrollToStage(number) {
-        // let stage = document.querySelector(`#stage${number}`);
-        // if (number == 1) { // If stage 1...
-        //     stage.scrollIntoView({
-        //         behavior: "smooth",
-        //         block: "start" //...then scroll to start of the element...
-        //     });
-        // } else {
-        //     stage.scrollIntoView({
-        //         behavior: "smooth",
-        //         block: "center" //...else scroll to center
-        //     });
-        // }
+        let stage = document.querySelector(`#stage${number}`);
+        if (number == 1) { // If stage 1...
+            stage.scrollIntoView({
+                behavior: "smooth",
+                block: "start" //...then scroll to start of the element...
+            });
+        } else {
+            stage.scrollIntoView({
+                behavior: "smooth",
+                block: "center" //...else scroll to center
+            });
+        }
         console.log(number)
     }
 
@@ -73,6 +75,8 @@ class ScrollService {
     // Function which runs when a stage (number) is choosen
     chosen(number) {
         let numberOfStages = 11
+
+        this.chosenNumber = number;
 
 
         //.......................... Style distance, line on map and buttons .................................

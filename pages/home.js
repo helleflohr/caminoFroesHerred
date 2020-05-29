@@ -30,7 +30,7 @@ export default class HomePage {
   <section id="frontpageSection" class="page" >
   <img class="arrow generalArrow" src="../images/ikoner/pil-generelt.svg">
     <div>
-      <img src="../images/ikoner/generelt.svg">
+      <img src="images/ikoner/generelt.svg">
     
       <h2>Generelt</h2>
       <p>Ruten er 108 km, som bølger sig rundt i det gamle Frøs Herred. Den byder på flere spændende oplevelser på
@@ -39,7 +39,7 @@ export default class HomePage {
     </div>
     <img class="arrow mapArrow" src="../images/ikoner/pil-kort.svg">
     <div>
-    <img src="../images/ikoner/kort.svg">
+    <img src="images/ikoner/kort.svg">
    
       <h2 onclick="scrollToElement('mapid')">Kort</h2>
       <p>Du kan nemt få et overblik over hele Caminoen på kortet. Her kan du se alle 11 etaper, og vælge hvilken etape
@@ -48,7 +48,7 @@ export default class HomePage {
     </div>
     <img class="arrow descriptionArrow" src="../images/ikoner/pil-rutebeskrivelser.svg">
     <div>
-    <img src="../images/ikoner/rutebeskrivelser.svg">
+    <img src="images/ikoner/rutebeskrivelser.svg">
  
       <h2 onclick="scrollToElement('stage1')">Rutebeskrivelser</h2>
       <p>Caminoen er inddelt i 11 etaper, som giver muligheden for at gå noget af ruten og derved træne op til at kunne
@@ -91,10 +91,10 @@ export default class HomePage {
 
         setTimeout(() => {
           //fjerner spinner efter load.
-        loaderService.show(false);
-        }, 200); 
+          loaderService.show(false);
+        }, 200);
         console.log(loaderService.show(false));
-        
+
       });
   }
 
@@ -138,8 +138,8 @@ export default class HomePage {
         <!--------- description content ------->
         <div id="description${post.acf.stageNumber}">
           <div class="flexcontainer">
-            <p class="zoom" onclick="zoomToStage(${post.acf.stageNumber})">Zoom til etape</p>
-            <p class="zoom" onclick="zoomOut()">Zoom ud til hele ruten</p>
+            <p class="zoom zoomMap" onclick="zoomToStage(${post.acf.stageNumber})">Zoom til etape</p>
+            <p class="zoom zoomMap" onclick="zoomOut()">Zoom ud til hele ruten</p>
           </div>
           <div class="descriptionDiv">
          </div>

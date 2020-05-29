@@ -104,11 +104,14 @@ aside {
   bottom: 0;
   right: 0;
   z-index: 9;
-  width: 10vw;
+  /* width: 10vw; */
 }
 
 #content {
   width: 90vw;
+  height: 91vh;
+  overflow: auto;
+  background-color: var(--camino-blue);
 }
 
 
@@ -221,14 +224,14 @@ hr {
 
 /* ---------- navigation styling ---------- */
 #logoDark {
-  height: 12vh;
-  margin-top: 3vh;
-  cursor: pointer;
+display: none;
 }
 
 .navigationEtape {
   height: 100vh;
   width: 10vw;
+  /* z-index: -1; */
+  
 }
 
 .navbtn {
@@ -241,7 +244,7 @@ hr {
   color: var(--text-color-dark);
   margin: 0vh auto;
   font-family: 'abolition-soft';
-  font-size: 1.5em;
+  font-size: 2vh;
   cursor: pointer;
 }
 
@@ -282,7 +285,7 @@ hr {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  width: 90vw;
+  width: 100vw;
   height: 75vh;
   margin: 0;
   overflow: hidden;
@@ -376,11 +379,13 @@ h2 {
 
 /* ---------- map ---------- */
 #mapid {
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
   position: absolute;
   z-index: 0;
+  overflow: hidden;
 }
+
 
 .maparea {
   position: relative;
@@ -404,18 +409,12 @@ h2 {
 }
 
 #grid-posts {
-  /* position: absolute; */
   height: 100vh;
   width: 90vw;
-  /* overflow-y: scroll;
-  overflow-x: visible;
-  right: 3em;
-  margin-top: 5vh;
-  width: 30vw; */
 }
 
 aside h3 {
-  font-size: 3vh;
+  font-size: 1.5vh;
   margin: 5vh 0 3vh;
 }
 
@@ -610,7 +609,7 @@ aside h3 {
   border: 7px solid var(--camino-green);
   border-radius: 25px;
   background-color: var(--camino-green);
-  margin: 1em;
+  margin: 2vw;
   width: 90%;
   
 }
@@ -723,6 +722,9 @@ aside h3 {
 .zoom:hover {
   /* color: var(--camino-yellow); */
   background-color: var(--camino-green);
+}
+.dropdown .zoomMap{
+  display: none;
 }
 
 /* ---------- modal ---------- */
@@ -913,30 +915,31 @@ form button {
 
 
 /* ---------- leaflet controle styling ---------- */
+.leaflet-container .leaflet-control-attribution{font-size: .9vh;}
 
 .leaflet-control-layers-toggle:after {
   content: "Personliggør kortet";
   font-family: 'JosefinSans', Arial, sans-serif;
-  font-size: 1.2em;
+  font-size: 2vh;
   padding-left: .5em;
   color: #000;
 }
 
 .leaflet-control-layers-toggle {
-  border: 2px solid var(--camino-blue);
   border-radius: 5px;
-  width: 13vw !important;
-  background-position: 3px 50%;
-  padding: 3px;
+  width: 40vw !important;
+  background-position: 1vw 50%;
   padding-left: 36px;
   text-decoration: none;
-  line-height: 36px;
   background-color: var(--camino-blue-transpartent);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 
 .leaflet-control-layers-expanded {
-  width: 20vw !important;
+  width: 50vw !important;
   background-color: var(--camino-blue-transpartent);
 }
 
@@ -945,7 +948,7 @@ form button {
   flex-wrap: wrap;
   justify-content: start;
   align-items: center;
-  /* width: 100%; */
+
 
 }
 
@@ -956,7 +959,7 @@ form button {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 92%;
+  width: 80%;
   height: auto;
   background-color: transparent;
 
@@ -968,6 +971,7 @@ form button {
   flex-wrap: wrap;
   width: 45%;
   height: auto;
+
   /* background-color: #22523C; */
 }
 
@@ -978,11 +982,11 @@ form button {
 
 .leaflet-control-layers-expanded label div span p {
   color: var(--camino-blue);
-  vertical-align: middle;
   font-family: 'JosefinSans', Arial, sans-serif;
-  font-size: 1.2em;
+  font-size: 2.1vh;
   width: 45%;
   cursor: pointer;
+
 }
 
 /* .leaflet-control-layers-expanded label div span img {
@@ -1027,9 +1031,9 @@ form button {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 9999;
+  z-index: 99;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 /* Style the links inside the navigation bar */
@@ -1038,12 +1042,19 @@ form button {
   display: inline-block;
   color: var(--text-color-light);
   text-align: center;
-  padding: 20px 16px;
+  padding: 2vh;
   text-decoration: none;
-  font-size: 0.8em;
+  font-size: 2vh;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  width: 33vw;
 
+}
+
+.tabbar img{
+  height: 3vh;
+  display: block;
+  margin: 0 auto 1vh;
 }
 
 /* Change the color of links on hover */
@@ -1059,6 +1070,9 @@ form button {
   background-color: var(--camino-blue);
   color: var(--text-color-light);
 }
+
+
+
 
 
 /* ---------- styling ---------- */
@@ -1133,6 +1147,15 @@ select {
   border-radius: 0;
 } */
 
+@media only screen and (min-width: 500px) {
+  .navigationEtape {
+ 
+    width: 10vw;
+
+    
+  }
+
+}
 
 @media only screen and (min-width: 1024px) {
   #mapid{
@@ -1162,5 +1185,50 @@ select {
   }
   .container {
     top: 25%;
+  }
+  .dropdown .zoomMap{
+    display: block;
+  }
+  aside h3 {
+    font-size: 3vh;
+  }
+  #logoDark {
+    height: 12vh;
+    margin: 3vh auto 0;
+    cursor: pointer;
+    display: block;
+  }
+  #frontpageImage {
+    width: 90vw; 
+  }
+  .grid-item {
+ 
+    margin: 1em;
+ 
+    
+  }
+
+  .leaflet-control-layers-toggle {
+    width: 13vw !important; 
+    border: 2px solid var(--camino-blue);
+  }
+  .leaflet-control-layers-toggle:after {
+    font-size: 1.2em;
+  
+  }
+  .leaflet-control-layers-expanded {
+    width: 20vw !important;
+    
+  }
+  .leaflet-control-layers-expanded label div span p {
+  
+    font-size: 1.2em;
+  
+  }
+  .leaflet-control-layers-expanded label div span {
+  
+    width: 92%;
+
+  
   }
 }

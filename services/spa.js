@@ -62,6 +62,7 @@ class SpaService {
       document.querySelector('.maparea').style.display = 'block';
       stageService.stageSize();
       scrollService.scrollToStage(scrollService.chosenNumber);
+      // scrollService.tabs('description', scrollService.chosenNumber);
     } else if (page === 'home') {
       if (window.innerWidth < 1024) {
         document.querySelector('.navigationEtape').style.display = 'none';

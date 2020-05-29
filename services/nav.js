@@ -184,6 +184,8 @@ class ScrollService {
 
     //.......................... Stage tab navigation .................................
     tabs(tab, number) {
+
+        console.log(tab, number, this.trWidth[0])
         // Tab variables
         let description = document.querySelector(`#description${number}`);
         let images = document.querySelector(`#images${number}`);
@@ -195,7 +197,7 @@ class ScrollService {
         comments.style.display = 'none';
 
         let chosenTab = document.querySelector(`#${tab}${number}`); // The choosen tab
-        chosenTab.style.display = 'block'; // Show the choosen tab
+        chosenTab.style.display = 'block'; // Show the choosen tab  
 
 
 

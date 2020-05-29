@@ -6,12 +6,13 @@ import mapInfoService from "./mapInfo.js"
 class MapService {
   constructor() {
     this.fitBounds = [];
-    this.description = fetchService.descriptions
+    // this.description = fetchService.descriptions
   }
 
   async fetchGeoJson() {
-    let descriptions = await fetchService.fetchDescription();
-    let numberOfStages = descriptions.length
+    // let descriptions = await fetchService.get();
+    // console.log(fetchService.get())
+    let numberOfStages = 11
 
     for (let i = 1; i < (numberOfStages + 1); i++) {
       fetch(`geojson/Camino-Frøs-Herred-${i}.gpx`)

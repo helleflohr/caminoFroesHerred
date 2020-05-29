@@ -5,11 +5,13 @@ import {
 class MapInfoService {
     constructor() {
         this.createMarkers();
-        // this.getDataForCheckbox(fetchService.markers);
+        // this.iconSize();
+        this.iconSizes = 29;
+
     }
 
     createMarkers() {
-        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=100")
+        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=300")
             .then(function (response) {
                 return response.json();
             })
@@ -36,21 +38,24 @@ class MapInfoService {
     };
 
     getDataForCheckbox(json) {
+
+        console.log(this.iconSizes, this.iconSizes / 2)
         let iconClass = L.Icon.extend({
             options: {
                 // shadowUrl: 'images/and.jpg',
-                iconSize: [29, 29], // size of the icon
+                iconSize: [this.iconSizes, this.iconSizes], // size of the icon
                 shadowSize: [50, 64], // size of the shadow
-                iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
+                iconAnchor: [this.iconSizes / 2, this.iconSizes / 2], // point of the icon which will correspond to marker's location
                 shadowAnchor: [4, 62], // the same for the shadow
                 popupAnchor: [0, -15] // point from which the popup should open relative to the iconAnchor
             }
         })
+        // console.log(iconSize)
 
 
         let Seng = new iconClass({
-            iconUrl: 'images/ikoner-map/Seng.svg'
-        }),
+                iconUrl: 'images/ikoner-map/Seng.svg'
+            }),
             Kirke = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirke.svg'
             }),
@@ -75,11 +80,26 @@ class MapInfoService {
             Busstop = new iconClass({
                 iconUrl: 'images/ikoner-map/Busstop.svg'
             }),
-            Forplejningsmuligheder = new iconClass({
-                iconUrl: 'images/ikoner-map/Forplejningsmuligheder.svg'
+            Forplejningsmulighed = new iconClass({
+                iconUrl: 'images/ikoner-map/Forplejningsmulighed.svg'
             }),
             SeværdighederAttraktioner = new iconClass({
                 iconUrl: 'images/ikoner-map/SeværdighederAttraktioner.svg'
+            }),
+            Genforeningssten = new iconClass({
+                iconUrl: 'images/ikoner-map/Genforeningssten.svg'
+            }),
+            Legeplads = new iconClass({
+                iconUrl: 'images/ikoner-map/Legeplads.svg'
+            }),
+            Indkøbsmulighed = new iconClass({
+                iconUrl: 'images/ikoner-map/Indkøbsmulighed.svg'
+            }),
+            Parkering = new iconClass({
+                iconUrl: 'images/ikoner-map/Parkering.svg'
+            }),
+            Hvilested = new iconClass({
+                iconUrl: 'images/ikoner-map/Hvilested.svg'
             })
         let iconArr = [];
         let stayArr = [];
@@ -88,12 +108,18 @@ class MapInfoService {
         let ToiletterArr = [];
         let OvernatningArr = [];
         let KanopladsArr = [];
-        let ShelterArr = [];
         let VandpostArr = [];
         let UdkigspunktArr = [];
-        let TeltArr = [];
         let BusstopArr = [];
-        let ForplejningsmulighederArr = [];
+        let ForplejningsmulighedArr = [];
+        let GenforeningsstenArr = [];
+        let LegepladsArr = [];
+        let IndkøbsmulighedArr = [];
+        let ParkeringArr = [];
+        let HvilestedArr = [];
+
+        // if (this.counter == 0) {
+        // console.log(this.counter)
         for (let post of json) {
             iconArr.push(post.acf.infotype);
 
@@ -126,12 +152,17 @@ class MapInfoService {
         OvernatningArr = L.layerGroup(OvernatningArr);
 
         KanopladsArr = L.layerGroup(KanopladsArr);
-        ShelterArr = L.layerGroup(ShelterArr);
+
         VandpostArr = L.layerGroup(VandpostArr);
         UdkigspunktArr = L.layerGroup(UdkigspunktArr);
-        TeltArr = L.layerGroup(TeltArr);
+
         BusstopArr = L.layerGroup(BusstopArr);
-        ForplejningsmulighederArr = L.layerGroup(ForplejningsmulighederArr);
+        ForplejningsmulighedArr = L.layerGroup(ForplejningsmulighedArr);
+        GenforeningsstenArr = L.layerGroup(GenforeningsstenArr);
+        LegepladsArr = L.layerGroup(LegepladsArr);
+        IndkøbsmulighedArr = L.layerGroup(IndkøbsmulighedArr);
+        ParkeringArr = L.layerGroup(ParkeringArr);
+        HvilestedArr = L.layerGroup(HvilestedArr);
 
 
         // Be on map from start
@@ -169,22 +200,37 @@ class MapInfoService {
         //     "<p>Toiletter</p><img src='images/and.jpg' />": ToiletterArr
         // };
         // console.log(overlayMaps)
-        L.control.layers([], overlayMaps, { position: 'bottomleft' }).addTo(map);
+        L.control.layers([], overlayMaps, {
+            position: 'bottomleft'
+        }).addTo(map);
+
+        L.control.layers([], overlayMaps, {
+            position: 'bottomleft'
+        }).addTo(map);
+
+        // --------------- Printer function - Helle ---------------
+        L.control.browserPrint({
+            title: 'Just print me!',
+            documentTitle: 'Map printed using leaflet.browser.print plugin',
+
+            closePopupsOnPrint: false,
+            manualMode: false
+        }).addTo(map)
+
+        L.control.browserPrint.mode.custom();
+        L.control.browserPrint.mode.landscape();
+        L.control.browserPrint.mode.portrait();
+
+        L.Control.BrowserPrint.Event.PrePrint({
+            pageSize,
+            pageBounds,
+            printObjects
+        }).addTo(map)
+
+        // --------------- Printer function - End ---------------
 
 
-        // let iconArr = [];
-        // for (let post of json) {
-        //     iconArr.push(post.acf.infotype);
-        //     //     let marker = L.marker([post.acf.latitude, post.acf.longitude], { icon: eval(post.acf.infotype) }).addTo(map).bindPopup(`${post.content.rendered}`)
-        //     //     marker.addTo(map)
-        //     //     // console.log(marker)
-        //     //     marker.removeFrom(map)
-        //     //     marker.addTo(map)
-        // }
-        // iconArr = [...new Set(iconArr)];
 
-
-        // console.log(iconArr);
         let template = "";
         for (const markerType of iconArr) {
             template += /*html*/ `
@@ -196,6 +242,60 @@ class MapInfoService {
         }
         let infoBox = document.querySelector('#infoBox');
         infoBox.innerHTML = template;
+
+
+        map.on('zoomend', () => {
+
+            let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
+            let currentZoom = map.getZoom();
+
+
+
+            if (currentZoom < 12) {
+                this.iconSizes = 15;
+                for (const icon of leafletIcons) {
+                    icon.style.width = `${this.iconSizes}px`;
+                    icon.style.height = `${this.iconSizes}px`;
+                }
+            } else {
+                this.iconSizes = 29;
+                for (const icon of leafletIcons) {
+                    icon.style.width = `${this.iconSizes}px`;
+                    icon.style.height = `${this.iconSizes}px`;
+                }
+            }
+        });
+    }
+    iconSize() {
+        let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
+        let currentZoom = map.getZoom();
+
+
+        console.log(document.querySelectorAll('.leaflet-control-layers-selector'));
+        let leafletCheckboxes = document.querySelectorAll('.leaflet-control-layers-selector');
+        for (const checkBox of leafletCheckboxes) {
+            console.log(checkBox)
+            checkBox.addEventListener("onchange", () => { // Listen for a click on an image
+                // time
+                if (currentZoom < 12) {
+                    this.iconSizes = 15;
+                    for (const icon of leafletIcons) {
+                        icon.style.width = `${this.iconSizes}px`;
+                        icon.style.height = `${this.iconSizes}px`;
+                    }
+                } else {
+                    this.iconSizes = 29;
+                    for (const icon of leafletIcons) {
+                        icon.style.width = `${this.iconSizes}px`;
+                        icon.style.height = `${this.iconSizes}px`;
+                    }
+                }
+            }, 5000);
+        }
+
+
+
+
     }
 
     showOrHide(arr) {

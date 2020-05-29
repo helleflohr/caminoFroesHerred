@@ -99,7 +99,7 @@ class ScrollService {
         // Adds the class "selected" to the button wich has been selected
         let allButtons = document.getElementsByClassName('navbtn');
         for (const button of allButtons) {
-
+            // console.log(button)
             if (button.value == number) {
                 button.classList.add("selected");
             } else {

@@ -232,6 +232,7 @@ nav {
   width: 4vh;
   height: 4vh;
   border-radius: 50%;
+  border: 2px solid var(--text-color-light);
   background-color: var(--text-color-light);
   color: var(--text-color-dark);
   margin: 0vh auto;
@@ -241,7 +242,11 @@ nav {
 }
 
 .navbtn:hover {
-  border: 3px solid var(--camino-yellow);
+  border: 2px solid var(--camino-yellow);
+}
+
+.navbtn:focus {
+  outline: 0;
 }
 
 .selected {
@@ -308,24 +313,27 @@ nav span {
   background-color: var(--camino-green);
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 #frontpageSection div {
-  width: 29%;
+  width: 26%;
   margin: 0 2%;
 }
 
 #frontpageSection img {
-  height: 2.5em;
-  margin-top: 4%;
+  height: 3vh;
+  margin-top: 2vh;
 }
 
 #frontpageSection h2 {
   cursor: pointer;
+  /* font-size: 15%; */
+  height: 5vh;
 }
 
 #frontpageSection p {
-  height: 12vh;
+  height: 13vh;
   overflow-y: auto;
 }
 
@@ -333,7 +341,35 @@ h2 {
   margin: 2% 0 0 0;
 }
 
-/*  map  */
+#frontpageSection .arrow {
+  position: absolute;
+  /* height: 10vh; */
+  fill: #22523C;
+  stroke: #22523C;
+}
+
+#frontpageSection .descriptionArrow {
+  right: 10%;
+  bottom: 1%;
+  height: 15vh;
+  /* height: 500px; */
+}
+
+#frontpageSection .mapArrow {
+  left: 30%;
+  bottom: 1%;
+  height: 15vh;
+  /* height: 500px; */
+}
+
+#frontpageSection .generalArrow {
+  left: 15%;
+  bottom: 15%;
+  height: 10vh;
+  /* height: 500px; */
+}
+
+/* ---------- map ---------- */
 #mapid {
   height: 100vh;
   width: 90vw;
@@ -599,6 +635,7 @@ aside h3 {
   max-width: 100%;
 
   height: 15vw;
+  cursor: pointer;
 }
 
 .title-distance {
@@ -675,6 +712,7 @@ aside h3 {
   width: 50%;
   margin-bottom: 1em;
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .zoom:hover {
@@ -689,44 +727,57 @@ aside h3 {
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100vh;
+  /* Full height */
+  overflow: hidden;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
   z-index: 1000;
 }
 
- /* Modal Content/Box */
- .modal-content {
+/* Modal Content/Box */
+.modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
+  /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 75%; /* Could be more or less, depending on screen size */
+  width: 75%;
+  /* Could be more or less, depending on screen size */
   height: 70vh;
-  overflow: scroll;
   border-radius: 25px;
 }
-#postForm {
+
+.postForm {
   width: 50%;
   display: block;
   margin: 0 auto;
   margin-top: 20%;
 }
 
-#postForm h2, #postForm input, #postForm button {
+.postForm h2,
+.postForm input,
+.postForm button {
   display: block;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
-#postForm h2 {
-  text-align: center; color: var(--camino-green);
+.postForm h2 {
+  text-align: center;
+  color: var(--camino-green);
   margin-bottom: 4%;
 }
 
@@ -734,16 +785,20 @@ aside h3 {
   display: none;
 }
 
-#postForm input {
+.postForm input {
   border-radius: 25px;
   border-color: var(--camino-green);
   padding: 1% 20%;
   text-align: left;
 }
 
+.postForm input:focus {
+  outline: 0;
+}
 
- /* The Close Button */
- .close {
+
+/* The Close Button */
+.close {
   color: #aaa;
   float: right;
   font-size: 28px;
@@ -794,7 +849,7 @@ form button.secondary {
 }
 
 .container {
- 
+
   position: relative;
   top: 25%;
   left: 0;
@@ -829,24 +884,6 @@ form button.secondary {
   z-index: 2;
 }
 
-/* ---------- print styling ---------- */
-
-@media print {
-  html * {
-    visibility: hidden;
-  }
-
-  #mapid * {
-    visibility: visible;
-  }
-
-  #mapid {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-}
 
 
 /* ---------- leaflet controle styling ---------- */
@@ -862,7 +899,7 @@ form button.secondary {
 .leaflet-control-layers-toggle {
   border: 2px solid var(--camino-blue);
   border-radius: 5px;
-  width: 10vw !important;
+  width: 13vw !important;
   background-position: 3px 50%;
   padding: 3px;
   padding-left: 36px;
@@ -874,21 +911,21 @@ form button.secondary {
 
 .leaflet-control-layers-expanded {
   width: 20vw !important;
-	background-color: var(--camino-blue-transpartent);
+  background-color: var(--camino-blue-transpartent);
 }
 
-.leaflet-control-layers-expanded label div{
-display: flex;
-flex-wrap: wrap;
-justify-content: start;
-align-items: center;
-/* width: 100%; */
+.leaflet-control-layers-expanded label div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  /* width: 100%; */
 
 }
 
 .leaflet-control-layers-expanded label div span {
   padding: 0;
-  margin: 0;
+  margin: .2em 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -900,17 +937,19 @@ align-items: center;
 }
 
 .leaflet-control-layers-expanded label div span div {
- display: flex;
- justify-content: flex-end;
- flex-wrap: wrap;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
   width: 45%;
   height: auto;
   /* background-color: #22523C; */
 }
-.leaflet-control-layers-expanded label div span div img{
- margin: 0 3%;
+
+.leaflet-control-layers-expanded label div span div img {
+  margin: 0 3%;
   width: 25%;
 }
+
 .leaflet-control-layers-expanded label div span p {
   color: var(--camino-blue);
   vertical-align: middle;

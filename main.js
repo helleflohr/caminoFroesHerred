@@ -1,4 +1,3 @@
-
 // import your hideAllPages
 import HomePage from "./pages/home.js";
 
@@ -22,11 +21,16 @@ let homePage = new HomePage();
 
 
 // init services
-fetchService.fetchDescription();
-fetchService.fetchMarkers();
+// async function Load() {
+//     await fetchService.fetchDescription();
+//     await fetchService.fetchMarkers();
+// }
+// Load();
 spaService.init();
 
 mapService.fetchGeoJson();
+// mapInfoService.iconSize();
+
 
 
 window.pageChange = () => spaService.pageChange();
@@ -43,7 +47,7 @@ window.bigImg = (image) => scrollService.bigImg(image);
 window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.underlineTab = () => stageService.underlineTab();
-window.plusSlides = () => slideService.plusSlides();
+window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.createUser = () => crudService.createUser();
 window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number);
 window.closeFunction = (element) => crudService.closeFunction(element);
@@ -59,6 +63,8 @@ export let map = new L.Map("mapid", {
     zoom: 12
     // layers: [cities]
 });
+
+
 
 
 // var layer = 'KirkeArr';//define the layer that contains the markers

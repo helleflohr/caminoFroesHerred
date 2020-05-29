@@ -1,3 +1,5 @@
+// --------------- Helle ---------------
+
 import fetchService from "./fetch.js"
 import {
   map
@@ -10,8 +12,8 @@ class MapService {
   }
 
   async fetchGeoJson() {
-    console.log(fetchService.descriptions, this.description)
-    let numberOfStages = 11
+    let descriptions = await fetchService.fetchDescription();
+    let numberOfStages = descriptions.length
 
     for (let i = 1; i < (numberOfStages + 1); i++) {
       fetch(`geojson/Camino-Frøs-Herred-${i}.gpx`)
@@ -35,6 +37,7 @@ class MapService {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
     });
+
     // let layer = new L.StamenTileLayer("terrain");
     // let map = new L.Map("mapid", {
     //   center: new L.LatLng(55.366750, 9.057975),
@@ -57,7 +60,11 @@ class MapService {
         className: `line${number}`,
         lineCap: 'round'
       })
-      this.fitBounds.push({ number: number, southWest: poly._bounds._southWest, northEast: poly._bounds._northEast })
+      this.fitBounds.push({
+        number: number,
+        southWest: poly._bounds._southWest,
+        northEast: poly._bounds._northEast
+      })
       poly.addTo(map);
 
       let coordinateStart = coordinates[0];
@@ -71,6 +78,10 @@ class MapService {
         shadowAnchor: [4, 62], // the same for the shadow
         popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
       });
+
+
+
+
 
       L.marker(coordinateStart, {
         icon: dot

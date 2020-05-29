@@ -10,12 +10,12 @@ export default class HomePage {
 
   template() {
     document.getElementById('content').innerHTML += /*html*/ `
-      <section id="home" class="page no-print">
+      <section id="home" class="page ">
        <!-- <header class="topbar">
           <h2>Home</h2>
         </header> -->
           <!-- frontpage image and info bar -->
-  <section id="frontpageImage" class="no-print">
+  <section id="frontpageImage" >
   <div id="frontpageLogoDiv">
   <img id="frontpageLogo" src="../images/cfhlogo.png">
   </div>
@@ -26,23 +26,29 @@ export default class HomePage {
   
   </section>
 
-  <section id="frontpageSection" class="no-print">
+  <section id="frontpageSection" >
+  <img class="arrow generalArrow" src="../images/ikoner/pil-generelt.svg">
     <div>
       <img src="../images/ikoner/generelt.svg">
+    
       <h2>Generelt</h2>
       <p>Ruten er 108 km, som bølger sig rundt i det gamle Frøs Herred. Den byder på flere spændende oplevelser på
         højderyggen mellem Kongeåen og Gram Å, og grænser op til den gamle grænse fra 1864 og til 1920, som var en
         brydningstid for området </p>
     </div>
+    <img class="arrow mapArrow" src="../images/ikoner/pil-kort.svg">
     <div>
     <img src="../images/ikoner/kort.svg">
+   
       <h2 onclick="scrollToElement('mapid')">Kort</h2>
       <p>Du kan nemt få et overblik over hele Caminoen på kortet. Her kan du se alle 11 etaper, og vælge hvilken etape
         du ønsker information om. Du har også mulighed for at få et overblik og rutens faciliteter. Du kan også printe
         kortet hjemmefra og medbringe til turen </p>
     </div>
+    <img class="arrow descriptionArrow" src="../images/ikoner/pil-rutebeskrivelser.svg">
     <div>
     <img src="../images/ikoner/rutebeskrivelser.svg">
+ 
       <h2 onclick="scrollToElement('stage1')">Rutebeskrivelser</h2>
       <p>Caminoen er inddelt i 11 etaper, som giver muligheden for at gå noget af ruten og derved træne op til at kunne
         gå hele Caminoen en dag. For hver etape er der rutebeskrivelser som udførligt vejleder dig gennem turen. Der er
@@ -54,7 +60,7 @@ export default class HomePage {
         
           <div id="mapid"></div>
           <div id="infoBox"></div>
-          <div id="grid-posts" class="grid-container no-print"></div>
+          <div id="grid-posts" class="grid-container"></div>
         
         
       </section>
@@ -142,24 +148,22 @@ export default class HomePage {
   
         <!--------- comments content ------->
         <div class="none" id="comments${post.acf.stageNumber}">
-          <article class="sayArticle slideshow-container">
+          <article class="slideshow-container">
             <section>
-              
-              <section id="content${post.acf.stageNumber}">
-              </section>
+              <section id="content${post.acf.stageNumber}"></section>
             </section>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <a class="prev" onclick="plusSlides(-1, ${post.acf.stageNumber})">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, ${post.acf.stageNumber})">&#10095;</a>
           </article>
 
           <div>
-          <button id="btnSay" class="zoom" onclick="myFunctionModal(${post.acf.stageNumber})">Hvad siger du?</button>
+          <p id="btnSay" class="zoom" onclick="myFunctionModal(${post.acf.stageNumber})">Hvad siger du?</p>
           </div>
 
           <section id="commentsModal${post.acf.stageNumber}" onclick="closeOutsideModal(this,${post.acf.stageNumber})" class="modal">
     <div class="modal-content">
     <span class="close" onclick="closeFunction(this)">&times;</span>
-      <form id="postForm">
+      <form class="postForm">
     <h2>Opret et opslag</h2>
     <input type="text" class="formName" placeholder="Type your name" required>
     <input type="text" class="formText" placeholder="Type your comment" required>
@@ -168,7 +172,7 @@ export default class HomePage {
     <div>
     <img src="" class="image-preview">
   </div>
-    <button class="zoom" type="button" name="button" onclick="createUser()">Create User</button>
+    <p class="zoom" onclick="createUser()">Opret indlæg</p>
   </form>
   </div>
       </section>

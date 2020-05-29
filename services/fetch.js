@@ -14,24 +14,40 @@ class FetchService {
         //     })
         //     .then((json) => {
         // this.descriptions = json;
-
+        // console.log(this.descriptions)
+        // this.appendPosts(json)
 
         let response = await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
-        let jsonData = await response.json();
-        // console.log(this.descriptions)
-        // return jsonData
-        this.descriptions = await jsonData
+        this.descriptions = await response.json();
+        console.log(this.descriptions)
+        return this.descriptions
+        // this.descriptions = await jsonData
 
-    }
-    get() {
-        if (this.descriptions.length) {
-            return this.descriptions
-        } else {
-            this.fetchDescription();
-            return this.descriptions
-        }
 
+
+
+
+        //  fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
+        //     .then((response) => {
+        //         return response.json();
+        //     })
+        //     .then((json) => {
+        //         this.descriptions = json;
+        //         console.log(this.descriptions)
+        //         // this.appendPosts(json)
+
+
+        //     });
     }
+    // get() {
+    //     if (this.descriptions.length) {
+    //         return this.descriptions
+    //     } else {
+    //         this.fetchDescription();
+    //         return this.descriptions
+    //     }
+
+    // }
 
     async fetchMarkers() {
         await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=100")

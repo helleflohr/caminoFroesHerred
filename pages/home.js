@@ -26,7 +26,7 @@ export default class HomePage {
   
   </section>
 
-  <section id="frontpageSection" >
+  <section id="frontpageSection" class="page" >
   <img class="arrow generalArrow" src="../images/ikoner/pil-generelt.svg">
     <div>
       <img src="../images/ikoner/generelt.svg">
@@ -56,14 +56,14 @@ export default class HomePage {
     </div>
   </section>
 
-  <div class="maparea">
-        
-          <div id="mapid"></div>
-          <div id="infoBox"></div>
-          <div id="grid-posts" class="grid-container"></div>
+  
         
         
       </section>
+      <div class="maparea">
+        
+          <div id="mapid" class="page"></div>
+          <div id="grid-posts" class="grid-container page"></div>
     `;
   }
 

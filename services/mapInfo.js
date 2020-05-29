@@ -54,8 +54,8 @@ class MapInfoService {
 
 
         let Seng = new iconClass({
-                iconUrl: 'images/ikoner-map/Seng.svg'
-            }),
+            iconUrl: 'images/ikoner-map/Seng.svg'
+        }),
             Kirke = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirke.svg'
             }),
@@ -130,12 +130,12 @@ class MapInfoService {
             if (post.acf.infotype === "Overnatning") {
                 eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
                     icon: eval(post.acf.typeOfStay)
-                }).bindPopup(`${post.content.rendered}`));
+                }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
                 stayArr.push(post.acf.typeOfStay)
             } else {
                 eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
                     icon: eval(post.acf.infotype)
-                }).bindPopup(`${post.content.rendered}`));
+                }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
             }
         }
         iconArr = [...new Set(iconArr)];
@@ -231,17 +231,17 @@ class MapInfoService {
 
 
 
-        let template = "";
-        for (const markerType of iconArr) {
-            template += /*html*/ `
-                    <div class="boxIcon">
-                    <input type="checkbox" id='check${markerType}' onclick="showOrHide(${markerType})">
-                  <p>${markerType}</p> <img src="images/ikoner-map/${markerType}.svg">
-                  </div>
-                  `
-        }
-        let infoBox = document.querySelector('#infoBox');
-        infoBox.innerHTML = template;
+        // let template = "";
+        // for (const markerType of iconArr) {
+        //     template += /*html*/ `
+        //             <div class="boxIcon">
+        //             <input type="checkbox" id='check${markerType}' onclick="showOrHide(${markerType})">
+        //           <p>${markerType}</p> <img src="images/ikoner-map/${markerType}.svg">
+        //           </div>
+        //           `
+        // }
+        // let infoBox = document.querySelector('#infoBox');
+        // infoBox.innerHTML = template;
 
 
         map.on('zoomend', () => {

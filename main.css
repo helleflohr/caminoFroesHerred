@@ -222,7 +222,7 @@ hr {
   cursor: pointer;
 }
 
-nav {
+.navigationEtape {
   height: 100vh;
   width: 10vw;
 }
@@ -262,7 +262,7 @@ nav {
   stroke: var(--camino-yellow);
 }
 
-nav span {
+.navigationEtape span {
   display: block;
   width: .3vh;
   height: .3vh;
@@ -270,6 +270,7 @@ nav span {
   background-color: var(--text-color-light);
   margin: .3vh auto;
 }
+
 
 /* ---------- home page styling ---------- */
 #frontpageImage {
@@ -372,7 +373,7 @@ h2 {
 /* ---------- map ---------- */
 #mapid {
   height: 100vh;
-  width: 90vw;
+  width: 100vw;
   position: absolute;
   z-index: 0;
 }
@@ -399,13 +400,14 @@ h2 {
 }
 
 #grid-posts {
-  position: absolute;
-  height: 90vh;
-  overflow-y: scroll;
+  /* position: absolute; */
+  height: 100vh;
+  width: 90vw;
+  /* overflow-y: scroll;
   overflow-x: visible;
   right: 3em;
   margin-top: 5vh;
-  width: 30vw;
+  width: 30vw; */
 }
 
 aside h3 {
@@ -564,8 +566,7 @@ aside h3 {
   transition: background-color 0.6s ease;
 } */
 
-/* .active,
-.dot:hover {
+/* .active {
   background-color: #717171;
 } */
 
@@ -606,6 +607,8 @@ aside h3 {
   border-radius: 25px;
   background-color: var(--camino-green);
   margin: 1em;
+  width: 90%;
+  
 }
 
 .dropdown {
@@ -622,19 +625,17 @@ aside h3 {
 }
 
 .backgroundimg {
-  /* background-image: url("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-content/uploads/2020/05/rapsmark-scaled.jpg"); */
   background-color: #cccccc;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% auto;
   position: relative;
-  /* -webkit-border-radius: 50px;
-  -moz-border-radius: 50px; */
   border-radius: 25px;
 
   max-width: 100%;
 
-  height: 15vw;
+  /* Height untill bodyLoad */
+  height: 30vh;
   cursor: pointer;
 }
 
@@ -949,11 +950,16 @@ input[type=file] {
   vertical-align: middle;
 } */
 
-
+.leaflet-popup-content p{
+  color: var(--camino-blue);
+}
+.leaflet-popup-content img{
+  max-width: 100%;
+}
 
 /* ---------- topbar styling ---------- */
 /* --------------------- Is not used for now -------------------*/
-/* .topbar {
+.topbar {
   background-color: var(--green);
   color: var(--text-color-light);
   padding: 13.5px;
@@ -968,22 +974,24 @@ input[type=file] {
 .topbar h2 {
   margin: 0;
   font-weight: 300;
-} */
+}
 
 /* ---------- tabbar styling ---------- */
 /* --------------------- Is not used for now -------------------*/
-/* .tabbar {
-  background-color: var(--green);
+.tabbar {
+  background-color: var(--camino-green);
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-} */
+  display: flex;
+  justify-content: center;
+}
 
 /* Style the links inside the navigation bar */
 /* --------------------- Is not used for now -------------------*/
-/* .tabbar a {
+.tabbar a {
   display: inline-block;
   color: var(--text-color-light);
   text-align: center;
@@ -992,21 +1000,22 @@ input[type=file] {
   font-size: 0.8em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-} */
+
+}
 
 /* Change the color of links on hover */
 /* --------------------- Is not used for now -------------------*/
-/* .tabbar a:hover {
-  background-color: var(--light-grey);
-  color: var(--text-color-dark);
-} */
+.tabbar a:hover {
+  /* background-color: var(--light-grey); */
+  color: var(--camino-yellow);
+}
 
 /* Add a color to the active/current link */
 /* --------------------- Is not used for now -------------------*/
-/* .tabbar a.active {
-  background-color: var(--light-green);
+.tabbar a.active {
+  background-color: var(--camino-blue);
   color: var(--text-color-light);
-} */
+}
 
 
 /* ---------- styling ---------- */
@@ -1080,3 +1089,24 @@ select {
   border: 0;
   border-radius: 0;
 } */
+
+
+@media only screen and (min-width: 1024px) {
+  #mapid{
+    width: 90vw;
+  }
+
+  #grid-posts {
+    position: absolute;
+    height: 90vh;
+    overflow-y: scroll;
+    overflow-x: visible;
+    right: 3em;
+    margin-top: 5vh;
+    width: 30vw;
+  }
+  .tabbar{
+    display: none;
+  }
+  
+}

@@ -5,14 +5,17 @@ import fetchService from "./../services/fetch.js"
 import mapService from "./map.js"
 class StageService {
     constructor() {
-        // this.underlineTab();
+
     }
-    underlineTab() {
-        let listItem = document.getElementsByClassName('tabNav');
+    stageSize() {
+        let listItem = document.getElementsByClassName('backgroundimg');
         // console.log(listItem[0].offsetWidth)
 
         for (const item of listItem) {
-            // console.log(item.offsetWidth)
+            console.log(item.offsetWidth)
+            let height = item.offsetWidth / 3 * 2
+            console.log(height)
+            item.style.height = `${height}px`
 
         }
 

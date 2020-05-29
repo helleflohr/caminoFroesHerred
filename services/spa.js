@@ -1,3 +1,6 @@
+import stageService from "./stages.js"
+import mapInfoService from "./mapInfo.js";
+import mapService from "./map.js";
 class SpaService {
   constructor() {
     this.defaultPage = "home";
@@ -12,6 +15,7 @@ class SpaService {
   // hide all pages
   hideAllPages() {
     for (let page of this.pages) {
+      console.log(page)
       page.style.display = "none";
     }
   }
@@ -45,8 +49,16 @@ class SpaService {
     let page = this.defaultPage;
     if (window.location.hash) {
       page = window.location.hash.slice(1);
+      console.log(page)
+
     }
     this.showPage(page);
+    if (page === 'grid-posts') {
+      stageService.stageSize();
+    } else if (page === 'mapid') {
+      mapService.fetchGeoJson();
+      mapInfoService.createMarkers();
+    }
   }
 
   // show and hide tabbar

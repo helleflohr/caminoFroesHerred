@@ -46,7 +46,7 @@ window.scrollToElement = (element) => scrollService.scrollToElement(element);
 window.bigImg = (image) => scrollService.bigImg(image);
 window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
-window.underlineTab = () => stageService.underlineTab();
+window.stageSize = () => stageService.stageSize();
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.createUser = () => crudService.createUser();
 window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number);

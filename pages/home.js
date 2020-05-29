@@ -1,6 +1,7 @@
 import fetchService from "./../services/fetch.js"
 import crudService from "./../services/crud.js"
 import slideService from "./../services/slide.js"
+import loaderService from "./../services/loader.js"
 export default class HomePage {
   constructor() {
     this.template();
@@ -88,10 +89,12 @@ export default class HomePage {
         // console.log(this.descriptions)
         this.appendPosts(json)
 
-        /* setTimeout(function() {
+        setTimeout(() => {
           //fjerner spinner efter load.
-        showLoader(false);
-        }, 200); */
+        loaderService.show(false);
+        }, 200); 
+        console.log(loaderService.show(false));
+        
       });
   }
 
@@ -164,16 +167,15 @@ export default class HomePage {
     <div class="modal-content">
     <span class="close" onclick="closeFunction(this)">&times;</span>
       <form class="postForm">
-    <h2>Opret et opslag</h2>
-    <input type="text" class="formName" placeholder="Type your name" required>
-    <input type="text" class="formText" placeholder="Type your comment" required>
-    <input type="text" class="formStage" placeholder="Type the stage" required>
+    <h2 type="text">Opret et opslag for etape: ${post.acf.stageNumber}</h2>
+    <input type="text" class="formName" placeholder="Dit navn" required>
+    <textarea rows="10" cols="50" name="comment" form="usrform" class="formText" placeholder="Skriv din beretning" minlenght="1" maxlength="150" required></textarea>
     <input type="file" class="none imgChoose " accept="image/*" onchange="previewImage(this.files[0], ${post.acf.stageNumber})"> <!-- skjult via styling -->
-    <button class="secondary" type="button" name="button" onclick="triggerChooseImg()">Choose Image</button>
+    <button class="secondary" type="button" name="button" onclick="triggerChooseImg()">Vælg dit billede</button>
     <div>
     <img class="image-preview imagePreview">
   </div>
-    <p class="zoom" onclick="createUser()">Opret indlæg</p>
+    <p class="btnCreate" onclick="createUser()">Opret opslag</p>
   </form>
   </div>
       </section>

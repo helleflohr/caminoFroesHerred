@@ -12,6 +12,7 @@ import stageService from "./services/stages.js"
 import slideService from "./services/slide.js";
 
 import crudService from "./services/crud.js";
+import loaderService from "./services/loader.js";
 
 
 
@@ -26,6 +27,7 @@ let homePage = new HomePage();
 //     await fetchService.fetchMarkers();
 // }
 // Load();
+loaderService.show(true);
 spaService.init();
 
 mapService.fetchGeoJson();

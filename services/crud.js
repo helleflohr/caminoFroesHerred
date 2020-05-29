@@ -4,7 +4,6 @@ class CrudService {
     this._dataRef = _db.collection("posts")
     this.read()
     this._posts = [];
-    this._selectedImgFile;
    
 
     // this.myFunctionModal(x) // Call listener function at run time
@@ -98,20 +97,24 @@ createUser() {
   console.log(nameInput.value);
   console.log(textInput.value);
   console.log(imageInput.value);
+  console.log(stageInput.title);
+  
   
   let newPost = {
     name: nameInput.value,
     text: textInput.value,
     image: imageInput.value,
-    etape: stageInput.value
+    etape: stageInput.title
   };
 
   this._dataRef.add(newPost);
 } 
 
 previewImage(file, number) {
+  console.log(number);
+  
   if (file) {
-    this._selectedImgFile = file;
+    console.log(file);
     let reader = new FileReader();
     reader.onload = (event) => {
      let modal = document.querySelector(`#commentsModal${number}`)

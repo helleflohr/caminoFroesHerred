@@ -959,6 +959,7 @@ form button {
   flex-wrap: wrap;
   justify-content: start;
   align-items: center;
+  width: 110%;
 
 
 }
@@ -999,6 +1000,17 @@ form button {
   cursor: pointer;
 
 }
+
+.leaflet-control-layers-base{
+  color: var(--camino-blue);
+  font-family: 'JosefinSans', Arial, sans-serif;
+  font-size: 2.1vh;
+  width: 120%;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+}
+.leaflet-control-layers-base label{width: 49%;}
 
 .leaflet-popup-content p{
   color: var(--camino-blue);
@@ -1182,6 +1194,7 @@ select {
 @media only screen and (min-width: 1024px) {
   #mapid{
     width: 90vw;
+    height: 100vh;
   }
 
   #grid-posts {

@@ -30,9 +30,11 @@ let homePage = new HomePage();
 loaderService.show(true);
 spaService.init();
 
-// if (window.innerWidth > 1024) {
 mapService.fetchGeoJson();
-// }
+if (window.innerWidth > 1024) {
+
+    mapInfoService.createMarkers();
+}
 
 // mapInfoService.iconSize();
 

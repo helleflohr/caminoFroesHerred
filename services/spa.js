@@ -5,6 +5,7 @@ import scrollService from "./nav.js"
 class SpaService {
   constructor() {
     this.defaultPage = "home";
+    this.counter = 0;
   }
 
   init() {
@@ -72,6 +73,12 @@ class SpaService {
     } else if (page === 'mapid') {
       document.querySelector('.navigationEtape').style.display = 'block';
       document.querySelector('.maparea').style.display = 'block';
+
+      if (this.counter === 0) {
+        console.log(this.counter)
+        mapInfoService.createMarkers();
+        this.counter++
+      }
     }
 
   }

@@ -4,15 +4,15 @@ import {
 // import fetchService from "./../services/fetch.js"
 class MapInfoService {
     constructor() {
-        this.createMarkers();
+        // this.createMarkers();
         // this.iconSize();
         this.iconSizes = 29;
 
 
     }
 
-    createMarkers() {
-        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=300")
+    async createMarkers() {
+        await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=300")
             .then(function (response) {
                 return response.json();
             })
@@ -21,22 +21,22 @@ class MapInfoService {
             });
     }
 
-    appendMarkers(posts) {
-        console.log('hi')
-        for (let post of posts) {
-            console.log(post);
-            document.querySelector("#grid-posts").innerHTML += `
-                        < article class= "grid-item" >
-                        <h3>${post.title.rendered}</h3>
-                        <h4>${post.acf.kilometer}</h4>
-                        <h5>${post.acf.start}</h5>
-                        <h5>${post.acf.slut}</h5>
-                        <p>${post.acf.rutebeskrivelse}</p>
-                        <img src="${post.acf.billeder.url}">
-                            <p>${post.acf.hvad_siger_andre}</p>
-        </br> `
-        }
-    };
+    // appendMarkers(posts) {
+    //     console.log('hi')
+    //     for (let post of posts) {
+    //         console.log(post);
+    //         document.querySelector("#grid-posts").innerHTML += `
+    //                     < article class= "grid-item" >
+    //                     <h3>${post.title.rendered}</h3>
+    //                     <h4>${post.acf.kilometer}</h4>
+    //                     <h5>${post.acf.start}</h5>
+    //                     <h5>${post.acf.slut}</h5>
+    //                     <p>${post.acf.rutebeskrivelse}</p>
+    //                     <img src="${post.acf.billeder.url}">
+    //                         <p>${post.acf.hvad_siger_andre}</p>
+    //     </br> `
+    //     }
+    // }
 
     onLocationFound(e) {
         var radius = e.accuracy;
@@ -50,6 +50,13 @@ class MapInfoService {
 
 
     getDataForCheckbox(json) {
+        let OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+        });
+
+        let toner = new L.StamenTileLayer("toner");
+        map.addLayer(OpenStreetMap_HOT);
 
         this.tilesAndControles();
 
@@ -132,8 +139,7 @@ class MapInfoService {
         let ParkeringArr = [];
         let HvilestedArr = [];
 
-        // if (this.counter == 0) {
-        // console.log(this.counter)
+
         for (let post of json) {
             iconArr.push(post.acf.infotype);
 
@@ -210,7 +216,13 @@ class MapInfoService {
 
 
         }
-        L.control.layers([], overlayMaps, {
+
+
+        let baseMaps = {
+            "Farver": OpenStreetMap_HOT,
+            "Gråtone": toner
+        };
+        L.control.layers(baseMaps, overlayMaps, {
             position: 'bottomleft'
         }).addTo(map);
 
@@ -242,11 +254,7 @@ class MapInfoService {
     }
 
     tilesAndControles() {
-        let OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
-        });
-        map.addLayer(OpenStreetMap_HOT);
+
 
         L.control.locate({ initialZoomLevel: '14', flyTo: 'true' }).addTo(map);
 

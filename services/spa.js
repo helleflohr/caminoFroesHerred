@@ -22,9 +22,11 @@ class SpaService {
 
   // show page or tab
   showPage(pageId) {
-    this.hideAllPages();
-    document.querySelector(`#${pageId}`).style.display = "block";
-    this.setActiveTab(pageId);
+    if (window.innerWidth < 1024) {
+      this.hideAllPages();
+      document.querySelector(`#${pageId}`).style.display = "block";
+      this.setActiveTab(pageId);
+    }
   }
 
   // sets active tabbar/ menu item

@@ -1146,5 +1146,9 @@ select {
   .tabbar{
     display: none;
   }
+
+  .page{
+    display: block;
+  }
   
 }

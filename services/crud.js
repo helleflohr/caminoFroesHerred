@@ -4,6 +4,7 @@ class CrudService {
     this._dataRef = _db.collection("posts")
     this.read()
     this._posts = [];
+    this._selectedImgFile;
    
 
     // this.myFunctionModal(x) // Call listener function at run time
@@ -61,7 +62,7 @@ class CrudService {
 
     for (let post of this._posts) {
       if (etapeNr === post.etape) {
-        number += 1
+        currentNumber += 1
         document.querySelector(`#content${post.etape}`).innerHTML += `
       <div class="mySlides fade">
         <div class="numbertext">${currentNumber} / ${total}</div>
@@ -90,9 +91,10 @@ class CrudService {
 // add a new user to firestore (database)
 createUser() {
   // references to the input fields
-  let nameInput = document.querySelector('.name');
-  let textInput = document.querySelector('.text');
-  let imageInput = document.querySelector('.image');
+  let nameInput = document.querySelector('.formName');
+  let textInput = document.querySelector('.formText');
+  let imageInput = document.querySelector('.imgChoose');
+  let stageInput = document.querySelector('.formStage')
   console.log(nameInput.value);
   console.log(textInput.value);
   console.log(imageInput.value);
@@ -100,25 +102,29 @@ createUser() {
   let newPost = {
     name: nameInput.value,
     text: textInput.value,
-    image: imageInput.value
+    image: imageInput.value,
+    etape: stageInput.value
   };
 
   this._dataRef.add(newPost);
 } 
 
-previewImage(file, previewId) {
+previewImage(file, number) {
   if (file) {
-    _selectedImgFile = file;
+    this._selectedImgFile = file;
     let reader = new FileReader();
     reader.onload = (event) => {
-      document.querySelector('#' + previewId).setAttribute('src', event.target.result);
+     let modal = document.querySelector(`#commentsModal${number}`)
+     console.log(number);
+     
+      modal.querySelector('.imagePreview').setAttribute('src', event.target.result);
     };
     reader.readAsDataURL(file);
   }
 }
 
 triggerChooseImg() {
-  document.querySelector("#img").click();
+  document.querySelector(".imgChoose").click();
 }
 
   // ========== MODAL ==========
@@ -137,15 +143,11 @@ myFunctionModal(number) {
     modalSay.style.display = "block";
   };
 
-/* // When the user clicks anywhere outside of the modal, close it
-closeOutsideModal(event, number) {
- // Get the modal
- let modalSay = document.getElementById(`commentsModal${number}`);
   closeFunction(element) {
     // When the user clicks on <span> (x), close the modal
     element.parentElement.parentElement.style.display = "none";
   }
-
+/*
   triggerChooseImg() { // Trigger den knap der hedder vælg fil
     this.$refs.fileInput.click() // knap der selv er lavet
   }

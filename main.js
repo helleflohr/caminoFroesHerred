@@ -49,11 +49,12 @@ window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.underlineTab = () => stageService.underlineTab();
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.createUser = () => crudService.createUser();
-window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number);
+/* window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number); */
 window.closeFunction = (element) => crudService.closeFunction(element);
 window.createUser = () => crudService.createUser();
 window.myFunctionModal = (number) => crudService.myFunctionModal(number);
-window.previewImage = (file, previewId) => crudService.previewImage(file, previewId);
+window.previewImage = (file, number) => crudService.previewImage(file, number);
+window.triggerChooseImg = () => crudService.triggerChooseImg();
 window.appendPosts = (etapeNr) => crudService.appendPosts(etapeNr);
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.showSlides = (n, number) => slideService.showSlides(n, number);

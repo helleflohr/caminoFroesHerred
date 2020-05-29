@@ -160,17 +160,18 @@ export default class HomePage {
           <p id="btnSay" class="zoom" onclick="myFunctionModal(${post.acf.stageNumber})">Hvad siger du?</p>
           </div>
 
-          <section id="commentsModal${post.acf.stageNumber}" onclick="closeOutsideModal(this,${post.acf.stageNumber})" class="modal">
+          <section id="commentsModal${post.acf.stageNumber}" class="modal">
     <div class="modal-content">
     <span class="close" onclick="closeFunction(this)">&times;</span>
       <form class="postForm">
     <h2>Opret et opslag</h2>
     <input type="text" class="formName" placeholder="Type your name" required>
     <input type="text" class="formText" placeholder="Type your comment" required>
-    <input type="file" id="img" class="displayNone" accept="image/*" onchange="previewImage(this.files[0], 'imagePreview')"> <!-- skjult via styling -->
+    <input type="text" class="formStage" placeholder="Type the stage" required>
+    <input type="file" class="none imgChoose " accept="image/*" onchange="previewImage(this.files[0], ${post.acf.stageNumber})"> <!-- skjult via styling -->
     <button class="secondary" type="button" name="button" onclick="triggerChooseImg()">Choose Image</button>
     <div>
-    <img src="" class="image-preview">
+    <img class="image-preview imagePreview">
   </div>
     <p class="zoom" onclick="createUser()">Opret indlæg</p>
   </form>

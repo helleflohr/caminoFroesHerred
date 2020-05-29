@@ -91,10 +91,10 @@ export default class HomePage {
 
         setTimeout(() => {
           //fjerner spinner efter load.
-        loaderService.show(false);
-        }, 200); 
+          loaderService.show(false);
+        }, 200);
         console.log(loaderService.show(false));
-        
+
       });
   }
 
@@ -117,6 +117,7 @@ export default class HomePage {
           <div class="title-distance">
             <h3>${post.title.rendered}</h3>
             <h4> (${post.acf.distance} km)</h4>
+            <img class="ulArrow" src="../images/ikoner/pil-etape1.svg">
           </div>
           <div class="start-end">
             <h5>${post.acf.startpoint}</h5> 

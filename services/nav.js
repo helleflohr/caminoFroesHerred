@@ -1,4 +1,4 @@
-import { map } from "./../main.js";
+import { map, latitude, longitude, zoom } from "./../main.js";
 import fetchService from "./../services/fetch.js"
 import mapService from "./map.js"
 class ScrollService {
@@ -71,7 +71,7 @@ class ScrollService {
 
     // Zoom out to the map overview
     zoomOut() {
-        map.setView(L.latLng(55.356480, 9.157975), 12) // setView to coordinates and zoomlevel
+        map.setView(L.latLng(latitude, longitude), zoom) // setView to coordinates and zoomlevel
     }
 
     // Function which runs when a stage (number) is choosen

@@ -12,9 +12,9 @@ class StageService {
         // console.log(listItem[0].offsetWidth)
 
         for (const item of listItem) {
-            console.log(item.offsetWidth)
+            // console.log(item.offsetWidth)
             let height = item.offsetWidth / 3 * 2
-            console.log(height)
+            // console.log(height)
             item.style.height = `${height}px`
 
         }

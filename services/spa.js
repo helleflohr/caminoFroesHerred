@@ -1,6 +1,7 @@
 import stageService from "./stages.js"
 import mapInfoService from "./mapInfo.js";
 import mapService from "./map.js";
+import scrollService from "./nav.js"
 class SpaService {
   constructor() {
     this.defaultPage = "home";
@@ -59,6 +60,7 @@ class SpaService {
       document.querySelector('.navigationEtape').style.display = 'block';
       document.querySelector('.maparea').style.display = 'block';
       stageService.stageSize();
+      scrollService.scrollToStage(scrollService.chosenNumber);
     } else if (page === 'home') {
       if (window.innerWidth < 1024) {
         document.querySelector('.navigationEtape').style.display = 'none';

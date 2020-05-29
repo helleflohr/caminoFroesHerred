@@ -108,7 +108,7 @@ aside {
 }
 
 #content {
-  width: 90vw;
+  width: 100vw;
   height: 91vh;
   overflow: auto;
   background-color: var(--camino-blue);
@@ -132,6 +132,8 @@ aside {
   color: var(--camino-blue);
   text-transform: uppercase;
   cursor: pointer;
+  font-size: 1.7vh;
+  /* width: 30%; */
 }
 
 .tabImages {
@@ -224,7 +226,11 @@ hr {
 
 /* ---------- navigation styling ---------- */
 #logoDark {
-display: none;
+  /* height: 12vh; */
+  max-width: 100%;
+  margin: 3vh auto 0;
+  cursor: pointer;
+  display: block;
 }
 
 .navigationEtape {
@@ -295,14 +301,14 @@ display: none;
 
 #frontpageTextDiv {
   justify-content: start;
-  width: 60%;
-  margin: 23% 0 0 2.5%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 #frontpageLogoDiv {
-  width: 30%;
-  margin-left: 5%;
-  margin-top: 10vh;
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 4vh;
 }
 
 #frontpageLogo {
@@ -310,8 +316,13 @@ display: none;
 }
 
 #frontpageImage h1 {
-  font-size: 10vh;
+  font-size: 5vh;
   font-weight: 100;
+  /* color: black; */
+}
+#frontpageImage h2 {
+  font-size: 3vh;
+  /* color: black; */
 }
 
 #frontpageSection {
@@ -1209,9 +1220,9 @@ select {
     cursor: pointer;
     display: block;
   }
-  #frontpageImage {
-    width: 90vw; 
-  }
+
+
+ 
   .grid-item {
  
     margin: 1em;
@@ -1219,6 +1230,34 @@ select {
     
   }
 
+  .tabNav {
+   font-size: 0.9em;
+  }
+  /* --------------------- Frontpage -------------------*/
+  #frontpageImage {
+    width: 90vw; 
+  }
+  #frontpageLogoDiv {
+    width: 30%;
+    margin-left: 5%;
+    margin-top: 10vh;
+  }
+
+  #frontpageTextDiv {
+
+    width: 60%;
+    margin: 23% 0 0 2.5%;
+  }
+  #frontpageImage h1 {
+    font-size: 10vh;
+  }
+
+  #content {
+    width: 90vw;
+ 
+  }
+
+  /* --------------------- Leaflet (map controls) -------------------*/
   .leaflet-control-layers-toggle {
     width: 13vw !important; 
     border: 2px solid var(--camino-blue);

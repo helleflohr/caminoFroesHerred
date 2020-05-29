@@ -27,19 +27,21 @@ class ScrollService {
 
     // Scroll to the specific stage (number)
     scrollToStage(number) {
-        let stage = document.querySelector(`#stage${number}`);
-        if (number == 1) { // If stage 1...
-            stage.scrollIntoView({
-                behavior: "smooth",
-                block: "start" //...then scroll to start of the element...
-            });
-        } else {
-            stage.scrollIntoView({
-                behavior: "smooth",
-                block: "center" //...else scroll to center
-            });
+        if (number) {
+            let stage = document.querySelector(`#stage${number}`);
+            if (number == 1) { // If stage 1...
+                stage.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start" //...then scroll to start of the element...
+                });
+            } else {
+                stage.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start" //...else scroll to center
+                });
+            }
+            console.log(number)
         }
-        console.log(number)
     }
 
 

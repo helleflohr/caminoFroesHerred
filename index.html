@@ -41,7 +41,7 @@
   <!-- navigation -->
   <aside>
     <nav class="navigationEtape">
-      <img id="logoDark" src="images/caminoLogoDark.svg" onclick="scrollToElement('frontpageImage')">
+      <img id="logoDark" src="images/caminoLogoDark.svg" onclick="scrollToElement('frontpageImage'); zoomOut()">
       <h3>Etaper</h3>
       <input type="button" class="navbtn btn" value="1" onmouseover="goTo(this.value)" onmouseout="goFrom(this.value)"
         onclick="chosen(this.value); scrollToStage(this.value)">
@@ -119,7 +119,7 @@
   <nav class="tabbar">
     <a href="#home"><img src="images/compas.svg">Generelt</a>
     <a href="#mapid"><img src="images/map.svg">Kort</a>
-    <a href="#grid-posts" onclick='scrollToStage(6)'><img src="images/location.svg">Beskrivelse</a>
+    <a href="#grid-posts"><img src="images/location.svg">Beskrivelse</a>
   </nav>
 
   <!-- main js file -->

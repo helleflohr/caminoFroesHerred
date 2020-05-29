@@ -133,6 +133,7 @@ aside {
   text-transform: uppercase;
   cursor: pointer;
   font-size: 1.7vh;
+  margin-left: 0;
   /* width: 30%; */
 }
 
@@ -1093,19 +1094,21 @@ form button {
 
 /* Change the color of links on hover */
 /* --------------------- Is not used for now -------------------*/
-.tabbar a:hover {
-  /* background-color: var(--light-grey); */
+/* .tabbar a:hover {
+
   color: var(--camino-yellow);
-}
+} */
 
 /* Add a color to the active/current link */
 /* --------------------- Is not used for now -------------------*/
 .tabbar a.active {
-  background-color: var(--camino-blue);
-  color: var(--text-color-light);
+  /* background-color: var(--camino-yellow); */
+  color: var(--camino-yellow);
 }
 
-
+.tabbar img{
+  fill: var(--camino-yellow);
+}
 
 
 

@@ -159,6 +159,7 @@ class ScrollService {
         if (this.numberCounter.indexOf(number) === -1) {
             this.numberCounter.push(number)
             underline.style.width = `${this.trWidth[0]}px`;
+            // underline.style.margin = `0px`;
 
         }
 
@@ -201,7 +202,7 @@ class ScrollService {
         //.......................... Underliner .................................
         let underline = document.querySelector(`#hr${number}`); // The line
         if (tab === "description") { // If the description tab is choosen...
-            underline.style.marginLeft = "0%"; // ...set margin to 0%...
+            underline.style.marginLeft = '0px'; // ...set margin to 0%...
             underline.style.width = `${this.trWidth[0]}px`; // ...and set the matching width
         }
 

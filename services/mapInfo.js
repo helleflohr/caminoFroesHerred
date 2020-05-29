@@ -54,8 +54,8 @@ class MapInfoService {
 
 
         let Seng = new iconClass({
-            iconUrl: 'images/ikoner-map/Seng.svg'
-        }),
+                iconUrl: 'images/ikoner-map/Seng.svg'
+            }),
             Kirke = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirke.svg'
             }),
@@ -204,7 +204,11 @@ class MapInfoService {
             position: 'bottomleft'
         }).addTo(map);
 
-        // Printer funktion - Helle
+        L.control.layers([], overlayMaps, {
+            position: 'bottomleft'
+        }).addTo(map);
+
+        // --------------- Printer function - Helle ---------------
         L.control.browserPrint({
             title: 'Just print me!',
             documentTitle: 'Map printed using leaflet.browser.print plugin',
@@ -222,6 +226,9 @@ class MapInfoService {
         //     pageBounds,
         //     printObjects
         // }).addTo(map)
+
+        // --------------- Printer function - End ---------------
+
 
 
         let template = "";

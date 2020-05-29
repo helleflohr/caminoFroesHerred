@@ -221,11 +221,11 @@ class MapInfoService {
         L.control.browserPrint.mode.landscape();
         L.control.browserPrint.mode.portrait();
 
-        L.Control.BrowserPrint.Event.PrePrint({
-            pageSize,
-            pageBounds,
-            printObjects
-        }).addTo(map)
+        // L.Control.BrowserPrint.Event.PrePrint({
+        //     pageSize,
+        //     pageBounds,
+        //     printObjects
+        // }).addTo(map)
 
         // --------------- Printer function - End ---------------
 
@@ -248,7 +248,8 @@ class MapInfoService {
 
             let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
             let currentZoom = map.getZoom();
-
+            console.log(this.iconSizes)
+            this.iconSize();
 
 
             if (currentZoom < 12) {
@@ -264,6 +265,7 @@ class MapInfoService {
                     icon.style.height = `${this.iconSizes}px`;
                 }
             }
+            console.log(this.iconSizes)
         });
     }
     iconSize() {
@@ -271,12 +273,13 @@ class MapInfoService {
         let currentZoom = map.getZoom();
 
 
-        console.log(document.querySelectorAll('.leaflet-control-layers-selector'));
+        // console.log(document.querySelectorAll('.leaflet-control-layers-selector'));
         let leafletCheckboxes = document.querySelectorAll('.leaflet-control-layers-selector');
         for (const checkBox of leafletCheckboxes) {
-            console.log(checkBox)
+            // console.log(checkBox)
             checkBox.addEventListener("onchange", () => { // Listen for a click on an image
                 // time
+                console.log(this.iconSizes)
                 if (currentZoom < 12) {
                     this.iconSizes = 15;
                     for (const icon of leafletIcons) {
@@ -290,7 +293,9 @@ class MapInfoService {
                         icon.style.height = `${this.iconSizes}px`;
                     }
                 }
+                console.log(this.iconSizes)
             }, 5000);
+
         }
 
 

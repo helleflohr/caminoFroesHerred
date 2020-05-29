@@ -201,7 +201,11 @@ class MapInfoService {
             position: 'bottomleft'
         }).addTo(map);
 
-        // Printer funktion - Helle
+        L.control.layers([], overlayMaps, {
+            position: 'bottomleft'
+        }).addTo(map);
+
+        // --------------- Printer function - Helle ---------------
         L.control.browserPrint({
             title: 'Just print me!',
             documentTitle: 'Map printed using leaflet.browser.print plugin',
@@ -220,9 +224,8 @@ class MapInfoService {
             printObjects
         }).addTo(map)
 
-        L.control.layers([], overlayMaps, {
-            position: 'bottomleft'
-        }).addTo(map);
+        // --------------- Printer function - End ---------------
+
 
 
         let template = "";

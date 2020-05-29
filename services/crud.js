@@ -4,12 +4,12 @@ class CrudService {
     this._dataRef = _db.collection("posts")
     this.read()
     this._posts = [];
-   /* this._newPost = {
-      name: nameInput.value,
-      text: textInput.value,
-      image: imageInput.value
-    }; */
-  
+    /* this._newPost = {
+       name: nameInput.value,
+       text: textInput.value,
+       image: imageInput.value
+     }; */
+
     //this.appendPosts(this._posts);
 
 
@@ -32,25 +32,46 @@ class CrudService {
     });
   }
 
-  // append users to the DOM
+
+  // --------------- Append posts from Wordpress - Helle ---------------
+  // Starts with setting the content of the element #contentX to empty
+  // Sets the totel amount of posts to 0, and the current post number to 0
+  // Iterates through the posts. For every post where the etapeNr is equal to the post.etape number
+  // the total number of posts goes up with 1
+  // If the total amount of posts is 0, forst statment will be printet, else second statement will be printet.
+
+
   appendPosts(etapeNr) {
 
     document.querySelector(`#content${etapeNr}`).innerHTML = "";
     let total = 0;
-    let number = 0;
+    let currentNumber = 0;
 
     for (let post of this._posts) {
       if (etapeNr === post.etape) {
         total += 1
       }
     }
+    if (total < 1) {
+      document.querySelector(`#content${etapeNr}`).innerHTML += `
+    <div class="mySlides fade">
+      <div class="numbertext">${currentNumber} / ${total}</div>
+        <div class="say">
+          <div class="sayImage">
+          </div>
+          <div class="sayText">
+          <p>Der er endnu ingen beretninger fra denne etape. Skal du være den første?</p>
+          </div>
+        </div>
+    </div>`
+    };
 
     for (let post of this._posts) {
       if (etapeNr === post.etape) {
         number += 1
         document.querySelector(`#content${post.etape}`).innerHTML += `
       <div class="mySlides fade">
-        <div class="numbertext">${number} / ${total}</div>
+        <div class="numbertext">${currentNumber} / ${total}</div>
         <div class="say">
         <div class="sayImage">
           <img src="${post.image}">
@@ -67,9 +88,10 @@ class CrudService {
     `;
       }
     }
-
-    // document.querySelector(`#content${etape}`).innerHTML = htmlTemplate;
   }
+
+  // --------------- Append posts from Wordpress - End ---------------
+
 
   // ========== CREATE ==========
   // add a new user to firestore (database)

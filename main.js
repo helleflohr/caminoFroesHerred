@@ -30,7 +30,10 @@ let homePage = new HomePage();
 loaderService.show(true);
 spaService.init();
 
+// if (window.innerWidth > 1024) {
 mapService.fetchGeoJson();
+// }
+
 // mapInfoService.iconSize();
 
 
@@ -61,9 +64,19 @@ window.appendPosts = (etapeNr) => crudService.appendPosts(etapeNr);
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.showSlides = (n, number) => slideService.showSlides(n, number);
 
+let latitude = 55.356480;
+let longitude = 9.157975;
+let zoom = 12;
+
+if (window.innerWidth < 1024) {
+    latitude = 55.356480;
+    longitude = 9.097975;
+    zoom = 10;
+}
+
 export let map = new L.Map("mapid", {
-    center: new L.LatLng(55.356480, 9.157975),
-    zoom: 12
+    center: new L.LatLng(latitude, longitude),
+    zoom: zoom
     // layers: [cities]
 });
 
@@ -113,4 +126,3 @@ export let map = new L.Map("mapid", {
 //     }
 // });
 
-// window.createMap = () => mapService.createMap();

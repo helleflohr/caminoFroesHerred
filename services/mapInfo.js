@@ -8,6 +8,7 @@ class MapInfoService {
         // this.iconSize();
         this.iconSizes = 29;
 
+
     }
 
     createMarkers() {
@@ -37,7 +38,20 @@ class MapInfoService {
         }
     };
 
+    onLocationFound(e) {
+        var radius = e.accuracy;
+
+        L.marker(e.latlng).addTo(map)
+            .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+        L.circle(e.latlng, radius).addTo(map);
+    }
+
+
+
     getDataForCheckbox(json) {
+
+        this.tilesAndControles();
 
         console.log(this.iconSizes, this.iconSizes / 2)
         let iconClass = L.Icon.extend({
@@ -50,7 +64,7 @@ class MapInfoService {
                 popupAnchor: [0, -15] // point from which the popup should open relative to the iconAnchor
             }
         })
-        // console.log(iconSize)
+
 
 
         let Seng = new iconClass({
@@ -165,12 +179,14 @@ class MapInfoService {
         HvilestedArr = L.layerGroup(HvilestedArr);
 
 
-        // Be on map from start
+        // --------------- Be on map from start ---------------
         map.addLayer(ToiletterArr);
         map.addLayer(KirkeArr);
         map.addLayer(KanopladsArr);
         map.addLayer(VandpostArr);
         map.addLayer(BusstopArr);
+
+
         let overlayMaps = {};
         for (const icon of iconArr) {
             let overlayLine;
@@ -192,53 +208,12 @@ class MapInfoService {
             // let overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
             overlayMaps[overlayLine] = eval(name);
 
+
         }
-
-
-        // var overlayMaps = {
-        //     "<p>Overnatning</p><img src='images/lyd.png' />": OvernatningArr,
-        //     "<p>Toiletter</p><img src='images/and.jpg' />": ToiletterArr
-        // };
-        // console.log(overlayMaps)
         L.control.layers([], overlayMaps, {
             position: 'bottomleft'
         }).addTo(map);
 
-
-        // --------------- Printer function - Helle ---------------
-        L.control.browserPrint({
-            title: 'Just print me!',
-            documentTitle: 'Map printed using leaflet.browser.print plugin',
-
-            closePopupsOnPrint: false,
-            manualMode: false
-        }).addTo(map)
-
-        L.control.browserPrint.mode.custom();
-        L.control.browserPrint.mode.landscape();
-        L.control.browserPrint.mode.portrait();
-
-        // L.Control.BrowserPrint.Event.PrePrint({
-        //     pageSize,
-        //     pageBounds,
-        //     printObjects
-        // }).addTo(map)
-
-        // --------------- Printer function - End ---------------
-
-
-
-        // let template = "";
-        // for (const markerType of iconArr) {
-        //     template += /*html*/ `
-        //             <div class="boxIcon">
-        //             <input type="checkbox" id='check${markerType}' onclick="showOrHide(${markerType})">
-        //           <p>${markerType}</p> <img src="images/ikoner-map/${markerType}.svg">
-        //           </div>
-        //           `
-        // }
-        // let infoBox = document.querySelector('#infoBox');
-        // infoBox.innerHTML = template;
 
 
         map.on('zoomend', () => {
@@ -265,6 +240,34 @@ class MapInfoService {
             console.log(this.iconSizes)
         });
     }
+
+    tilesAndControles() {
+        let OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+        });
+        map.addLayer(OpenStreetMap_HOT);
+
+        L.control.locate().addTo(map);
+
+
+
+        // --------------- Printer function - Helle ---------------
+        L.control.browserPrint({
+            title: 'Just print me!',
+            documentTitle: 'Map printed using leaflet.browser.print plugin',
+
+            closePopupsOnPrint: false,
+            manualMode: false
+        }).addTo(map)
+
+        L.control.browserPrint.mode.custom();
+        L.control.browserPrint.mode.landscape();
+        L.control.browserPrint.mode.portrait();
+        // --------------- Printer function - End ---------------
+    }
+
+
     iconSize() {
         let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
         let currentZoom = map.getZoom();

@@ -18,7 +18,7 @@ export default class HomePage {
           <!-- frontpage image and info bar -->
   <section id="frontpageImage" >
   <div id="frontpageLogoDiv">
-  <img id="frontpageLogo" src="../images/cfhlogo.png">
+  <img id="frontpageLogo" src="../images/cfhLogo.png">
   </div>
 <div id="frontpageTextDiv">
   <h1> Camino Frøs Herred</h1>

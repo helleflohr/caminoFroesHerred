@@ -4,13 +4,6 @@ class CrudService {
     this._dataRef = _db.collection("posts")
     this.read()
     this._posts = [];
-   /* this._newPost = {
-      name: nameInput.value,
-      text: textInput.value,
-      image: imageInput.value
-    }; */
-  
-    //this.appendPosts(this._posts);
    
 
     // this.myFunctionModal(x) // Call listener function at run time
@@ -81,9 +74,32 @@ createUser() {
   console.log(nameInput.value);
   console.log(textInput.value);
   console.log(imageInput.value);
+  
+  let newPost = {
+    name: nameInput.value,
+    text: textInput.value,
+    image: imageInput.value
+  };
 
-  this._dataRef.add(this.newPost);
+  this._dataRef.add(newPost);
 } 
+
+previewImage(file, previewId) {
+  if (file) {
+    _selectedImgFile = file;
+    let reader = new FileReader();
+    reader.onload = (event) => {
+      document.querySelector('#' + previewId).setAttribute('src', event.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+triggerChooseImg() {
+  document.querySelector("#img").click();
+}
+
+  // ========== MODAL ==========
 
 // When the user clicks on the button, open the modal
 myFunctionModal(number) {
@@ -95,21 +111,6 @@ myFunctionModal(number) {
 closeFunction(element) {
 // When the user clicks on <span> (x), close the modal
 element.parentElement.parentElement.style.display = "none";
-}
-
-triggerChooseImg () { // Trigger den knap der hedder vælg fil
-  this.$refs.fileInput.click() // knap der selv er lavet
-}
-
-previewImage () {
-  const imageFile = this.$refs.fileInput.files[0]
-  const fileReader = new FileReader() // læser filen, så vi kan få en src ud af den så vi kan vise det er et img tag
-  fileReader.onload = (event) => {
-    this.newPost.image = event.target.result // smider billedet ind i selve variablen
-    console.log(this.newPost.image);
-    
-  }
-  fileReader.readAsDataURL(imageFile)
 }
 
 /* // When the user clicks anywhere outside of the modal, close it

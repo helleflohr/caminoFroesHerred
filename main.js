@@ -49,7 +49,7 @@ window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(even
 window.closeFunction = (element) => crudService.closeFunction(element);
 window.createUser = () => crudService.createUser();
 window.myFunctionModal = (number) => crudService.myFunctionModal(number);
-
+window.previewImage = (file, previewId) => crudService.previewImage(file, previewId);
 window.appendPosts = (etapeNr) => crudService.appendPosts(etapeNr);
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.showSlides = (n, number) => slideService.showSlides(n, number);

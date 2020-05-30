@@ -55,7 +55,7 @@ class SpaService {
   pageChange() {
 
 
-    loaderService.show(true)
+
     let page = this.defaultPage;
     if (window.location.hash) {
       page = window.location.hash.slice(1);
@@ -66,9 +66,12 @@ class SpaService {
 
 
 
-    this.visitedPages.push(page)
-    console.log(this.visitedPages)
 
+    // Only show loader the first time on each page
+    if (this.visitedPages.indexOf(page) === -1) {
+      loaderService.show(true)
+    }
+    this.visitedPages.push(page)
 
     if (window.innerWidth > 1024) {
       this.navigateTo('');

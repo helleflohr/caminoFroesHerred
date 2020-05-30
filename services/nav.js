@@ -13,6 +13,8 @@ class ScrollService {
         this.numberDescriptionCounter = [];
 
         this.chosenNumber;
+
+        this.descriptions = fetchService.get();
     }
 
     // Scroll to a specific element
@@ -76,8 +78,8 @@ class ScrollService {
 
     // Function which runs when a stage (number) is choosen
     chosen(number) {
-        let numberOfStages = 11
 
+        let numberOfStages = mapService.descriptions.length
         this.chosenNumber = number;
 
 

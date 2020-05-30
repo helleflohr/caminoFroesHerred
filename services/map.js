@@ -9,12 +9,13 @@ class MapService {
   constructor() {
     this.fitBounds = [];
     // this.description = fetchService.descriptions
+    this.descriptions;
   }
 
   async fetchGeoJson() {
-    let descriptions = await fetchService.fetchDescription();
-    // console.log(fetchService.get())
-    let numberOfStages = descriptions.length
+    this.descriptions = await fetchService.get();
+    console.log(this.descriptions)
+    let numberOfStages = this.descriptions.length
 
     for (let i = 1; i < (numberOfStages + 1); i++) {
       fetch(`geojson/Camino-Frøs-Herred-${i}.gpx`)

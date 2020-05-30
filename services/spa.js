@@ -99,6 +99,7 @@ class SpaService {
           document.querySelector('.navigationEtape').style.display = 'block';
           document.querySelector('.maparea').style.display = 'block';
         }
+        loaderService.show(false)
       } else if (page === 'mapid') {
         document.querySelector('.navigationEtape').style.display = 'block';
         document.querySelector('.maparea').style.display = 'block';
@@ -114,7 +115,7 @@ class SpaService {
         }
       }
     }
-    loaderService.show(false)
+
   }
 
   // show and hide tabbar

@@ -1,6 +1,7 @@
 import {
     map
 } from "./../main.js";
+import loaderService from "./loader.js"
 // import fetchService from "./../services/fetch.js"
 class MapInfoService {
     constructor() {
@@ -12,6 +13,7 @@ class MapInfoService {
     }
 
     async createMarkers() {
+        loaderService.show(true)
         await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=300")
             .then(function (response) {
                 return response.json();
@@ -19,6 +21,7 @@ class MapInfoService {
             .then((json) => {
                 this.getDataForCheckbox(json);
             });
+        loaderService.show(false)
     }
 
     // appendMarkers(posts) {

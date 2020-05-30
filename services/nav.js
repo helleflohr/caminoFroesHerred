@@ -1,6 +1,7 @@
 import { map, latitude, longitude, zoom } from "./../main.js";
 import fetchService from "./../services/fetch.js"
 import mapService from "./map.js"
+import loaderService from "./loader.js"
 class ScrollService {
     constructor() {
         // Variables for the yellow tabunderliner
@@ -164,6 +165,7 @@ class ScrollService {
 
         }
 
+
     }
 
     createFirstTabUnderline(number) {
@@ -191,6 +193,7 @@ class ScrollService {
 
 
         }
+        loaderService.show(false)
     }
 
 

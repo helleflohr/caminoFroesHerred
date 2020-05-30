@@ -2,6 +2,7 @@ import {
     map
 } from "./../main.js";
 import loaderService from "./loader.js"
+import fetchService from "./fetch.js"
 // import fetchService from "./../services/fetch.js"
 class MapInfoService {
     constructor() {
@@ -189,12 +190,10 @@ class MapInfoService {
 
 
         // --------------- Be on map from start ---------------
-        map.addLayer(ToiletterArr);
-        map.addLayer(KirkeArr);
-        map.addLayer(KanopladsArr);
-        map.addLayer(VandpostArr);
-        map.addLayer(BusstopArr);
-
+        for (const marker of fetchService.startMarkers) {
+            let markerArr = `${marker}Arr`
+            map.addLayer(eval(markerArr))
+        }
 
         let overlayMaps = {};
         for (const icon of iconArr) {

@@ -1351,6 +1351,10 @@ select {
 
 
   }
+
+  .leaflet-control-locate{
+    display: none;
+  }
  
   /* .leaflet-control-layers-base label div{
     display: flex;

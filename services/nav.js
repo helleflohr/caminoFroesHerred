@@ -13,7 +13,7 @@ class ScrollService {
 
         this.chosenNumber;
 
-        this.descriptions = fetchService.get();
+        this.descriptions = fetchService.getDescriptions();
     }
 
     // Scroll to a specific element

@@ -63,8 +63,8 @@ export default class HomePage {
       </section>
       <div class="maparea">
         
-          <div id="mapid"></div>
-          <div id="grid-posts" class="grid-container"></div>
+          <div id="mapid" class="page"></div>
+          <div id="grid-posts" class="grid-container page"></div>
     `;
   }
 

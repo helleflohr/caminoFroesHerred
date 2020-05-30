@@ -13,7 +13,7 @@ class MapService {
   }
 
   async fetchGeoJson() {
-    this.descriptions = await fetchService.get();
+    this.descriptions = await fetchService.getDescriptions();
     console.log(this.descriptions)
     let numberOfStages = this.descriptions.length
 

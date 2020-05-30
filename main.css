@@ -3,11 +3,10 @@
   --camino-green: #22523C;
   --camino-blue: #002F38;
   --camino-blue-transpartent: rgba(256, 256, 256, 0.7);
-  --camino-yellow: rgb(213, 216, 34);
+  --camino-yellow: #d5d822;
   --text-color-light: #FFF1DD;
   --background-light: rgb(253, 249, 244);
   --text-color-dark: #002F38;
-  --font:
 }
 
 /* ---------- general styling ---------- */
@@ -73,11 +72,30 @@ p {
   font-size: .9em;
 }
 
-ul {
-  margin-bottom: 1.5%;
+.descriptionDiv li {
+  position: relative;
+  list-style: none;
+  padding-left: 0;
 }
 
-li {
+.descriptionDiv {
+  margin-left: 1%;
+}
+
+.descriptionDiv li:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  background-image: url('images/pil.png');
+  background-size: cover;
+  background-position: center;
+  left: -1%;
+  top: 20%;
+  transform: translateY(-50%);
+}
+
+/* li {
   margin-left: 2.5%;
   list-style-type: square;
   list-style-position: outside;
@@ -85,7 +103,7 @@ li {
   line-height: 1.5em;
   font-size: .9em;
   color: var(--text-color-dark);
-}
+} */
 
 strong {
   font-weight: bold;
@@ -239,7 +257,7 @@ hr {
   height: 100vh;
   width: 10vw;
   /* z-index: -1; */
-  
+
 }
 
 .navbtn {
@@ -322,6 +340,7 @@ hr {
   font-weight: 100;
   /* color: black; */
 }
+
 #frontpageImage h2 {
   font-size: 3vh;
   /* color: black; */
@@ -404,7 +423,7 @@ h2 {
   position: relative;
   height: 100vh;
   overflow-x: hidden;
-  
+
 }
 
 #infoBox {
@@ -625,7 +644,7 @@ aside h3 {
   background-color: var(--camino-green);
   margin: 2vw;
   width: 90%;
-  
+
 }
 
 .dropdown {
@@ -671,8 +690,6 @@ aside h3 {
   color: var(--text-color-light);
   width: auto;
   /* text-transform: uppercase; */
-
-
 }
 
 .title-distance h4 {
@@ -696,6 +713,11 @@ aside h3 {
   align-items: center;
   color: var(--text-color-light);
   padding-bottom: 2%;
+}
+
+.ulArrow {
+  width: 1vw;
+
 }
 
 #text-backgroundimg {
@@ -737,7 +759,8 @@ aside h3 {
   /* color: var(--camino-yellow); */
   background-color: var(--camino-green);
 }
-.dropdown .zoomMap{
+
+.dropdown .zoomMap {
   display: none;
 }
 
@@ -792,7 +815,8 @@ aside h3 {
 
 .postForm h2,
 .postForm input,
-.postForm button, .postForm textarea {
+.postForm button,
+.postForm textarea {
   display: block;
   margin: 0 auto;
 }
@@ -820,17 +844,17 @@ aside h3 {
   margin-bottom: 3%;
 }
 
-.postForm .btnCreate{
-    text-align: center;
-    color: var(--text-color-light);
-    background-color: var(--camino-blue);
-    border-radius: 25px;
-    width: 20%;
-    margin-bottom: 1em;
-    cursor: pointer;
-    margin: 0 auto;
-    padding: 2% 7%;
-  }
+.postForm .btnCreate {
+  text-align: center;
+  color: var(--text-color-light);
+  background-color: var(--camino-blue);
+  border-radius: 25px;
+  width: 20%;
+  margin-bottom: 1em;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 2% 7%;
+}
 
 .postForm input[type=file] {
   display: none;
@@ -929,7 +953,9 @@ form button {
 
 
 /* ---------- leaflet controle styling ---------- */
-.leaflet-container .leaflet-control-attribution{font-size: .9vh;}
+.leaflet-container .leaflet-control-attribution {
+  font-size: .9vh;
+}
 
 .leaflet-control-layers-toggle:after {
   content: "Personliggør kortet";
@@ -1004,7 +1030,7 @@ form button {
 
 }
 
-.leaflet-control-layers-base{
+.leaflet-control-layers-base {
   color: var(--camino-blue);
   font-family: 'JosefinSans', Arial, sans-serif;
   font-size: 2.1vh;
@@ -1013,12 +1039,16 @@ form button {
   display: flex;
   flex-wrap: wrap;
 }
-.leaflet-control-layers-base label{width: 49%;}
 
-.leaflet-popup-content p{
+.leaflet-control-layers-base label {
+  width: 49%;
+}
+
+.leaflet-popup-content p {
   color: var(--camino-blue);
 }
-.leaflet-popup-content img{
+
+.leaflet-popup-content img {
   max-width: 100%;
 }
 
@@ -1027,14 +1057,15 @@ form button {
   
 } */
 
- /* .fa-map-marker::active{
+/* .fa-map-marker::active{
   background-color: var(--camino-yellow);
 
 }  */
-.fa-map-marker{
+.fa-map-marker {
   color: #008ae6;
 }
-.myPosition{
+
+.myPosition {
   color: #008ae6;
 }
 
@@ -1088,7 +1119,7 @@ form button {
 
 }
 
-.tabbar img{
+.tabbar img {
   height: 3vh;
   display: block;
   margin: 0 auto 1vh;
@@ -1108,7 +1139,7 @@ form button {
   color: var(--camino-yellow);
 }
 
-.tabbar img{
+.tabbar img {
   fill: var(--camino-yellow);
 }
 
@@ -1188,16 +1219,16 @@ select {
 
 @media only screen and (min-width: 500px) {
   .navigationEtape {
- 
+
     width: 10vw;
 
-    
+
   }
 
 }
 
 @media only screen and (min-width: 1024px) {
-  #mapid{
+  #mapid {
     width: 90vw;
     height: 100vh;
     /* overflow: visible; */
@@ -1213,27 +1244,33 @@ select {
     margin-top: 5vh;
     width: 30vw;
   }
-  .tabbar{
+
+  .tabbar {
     display: none;
   }
 
-  .page{
+  .page {
     display: block;
   }
+
   .imagePopup {
     top: 100vh;
     width: 50vw;
     height: 100vh;
   }
+
   .container {
     top: 25%;
   }
-  .dropdown .zoomMap{
+
+  .dropdown .zoomMap {
     display: block;
   }
+
   aside h3 {
     font-size: 3vh;
   }
+
   #logoDark {
     height: 12vh;
     margin: 3vh auto 0;
@@ -1242,21 +1279,23 @@ select {
   }
 
 
- 
+
   .grid-item {
- 
+
     margin: 1em;
- 
-    
+
+
   }
 
   .tabNav {
-   font-size: 0.9em;
+    font-size: 0.9em;
   }
+
   /* --------------------- Frontpage -------------------*/
   #frontpageImage {
-    width: 90vw; 
+    width: 90vw;
   }
+
   #frontpageLogoDiv {
     width: 30%;
     margin-left: 5%;
@@ -1268,6 +1307,7 @@ select {
     width: 60%;
     margin: 23% 0 0 2.5%;
   }
+
   #frontpageImage h1 {
     font-size: 10vh;
   }
@@ -1275,31 +1315,35 @@ select {
   #content {
     width: 90vw;
     overflow: visible;
- 
+
   }
 
   /* --------------------- Leaflet (map controls) -------------------*/
   .leaflet-control-layers-toggle {
-    width: 13vw !important; 
+    width: 13vw !important;
     border: 2px solid var(--camino-blue);
   }
+
   .leaflet-control-layers-toggle:after {
     font-size: 1.2em;
-  
+
   }
+
   .leaflet-control-layers-expanded {
     width: 20vw !important;
-    
+
   }
+
   .leaflet-control-layers-expanded label div span p {
-  
+
     font-size: 1.2em;
-  
+
   }
+
   .leaflet-control-layers-expanded label div span {
-  
+
     width: 92%;
 
-  
+
   }
 }

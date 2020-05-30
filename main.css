@@ -355,6 +355,7 @@ hr {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  position: relative;
 }
 
 #frontpageSection div {
@@ -383,31 +384,27 @@ h2 {
 }
 
 #frontpageSection .arrow {
-  /* position: absolute; */
-  /* height: 10vh; */
-  fill: #22523C;
-  stroke: #22523C;
+  opacity: .2;
+  position: absolute;
+  height: 10vh;
 }
 
 #frontpageSection .descriptionArrow {
-  right: 10%;
-  bottom: 1%;
-  height: 15vh;
-  /* height: 500px; */
+  right: 0;
+  top: 7vh;
+  transform: rotate(90deg) scaleY(-1);
 }
 
 #frontpageSection .mapArrow {
-  left: 30%;
-  bottom: 1%;
-  height: 15vh;
-  /* height: 500px; */
+  left: 27vw;
+  top: 7vh;
+  transform: rotate(90deg);
 }
 
 #frontpageSection .generalArrow {
-  left: 15%;
-  bottom: 15%;
-  height: 10vh;
-  /* height: 500px; */
+  left: 17vw;
+  top: 0;
+  transform: rotate(-60deg);
 }
 
 /* ---------- map ---------- */

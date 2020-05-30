@@ -28,16 +28,17 @@ export default class HomePage {
   </section>
 
   <section id="frontpageSection" class="page" >
-  <img class="arrow generalArrow" src="../images/ikoner/pil-generelt.svg">
-    <div>
+      <div>
       <img src="images/ikoner/generelt.svg">
     
       <h2>Generelt</h2>
       <p>Ruten er 108 km, som bølger sig rundt i det gamle Frøs Herred. Den byder på flere spændende oplevelser på
         højderyggen mellem Kongeåen og Gram Å, og grænser op til den gamle grænse fra 1864 og til 1920, som var en
         brydningstid for området </p>
+        
     </div>
-    <img class="arrow mapArrow" src="../images/ikoner/pil-kort.svg">
+    <img class="arrow generalArrow" src="images/ikoner/nyPilGenerelt.png">
+    <img class="arrow mapArrow" src="images/ikoner/nyPilGenerelt.png">
     <div>
     <img src="images/ikoner/kort.svg">
    
@@ -46,7 +47,7 @@ export default class HomePage {
         du ønsker information om. Du har også mulighed for at få et overblik og rutens faciliteter. Du kan også printe
         kortet hjemmefra og medbringe til turen </p>
     </div>
-    <img class="arrow descriptionArrow" src="../images/ikoner/pil-rutebeskrivelser.svg">
+    <img class="arrow descriptionArrow" src="images/ikoner/nyPilGenerelt.png">
     <div>
     <img src="images/ikoner/rutebeskrivelser.svg">
  

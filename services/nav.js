@@ -116,6 +116,17 @@ class ScrollService {
 
         }
 
+        //.......................... Stage dropdown .................................
+
+        let allDropdowns = document.getElementsByClassName('dropdown');
+        for (const dropdown of allDropdowns) {
+            dropdown.style.display = "none";
+        }
+
+
+        let dropdown = stage.getElementsByClassName('dropdown')[0];
+        dropdown.style.display = 'block';
+
         //.......................... Scroll to stage .................................
 
         if (number == 1) { // If stage 1 is choosen...
@@ -131,17 +142,6 @@ class ScrollService {
         }
 
 
-
-        //.......................... Stage dropdown .................................
-
-        let allDropdowns = document.getElementsByClassName('dropdown');
-        for (const dropdown of allDropdowns) {
-            dropdown.style.display = "none";
-        }
-
-
-        let dropdown = stage.getElementsByClassName('dropdown')[0];
-        dropdown.style.display = 'block';
 
 
 

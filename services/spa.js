@@ -2,6 +2,7 @@ import stageService from "./stages.js"
 import mapInfoService from "./mapInfo.js";
 import mapService from "./map.js";
 import scrollService from "./nav.js"
+import loaderService from "./loader.js"
 import { map, latitude, longitude, zoom } from "./../main.js";
 class SpaService {
   constructor() {
@@ -51,40 +52,45 @@ class SpaService {
   // set default page or given page by the hash url
   // function is called 'onhashchange'
   pageChange() {
+    loaderService.show(true)
     let page = this.defaultPage;
     if (window.location.hash) {
       page = window.location.hash.slice(1);
       console.log(page)
 
     }
-    this.showPage(page);
-    if (page === 'grid-posts') {
-      document.querySelector('.navigationEtape').style.display = 'block';
-      document.querySelector('.maparea').style.display = 'block';
-      stageService.stageSize();
-      scrollService.scrollToStage(scrollService.chosenNumber);
-      // scrollService.tabs('description', scrollService.chosenNumber);
-
-    } else if (page === 'home') {
-      if (window.innerWidth < 1024) {
-        document.querySelector('.navigationEtape').style.display = 'none';
-        document.querySelector('.maparea').style.display = 'none';
-      } else {
+    if (window.innerWidth > 1024) {
+      this.navigateTo('');
+    } else {
+      this.showPage(page);
+      if (page === 'grid-posts') {
         document.querySelector('.navigationEtape').style.display = 'block';
         document.querySelector('.maparea').style.display = 'block';
-      }
-    } else if (page === 'mapid') {
-      document.querySelector('.navigationEtape').style.display = 'block';
-      document.querySelector('.maparea').style.display = 'block';
+        stageService.stageSize();
+        scrollService.scrollToStage(scrollService.chosenNumber);
+        // scrollService.tabs('description', scrollService.chosenNumber);
+
+      } else if (page === 'home') {
+        if (window.innerWidth < 1024) {
+          document.querySelector('.navigationEtape').style.display = 'none';
+          document.querySelector('.maparea').style.display = 'none';
+        } else {
+          document.querySelector('.navigationEtape').style.display = 'block';
+          document.querySelector('.maparea').style.display = 'block';
+        }
+      } else if (page === 'mapid') {
+        document.querySelector('.navigationEtape').style.display = 'block';
+        document.querySelector('.maparea').style.display = 'block';
 
 
-      if (this.counter === 0) {
-        console.log(this.counter)
-        mapInfoService.createMarkers();
-        this.counter++
+        if (this.counter === 0) {
+          console.log(this.counter)
+          mapInfoService.createMarkers();
+          this.counter++
+        }
       }
     }
-
+    loaderService.show(false)
   }
 
   // show and hide tabbar

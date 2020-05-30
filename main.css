@@ -662,7 +662,7 @@ aside h3 {
   background-color: #cccccc;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% auto;
+  background-size: auto 100%;
   position: relative;
   border-radius: 25px;
 
@@ -1215,6 +1215,12 @@ select {
   border-radius: 0;
 } */
 
+/* @media only screen and (min-width: 375px) {
+  .backgroundimg{
+    background-size: 100% auto;
+  }
+
+}
 @media only screen and (min-width: 475px) {
   .backgroundimg{
     background-size: 100% auto;
@@ -1230,7 +1236,7 @@ select {
 
   }
 
-}
+} */
 
 
 
@@ -1263,7 +1269,7 @@ select {
   }
 
   .imagePopup {
-    top: 100vh;
+    top: 0;
     width: 50vw;
     height: 100vh;
   }
@@ -1346,18 +1352,24 @@ select {
 
   }
 
-  .leaflet-control-layers-expanded label div span p {
+  .leaflet-control-layers-expanded label div span p, .leaflet-control-layers-base {
 
     font-size: 1.2em;
 
   }
-
+  
   .leaflet-control-layers-expanded label div span {
 
     width: 92%;
 
 
   }
+ 
+  /* .leaflet-control-layers-base label div{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  } */
 }
 @media only screen and (min-width: 1460px) {
   .backgroundimg{

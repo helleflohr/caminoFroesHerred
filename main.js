@@ -89,5 +89,5 @@ export let map = new L.Map("mapid", {
 
 
 
-
+// stageService.stageSize();
 

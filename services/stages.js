@@ -11,10 +11,10 @@ class StageService {
     stageSize() {
         let listItem = document.getElementsByClassName('backgroundimg');
 
-        // console.log(listItem[0].offsetWidth)
+        console.log(listItem)
 
         for (const item of listItem) {
-            // console.log(item.offsetWidth)
+            console.log(item.offsetWidth)
             let height = item.offsetWidth / 3 * 2
             // console.log(height)
             item.style.height = `${height}px`
@@ -23,13 +23,13 @@ class StageService {
 
         let mapid = document.querySelector('#mapid');
         let gridPosts = document.querySelector('#grid-posts')
-
+        console.log(spaService.pages)
         mapid.classList.add('page');
         gridPosts.classList.add('page');
 
         spaService.pages = document.querySelectorAll(".page");
 
-
+        console.log(spaService.pages)
     }
 }
 

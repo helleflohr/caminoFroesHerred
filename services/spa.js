@@ -2,6 +2,7 @@ import stageService from "./stages.js"
 import mapInfoService from "./mapInfo.js";
 import mapService from "./map.js";
 import scrollService from "./nav.js"
+import { map, latitude, longitude, zoom } from "./../main.js";
 class SpaService {
   constructor() {
     this.defaultPage = "home";
@@ -63,6 +64,7 @@ class SpaService {
       stageService.stageSize();
       scrollService.scrollToStage(scrollService.chosenNumber);
       // scrollService.tabs('description', scrollService.chosenNumber);
+
     } else if (page === 'home') {
       if (window.innerWidth < 1024) {
         document.querySelector('.navigationEtape').style.display = 'none';
@@ -74,6 +76,7 @@ class SpaService {
     } else if (page === 'mapid') {
       document.querySelector('.navigationEtape').style.display = 'block';
       document.querySelector('.maparea').style.display = 'block';
+
 
       if (this.counter === 0) {
         console.log(this.counter)

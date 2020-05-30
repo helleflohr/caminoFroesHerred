@@ -30,9 +30,9 @@ let homePage = new HomePage();
 loaderService.show(true);
 spaService.init();
 
-mapService.fetchGeoJson();
-if (window.innerWidth > 1024) {
 
+if (window.innerWidth > 1024) {
+    mapService.fetchGeoJson();
     mapInfoService.createMarkers();
 }
 
@@ -80,11 +80,13 @@ if (window.innerWidth > 1024) {
     zoom = 11;
 }
 
+
 export let map = new L.Map("mapid", {
     center: new L.LatLng(latitude, longitude),
     zoom: zoom
     // layers: [cities]
 });
+
 
 
 

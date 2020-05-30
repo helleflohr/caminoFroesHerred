@@ -8,6 +8,7 @@ class SpaService {
   constructor() {
     this.defaultPage = "home";
     this.counter = 0;
+    this.visitedPages = [];
   }
 
   init() {
@@ -19,7 +20,7 @@ class SpaService {
   // hide all pages
   hideAllPages() {
     for (let page of this.pages) {
-      console.log(page)
+      // console.log(page)
       page.style.display = "none";
     }
   }
@@ -52,6 +53,8 @@ class SpaService {
   // set default page or given page by the hash url
   // function is called 'onhashchange'
   pageChange() {
+
+
     loaderService.show(true)
     let page = this.defaultPage;
     if (window.location.hash) {
@@ -59,6 +62,14 @@ class SpaService {
       console.log(page)
 
     }
+
+
+
+
+    this.visitedPages.push(page)
+    console.log(this.visitedPages)
+
+
     if (window.innerWidth > 1024) {
       this.navigateTo('');
     } else {
@@ -67,7 +78,14 @@ class SpaService {
         document.querySelector('.navigationEtape').style.display = 'block';
         document.querySelector('.maparea').style.display = 'block';
         stageService.stageSize();
+
+
         scrollService.scrollToStage(scrollService.chosenNumber);
+        if (this.visitedPages[0] !== page) {
+          scrollService.createFirstTabUnderline(scrollService.chosenNumber)
+        }
+
+
         // scrollService.tabs('description', scrollService.chosenNumber);
 
       } else if (page === 'home') {
@@ -81,6 +99,9 @@ class SpaService {
       } else if (page === 'mapid') {
         document.querySelector('.navigationEtape').style.display = 'block';
         document.querySelector('.maparea').style.display = 'block';
+        if (this.visitedPages[0] !== page) {
+          map._onResize();
+        }
 
 
         if (this.counter === 0) {

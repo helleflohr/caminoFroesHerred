@@ -110,7 +110,10 @@ strong {
 /* ---------- page styling ---------- */
 .page {
   display: none;
+  
   animation: fadeIn 0.4s;
+  /* opacity: 0; */
+  /* height: 0; */
 }
 
 aside {
@@ -180,11 +183,11 @@ aside {
 
 hr {
   height: .25rem;
-  width: 2%;
+  width: 0%;
   margin: -1em 0 1em;
   background: var(--camino-yellow);
   border: none;
-  transition: .3s ease-in-out;
+  transition: .5s ease-in-out;
 }
 
 
@@ -662,7 +665,7 @@ aside h3 {
   background-color: #cccccc;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto 100%;
+  background-size: cover;
   position: relative;
   border-radius: 25px;
 
@@ -1215,18 +1218,7 @@ select {
   border-radius: 0;
 } */
 
-/* @media only screen and (min-width: 375px) {
-  .backgroundimg{
-    background-size: 100% auto;
-  }
 
-}
-@media only screen and (min-width: 475px) {
-  .backgroundimg{
-    background-size: 100% auto;
-  }
-
-}
 
 @media only screen and (min-width: 500px) {
   .navigationEtape {
@@ -1236,7 +1228,7 @@ select {
 
   }
 
-} */
+}
 
 
 
@@ -1332,9 +1324,7 @@ select {
     overflow: visible;
 
   }
-  .backgroundimg{
-    background-size: auto 100%;
-  }
+  
 
   /* --------------------- Leaflet (map controls) -------------------*/
   .leaflet-control-layers-toggle {
@@ -1370,10 +1360,4 @@ select {
     flex-wrap: wrap;
     width: 100%;
   } */
-}
-@media only screen and (min-width: 1460px) {
-  .backgroundimg{
-    background-size: 100% auto;
-  }
-
 }

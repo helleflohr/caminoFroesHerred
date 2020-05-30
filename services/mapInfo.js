@@ -60,7 +60,7 @@ class MapInfoService {
 
         this.tilesAndControles();
 
-        console.log(this.iconSizes, this.iconSizes / 2)
+        // console.log(this.iconSizes, this.iconSizes / 2)
         let iconClass = L.Icon.extend({
             options: {
                 // shadowUrl: 'images/and.jpg',

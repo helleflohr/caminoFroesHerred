@@ -8,7 +8,6 @@ class ScrollService {
         this.trMargin = [];
 
         // Counters
-        this.numberCounter = [];
         this.numberImageCounter = [];
         this.numberDescriptionCounter = [];
 
@@ -147,23 +146,7 @@ class ScrollService {
 
 
         //.......................... Tab underliner .................................
-        let listItem = stage.getElementsByClassName('tabNav'); // Tab items
-        for (const item of listItem) {
-            this.trWidth.push(item.offsetWidth) // Get the width of the tab items and push into array
-            this.trMargin.push(item.offsetLeft) // Get the postition of the tab items and push into array
-        }
-
-        let underline = document.querySelector(`#hr${number}`); // The underliner
-
-
-        // Set the underliner width to the length of the first tab item
-        // This value is set once for each stage on click
-        if (this.numberCounter.indexOf(number) === -1) {
-            this.numberCounter.push(number)
-            underline.style.width = `${this.trWidth[0]}px`;
-            // underline.style.margin = `0px`;
-
-        }
+        this.createFirstTabUnderline(number);
 
 
         //.......................... Insert the description the first time the stage is choosen .................................
@@ -181,6 +164,33 @@ class ScrollService {
 
         }
 
+    }
+
+    createFirstTabUnderline(number) {
+        if (number) {
+            //.......................... Tab underliner .................................
+            let stage = document.querySelector(`#stage${number}`); // The choosen stage
+            let listItem = stage.getElementsByClassName('tabNav'); // Tab items
+            console.log(listItem, number)
+            this.trWidth = [];
+            this.trMargin = [];
+            for (const item of listItem) {
+                this.trWidth.push(item.offsetWidth) // Get the width of the tab items and push into array
+                this.trMargin.push(item.offsetLeft) // Get the postition of the tab items and push into array
+                console.log(item.offsetWidth, item.offsetLeft)
+            }
+
+
+            let underline = document.querySelector(`#hr${number}`); // The underliner
+            console.log(underline, this.trWidth)
+
+            // Set the underliner width to the length of the first tab item
+            // This value is set once for each stage on click
+
+            underline.style.width = `${this.trWidth[0]}px`;
+
+
+        }
     }
 
 

@@ -69,7 +69,7 @@ export default class HomePage {
     `;
   }
 
-  //.......................... FETCH WORDPRESS .................................
+//.......................... FETCH WORDPRESS .................................
 //Johanne
   fetchDescription() {
 
@@ -90,7 +90,7 @@ export default class HomePage {
       });
   }
 
-  
+  //.......................... APPEND POSTS .................................
   appendPosts(posts) {
     //sort the posts by acf stagenumber in ascending order
     //Johanne 

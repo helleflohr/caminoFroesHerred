@@ -14,7 +14,7 @@ class MapService {
 
   async fetchGeoJson() {
     this.descriptions = await fetchService.getDescriptions();
-    console.log(this.descriptions)
+    // console.log(this.descriptions)
     let numberOfStages = this.descriptions.length
 
     for (let i = 1; i < (numberOfStages + 1); i++) {
@@ -74,7 +74,7 @@ class MapService {
       L.marker(coordinateStart, {
         icon: dot
       }).addTo(map);
-      // L.marker([coordinatesEnd]).addTo(map);
+
     }
   }
 };

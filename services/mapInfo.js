@@ -11,6 +11,7 @@ class MapInfoService {
         this.iconSizes = 29;
 
 
+
     }
 
     async createMarkers() {
@@ -79,8 +80,8 @@ class MapInfoService {
 
 
         let Seng = new iconClass({
-            iconUrl: 'images/ikoner-map/Seng.svg'
-        }),
+                iconUrl: 'images/ikoner-map/Seng.svg'
+            }),
             Kirke = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirke.svg'
             }),
@@ -144,25 +145,33 @@ class MapInfoService {
         let HvilestedArr = [];
 
 
+        let fullArr = [];
+
         for (let post of json) {
             iconArr.push(post.acf.infotype);
 
-
-
-
             let name = `${post.acf.infotype}Arr`
             if (post.acf.infotype === "Overnatning") {
-                eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
+                let marker = L.marker([post.acf.latitude, post.acf.longitude], {
                     icon: eval(post.acf.typeOfStay)
-                }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
+                }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`)
+
+                eval(name).push(marker);
                 stayArr.push(post.acf.typeOfStay)
+                fullArr.push(marker);
             } else {
-                eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
+                let marker = L.marker([post.acf.latitude, post.acf.longitude], {
                     icon: eval(post.acf.infotype)
-                }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
+                }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`)
+                eval(name).push(marker);
+                fullArr.push(marker);
             }
         }
         iconArr = [...new Set(iconArr)];
+
+
+
+
 
         // for (const icon of iconArr) {
         //     console.log(icon)
@@ -171,27 +180,35 @@ class MapInfoService {
         //     console.log(name)
 
         // }
-        KirkeArr = L.layerGroup(KirkeArr);
-        ToiletterArr = L.layerGroup(ToiletterArr);
-        OvernatningArr = L.layerGroup(OvernatningArr);
 
-        KanopladsArr = L.layerGroup(KanopladsArr);
 
-        VandpostArr = L.layerGroup(VandpostArr);
-        UdkigspunktArr = L.layerGroup(UdkigspunktArr);
+        KirkeArr = L.LayerGroup(KirkeArr);
+        ToiletterArr = L.LayerGroup(ToiletterArr);
+        OvernatningArr = L.LayerGroup(OvernatningArr);
 
-        BusstopArr = L.layerGroup(BusstopArr);
-        ForplejningsmulighedArr = L.layerGroup(ForplejningsmulighedArr);
-        GenforeningsstenArr = L.layerGroup(GenforeningsstenArr);
-        LegepladsArr = L.layerGroup(LegepladsArr);
-        IndkøbsmulighedArr = L.layerGroup(IndkøbsmulighedArr);
-        ParkeringArr = L.layerGroup(ParkeringArr);
-        HvilestedArr = L.layerGroup(HvilestedArr);
+        KanopladsArr = L.LayerGroup(KanopladsArr);
 
+        VandpostArr = L.LayerGroup(VandpostArr);
+        UdkigspunktArr = L.LayerGroup(UdkigspunktArr);
+
+        BusstopArr = L.LayerGroup(BusstopArr);
+        ForplejningsmulighedArr = L.LayerGroup(ForplejningsmulighedArr);
+        GenforeningsstenArr = L.LayerGroup(GenforeningsstenArr);
+        LegepladsArr = L.LayerGroup(LegepladsArr);
+        IndkøbsmulighedArr = L.LayerGroup(IndkøbsmulighedArr);
+        ParkeringArr = L.LayerGroup(ParkeringArr);
+        HvilestedArr = L.LayerGroup(HvilestedArr);
+
+        let clusterGroupCollection = new L.LayerGroup();
+
+        this.clustermarkers(fullArr, clusterGroupCollection);
 
         // --------------- Be on map from start ---------------
         for (const marker of fetchService.startMarkers) {
+
+
             let markerArr = `${marker}Arr`
+            console.log(markerArr);
             map.addLayer(eval(markerArr))
         }
 
@@ -215,9 +232,9 @@ class MapInfoService {
 
             // let overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
             overlayMaps[overlayLine] = eval(name);
-
-
         }
+
+
 
 
         let baseMaps = {
@@ -258,25 +275,49 @@ class MapInfoService {
     tilesAndControles() {
 
 
-        L.control.locate({ initialZoomLevel: '14', flyTo: 'true' }).addTo(map);
+        L.control.locate({
+            initialZoomLevel: '14',
+            flyTo: 'true'
+        }).addTo(map);
 
 
 
         // --------------- Printer function - Helle ---------------
         L.control.browserPrint({
-            title: 'Just print me!',
-            documentTitle: 'Map printed using leaflet.browser.print plugin',
-
-            closePopupsOnPrint: false,
+            title: 'Print kort',
+            documentTitle: 'Kort printet ved brug af leaflet.browser.print plugin',
             manualMode: false
         }).addTo(map)
 
         L.control.browserPrint.mode.custom();
         L.control.browserPrint.mode.landscape();
         L.control.browserPrint.mode.portrait();
-        // --------------- Printer function - End ---------------
     }
+    // --------------- Printer function - End ---------------
 
+    // --------------- Cluster marker function - Helle ---------------
+    // clusterMarkers() {
+    //     let allMarkers = L.markerClusterGroup();
+    //     for (let marker of fetchService.markers) {
+
+    //         allMarkers.addLayer(L.marker([marker.acf.latitude, marker.acf.longitude]));
+    //         // ...Add more layers...
+    //         map.addLayer(allMarkers);
+    //     }
+    //     console.log(allMarkers);
+    // }
+
+    clustermarkers(markersArr, clusterGroup) {
+        for (let i = 0; i < markersArr.length; i++) {
+
+            let marker = markersArr[i];
+            clusterGroup.addLayer(marker)
+        }
+
+
+        map.addLayer(clusterGroup);
+    }
+    // --------------- Cluster marker function - End ---------------
 
     iconSize() {
         let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');

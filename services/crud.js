@@ -114,24 +114,44 @@ createUser(number) {
   let stageInput = document.querySelector(`#commentsModal${number}`)
   console.log(number);
   
-  let nameInput = stageInput.querySelector('.formName')[0]; //finder queryselector som er inde i stageInput
-  let textInput = stageInput.querySelector('.formText')[0];
-  let imageInput = stageInput.querySelector('.imgChoose')[0];
+  let nameInput = stageInput.querySelector('.formName'); //finder queryselector som er inde i stageInput
+  let textInput = stageInput.querySelector('.formText');
+  let imageInput = stageInput.querySelector('.imgChoose');
   console.log(nameInput.value);
   console.log(textInput.value);
   console.log(imageInput.value);
-  console.log(stageInput.title);
   
   
   let newPost = {
     name: nameInput.value,
     text: textInput.value,
-    image: imageInput.value,
+    image: imageInput.files[0].name,
     etape: number
   };
 
   this._dataRef.add(newPost);
+  stageInput.style.display = "none"
 } 
+
+textCountDown(number) {
+  let stageInput = document.querySelector(`#commentsModal${number}`)
+  console.log(stageInput);
+  stageInput.getElementsByClassName('formText').onkeyup = () => {
+    
+  document.getElementById('demo-text').innerHTML = "Characters left: " + (500 - this.value.length);
+};
+}
+
+/* textCountDown(number) {
+let stageInput = document.querySelector(`#commentsModal${number}`)
+var elem = stageInput.getElementsByClassName("formText"); 
+console.log(elem);
+
+var n = elem.length;
+console.log(elem.length);
+
+document.getElementById("demo-text").innerHTML = n;
+} */
 
   // ========== MODAL ==========
 
@@ -141,13 +161,6 @@ myFunctionModal(number) {
    let modalSay = document.getElementById(`commentsModal${number}`);
   modalSay.style.display = "block";
     };
-
-  // When the user clicks on the button, open the modal
-  myFunctionModal(number) {
-    // Get the modal
-    let modalSay = document.getElementById(`commentsModal${number}`);
-    modalSay.style.display = "block";
-  };
 
   closeFunction(element) {
     // When the user clicks on <span> (x), close the modal

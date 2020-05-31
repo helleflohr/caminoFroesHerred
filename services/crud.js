@@ -1,3 +1,4 @@
+
 // import { map } from "./../main.js";
 class CrudService {
   constructor() {
@@ -11,7 +12,8 @@ class CrudService {
   };
 
 
-  // ========== READ ==========
+ //.......................... READ POSTS .................................
+//Johanne
   // 1: data from firebase
   // watch the database ref for changes
   read() {
@@ -85,6 +87,9 @@ class CrudService {
 
   // --------------- Append posts from Wordpress - End ---------------
 
+//.......................... PREVIEW IMAGE AND TRIGGER CHOOSE IMAGE .................................
+//Johanne
+
   previewImage(file, number) {
     console.log(number);
     
@@ -107,8 +112,10 @@ class CrudService {
     document.querySelector(`#commentsModal${number} .imgChoose`).click();
   }
 
-  // ========== CREATE ==========
-// add a new user to firestore (database)
+
+//.......................... CREATE POST .................................
+//Johanne
+// add a new post to firestore (database)
 createUser(number) {
   // references to the input fields
   let stageInput = document.querySelector(`#commentsModal${number}`)
@@ -153,7 +160,8 @@ console.log(elem.length);
 document.getElementById("demo-text").innerHTML = n;
 } */
 
-  // ========== MODAL ==========
+ //.......................... MODAL (modal open) .................................
+// Johanne ----------------------------------
 
 // When the user clicks on the button, open the modal
 myFunctionModal(number) {

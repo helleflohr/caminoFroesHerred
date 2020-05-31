@@ -69,17 +69,8 @@ export default class HomePage {
     `;
   }
 
-  /*   ---------------------  Johanne ---------------------- */
-
-  /* showLoader(show) {
-    let loader = document.querySelector('#loader');
-    if (show) {
-      loader.classList.remove("hide");
-    } else {
-      loader.classList.add("hide");
-    }
-  } */
-
+  //.......................... FETCH WORDPRESS .................................
+//Johanne
   fetchDescription() {
 
     fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
@@ -88,20 +79,21 @@ export default class HomePage {
       })
       .then((json) => {
         this.descriptions = json;
-        // console.log(this.descriptions)
         this.appendPosts(json)
 
         setTimeout(() => {
           //fjerner spinner efter load.
-          loaderService.show(false);
+          loaderService.show(false); 
         }, 200);
         console.log(loaderService.show(false));
 
       });
   }
 
+  
   appendPosts(posts) {
-    /* sort the posts by acf stagenumber in ascending order. */
+    //sort the posts by acf stagenumber in ascending order
+    //Johanne 
     posts.sort(function (x, y) {
       return x.acf.stageNumber - y.acf.stageNumber;
     });

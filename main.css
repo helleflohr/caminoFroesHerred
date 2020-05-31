@@ -83,21 +83,22 @@ p {
 }
 
 .descriptionDiv {
-  margin-left: 1%;
+  /* margin-left: 1%; */
+  margin: 1% 0 1% 1%;
 }
 
 .descriptionDiv li:before {
   content: '';
-   display: inline-block;
- 
-   /* height: 7px; */
-   width: 6px;
-   background-image: url(images/pil.png);
-   background-position: center;
-   background-size: cover;
-   margin-left: -12px;
-   margin-right: 4px;
-   padding-top: 7px;
+  display: inline-block;
+
+  /* height: 7px; */
+  width: 6px;
+  background-image: url(images/pil.png);
+  background-position: center;
+  background-size: cover;
+  margin-left: -12px;
+  margin-right: 4px;
+  padding-top: 7px;
 
 }
 
@@ -110,7 +111,7 @@ strong {
 /* ---------- page styling ---------- */
 .page {
   display: none;
-  
+
   animation: fadeIn 0.4s;
   /* opacity: 0; */
   /* height: 0; */
@@ -233,6 +234,7 @@ hr {
 .flexcontainer {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 3%;
 }
 
 @keyframes spin {
@@ -387,6 +389,7 @@ h2 {
   opacity: .2;
   position: absolute;
   height: 10vh;
+  overflow: visible;
 }
 
 #frontpageSection .descriptionArrow {
@@ -1321,7 +1324,7 @@ select {
     overflow: visible;
 
   }
-  
+
 
   /* --------------------- Leaflet (map controls) -------------------*/
   .leaflet-control-layers-toggle {
@@ -1339,12 +1342,13 @@ select {
 
   }
 
-  .leaflet-control-layers-expanded label div span p, .leaflet-control-layers-base {
+  .leaflet-control-layers-expanded label div span p,
+  .leaflet-control-layers-base {
 
     font-size: 1.2em;
 
   }
-  
+
   .leaflet-control-layers-expanded label div span {
 
     width: 92%;
@@ -1352,10 +1356,10 @@ select {
 
   }
 
-  .leaflet-control-locate{
+  .leaflet-control-locate {
     display: none;
   }
- 
+
   /* .leaflet-control-layers-base label div{
     display: flex;
     flex-wrap: wrap;

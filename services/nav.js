@@ -1,6 +1,7 @@
-import { map } from "./../main.js";
+import { map, latitude, longitude, zoom } from "./../main.js";
 import fetchService from "./../services/fetch.js"
 import mapService from "./map.js"
+import loaderService from "./loader.js"
 class ScrollService {
     constructor() {
         // Variables for the yellow tabunderliner
@@ -8,9 +9,12 @@ class ScrollService {
         this.trMargin = [];
 
         // Counters
-        this.numberCounter = [];
         this.numberImageCounter = [];
         this.numberDescriptionCounter = [];
+
+        this.chosenNumber;
+
+        this.descriptions = fetchService.getDescriptions();
     }
 
     // Scroll to a specific element
@@ -25,19 +29,21 @@ class ScrollService {
 
     // Scroll to the specific stage (number)
     scrollToStage(number) {
-        // let stage = document.querySelector(`#stage${number}`);
-        // if (number == 1) { // If stage 1...
-        //     stage.scrollIntoView({
-        //         behavior: "smooth",
-        //         block: "start" //...then scroll to start of the element...
-        //     });
-        // } else {
-        //     stage.scrollIntoView({
-        //         behavior: "smooth",
-        //         block: "center" //...else scroll to center
-        //     });
-        // }
-        console.log(number)
+        if (number) {
+            let stage = document.querySelector(`#stage${number}`);
+            if (number == 1) { // If stage 1...
+                stage.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start" //...then scroll to start of the element...
+                });
+            } else {
+                stage.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start" //...else scroll to center
+                });
+            }
+            console.log(number)
+        }
     }
 
 
@@ -67,12 +73,14 @@ class ScrollService {
 
     // Zoom out to the map overview
     zoomOut() {
-        map.setView(L.latLng(55.356480, 9.157975), 12) // setView to coordinates and zoomlevel
+        map.flyTo(L.latLng(latitude, longitude), zoom) // setView to coordinates and zoomlevel
     }
 
     // Function which runs when a stage (number) is choosen
     chosen(number) {
-        let numberOfStages = 11
+
+        let numberOfStages = mapService.descriptions.length
+        this.chosenNumber = number;
 
 
         //.......................... Style distance, line on map and buttons .................................
@@ -108,22 +116,6 @@ class ScrollService {
 
         }
 
-        //.......................... Scroll to stage .................................
-
-        if (number == 1) { // If stage 1 is choosen...
-            stage.scrollIntoView({
-                behavior: "smooth",
-                block: "start" //...then scroll to start of the element...
-            });
-        } else {
-            stage.scrollIntoView({
-                behavior: "smooth",
-                block: "center" //...else scroll to center
-            });
-        }
-
-
-
         //.......................... Stage dropdown .................................
 
         let allDropdowns = document.getElementsByClassName('dropdown');
@@ -135,26 +127,27 @@ class ScrollService {
         let dropdown = stage.getElementsByClassName('dropdown')[0];
         dropdown.style.display = 'block';
 
+        //.......................... Scroll to stage .................................
+
+        if (number == 1) { // If stage 1 is choosen...
+            stage.scrollIntoView({
+                behavior: "smooth",
+                block: "start" //...then scroll to start of the element...
+            });
+        } else {
+            stage.scrollIntoView({
+                behavior: "smooth",
+                block: "start" //...else scroll to center
+            });
+        }
+
+
+
 
 
 
         //.......................... Tab underliner .................................
-        let listItem = stage.getElementsByClassName('tabNav'); // Tab items
-        for (const item of listItem) {
-            this.trWidth.push(item.offsetWidth) // Get the width of the tab items and push into array
-            this.trMargin.push(item.offsetLeft) // Get the postition of the tab items and push into array
-        }
-
-        let underline = document.querySelector(`#hr${number}`); // The underliner
-
-
-        // Set the underliner width to the length of the first tab item
-        // This value is set once for each stage on click
-        if (this.numberCounter.indexOf(number) === -1) {
-            this.numberCounter.push(number)
-            underline.style.width = `${this.trWidth[0]}px`;
-
-        }
+        this.createFirstTabUnderline(number);
 
 
         //.......................... Insert the description the first time the stage is choosen .................................
@@ -172,11 +165,42 @@ class ScrollService {
 
         }
 
+
+    }
+
+    createFirstTabUnderline(number) {
+        if (number) {
+            //.......................... Tab underliner .................................
+            let stage = document.querySelector(`#stage${number}`); // The choosen stage
+            let listItem = stage.getElementsByClassName('tabNav'); // Tab items
+            console.log(listItem, number)
+            this.trWidth = [];
+            this.trMargin = [];
+            for (const item of listItem) {
+                this.trWidth.push(item.offsetWidth) // Get the width of the tab items and push into array
+                this.trMargin.push(item.offsetLeft) // Get the postition of the tab items and push into array
+                console.log(item.offsetWidth, item.offsetLeft)
+            }
+
+
+            let underline = document.querySelector(`#hr${number}`); // The underliner
+            console.log(underline, this.trWidth)
+
+            // Set the underliner width to the length of the first tab item
+            // This value is set once for each stage on click
+
+            underline.style.width = `${this.trWidth[0]}px`;
+
+
+        }
+        loaderService.show(false)
     }
 
 
     //.......................... Stage tab navigation .................................
     tabs(tab, number) {
+
+        console.log(tab, number, this.trWidth[0])
         // Tab variables
         let description = document.querySelector(`#description${number}`);
         let images = document.querySelector(`#images${number}`);
@@ -188,14 +212,14 @@ class ScrollService {
         comments.style.display = 'none';
 
         let chosenTab = document.querySelector(`#${tab}${number}`); // The choosen tab
-        chosenTab.style.display = 'block'; // Show the choosen tab
+        chosenTab.style.display = 'block'; // Show the choosen tab  
 
 
 
         //.......................... Underliner .................................
         let underline = document.querySelector(`#hr${number}`); // The line
         if (tab === "description") { // If the description tab is choosen...
-            underline.style.marginLeft = "0%"; // ...set margin to 0%...
+            underline.style.marginLeft = '0px'; // ...set margin to 0%...
             underline.style.width = `${this.trWidth[0]}px`; // ...and set the matching width
         }
 

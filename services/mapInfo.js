@@ -1,45 +1,70 @@
 import {
     map
 } from "./../main.js";
+import loaderService from "./loader.js"
+import fetchService from "./fetch.js"
 // import fetchService from "./../services/fetch.js"
 class MapInfoService {
     constructor() {
-        this.createMarkers();
+        // this.createMarkers();
         // this.iconSize();
         this.iconSizes = 29;
 
+
     }
 
-    createMarkers() {
-        fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=300")
+    async createMarkers() {
+        loaderService.show(true)
+        await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=300")
             .then(function (response) {
                 return response.json();
             })
             .then((json) => {
                 this.getDataForCheckbox(json);
             });
+        loaderService.show(false)
     }
 
-    appendMarkers(posts) {
-        console.log('hi')
-        for (let post of posts) {
-            console.log(post);
-            document.querySelector("#grid-posts").innerHTML += `
-                        < article class= "grid-item" >
-                        <h3>${post.title.rendered}</h3>
-                        <h4>${post.acf.kilometer}</h4>
-                        <h5>${post.acf.start}</h5>
-                        <h5>${post.acf.slut}</h5>
-                        <p>${post.acf.rutebeskrivelse}</p>
-                        <img src="${post.acf.billeder.url}">
-                            <p>${post.acf.hvad_siger_andre}</p>
-        </br> `
-        }
-    };
+    // appendMarkers(posts) {
+    //     console.log('hi')
+    //     for (let post of posts) {
+    //         console.log(post);
+    //         document.querySelector("#grid-posts").innerHTML += `
+    //                     < article class= "grid-item" >
+    //                     <h3>${post.title.rendered}</h3>
+    //                     <h4>${post.acf.kilometer}</h4>
+    //                     <h5>${post.acf.start}</h5>
+    //                     <h5>${post.acf.slut}</h5>
+    //                     <p>${post.acf.rutebeskrivelse}</p>
+    //                     <img src="${post.acf.billeder.url}">
+    //                         <p>${post.acf.hvad_siger_andre}</p>
+    //     </br> `
+    //     }
+    // }
+
+    onLocationFound(e) {
+        var radius = e.accuracy;
+
+        L.marker(e.latlng).addTo(map)
+            .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+        L.circle(e.latlng, radius).addTo(map);
+    }
+
+
 
     getDataForCheckbox(json) {
+        let OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+        });
 
-        console.log(this.iconSizes, this.iconSizes / 2)
+        let toner = new L.StamenTileLayer("toner");
+        map.addLayer(OpenStreetMap_HOT);
+
+        this.tilesAndControles();
+
+        // console.log(this.iconSizes, this.iconSizes / 2)
         let iconClass = L.Icon.extend({
             options: {
                 // shadowUrl: 'images/and.jpg',
@@ -50,12 +75,12 @@ class MapInfoService {
                 popupAnchor: [0, -15] // point from which the popup should open relative to the iconAnchor
             }
         })
-        // console.log(iconSize)
+
 
 
         let Seng = new iconClass({
-                iconUrl: 'images/ikoner-map/Seng.svg'
-            }),
+            iconUrl: 'images/ikoner-map/Seng.svg'
+        }),
             Kirke = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirke.svg'
             }),
@@ -118,8 +143,7 @@ class MapInfoService {
         let ParkeringArr = [];
         let HvilestedArr = [];
 
-        // if (this.counter == 0) {
-        // console.log(this.counter)
+
         for (let post of json) {
             iconArr.push(post.acf.infotype);
 
@@ -130,12 +154,12 @@ class MapInfoService {
             if (post.acf.infotype === "Overnatning") {
                 eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
                     icon: eval(post.acf.typeOfStay)
-                }).bindPopup(`${post.content.rendered}`));
+                }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
                 stayArr.push(post.acf.typeOfStay)
             } else {
                 eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
                     icon: eval(post.acf.infotype)
-                }).bindPopup(`${post.content.rendered}`));
+                }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
             }
         }
         iconArr = [...new Set(iconArr)];
@@ -165,12 +189,12 @@ class MapInfoService {
         HvilestedArr = L.layerGroup(HvilestedArr);
 
 
-        // Be on map from start
-        map.addLayer(ToiletterArr);
-        map.addLayer(KirkeArr);
-        map.addLayer(KanopladsArr);
-        map.addLayer(VandpostArr);
-        map.addLayer(BusstopArr);
+        // --------------- Be on map from start ---------------
+        for (const marker of fetchService.startMarkers) {
+            let markerArr = `${marker}Arr`
+            map.addLayer(eval(markerArr))
+        }
+
         let overlayMaps = {};
         for (const icon of iconArr) {
             let overlayLine;
@@ -192,56 +216,18 @@ class MapInfoService {
             // let overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
             overlayMaps[overlayLine] = eval(name);
 
+
         }
 
 
-        // var overlayMaps = {
-        //     "<p>Overnatning</p><img src='images/lyd.png' />": OvernatningArr,
-        //     "<p>Toiletter</p><img src='images/and.jpg' />": ToiletterArr
-        // };
-        // console.log(overlayMaps)
-        L.control.layers([], overlayMaps, {
+        let baseMaps = {
+            "Farver": OpenStreetMap_HOT,
+            "Gråtone": toner
+        };
+        L.control.layers(baseMaps, overlayMaps, {
             position: 'bottomleft'
         }).addTo(map);
 
-        L.control.layers([], overlayMaps, {
-            position: 'bottomleft'
-        }).addTo(map);
-
-        // --------------- Printer function - Helle ---------------
-        L.control.browserPrint({
-            title: 'Just print me!',
-            documentTitle: 'Map printed using leaflet.browser.print plugin',
-
-            closePopupsOnPrint: false,
-            manualMode: false
-        }).addTo(map)
-
-        L.control.browserPrint.mode.custom();
-        L.control.browserPrint.mode.landscape();
-        L.control.browserPrint.mode.portrait();
-
-        // L.Control.BrowserPrint.Event.PrePrint({
-        //     pageSize,
-        //     pageBounds,
-        //     printObjects
-        // }).addTo(map)
-
-        // --------------- Printer function - End ---------------
-
-
-
-        let template = "";
-        for (const markerType of iconArr) {
-            template += /*html*/ `
-                    <div class="boxIcon">
-                    <input type="checkbox" id='check${markerType}' onclick="showOrHide(${markerType})">
-                  <p>${markerType}</p> <img src="images/ikoner-map/${markerType}.svg">
-                  </div>
-                  `
-        }
-        let infoBox = document.querySelector('#infoBox');
-        infoBox.innerHTML = template;
 
 
         map.on('zoomend', () => {
@@ -268,6 +254,30 @@ class MapInfoService {
             console.log(this.iconSizes)
         });
     }
+
+    tilesAndControles() {
+
+
+        L.control.locate({ initialZoomLevel: '14', flyTo: 'true' }).addTo(map);
+
+
+
+        // --------------- Printer function - Helle ---------------
+        L.control.browserPrint({
+            title: 'Just print me!',
+            documentTitle: 'Map printed using leaflet.browser.print plugin',
+
+            closePopupsOnPrint: false,
+            manualMode: false
+        }).addTo(map)
+
+        L.control.browserPrint.mode.custom();
+        L.control.browserPrint.mode.landscape();
+        L.control.browserPrint.mode.portrait();
+        // --------------- Printer function - End ---------------
+    }
+
+
     iconSize() {
         let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
         let currentZoom = map.getZoom();

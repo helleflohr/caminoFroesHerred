@@ -171,7 +171,7 @@ export default class HomePage {
     <input type="text" class="formName" placeholder="Dit navn" required>
     <textarea rows="10" cols="50" name="comment" form="usrform" class="formText" placeholder="Skriv din beretning" minlenght="1" maxlength="150" required></textarea>
     <input type="file" class="none imgChoose " accept="image/*" onchange="previewImage(this.files[0], ${post.acf.stageNumber})"> <!-- skjult via styling -->
-    <button class="secondary" type="button" name="button" onclick="triggerChooseImg()">Vælg dit billede</button>
+    <button class="secondary" type="button" name="button" onclick="triggerChooseImg(${post.acf.stageNumber})">Vælg dit billede</button>
     <div>
     <img class="image-preview imagePreview">
   </div>

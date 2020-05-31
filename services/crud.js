@@ -126,8 +126,8 @@ previewImage(file, number) {
   }
 }
 
-triggerChooseImg() {
-  document.querySelector(".imgChoose").click();
+triggerChooseImg(number) {
+  document.querySelector(`#commentsModal${number} .imgChoose`).click();
 }
 
   // ========== MODAL ==========

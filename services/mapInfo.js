@@ -182,24 +182,24 @@ class MapInfoService {
         // }
 
 
-        KirkeArr = L.LayerGroup(KirkeArr);
-        ToiletterArr = L.LayerGroup(ToiletterArr);
-        OvernatningArr = L.LayerGroup(OvernatningArr);
+        KirkeArr = L.MarkerClusterGroup(KirkeArr);
+        ToiletterArr = L.MarkerClusterGroup(ToiletterArr);
+        OvernatningArr = L.MarkerClusterGroup(OvernatningArr);
 
-        KanopladsArr = L.LayerGroup(KanopladsArr);
+        KanopladsArr = L.MarkerClusterGroup(KanopladsArr);
 
-        VandpostArr = L.LayerGroup(VandpostArr);
-        UdkigspunktArr = L.LayerGroup(UdkigspunktArr);
+        VandpostArr = L.MarkerClusterGroup(VandpostArr);
+        UdkigspunktArr = L.MarkerClusterGroup(UdkigspunktArr);
 
-        BusstopArr = L.LayerGroup(BusstopArr);
-        ForplejningsmulighedArr = L.LayerGroup(ForplejningsmulighedArr);
-        GenforeningsstenArr = L.LayerGroup(GenforeningsstenArr);
-        LegepladsArr = L.LayerGroup(LegepladsArr);
-        IndkøbsmulighedArr = L.LayerGroup(IndkøbsmulighedArr);
-        ParkeringArr = L.LayerGroup(ParkeringArr);
-        HvilestedArr = L.LayerGroup(HvilestedArr);
+        BusstopArr = L.MarkerClusterGroup(BusstopArr);
+        ForplejningsmulighedArr = L.MarkerClusterGroup(ForplejningsmulighedArr);
+        GenforeningsstenArr = L.MarkerClusterGroup(GenforeningsstenArr);
+        LegepladsArr = L.MarkerClusterGroup(LegepladsArr);
+        IndkøbsmulighedArr = L.MarkerClusterGroup(IndkøbsmulighedArr);
+        ParkeringArr = L.MarkerClusterGroup(ParkeringArr);
+        HvilestedArr = L.MarkerClusterGroup(HvilestedArr);
 
-        let clusterGroupCollection = new L.LayerGroup();
+        let clusterGroupCollection = new L.MarkerClusterGroup();
 
         this.clustermarkers(fullArr, clusterGroupCollection);
 

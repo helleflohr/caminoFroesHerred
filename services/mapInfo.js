@@ -22,7 +22,8 @@ class MapInfoService {
             })
             .then((json) => {
                 this.getDataForCheckbox(json);
-            });
+            })
+            .then(iconCreateFunction(cluster));
         loaderService.show(false)
     }
 
@@ -306,16 +307,24 @@ class MapInfoService {
     // --------------- Printer function - End ---------------
 
     // --------------- Cluster marker function - Helle ---------------
-    // clusterMarkers() {
-    //     let allMarkers = L.markerClusterGroup();
-    //     for (let marker of fetchService.markers) {
+    iconCreateFunction(cluster) {
+        let childCount = cluster.getChildCount(); //Gets the amount of child elements
+        let c = ' marker-cluster-';
+        if (childCount < 5) { //When there are less than 5 items clustered, there will a small cluster
+            c += 'small';
+        } else if (childCount < 10) { // now a medium cluster
+            c += 'medium';
+        } else {
+            c += 'large'; //or a large cluster
+        }
 
-    //         allMarkers.addLayer(L.marker([marker.acf.latitude, marker.acf.longitude]));
-    //         // ...Add more layers...
-    //         map.addLayer(allMarkers);
-    //     }
-    //     console.log(allMarkers);
-    // }
+        return new L.DivIcon({ //Then a new icon is returned, and can be styled in css
+            html: '<div><span>' + childCount + '</span></div>',
+            className: 'marker-cluster' + c,
+            iconSize: new L.Point(40, 40)
+        });
+    }
+    // --------------- Cluster marker function - End ---------------
 
     clustermarkers(markersArr, clusterGroup) {
         for (let i = 0; i < markersArr.length; i++) {

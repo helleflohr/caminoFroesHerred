@@ -85,15 +85,38 @@ class CrudService {
 
   // --------------- Append posts from Wordpress - End ---------------
 
+  previewImage(file, number) {
+    console.log(number);
+    
+    if (file) {
+      console.log(file);
+      let reader = new FileReader();
+      reader.onload = (event) => {
+       let modal = document.querySelector(`#commentsModal${number}`)
+       console.log(number);
+       
+        modal.querySelector('.imagePreview').setAttribute('src', event.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  
+  triggerChooseImg(number) {
+    console.log(number);
+    
+    document.querySelector(`#commentsModal${number} .imgChoose`).click();
+  }
 
   // ========== CREATE ==========
 // add a new user to firestore (database)
-createUser() {
+createUser(number) {
   // references to the input fields
-  let nameInput = document.querySelector('.formName');
-  let textInput = document.querySelector('.formText');
-  let imageInput = document.querySelector('.imgChoose');
-  let stageInput = document.querySelector('.formStage')
+  let stageInput = document.querySelector(`#commentsModal${number}`)
+  console.log(number);
+  
+  let nameInput = stageInput.querySelector('.formName')[0]; //finder queryselector som er inde i stageInput
+  let textInput = stageInput.querySelector('.formText')[0];
+  let imageInput = stageInput.querySelector('.imgChoose')[0];
   console.log(nameInput.value);
   console.log(textInput.value);
   console.log(imageInput.value);
@@ -104,31 +127,11 @@ createUser() {
     name: nameInput.value,
     text: textInput.value,
     image: imageInput.value,
-    etape: stageInput.title
+    etape: number
   };
 
   this._dataRef.add(newPost);
 } 
-
-previewImage(file, number) {
-  console.log(number);
-  
-  if (file) {
-    console.log(file);
-    let reader = new FileReader();
-    reader.onload = (event) => {
-     let modal = document.querySelector(`#commentsModal${number}`)
-     console.log(number);
-     
-      modal.querySelector('.imagePreview').setAttribute('src', event.target.result);
-    };
-    reader.readAsDataURL(file);
-  }
-}
-
-triggerChooseImg(number) {
-  document.querySelector(`#commentsModal${number} .imgChoose`).click();
-}
 
   // ========== MODAL ==========
 

@@ -95,7 +95,7 @@ export default class HomePage {
           //fjerner spinner efter load.
           loaderService.show(false);
         }, 200);
-        console.log(loaderService.show(false));
+        // console.log(loaderService.show(false));
 
       });
   }

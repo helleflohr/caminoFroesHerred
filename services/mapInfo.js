@@ -15,7 +15,7 @@ class MapInfoService {
 
     async createMarkers() {
         loaderService.show(true)
-        await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=300")
+        await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=500")
             .then(function (response) {
                 return response.json();
             })
@@ -81,23 +81,23 @@ class MapInfoService {
         let Seng = new iconClass({
             iconUrl: 'images/ikoner-map/Seng.svg'
         }),
-            Kirke = new iconClass({
-                iconUrl: 'images/ikoner-map/Kirke.svg'
+            Kirker = new iconClass({
+                iconUrl: 'images/ikoner-map/Kirker.svg'
             }),
             Toiletter = new iconClass({
                 iconUrl: 'images/ikoner-map/Toiletter.svg'
             }),
-            Kanoplads = new iconClass({
-                iconUrl: 'images/ikoner-map/Kanoplads.svg'
+            Kanopladser = new iconClass({
+                iconUrl: 'images/ikoner-map/Kanopladser.svg'
             }),
             Shelter = new iconClass({
                 iconUrl: 'images/ikoner-map/Shelter.svg'
             }),
-            Vandpost = new iconClass({
-                iconUrl: 'images/ikoner-map/Vandpost.svg'
+            Vandposter = new iconClass({
+                iconUrl: 'images/ikoner-map/Vandposter.svg'
             }),
-            Udkigspunkt = new iconClass({
-                iconUrl: 'images/ikoner-map/Udkigspunkt.svg'
+            Udkigspunkter = new iconClass({
+                iconUrl: 'images/ikoner-map/Udkigspunkter.svg'
             }),
             Telt = new iconClass({
                 iconUrl: 'images/ikoner-map/Telt.svg'
@@ -105,43 +105,44 @@ class MapInfoService {
             Busstop = new iconClass({
                 iconUrl: 'images/ikoner-map/Busstop.svg'
             }),
-            Forplejningsmulighed = new iconClass({
-                iconUrl: 'images/ikoner-map/Forplejningsmulighed.svg'
+            Forplejningsmuligheder = new iconClass({
+                iconUrl: 'images/ikoner-map/Forplejningsmuligheder.svg'
             }),
-            SeværdighederAttraktioner = new iconClass({
-                iconUrl: 'images/ikoner-map/SeværdighederAttraktioner.svg'
+            Seværdigheder = new iconClass({
+                iconUrl: 'images/ikoner-map/Seværdigheder.svg'
             }),
             Genforeningssten = new iconClass({
                 iconUrl: 'images/ikoner-map/Genforeningssten.svg'
             }),
-            Legeplads = new iconClass({
-                iconUrl: 'images/ikoner-map/Legeplads.svg'
+            Legepladser = new iconClass({
+                iconUrl: 'images/ikoner-map/Legepladser.svg'
             }),
-            Indkøbsmulighed = new iconClass({
-                iconUrl: 'images/ikoner-map/Indkøbsmulighed.svg'
+            Indkøbsmuligheder = new iconClass({
+                iconUrl: 'images/ikoner-map/Indkøbsmuligheder.svg'
             }),
             Parkering = new iconClass({
                 iconUrl: 'images/ikoner-map/Parkering.svg'
             }),
-            Hvilested = new iconClass({
-                iconUrl: 'images/ikoner-map/Hvilested.svg'
+            Hvilesteder = new iconClass({
+                iconUrl: 'images/ikoner-map/Hvilesteder.svg'
             })
         let iconArr = [];
         let stayArr = [];
 
-        let KirkeArr = [];
-        let ToiletterArr = [];
         let OvernatningArr = [];
-        let KanopladsArr = [];
-        let VandpostArr = [];
-        let UdkigspunktArr = [];
+        let KirkerArr = [];
+        let ToiletterArr = [];
+        let KanopladserArr = [];
+        let VandposterArr = [];
+        let UdkigspunkterArr = [];
         let BusstopArr = [];
-        let ForplejningsmulighedArr = [];
+        let ForplejningsmulighederArr = [];
+        let SeværdighederArr = [];
         let GenforeningsstenArr = [];
-        let LegepladsArr = [];
-        let IndkøbsmulighedArr = [];
+        let LegepladserArr = [];
+        let IndkøbsmulighederArr = [];
         let ParkeringArr = [];
-        let HvilestedArr = [];
+        let HvilestederArr = [];
 
 
         for (let post of json) {
@@ -163,6 +164,8 @@ class MapInfoService {
             }
         }
         iconArr = [...new Set(iconArr)];
+        stayArr = [...new Set(stayArr)];
+        console.log(iconArr)
 
         // for (const icon of iconArr) {
         //     console.log(icon)
@@ -171,22 +174,26 @@ class MapInfoService {
         //     console.log(name)
 
         // }
-        KirkeArr = L.layerGroup(KirkeArr);
-        ToiletterArr = L.layerGroup(ToiletterArr);
         OvernatningArr = L.layerGroup(OvernatningArr);
+        KirkerArr = L.layerGroup(KirkerArr);
+        ToiletterArr = L.layerGroup(ToiletterArr);
 
-        KanopladsArr = L.layerGroup(KanopladsArr);
 
-        VandpostArr = L.layerGroup(VandpostArr);
-        UdkigspunktArr = L.layerGroup(UdkigspunktArr);
+        KanopladserArr = L.layerGroup(KanopladserArr);
+        VandposterArr = L.layerGroup(VandposterArr);
+
+
+
+        UdkigspunkterArr = L.layerGroup(UdkigspunkterArr);
 
         BusstopArr = L.layerGroup(BusstopArr);
-        ForplejningsmulighedArr = L.layerGroup(ForplejningsmulighedArr);
+        ForplejningsmulighederArr = L.layerGroup(ForplejningsmulighederArr);
+        SeværdighederArr = L.layerGroup(SeværdighederArr);
         GenforeningsstenArr = L.layerGroup(GenforeningsstenArr);
-        LegepladsArr = L.layerGroup(LegepladsArr);
-        IndkøbsmulighedArr = L.layerGroup(IndkøbsmulighedArr);
+        LegepladserArr = L.layerGroup(LegepladserArr);
+        IndkøbsmulighederArr = L.layerGroup(IndkøbsmulighederArr);
         ParkeringArr = L.layerGroup(ParkeringArr);
-        HvilestedArr = L.layerGroup(HvilestedArr);
+        HvilestederArr = L.layerGroup(HvilestederArr);
 
 
         // --------------- Be on map from start ---------------
@@ -203,6 +210,7 @@ class MapInfoService {
             if (icon == "Overnatning") {
                 let stayIcon = "";
                 let imageIcons = "";
+                console.log(stayArr)
                 for (const stay of stayArr) {
                     imageIcons += `<img src='images/ikoner-map/${stay}.svg' />`
 

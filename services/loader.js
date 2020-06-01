@@ -3,6 +3,8 @@ class LoaderService {
     this.template();
   }
 
+  //.......................... LOADER .................................
+//Johanne
   template() {
     document.querySelector('#content').innerHTML += /*html*/ `
       <div id="loader">

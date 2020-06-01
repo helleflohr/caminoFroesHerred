@@ -16,7 +16,7 @@ class MapInfoService {
 
     async createMarkers() {
         loaderService.show(true)
-        await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=300")
+        await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=500")
             .then(function (response) {
                 return response.json();
             })
@@ -83,23 +83,23 @@ class MapInfoService {
         let Seng = new iconClass({
                 iconUrl: 'images/ikoner-map/Seng.svg'
             }),
-            Kirke = new iconClass({
-                iconUrl: 'images/ikoner-map/Kirke.svg'
+            Kirker = new iconClass({
+                iconUrl: 'images/ikoner-map/Kirker.svg'
             }),
             Toiletter = new iconClass({
                 iconUrl: 'images/ikoner-map/Toiletter.svg'
             }),
-            Kanoplads = new iconClass({
-                iconUrl: 'images/ikoner-map/Kanoplads.svg'
+            Kanopladser = new iconClass({
+                iconUrl: 'images/ikoner-map/Kanopladser.svg'
             }),
             Shelter = new iconClass({
                 iconUrl: 'images/ikoner-map/Shelter.svg'
             }),
-            Vandpost = new iconClass({
-                iconUrl: 'images/ikoner-map/Vandpost.svg'
+            Vandposter = new iconClass({
+                iconUrl: 'images/ikoner-map/Vandposter.svg'
             }),
-            Udkigspunkt = new iconClass({
-                iconUrl: 'images/ikoner-map/Udkigspunkt.svg'
+            Udkigspunkter = new iconClass({
+                iconUrl: 'images/ikoner-map/Udkigspunkter.svg'
             }),
             Telt = new iconClass({
                 iconUrl: 'images/ikoner-map/Telt.svg'
@@ -107,43 +107,43 @@ class MapInfoService {
             Busstop = new iconClass({
                 iconUrl: 'images/ikoner-map/Busstop.svg'
             }),
-            Forplejningsmulighed = new iconClass({
-                iconUrl: 'images/ikoner-map/Forplejningsmulighed.svg'
+            Forplejningsmuligheder = new iconClass({
+                iconUrl: 'images/ikoner-map/Forplejningsmuligheder.svg'
             }),
-            SeværdighederAttraktioner = new iconClass({
-                iconUrl: 'images/ikoner-map/SeværdighederAttraktioner.svg'
+            Seværdigheder = new iconClass({
+                iconUrl: 'images/ikoner-map/Seværdigheder.svg'
             }),
             Genforeningssten = new iconClass({
                 iconUrl: 'images/ikoner-map/Genforeningssten.svg'
             }),
-            Legeplads = new iconClass({
-                iconUrl: 'images/ikoner-map/Legeplads.svg'
+            Legepladser = new iconClass({
+                iconUrl: 'images/ikoner-map/Legepladser.svg'
             }),
-            Indkøbsmulighed = new iconClass({
-                iconUrl: 'images/ikoner-map/Indkøbsmulighed.svg'
+            Indkøbsmuligheder = new iconClass({
+                iconUrl: 'images/ikoner-map/Indkøbsmuligheder.svg'
             }),
             Parkering = new iconClass({
                 iconUrl: 'images/ikoner-map/Parkering.svg'
             }),
-            Hvilested = new iconClass({
-                iconUrl: 'images/ikoner-map/Hvilested.svg'
+            Hvilesteder = new iconClass({
+                iconUrl: 'images/ikoner-map/Hvilesteder.svg'
             })
         let iconArr = [];
         let stayArr = [];
-
-        let KirkeArr = [];
-        let ToiletterArr = [];
         let OvernatningArr = [];
-        let KanopladsArr = [];
-        let VandpostArr = [];
-        let UdkigspunktArr = [];
+        let KirkerArr = [];
+        let ToiletterArr = [];
+        let KanopladserArr = [];
+        let VandposterArr = [];
+        let UdkigspunkterArr = [];
         let BusstopArr = [];
-        let ForplejningsmulighedArr = [];
+        let ForplejningsmulighederArr = [];
+        let SeværdighederArr = [];
         let GenforeningsstenArr = [];
-        let LegepladsArr = [];
-        let IndkøbsmulighedArr = [];
+        let LegepladserArr = [];
+        let IndkøbsmulighederArr = [];
         let ParkeringArr = [];
-        let HvilestedArr = [];
+        let HvilestederArr = [];
 
 
         for (let post of json) {
@@ -165,52 +165,24 @@ class MapInfoService {
             }
         }
         iconArr = [...new Set(iconArr)];
+        stayArr = [...new Set(stayArr)];
+        console.log(iconArr)
 
 
-
-
-        // for (const icon of iconArr) {
-        //     console.log(icon)
-        //     let name = `${icon}Arr`
-        //     name = L.layerGroup(eval(name));
-        //     console.log(name)
-
-        // }
-
-
-        // KirkeArr = new L.MarkerClusterGroup();
-
-        // ToiletterArr = new L.MarkerClusterGroup();
-        // OvernatningArr = new L.MarkerClusterGroup();
-
-        // KanopladsArr = new L.MarkerClusterGroup();
-
-        // VandpostArr = new L.MarkerClusterGroup();
-        // UdkigspunktArr = new L.MarkerClusterGroup();
-
-        // BusstopArr = new L.MarkerClusterGroup();
-        // ForplejningsmulighedArr = new L.MarkerClusterGroup();
-        // GenforeningsstenArr = new L.MarkerClusterGroup();
-        // LegepladsArr = new L.MarkerClusterGroup();
-        // IndkøbsmulighedArr = new L.MarkerClusterGroup();
-        // ParkeringArr = new L.MarkerClusterGroup();
-        // HvilestedArr = new L.MarkerClusterGroup();
-
-        KirkeArr = this.clustermarkers(KirkeArr, new L.MarkerClusterGroup())
-        ToiletterArr = this.clustermarkers(ToiletterArr, new L.MarkerClusterGroup())
-        OvernatningArr = this.clustermarkers(OvernatningArr, new L.MarkerClusterGroup())
-        KanopladsArr = this.clustermarkers(KanopladsArr, new L.MarkerClusterGroup())
-        VandpostArr = this.clustermarkers(VandpostArr, new L.MarkerClusterGroup())
-        UdkigspunktArr = this.clustermarkers(UdkigspunktArr, new L.MarkerClusterGroup())
-        BusstopArr = this.clustermarkers(BusstopArr, new L.MarkerClusterGroup())
-        ForplejningsmulighedArr = this.clustermarkers(ForplejningsmulighedArr, new L.MarkerClusterGroup())
-        GenforeningsstenArr = this.clustermarkers(GenforeningsstenArr, new L.MarkerClusterGroup())
-        LegepladsArr = this.clustermarkers(LegepladsArr, new L.MarkerClusterGroup())
-        IndkøbsmulighedArr = this.clustermarkers(IndkøbsmulighedArr, new L.MarkerClusterGroup())
-        ParkeringArr = this.clustermarkers(ParkeringArr, new L.MarkerClusterGroup())
-        HvilestedArr = this.clustermarkers(HvilestedArr, new L.MarkerClusterGroup())
-
-        // console.log(fetchService.startMarkers);
+        OvernatningArr = this.clustermarkers(OvernatningArr, new L.MarkerClusterGroup());
+        KirkerArr = this.clustermarkers(KirkerArr, new L.MarkerClusterGroup());
+        ToiletterArr = this.clustermarkers(ToiletterArr, new L.MarkerClusterGroup());
+        KanopladserArr = this.clustermarkers(KanopladserArr, L.MarkerClusterGroup());
+        VandposterArr = this.clustermarkers(VandposterArr, new L.MarkerClusterGroup());
+        UdkigspunkterArr = this.clustermarkers(UdkigspunkterArr, new L.MarkerClusterGroup());
+        BusstopArr = this.clustermarkers(BusstopArr, new L.MarkerClusterGroup());
+        ForplejningsmulighederArr = this.clustermarkers(ForplejningsmulighederArr, new L.MarkerClusterGroup());
+        SeværdighederArr = this.clustermarkers(SeværdighederArr, new L.MarkerClusterGroup());
+        GenforeningsstenArr = this.clustermarkers(GenforeningsstenArr, new L.MarkerClusterGroup());
+        LegepladserArr = this.clustermarkers(LegepladserArr, new L.MarkerClusterGroup());
+        IndkøbsmulighederArr = this.clustermarkers(IndkøbsmulighederArr, new L.MarkerClusterGroup());
+        ParkeringArr = this.clustermarkers(ParkeringArr, new L.MarkerClusterGroup());
+        HvilestederArr = this.clustermarkers(HvilestederArr, new L.MarkerClusterGroup());
 
 
 
@@ -231,6 +203,7 @@ class MapInfoService {
             if (icon == "Overnatning") {
                 let stayIcon = "";
                 let imageIcons = "";
+                console.log(stayArr)
                 for (const stay of stayArr) {
                     imageIcons += `<img src='images/ikoner-map/${stay}.svg' />`
 
@@ -241,7 +214,6 @@ class MapInfoService {
                 overlayLine = `<p>${icon}</p><div><img src='images/ikoner-map/${icon}.svg' /></div>`;
             }
 
-            // let overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
             overlayMaps[overlayLine] = eval(name);
         }
 
@@ -263,7 +235,7 @@ class MapInfoService {
             let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
             let currentZoom = map.getZoom();
             // console.log(this.iconSizes)
-            this.iconSize();
+            // this.iconSize();
 
 
             if (currentZoom < 12) {
@@ -337,40 +309,6 @@ class MapInfoService {
     }
     // --------------- Cluster marker function - End ---------------
 
-    iconSize() {
-        let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
-        let currentZoom = map.getZoom();
-
-
-        // console.log(document.querySelectorAll('.leaflet-control-layers-selector'));
-        let leafletCheckboxes = document.querySelectorAll('.leaflet-control-layers-selector');
-        for (const checkBox of leafletCheckboxes) {
-            // console.log(checkBox)
-            checkBox.addEventListener("onchange", () => { // Listen for a click on an image
-                // time
-                console.log(this.iconSizes)
-                if (currentZoom < 12) {
-                    this.iconSizes = 15;
-                    for (const icon of leafletIcons) {
-                        icon.style.width = `${this.iconSizes}px`;
-                        icon.style.height = `${this.iconSizes}px`;
-                    }
-                } else {
-                    this.iconSizes = 29;
-                    for (const icon of leafletIcons) {
-                        icon.style.width = `${this.iconSizes}px`;
-                        icon.style.height = `${this.iconSizes}px`;
-                    }
-                }
-                console.log(this.iconSizes)
-            }, 5000);
-
-        }
-
-
-
-
-    }
 
     showOrHide(arr) {
         console.log('test')

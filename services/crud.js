@@ -4,14 +4,15 @@ class CrudService {
     this._dataRef = _db.collection("posts")
     this.read()
     this._posts = [];
-   
+
 
     // this.myFunctionModal(x) // Call listener function at run time
 
   };
 
 
-  // ========== READ ==========
+  //.......................... READ POSTS .................................
+  //Johanne
   // 1: data from firebase
   // watch the database ref for changes
   read() {
@@ -85,59 +86,76 @@ class CrudService {
 
   // --------------- Append posts from Wordpress - End ---------------
 
+  //.......................... PREVIEW IMAGE AND TRIGGER CHOOSE IMAGE .................................
+  //Johanne
 
-  // ========== CREATE ==========
-// add a new user to firestore (database)
-createUser() {
-  // references to the input fields
-  let nameInput = document.querySelector('.formName');
-  let textInput = document.querySelector('.formText');
-  let imageInput = document.querySelector('.imgChoose');
-  let stageInput = document.querySelector('.formStage')
-  console.log(nameInput.value);
-  console.log(textInput.value);
-  console.log(imageInput.value);
-  console.log(stageInput.title);
-  
-  
-  let newPost = {
-    name: nameInput.value,
-    text: textInput.value,
-    image: imageInput.value,
-    etape: stageInput.title
+  previewImage(file, number) {
+    console.log(number);
+
+    if (file) {
+      console.log(file);
+      let reader = new FileReader();
+      reader.onload = (event) => {
+        let modal = document.querySelector(`#commentsModal${number}`)
+        console.log(number);
+
+        modal.querySelector('.imagePreview').setAttribute('src', event.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  triggerChooseImg(number) {
+    console.log(number);
+
+    document.querySelector(`#commentsModal${number} .imgChoose`).click();
+  }
+
+
+  //.......................... CREATE POST .................................
+  //Johanne
+  // add a new post to firestore (database)
+  createUser(number) {
+    // references to the input fields
+    let stageInput = document.querySelector(`#commentsModal${number}`)
+    console.log(number);
+
+    let nameInput = stageInput.querySelector('.formName'); //finder queryselector som er inde i stageInput
+    let textInput = stageInput.querySelector('.formText');
+    let imageInput = stageInput.querySelector('.imgChoose');
+    console.log(nameInput.value);
+    console.log(textInput.value);
+    console.log(imageInput.value);
+
+
+    let newPost = {
+      name: nameInput.value,
+      text: textInput.value,
+      image: imageInput.files[0].name,
+      etape: number
+    };
+
+    this._dataRef.add(newPost);
+    stageInput.style.display = "none"
+
   };
 
-  this._dataRef.add(newPost);
-} 
 
-previewImage(file, number) {
-  console.log(number);
-  
-  if (file) {
-    console.log(file);
-    let reader = new FileReader();
-    reader.onload = (event) => {
-     let modal = document.querySelector(`#commentsModal${number}`)
-     console.log(number);
-     
-      modal.querySelector('.imagePreview').setAttribute('src', event.target.result);
-    };
-    reader.readAsDataURL(file);
-  }
-}
 
-triggerChooseImg() {
-  document.querySelector(".imgChoose").click();
-}
+  /* textCountDown(number) {
+  let stageInput = document.querySelector(`#commentsModal${number}`)
+  var elem = stageInput.getElementsByClassName("formText"); 
+  console.log(elem);
 
-  // ========== MODAL ==========
+  var n = elem.length;
+  console.log(elem.length);
 
-// When the user clicks on the button, open the modal
-myFunctionModal(number) {
-   // Get the modal
-   let modalSay = document.getElementById(`commentsModal${number}`);
-  modalSay.style.display = "block";
-    };
+  document.getElementById("demo-text").innerHTML = n;
+  } */
+
+  //.......................... MODAL (modal open) .................................
+  // Johanne ----------------------------------
+
 
   // When the user clicks on the button, open the modal
   myFunctionModal(number) {
@@ -150,36 +168,31 @@ myFunctionModal(number) {
     // When the user clicks on <span> (x), close the modal
     element.parentElement.parentElement.style.display = "none";
   }
-/*
-  triggerChooseImg() { // Trigger den knap der hedder vælg fil
-    this.$refs.fileInput.click() // knap der selv er lavet
-  }
-
-  previewImage() {
-    const imageFile = this.$refs.fileInput.files[0]
-    const fileReader = new FileReader() // læser filen, så vi kan få en src ud af den så vi kan vise det er et img tag
-    fileReader.onload = (event) => {
-      this.newPost.image = event.target.result // smider billedet ind i selve variablen
-      console.log(this.newPost.image);
-
+  /*
+    triggerChooseImg() { // Trigger den knap der hedder vælg fil
+      this.$refs.fileInput.click() // knap der selv er lavet
     }
-    fileReader.readAsDataURL(imageFile)
-  }
 
-  /* // When the user clicks anywhere outside of the modal, close it
-  closeOutsideModal(event, number) {
-   // Get the modal
-   let modalSay = document.getElementById(`commentsModal${number}`);
-  
-    if (event.target == modalSay) {
-      modalSay.style.display = "none";
-    } 
-  } */
+    previewImage() {
+      const imageFile = this.$refs.fileInput.files[0]
+      const fileReader = new FileReader() // læser filen, så vi kan få en src ud af den så vi kan vise det er et img tag
+      fileReader.onload = (event) => {
+        this.newPost.image = event.target.result // smider billedet ind i selve variablen
+        console.log(this.newPost.image);
 
+      }
+      fileReader.readAsDataURL(imageFile)
+    }
 
-
-
-
+    /* // When the user clicks anywhere outside of the modal, close it
+    closeOutsideModal(event, number) {
+     // Get the modal
+     let modalSay = document.getElementById(`commentsModal${number}`);
+    
+      if (event.target == modalSay) {
+        modalSay.style.display = "none";
+      } 
+    } */
 
 
 

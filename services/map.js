@@ -8,13 +8,11 @@ import mapInfoService from "./mapInfo.js"
 class MapService {
   constructor() {
     this.fitBounds = [];
-    // this.description = fetchService.descriptions
     this.descriptions;
   }
 
   async fetchGeoJson() {
     this.descriptions = await fetchService.getDescriptions();
-    console.log(this.descriptions)
     let numberOfStages = this.descriptions.length
 
     for (let i = 1; i < (numberOfStages + 1); i++) {
@@ -27,20 +25,15 @@ class MapService {
           gpx.parse(gpxData);
 
           this.drawTrack(gpx.tracks[0], i);
-
         });
     }
-
   }
-
-
 
 
 
   drawTrack(track, number) {
     if (track) {
 
-      // console.log(track)
       let coordinates = track.points.map(p => [p.lat.toFixed(5), p.lon.toFixed(5)]);
       let poly = L.polyline(coordinates, {
         weight: 5,
@@ -57,7 +50,7 @@ class MapService {
 
       let coordinateStart = coordinates[0];
 
-      var dot = L.icon({
+      let dot = L.icon({
         iconUrl: '../images/circle.svg',
 
         iconSize: [15, 15], // size of the icon
@@ -68,13 +61,11 @@ class MapService {
       });
 
 
-
-
-
+      //set new marker
       L.marker(coordinateStart, {
         icon: dot
       }).addTo(map);
-      // L.marker([coordinatesEnd]).addTo(map);
+
     }
   }
 };

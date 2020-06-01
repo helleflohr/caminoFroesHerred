@@ -83,21 +83,22 @@ p {
 }
 
 .descriptionDiv {
-  margin-left: 1%;
+  /* margin-left: 1%; */
+  margin: 1% 0 1% 1%;
 }
 
 .descriptionDiv li:before {
   content: '';
-   display: inline-block;
- 
-   /* height: 7px; */
-   width: 6px;
-   background-image: url(images/pil.png);
-   background-position: center;
-   background-size: cover;
-   margin-left: -12px;
-   margin-right: 4px;
-   padding-top: 7px;
+  display: inline-block;
+
+  /* height: 7px; */
+  width: 6px;
+  background-image: url(images/pil.png);
+  background-position: center;
+  background-size: cover;
+  margin-left: -12px;
+  margin-right: 4px;
+  padding-top: 7px;
 
 }
 
@@ -110,7 +111,7 @@ strong {
 /* ---------- page styling ---------- */
 .page {
   display: none;
-  
+
   animation: fadeIn 0.4s;
   /* opacity: 0; */
   /* height: 0; */
@@ -233,6 +234,7 @@ hr {
 .flexcontainer {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 3%;
 }
 
 @keyframes spin {
@@ -387,6 +389,7 @@ h2 {
   opacity: .2;
   position: absolute;
   height: 10vh;
+  overflow: visible;
 }
 
 #frontpageSection .descriptionArrow {
@@ -793,13 +796,13 @@ aside h3 {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 12% auto;
+  margin: 5% auto;
   /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 75%;
   /* Could be more or less, depending on screen size */
-  height: 60vh;
+  height: 80vh;
   border-radius: 25px;
 }
 
@@ -873,8 +876,15 @@ aside h3 {
 
 .image-preview {
   max-width: 350px;
-  width: 100%;
+  width: 50%;
   padding: 1em 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.div-image-preview {
+  width: 100%;
 }
 
 form button {
@@ -1067,7 +1077,24 @@ form button {
   color: #008ae6;
 }
 
+/* ------- Cluster ------*/
+.marker-cluster-small {
+  background-color: rgba(218, 94, 94, 0.6);
+  border-radius: 50%;
+  text-align: center;
+}
 
+.marker-cluster-medium {
+  background-color: rgba(241, 211, 87, 0.6);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.marker-cluster-large {
+  background-color: rgba(253, 156, 115, 0.6);
+  border-radius: 50%;
+  text-align: center;
+}
 
 
 /* ---------- topbar styling ---------- */
@@ -1321,7 +1348,7 @@ select {
     overflow: visible;
 
   }
-  
+
 
   /* --------------------- Leaflet (map controls) -------------------*/
   .leaflet-control-layers-toggle {
@@ -1339,12 +1366,13 @@ select {
 
   }
 
-  .leaflet-control-layers-expanded label div span p, .leaflet-control-layers-base {
+  .leaflet-control-layers-expanded label div span p,
+  .leaflet-control-layers-base {
 
     font-size: 1.2em;
 
   }
-  
+
   .leaflet-control-layers-expanded label div span {
 
     width: 82%;
@@ -1352,10 +1380,10 @@ select {
 
   }
 
-  .leaflet-control-locate{
+  .leaflet-control-locate {
     display: none;
   }
- 
+
   /* .leaflet-control-layers-base label div{
     display: flex;
     flex-wrap: wrap;

@@ -5,6 +5,7 @@ class FetchService {
         this.markers;
         this.startMarkers;
         this.fetchStartMarkers();
+        this.fetchMarkers();
 
 
     }
@@ -27,7 +28,7 @@ class FetchService {
             .then((json) => {
                 this.markers = json;
             });
-        console.log(this.markers)
+        // console.log(this.markers)
     }
 
     async fetchStartMarkers() {
@@ -39,7 +40,7 @@ class FetchService {
                 this.startMarkers = json[0].acf.onMapFromStart;
 
             });
-        console.log(this.startMarkers)
+        // console.log(this.startMarkers)
     }
 
 }

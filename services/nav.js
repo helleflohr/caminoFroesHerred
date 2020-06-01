@@ -1,4 +1,9 @@
-import { map, latitude, longitude, zoom } from "./../main.js";
+import {
+    map,
+    latitude,
+    longitude,
+    zoom
+} from "./../main.js";
 import fetchService from "./../services/fetch.js"
 import mapService from "./map.js"
 import loaderService from "./loader.js"
@@ -66,7 +71,10 @@ class ScrollService {
                 map.flyToBounds([ // then zoom the map to these coordinates
                     [stage.southWest.lat, stage.southWest.lng],
                     [stage.northEast.lat, stage.northEast.lng]
-                ], { 'padding': [50, 50], 'duration': 0.1 });
+                ], {
+                    'padding': [50, 50],
+                    'duration': 0.1
+                });
             }
         }
     }
@@ -173,7 +181,7 @@ class ScrollService {
             //.......................... Tab underliner .................................
             let stage = document.querySelector(`#stage${number}`); // The choosen stage
             let listItem = stage.getElementsByClassName('tabNav'); // Tab items
-            console.log(listItem, number)
+            // console.log(listItem, number)
             this.trWidth = [];
             this.trMargin = [];
             for (const item of listItem) {
@@ -223,7 +231,7 @@ class ScrollService {
             underline.style.width = `${this.trWidth[0]}px`; // ...and set the matching width
         }
 
-        if (tab === "images") {// If the image tab is choosen...
+        if (tab === "images") { // If the image tab is choosen...
             let margin = this.trMargin[1] - this.trMargin[0] // ...calculate...
             underline.style.marginLeft = `${margin}px`; // and set margin...
             underline.style.width = `${this.trWidth[1]}px`; // ...and set the matching width

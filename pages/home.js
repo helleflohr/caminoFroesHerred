@@ -69,17 +69,8 @@ export default class HomePage {
     `;
   }
 
-  /*   ---------------------  Johanne ---------------------- */
-
-  /* showLoader(show) {
-    let loader = document.querySelector('#loader');
-    if (show) {
-      loader.classList.remove("hide");
-    } else {
-      loader.classList.add("hide");
-    }
-  } */
-
+//.......................... FETCH WORDPRESS .................................
+//Johanne
   fetchDescription() {
 
     fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
@@ -88,20 +79,21 @@ export default class HomePage {
       })
       .then((json) => {
         this.descriptions = json;
-        // console.log(this.descriptions)
         this.appendPosts(json)
 
         setTimeout(() => {
           //fjerner spinner efter load.
-          loaderService.show(false);
+          loaderService.show(false); 
         }, 200);
-        console.log(loaderService.show(false));
+        // console.log(loaderService.show(false));
 
       });
   }
 
+  //.......................... APPEND POSTS .................................
   appendPosts(posts) {
-    /* sort the posts by acf stagenumber in ascending order. */
+    //sort the posts by acf stagenumber in ascending order
+    //Johanne 
     posts.sort(function (x, y) {
       return x.acf.stageNumber - y.acf.stageNumber;
     });
@@ -172,15 +164,16 @@ export default class HomePage {
     <div class="modal-content">
     <span class="close" onclick="closeFunction(this)">&times;</span>
       <form class="postForm">
-    <h2 type="text">Opret et opslag for etape: ${post.acf.stageNumber}</h2>
+    <h2 class="h2-etape" title="${post.acf.stageNumber}">Opret et opslag for etape: ${post.acf.stageNumber}</h2>
     <input type="text" class="formName" placeholder="Dit navn" required>
-    <textarea rows="10" cols="50" name="comment" form="usrform" class="formText" placeholder="Skriv din beretning" minlenght="1" maxlength="150" required></textarea>
+    <textarea rows="10" cols="50" name="comment" form="usrform" class="formText" onkeyup="textCountDown(${post.acf.stageNumber})" placeholder="Skriv din beretning" minlenght="1" maxlength="150" required></textarea>
+    <p class="demo-text"> /250 </p>
     <input type="file" class="none imgChoose " accept="image/*" onchange="previewImage(this.files[0], ${post.acf.stageNumber})"> <!-- skjult via styling -->
-    <button class="secondary" type="button" name="button" onclick="triggerChooseImg()">Vælg dit billede</button>
-    <div>
+    <button class="secondary" type="button" name="button" onclick="triggerChooseImg(${post.acf.stageNumber})">Vælg dit billede</button>
+    <div class="div-image-preview">
     <img class="image-preview imagePreview">
   </div>
-    <p class="btnCreate" onclick="createUser()">Opret opslag</p>
+    <p class="btnCreate" onclick="createUser(${post.acf.stageNumber})">Opret opslag</p>
   </form>
   </div>
       </section>
@@ -196,6 +189,7 @@ export default class HomePage {
   };
 
   // get the featured image url
+  //Johanne
   getFeaturedImageUrl(post) {
     let imageUrl = "";
     if (post._embedded['wp:featuredmedia']) {

@@ -11,6 +11,7 @@ class MapInfoService {
         this.iconSizes = 29;
 
 
+
     }
 
     async createMarkers() {
@@ -21,7 +22,8 @@ class MapInfoService {
             })
             .then((json) => {
                 this.getDataForCheckbox(json);
-            });
+            })
+            .then(iconCreateFunction(cluster));
         loaderService.show(false)
     }
 
@@ -128,7 +130,6 @@ class MapInfoService {
             })
         let iconArr = [];
         let stayArr = [];
-
         let OvernatningArr = [];
         let KirkerArr = [];
         let ToiletterArr = [];
@@ -167,25 +168,13 @@ class MapInfoService {
         stayArr = [...new Set(stayArr)];
         console.log(iconArr)
 
-        // for (const icon of iconArr) {
-        //     console.log(icon)
-        //     let name = `${icon}Arr`
-        //     name = L.layerGroup(eval(name));
-        //     console.log(name)
 
-        // }
         OvernatningArr = L.layerGroup(OvernatningArr);
         KirkerArr = L.layerGroup(KirkerArr);
         ToiletterArr = L.layerGroup(ToiletterArr);
-
-
         KanopladserArr = L.layerGroup(KanopladserArr);
         VandposterArr = L.layerGroup(VandposterArr);
-
-
-
         UdkigspunkterArr = L.layerGroup(UdkigspunkterArr);
-
         BusstopArr = L.layerGroup(BusstopArr);
         ForplejningsmulighederArr = L.layerGroup(ForplejningsmulighederArr);
         SeværdighederArr = L.layerGroup(SeværdighederArr);
@@ -198,7 +187,10 @@ class MapInfoService {
 
         // --------------- Be on map from start ---------------
         for (const marker of fetchService.startMarkers) {
+
+
             let markerArr = `${marker}Arr`
+            console.log(markerArr);
             map.addLayer(eval(markerArr))
         }
 
@@ -221,11 +213,10 @@ class MapInfoService {
                 overlayLine = `<p>${icon}</p><div><img src='images/ikoner-map/${icon}.svg' /></div>`;
             }
 
-            // let overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
             overlayMaps[overlayLine] = eval(name);
-
-
         }
+
+
 
 
         let baseMaps = {
@@ -242,7 +233,7 @@ class MapInfoService {
 
             let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
             let currentZoom = map.getZoom();
-            console.log(this.iconSizes)
+            // console.log(this.iconSizes)
             this.iconSize();
 
 
@@ -259,67 +250,64 @@ class MapInfoService {
                     icon.style.height = `${this.iconSizes}px`;
                 }
             }
-            console.log(this.iconSizes)
+            // console.log(this.iconSizes)
         });
     }
 
     tilesAndControles() {
 
 
-        L.control.locate({ initialZoomLevel: '14', flyTo: 'true' }).addTo(map);
+        L.control.locate({
+            initialZoomLevel: '14',
+            flyTo: 'true'
+        }).addTo(map);
 
 
 
         // --------------- Printer function - Helle ---------------
         L.control.browserPrint({
-            title: 'Just print me!',
-            documentTitle: 'Map printed using leaflet.browser.print plugin',
-
-            closePopupsOnPrint: false,
+            title: 'Print kort',
+            documentTitle: 'Kort printet ved brug af leaflet.browser.print plugin',
             manualMode: false
         }).addTo(map)
 
         L.control.browserPrint.mode.custom();
         L.control.browserPrint.mode.landscape();
         L.control.browserPrint.mode.portrait();
-        // --------------- Printer function - End ---------------
     }
+    // --------------- Printer function - End ---------------
 
-
-    iconSize() {
-        let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
-        let currentZoom = map.getZoom();
-
-
-        // console.log(document.querySelectorAll('.leaflet-control-layers-selector'));
-        let leafletCheckboxes = document.querySelectorAll('.leaflet-control-layers-selector');
-        for (const checkBox of leafletCheckboxes) {
-            // console.log(checkBox)
-            checkBox.addEventListener("onchange", () => { // Listen for a click on an image
-                // time
-                console.log(this.iconSizes)
-                if (currentZoom < 12) {
-                    this.iconSizes = 15;
-                    for (const icon of leafletIcons) {
-                        icon.style.width = `${this.iconSizes}px`;
-                        icon.style.height = `${this.iconSizes}px`;
-                    }
-                } else {
-                    this.iconSizes = 29;
-                    for (const icon of leafletIcons) {
-                        icon.style.width = `${this.iconSizes}px`;
-                        icon.style.height = `${this.iconSizes}px`;
-                    }
-                }
-                console.log(this.iconSizes)
-            }, 5000);
-
+    // --------------- Cluster marker function - Helle ---------------
+    iconCreateFunction(cluster) {
+        let childCount = cluster.getChildCount(); //Gets the amount of child elements
+        let c = ' marker-cluster-';
+        if (childCount < 5) { //When there are less than 5 items clustered, there will a small cluster
+            c += 'small';
+        } else if (childCount < 10) { // now a medium cluster
+            c += 'medium';
+        } else {
+            c += 'large'; //or a large cluster
         }
 
-
-
-
+        return new L.DivIcon({ //Then a new icon is returned, and can be styled in css
+            html: '<div><span>' + childCount + '</span></div>',
+            className: 'marker-cluster' + c,
+            iconSize: new L.Point(40, 40)
+        });
     }
+    // --------------- Cluster marker function - End ---------------
+
+    clustermarkers(markersArr, clusterGroup) {
+        for (let i = 0; i < markersArr.length; i++) {
+
+            let marker = markersArr[i];
+            clusterGroup.addLayer(marker)
+        }
+
+        return clusterGroup;
+    }
+    // --------------- Cluster marker function - End ---------------
+
 
     showOrHide(arr) {
         console.log('test')

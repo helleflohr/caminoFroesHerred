@@ -166,10 +166,8 @@ export default class HomePage {
       <form class="postForm">
     <h2 class="h2-etape" title="${post.acf.stageNumber}">Opret et opslag for etape: ${post.acf.stageNumber}</h2>
     <input type="text" class="formName" placeholder="Dit navn" required>
-    <textarea rows="10" cols="50" name="comment" form="usrform" class="formText" onkeyup="textCountDown(${post.acf.stageNumber})" placeholder="Skriv din beretning" minlenght="1" maxlength="150" required>
-    hej
-    </textarea>
-    <p id="demo-text"></p>
+    <textarea rows="10" cols="50" name="comment" form="usrform" class="formText" onkeyup="textCountDown(${post.acf.stageNumber})" placeholder="Skriv din beretning" minlenght="1" maxlength="150" required></textarea>
+    <p class="demo-text"> /250 </p>
     <input type="file" class="none imgChoose " accept="image/*" onchange="previewImage(this.files[0], ${post.acf.stageNumber})"> <!-- skjult via styling -->
     <button class="secondary" type="button" name="button" onclick="triggerChooseImg(${post.acf.stageNumber})">Vælg dit billede</button>
     <div class="div-image-preview">
@@ -191,6 +189,7 @@ export default class HomePage {
   };
 
   // get the featured image url
+  //Johanne
   getFeaturedImageUrl(post) {
     let imageUrl = "";
     if (post._embedded['wp:featuredmedia']) {

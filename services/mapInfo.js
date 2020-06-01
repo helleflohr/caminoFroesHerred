@@ -22,8 +22,7 @@ class MapInfoService {
             })
             .then((json) => {
                 this.getDataForCheckbox(json);
-            })
-            .then(iconCreateFunction(cluster));
+            });
         loaderService.show(false)
     }
 
@@ -145,12 +144,8 @@ class MapInfoService {
         let ParkeringArr = [];
         let HvilestederArr = [];
 
-
         for (let post of json) {
             iconArr.push(post.acf.infotype);
-
-
-
 
             let name = `${post.acf.infotype}Arr`
             if (post.acf.infotype === "Overnatning") {
@@ -164,34 +159,28 @@ class MapInfoService {
                 }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
             }
         }
+
         iconArr = [...new Set(iconArr)];
         stayArr = [...new Set(stayArr)];
-        console.log(iconArr)
 
-
-        OvernatningArr = this.clustermarkers(OvernatningArr, new L.MarkerClusterGroup());
-        KirkerArr = this.clustermarkers(KirkerArr, new L.MarkerClusterGroup());
-        ToiletterArr = this.clustermarkers(ToiletterArr, new L.MarkerClusterGroup());
-        KanopladserArr = this.clustermarkers(KanopladserArr, L.MarkerClusterGroup());
-        VandposterArr = this.clustermarkers(VandposterArr, new L.MarkerClusterGroup());
-        UdkigspunkterArr = this.clustermarkers(UdkigspunkterArr, new L.MarkerClusterGroup());
-        BusstopArr = this.clustermarkers(BusstopArr, new L.MarkerClusterGroup());
-        ForplejningsmulighederArr = this.clustermarkers(ForplejningsmulighederArr, new L.MarkerClusterGroup());
-        SeværdighederArr = this.clustermarkers(SeværdighederArr, new L.MarkerClusterGroup());
-        GenforeningsstenArr = this.clustermarkers(GenforeningsstenArr, new L.MarkerClusterGroup());
-        LegepladserArr = this.clustermarkers(LegepladserArr, new L.MarkerClusterGroup());
-        IndkøbsmulighederArr = this.clustermarkers(IndkøbsmulighederArr, new L.MarkerClusterGroup());
-        ParkeringArr = this.clustermarkers(ParkeringArr, new L.MarkerClusterGroup());
-        HvilestederArr = this.clustermarkers(HvilestederArr, new L.MarkerClusterGroup());
-
-
+        OvernatningArr = this.clustermarkers(OvernatningArr);
+        KirkerArr = this.clustermarkers(KirkerArr);
+        ToiletterArr = this.clustermarkers(ToiletterArr);
+        KanopladserArr = this.clustermarkers(KanopladserArr);
+        VandposterArr = this.clustermarkers(VandposterArr);
+        UdkigspunkterArr = this.clustermarkers(UdkigspunkterArr);
+        BusstopArr = this.clustermarkers(BusstopArr);
+        ForplejningsmulighederArr = this.clustermarkers(ForplejningsmulighederArr);
+        SeværdighederArr = this.clustermarkers(SeværdighederArr);
+        GenforeningsstenArr = this.clustermarkers(GenforeningsstenArr);
+        LegepladserArr = this.clustermarkers(LegepladserArr);
+        IndkøbsmulighederArr = this.clustermarkers(IndkøbsmulighederArr);
+        ParkeringArr = this.clustermarkers(ParkeringArr);
+        HvilestederArr = this.clustermarkers(HvilestederArr);
 
         // --------------- Be on map from start ---------------
         for (const marker of fetchService.startMarkers) {
-
-
             let markerArr = `${marker}Arr`
-            console.log(markerArr);
             map.addLayer(eval(markerArr))
         }
 
@@ -279,30 +268,35 @@ class MapInfoService {
     // --------------- Printer function - End ---------------
 
     // --------------- Cluster marker function - Helle ---------------
-    iconCreateFunction(cluster) {
-        let childCount = cluster.getChildCount(); //Gets the amount of child elements
-        let c = ' marker-cluster-';
-        if (childCount < 5) { //When there are less than 5 items clustered, there will a small cluster
-            c += 'small';
-        } else if (childCount < 10) { // now a medium cluster
-            c += 'medium';
-        } else {
-            c += 'large'; //or a large cluster
-        }
 
-        return new L.DivIcon({ //Then a new icon is returned, and can be styled in css
-            html: '<div><span>' + childCount + '</span></div>',
-            className: 'marker-cluster' + c,
-            iconSize: new L.Point(40, 40)
-        });
-    }
     // --------------- Cluster marker function - End ---------------
 
-    clustermarkers(markersArr, clusterGroup) {
+    clustermarkers(markersArr) {
+
+        let clusterGroup = new L.MarkerClusterGroup({
+            iconCreateFunction: function (cluster) {
+                let childCount = cluster.getChildCount(); //Gets the amount of child elements
+                let c = ' marker-cluster-';
+                if (childCount < 5) { //When there are less than 5 items clustered, there will a small cluster
+                    c += 'small';
+                } else if (childCount < 10) { // now a medium cluster
+                    c += 'medium';
+                } else {
+                    c += 'large'; //or a large cluster
+                }
+
+                return new L.DivIcon({ //Then a new icon is returned, and can be styled in css
+                    html: '<div><span>' + childCount + '</span></div>',
+                    className: 'marker-cluster' + c,
+                    iconSize: new L.Point(40, 40)
+                });;
+            }
+        });
         for (let i = 0; i < markersArr.length; i++) {
 
             let marker = markersArr[i];
             clusterGroup.addLayer(marker)
+
         }
 
         return clusterGroup;

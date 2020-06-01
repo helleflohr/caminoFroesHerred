@@ -5,9 +5,6 @@ class CrudService {
     this._dataRef = _db.collection("posts")
     this.read()
     this._posts = [];
-   
-
-    // this.myFunctionModal(x) // Call listener function at run time
 
   };
 
@@ -140,25 +137,30 @@ createUser(number) {
   stageInput.style.display = "none"
 } 
 
+/* stageSize() {
 textCountDown(number) {
   let stageInput = document.querySelector(`#commentsModal${number}`)
   console.log(stageInput);
   stageInput.getElementsByClassName('formText').onkeyup = () => {
     
-  document.getElementById('demo-text').innerHTML = "Characters left: " + (500 - this.value.length);
+  document.getElementsByClassName('demo-text').innerHTML = "Characters left: " + (500 - this.value.length);
 };
 }
+}*/
 
-/* textCountDown(number) {
+textCountDown(number) {
 let stageInput = document.querySelector(`#commentsModal${number}`)
-var elem = stageInput.getElementsByClassName("formText"); 
+var elem = stageInput.querySelector('.formText'); 
 console.log(elem);
 
-var n = elem.length;
-console.log(elem.length);
+var n = elem.value.length;
+console.log(n);
 
-document.getElementById("demo-text").innerHTML = n;
-} */
+let demoText = elem.querySelector('.demo-text')
+
+demoText.innerHTML = n;
+console.log(demoText, n);
+} 
 
  //.......................... MODAL (modal open) .................................
 // Johanne ----------------------------------

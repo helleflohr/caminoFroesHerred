@@ -81,8 +81,8 @@ class MapInfoService {
 
 
         let Seng = new iconClass({
-            iconUrl: 'images/ikoner-map/Seng.svg'
-        }),
+                iconUrl: 'images/ikoner-map/Seng.svg'
+            }),
             Kirker = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirker.svg'
             }),
@@ -169,20 +169,21 @@ class MapInfoService {
         console.log(iconArr)
 
 
-        OvernatningArr = L.layerGroup(OvernatningArr);
-        KirkerArr = L.layerGroup(KirkerArr);
-        ToiletterArr = L.layerGroup(ToiletterArr);
-        KanopladserArr = L.layerGroup(KanopladserArr);
-        VandposterArr = L.layerGroup(VandposterArr);
-        UdkigspunkterArr = L.layerGroup(UdkigspunkterArr);
-        BusstopArr = L.layerGroup(BusstopArr);
-        ForplejningsmulighederArr = L.layerGroup(ForplejningsmulighederArr);
-        SeværdighederArr = L.layerGroup(SeværdighederArr);
-        GenforeningsstenArr = L.layerGroup(GenforeningsstenArr);
-        LegepladserArr = L.layerGroup(LegepladserArr);
-        IndkøbsmulighederArr = L.layerGroup(IndkøbsmulighederArr);
-        ParkeringArr = L.layerGroup(ParkeringArr);
-        HvilestederArr = L.layerGroup(HvilestederArr);
+        OvernatningArr = this.clustermarkers(OvernatningArr, new L.MarkerClusterGroup());
+        KirkerArr = this.clustermarkers(KirkerArr, new L.MarkerClusterGroup());
+        ToiletterArr = this.clustermarkers(ToiletterArr, new L.MarkerClusterGroup());
+        KanopladserArr = this.clustermarkers(KanopladserArr, L.MarkerClusterGroup());
+        VandposterArr = this.clustermarkers(VandposterArr, new L.MarkerClusterGroup());
+        UdkigspunkterArr = this.clustermarkers(UdkigspunkterArr, new L.MarkerClusterGroup());
+        BusstopArr = this.clustermarkers(BusstopArr, new L.MarkerClusterGroup());
+        ForplejningsmulighederArr = this.clustermarkers(ForplejningsmulighederArr, new L.MarkerClusterGroup());
+        SeværdighederArr = this.clustermarkers(SeværdighederArr, new L.MarkerClusterGroup());
+        GenforeningsstenArr = this.clustermarkers(GenforeningsstenArr, new L.MarkerClusterGroup());
+        LegepladserArr = this.clustermarkers(LegepladserArr, new L.MarkerClusterGroup());
+        IndkøbsmulighederArr = this.clustermarkers(IndkøbsmulighederArr, new L.MarkerClusterGroup());
+        ParkeringArr = this.clustermarkers(ParkeringArr, new L.MarkerClusterGroup());
+        HvilestederArr = this.clustermarkers(HvilestederArr, new L.MarkerClusterGroup());
+
 
 
         // --------------- Be on map from start ---------------
@@ -234,7 +235,7 @@ class MapInfoService {
             let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
             let currentZoom = map.getZoom();
             // console.log(this.iconSizes)
-            this.iconSize();
+            // this.iconSize();
 
 
             if (currentZoom < 12) {

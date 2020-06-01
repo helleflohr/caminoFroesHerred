@@ -40,7 +40,7 @@ export default class HomePage {
     <img class="arrow generalArrow" src="images/ikoner/nyPilGenerelt.png">
     <img class="arrow mapArrow" src="images/ikoner/nyPilGenerelt.png">
     <div>
-    <img src="images/ikoner/kort.svg">
+    <img onclick="scrollToElement('mapid')" src="images/ikoner/kort.svg">
    
       <h2 onclick="scrollToElement('mapid')">Kort</h2>
       <p>Du kan nemt få et overblik over hele Caminoen på kortet. Her kan du se alle 11 etaper, og vælge hvilken etape
@@ -49,7 +49,7 @@ export default class HomePage {
     </div>
     <img class="arrow descriptionArrow" src="images/ikoner/nyPilGenerelt.png">
     <div>
-    <img src="images/ikoner/rutebeskrivelser.svg">
+    <img  onclick="scrollToElement('stage1')" src="images/ikoner/rutebeskrivelser.svg" >
  
       <h2 onclick="scrollToElement('stage1')">Rutebeskrivelser</h2>
       <p>Caminoen er inddelt i 11 etaper, som giver muligheden for at gå noget af ruten og derved træne op til at kunne

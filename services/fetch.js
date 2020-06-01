@@ -10,7 +10,7 @@ class FetchService {
 
     }
     async fetchDescription() {
-        let response = await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=17")
+        let response = await fetch("https://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=17")
         this.descriptions = await response.json();
     }
     async getDescriptions() {
@@ -21,7 +21,7 @@ class FetchService {
     }
 
     async fetchMarkers() {
-        await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=500")
+        await fetch("https://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=500")
             .then(function (response) {
                 return response.json();
             })
@@ -32,7 +32,7 @@ class FetchService {
     }
 
     async fetchStartMarkers() {
-        await fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=9")
+        await fetch("https://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=9")
             .then(function (response) {
                 return response.json();
             })

@@ -1,6 +1,7 @@
 "use strict";
 
 // ========== GLOBAL FIREBASE CONFIG ========== //
+//Johanne
 // Your web app's Firebase configuration
   const _firebaseConfig = {
     apiKey: "AIzaSyDekBcVlEX7Txg1nT1YFMQx1QI6z1-m0lk",

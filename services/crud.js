@@ -11,7 +11,8 @@ class CrudService {
   };
 
 
-  // ========== READ ==========
+  //.......................... READ POSTS .................................
+  //Johanne
   // 1: data from firebase
   // watch the database ref for changes
   read() {
@@ -85,6 +86,9 @@ class CrudService {
 
   // --------------- Append posts from Wordpress - End ---------------
 
+  //.......................... PREVIEW IMAGE AND TRIGGER CHOOSE IMAGE .................................
+  //Johanne
+
   previewImage(file, number) {
     console.log(number);
 
@@ -107,40 +111,51 @@ class CrudService {
     document.querySelector(`#commentsModal${number} .imgChoose`).click();
   }
 
-  // ========== CREATE ==========
-  // add a new user to firestore (database)
+
+  //.......................... CREATE POST .................................
+  //Johanne
+  // add a new post to firestore (database)
   createUser(number) {
     // references to the input fields
     let stageInput = document.querySelector(`#commentsModal${number}`)
     console.log(number);
 
-    let nameInput = stageInput.querySelector('.formName')[0]; //finder queryselector som er inde i stageInput
-    let textInput = stageInput.querySelector('.formText')[0];
-    let imageInput = stageInput.querySelector('.imgChoose')[0];
+    let nameInput = stageInput.querySelector('.formName'); //finder queryselector som er inde i stageInput
+    let textInput = stageInput.querySelector('.formText');
+    let imageInput = stageInput.querySelector('.imgChoose');
     console.log(nameInput.value);
     console.log(textInput.value);
     console.log(imageInput.value);
-    console.log(stageInput.title);
 
 
     let newPost = {
       name: nameInput.value,
       text: textInput.value,
-      image: imageInput.value,
+      image: imageInput.files[0].name,
       etape: number
     };
 
     this._dataRef.add(newPost);
-  }
+    stageInput.style.display = "none"
 
-  // ========== MODAL ==========
-
-  // When the user clicks on the button, open the modal
-  myFunctionModal(number) {
-    // Get the modal
-    let modalSay = document.getElementById(`commentsModal${number}`);
-    modalSay.style.display = "block";
   };
+
+
+
+  /* textCountDown(number) {
+  let stageInput = document.querySelector(`#commentsModal${number}`)
+  var elem = stageInput.getElementsByClassName("formText"); 
+  console.log(elem);
+
+  var n = elem.length;
+  console.log(elem.length);
+
+  document.getElementById("demo-text").innerHTML = n;
+  } */
+
+  //.......................... MODAL (modal open) .................................
+  // Johanne ----------------------------------
+
 
   // When the user clicks on the button, open the modal
   myFunctionModal(number) {

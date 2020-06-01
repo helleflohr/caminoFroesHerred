@@ -130,7 +130,7 @@ class MapInfoService {
             })
         let iconArr = [];
         let stayArr = [];
-
+        let SeværdighederArr = [];
         let KirkeArr = [];
         let ToiletterArr = [];
         let OvernatningArr = [];
@@ -168,37 +168,10 @@ class MapInfoService {
 
 
 
-
-        // for (const icon of iconArr) {
-        //     console.log(icon)
-        //     let name = `${icon}Arr`
-        //     name = L.layerGroup(eval(name));
-        //     console.log(name)
-
-        // }
-
-
-        // KirkeArr = new L.MarkerClusterGroup();
-
-        // ToiletterArr = new L.MarkerClusterGroup();
-        // OvernatningArr = new L.MarkerClusterGroup();
-
-        // KanopladsArr = new L.MarkerClusterGroup();
-
-        // VandpostArr = new L.MarkerClusterGroup();
-        // UdkigspunktArr = new L.MarkerClusterGroup();
-
-        // BusstopArr = new L.MarkerClusterGroup();
-        // ForplejningsmulighedArr = new L.MarkerClusterGroup();
-        // GenforeningsstenArr = new L.MarkerClusterGroup();
-        // LegepladsArr = new L.MarkerClusterGroup();
-        // IndkøbsmulighedArr = new L.MarkerClusterGroup();
-        // ParkeringArr = new L.MarkerClusterGroup();
-        // HvilestedArr = new L.MarkerClusterGroup();
-
         KirkeArr = this.clustermarkers(KirkeArr, new L.MarkerClusterGroup())
         ToiletterArr = this.clustermarkers(ToiletterArr, new L.MarkerClusterGroup())
         OvernatningArr = this.clustermarkers(OvernatningArr, new L.MarkerClusterGroup())
+        SeværdighederArr = this.clustermarkers(SeværdighederArr, new L.MarkerClusterGroup())
         KanopladsArr = this.clustermarkers(KanopladsArr, new L.MarkerClusterGroup())
         VandpostArr = this.clustermarkers(VandpostArr, new L.MarkerClusterGroup())
         UdkigspunktArr = this.clustermarkers(UdkigspunktArr, new L.MarkerClusterGroup())
@@ -209,9 +182,6 @@ class MapInfoService {
         IndkøbsmulighedArr = this.clustermarkers(IndkøbsmulighedArr, new L.MarkerClusterGroup())
         ParkeringArr = this.clustermarkers(ParkeringArr, new L.MarkerClusterGroup())
         HvilestedArr = this.clustermarkers(HvilestedArr, new L.MarkerClusterGroup())
-
-        // console.log(fetchService.startMarkers);
-
 
 
         // --------------- Be on map from start ---------------
@@ -241,7 +211,6 @@ class MapInfoService {
                 overlayLine = `<p>${icon}</p><div><img src='images/ikoner-map/${icon}.svg' /></div>`;
             }
 
-            // let overlayLine = `<p>${icon}</p><img src='images/${icon}.png' />`;
             overlayMaps[overlayLine] = eval(name);
         }
 
@@ -337,40 +306,6 @@ class MapInfoService {
     }
     // --------------- Cluster marker function - End ---------------
 
-    iconSize() {
-        let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
-        let currentZoom = map.getZoom();
-
-
-        // console.log(document.querySelectorAll('.leaflet-control-layers-selector'));
-        let leafletCheckboxes = document.querySelectorAll('.leaflet-control-layers-selector');
-        for (const checkBox of leafletCheckboxes) {
-            // console.log(checkBox)
-            checkBox.addEventListener("onchange", () => { // Listen for a click on an image
-                // time
-                console.log(this.iconSizes)
-                if (currentZoom < 12) {
-                    this.iconSizes = 15;
-                    for (const icon of leafletIcons) {
-                        icon.style.width = `${this.iconSizes}px`;
-                        icon.style.height = `${this.iconSizes}px`;
-                    }
-                } else {
-                    this.iconSizes = 29;
-                    for (const icon of leafletIcons) {
-                        icon.style.width = `${this.iconSizes}px`;
-                        icon.style.height = `${this.iconSizes}px`;
-                    }
-                }
-                console.log(this.iconSizes)
-            }, 5000);
-
-        }
-
-
-
-
-    }
 
     showOrHide(arr) {
         console.log('test')

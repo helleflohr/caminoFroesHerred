@@ -4,7 +4,7 @@ class CrudService {
     this._dataRef = _db.collection("posts")
     this.read()
     this._posts = [];
-   
+
 
     // this.myFunctionModal(x) // Call listener function at run time
 
@@ -87,60 +87,60 @@ class CrudService {
 
   previewImage(file, number) {
     console.log(number);
-    
+
     if (file) {
       console.log(file);
       let reader = new FileReader();
       reader.onload = (event) => {
-       let modal = document.querySelector(`#commentsModal${number}`)
-       console.log(number);
-       
+        let modal = document.querySelector(`#commentsModal${number}`)
+        console.log(number);
+
         modal.querySelector('.imagePreview').setAttribute('src', event.target.result);
       };
       reader.readAsDataURL(file);
     }
   }
-  
+
   triggerChooseImg(number) {
     console.log(number);
-    
+
     document.querySelector(`#commentsModal${number} .imgChoose`).click();
   }
 
   // ========== CREATE ==========
-// add a new user to firestore (database)
-createUser(number) {
-  // references to the input fields
-  let stageInput = document.querySelector(`#commentsModal${number}`)
-  console.log(number);
-  
-  let nameInput = stageInput.querySelector('.formName')[0]; //finder queryselector som er inde i stageInput
-  let textInput = stageInput.querySelector('.formText')[0];
-  let imageInput = stageInput.querySelector('.imgChoose')[0];
-  console.log(nameInput.value);
-  console.log(textInput.value);
-  console.log(imageInput.value);
-  console.log(stageInput.title);
-  
-  
-  let newPost = {
-    name: nameInput.value,
-    text: textInput.value,
-    image: imageInput.value,
-    etape: number
-  };
+  // add a new user to firestore (database)
+  createUser(number) {
+    // references to the input fields
+    let stageInput = document.querySelector(`#commentsModal${number}`)
+    console.log(number);
 
-  this._dataRef.add(newPost);
-} 
+    let nameInput = stageInput.querySelector('.formName')[0]; //finder queryselector som er inde i stageInput
+    let textInput = stageInput.querySelector('.formText')[0];
+    let imageInput = stageInput.querySelector('.imgChoose')[0];
+    console.log(nameInput.value);
+    console.log(textInput.value);
+    console.log(imageInput.value);
+    console.log(stageInput.title);
+
+
+    let newPost = {
+      name: nameInput.value,
+      text: textInput.value,
+      image: imageInput.value,
+      etape: number
+    };
+
+    this._dataRef.add(newPost);
+  }
 
   // ========== MODAL ==========
 
-// When the user clicks on the button, open the modal
-myFunctionModal(number) {
-   // Get the modal
-   let modalSay = document.getElementById(`commentsModal${number}`);
-  modalSay.style.display = "block";
-    };
+  // When the user clicks on the button, open the modal
+  myFunctionModal(number) {
+    // Get the modal
+    let modalSay = document.getElementById(`commentsModal${number}`);
+    modalSay.style.display = "block";
+  };
 
   // When the user clicks on the button, open the modal
   myFunctionModal(number) {
@@ -153,36 +153,31 @@ myFunctionModal(number) {
     // When the user clicks on <span> (x), close the modal
     element.parentElement.parentElement.style.display = "none";
   }
-/*
-  triggerChooseImg() { // Trigger den knap der hedder vælg fil
-    this.$refs.fileInput.click() // knap der selv er lavet
-  }
-
-  previewImage() {
-    const imageFile = this.$refs.fileInput.files[0]
-    const fileReader = new FileReader() // læser filen, så vi kan få en src ud af den så vi kan vise det er et img tag
-    fileReader.onload = (event) => {
-      this.newPost.image = event.target.result // smider billedet ind i selve variablen
-      console.log(this.newPost.image);
-
+  /*
+    triggerChooseImg() { // Trigger den knap der hedder vælg fil
+      this.$refs.fileInput.click() // knap der selv er lavet
     }
-    fileReader.readAsDataURL(imageFile)
-  }
 
-  /* // When the user clicks anywhere outside of the modal, close it
-  closeOutsideModal(event, number) {
-   // Get the modal
-   let modalSay = document.getElementById(`commentsModal${number}`);
-  
-    if (event.target == modalSay) {
-      modalSay.style.display = "none";
-    } 
-  } */
+    previewImage() {
+      const imageFile = this.$refs.fileInput.files[0]
+      const fileReader = new FileReader() // læser filen, så vi kan få en src ud af den så vi kan vise det er et img tag
+      fileReader.onload = (event) => {
+        this.newPost.image = event.target.result // smider billedet ind i selve variablen
+        console.log(this.newPost.image);
 
+      }
+      fileReader.readAsDataURL(imageFile)
+    }
 
-
-
-
+    /* // When the user clicks anywhere outside of the modal, close it
+    closeOutsideModal(event, number) {
+     // Get the modal
+     let modalSay = document.getElementById(`commentsModal${number}`);
+    
+      if (event.target == modalSay) {
+        modalSay.style.display = "none";
+      } 
+    } */
 
 
 

@@ -97,7 +97,7 @@ class MapInfoService {
             Vandposter = new iconClass({
                 iconUrl: 'images/ikoner-map/Vandposter.svg'
             }),
-            Udkigspunkter = new iconClass({
+            Udsigtspunkter = new iconClass({
                 iconUrl: 'images/ikoner-map/Udkigspunkter.svg'
             }),
             Telt = new iconClass({
@@ -134,7 +134,7 @@ class MapInfoService {
         let ToiletterArr = [];
         let KanopladserArr = [];
         let VandposterArr = [];
-        let UdkigspunkterArr = [];
+        let UdsigtspunkterArr = [];
         let BusstopArr = [];
         let ForplejningsmulighederArr = [];
         let SeværdighederArr = [];
@@ -168,7 +168,7 @@ class MapInfoService {
         ToiletterArr = this.clustermarkers(ToiletterArr);
         KanopladserArr = this.clustermarkers(KanopladserArr);
         VandposterArr = this.clustermarkers(VandposterArr);
-        UdkigspunkterArr = this.clustermarkers(UdkigspunkterArr);
+        UdsigtspunkterArr = this.clustermarkers(UdsigtspunkterArr);
         BusstopArr = this.clustermarkers(BusstopArr);
         ForplejningsmulighederArr = this.clustermarkers(ForplejningsmulighederArr);
         SeværdighederArr = this.clustermarkers(SeværdighederArr);

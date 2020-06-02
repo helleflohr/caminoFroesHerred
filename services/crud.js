@@ -68,6 +68,8 @@ class CrudService {
     `;
       }
     }
+
+
     if (total < 1) {
       document.querySelector(`#content${etapeNr}`).innerHTML += `
     <div class="mySlides fade">

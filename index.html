@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="da">
 
 <head>
   <meta charset="utf-8">
-  <title>Camino Frøs Herred</title>
+  <title>Camino Frøs Herred - Vandretur i det gamle Frøs Herred</title>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="Vandretur i Frøs Herred">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Vandreruten tager udgangspunkt i de 10 kirker i det gamle Frøs Herred, og har fokus på lokalhistorien, herunder genforeningens betydning for lokalområdet.">
   <meta name="keywords"
     content="camino Danmark, Frøs Herred, vandretur, vandretur i Danmark, Camino Frøs Herred, Danmarks genforening">
   <!---Meyers reset css-->
@@ -20,12 +21,12 @@
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
-  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+  <script src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
   <!-- Script for leaflet printer-->
   <script src="node_modules/leaflet.browser.print/dist/leaflet.browser.print.min.js"></script>
   <!-- css for leaflet clustermarker-->
-  <link rel="node_modules/leaflet.markercluster/dist/MarkerCluster.css">
-  <!-- <link rel="node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css"> -->
+  <link rel="stylesheet" href="node_modules/leaflet.markercluster/dist/MarkerCluster.css">
+
 
   <!-- script for leaflet clustermarker-->
   <script src="node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
@@ -36,7 +37,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="node_modules/leaflet.browser.print/dist/leaflet.browser.print.min.js" />
 
-  <script src="node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+  <script src="node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
 
   <!-- Our css-->
   <link rel="stylesheet" href="main.css">
@@ -52,7 +53,8 @@
   <!-- navigation -->
   <aside>
     <nav class="navigationEtape">
-      <img id="logoDark" src="images/caminoLogoDark.svg" onclick="scrollToElement('frontpageImage'); zoomOut()">
+      <img id="logoDark" alt="Camino Frøs Herred Logo" src="images/caminoLogoDark.svg"
+        onclick="scrollToElement('frontpageImage'); zoomOut()">
       <h3>Etaper</h3>
       <input type="button" class="navbtn btn" value="1" onmouseover="goTo(this.value)" onmouseout="goFrom(this.value)"
         onclick="chosen(this.value); scrollToStage(this.value)">
@@ -118,7 +120,7 @@
 
 
       <!-- Expanded image -->
-      <img id="expandedImg" style="max-width:100%">
+      <img id="expandedImg" src="" alt="Forstørret billede" style="max-width:100%">
 
       <!-- Image text -->
       <div id="imgtext"></div>
@@ -128,9 +130,9 @@
   </div>
 
   <nav class="tabbar">
-    <a href="#home"><img src="images/compas.svg">Generelt</a>
-    <a href="#mapid"><img src="images/map.svg">Kort</a>
-    <a href="#grid-posts"><img src="images/location.svg">Beskrivelse</a>
+    <a href="#home"><img src="images/ikoner/generelt.svg" alt="Kompas nål">Generelt</a>
+    <a href="#mapid"><img src="images/ikoner/kort.svg" alt="Kort logo">Kort</a>
+    <a href="#grid-posts"><img src="images/ikoner/rutebeskrivelser.svg" alt="Lokation logo">Beskrivelse</a>
   </nav>
 
   <!-- main js file -->

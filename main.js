@@ -74,7 +74,7 @@ if (window.innerWidth > 1024) {
     latitude = 55.356480;
     longitude = 9.157975;
     zoom = 12;
-} else if (window.innerWidth > 720) {
+} else if (window.innerWidth >= 720) {
     latitude = 55.356480;
     longitude = 9.097975;
     zoom = 11;

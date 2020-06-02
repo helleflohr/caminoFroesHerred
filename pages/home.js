@@ -18,16 +18,22 @@ export default class HomePage {
           <!-- frontpage image and info bar -->
   <section id="frontpageImage" >
   <div id="frontpageLogoDiv">
-  <img id="frontpageLogo" src="../images/cfhLogo.png">
+  <img id="frontpageLogo" src="images/cfhLogo.png">
   </div>
 <div id="frontpageTextDiv">
   <h1> Camino Frøs Herred</h1>
   <h2>Åbner sig for natur, kultur og det åndelige</h2>
   </div>
+  <div  class="socialMedia">
+  <a target="_blank" href="https://www.instagram.com/caminofroesherred/?hl=da"><img src="images/ikoner/instagram.svg"></a>
+  <a target="_blank" href="https://www.facebook.com/groups/204253190209604/"><img src="images/ikoner/facebook.svg"></a>
+  </div>
   
   </section>
 
-  <section id="frontpageSection" class="page" >
+
+
+  <section id="frontpageSection" >
       <div>
       <img src="images/ikoner/generelt.svg" alt="Kompasnål ikon">
     

@@ -58,7 +58,7 @@ window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.createUser = (number) => crudService.createUser(number);
 /* window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number); */
 window.closeFunction = (element) => crudService.closeFunction(element);
-window.textCountDown = (number) => crudService.textCountDown(number);
+window.textCountDown = (element, number) => crudService.textCountDown(element, number);
 window.myFunctionModal = (number) => crudService.myFunctionModal(number);
 window.previewImage = (file, number) => crudService.previewImage(file, number);
 window.triggerChooseImg = (number) => crudService.triggerChooseImg(number);

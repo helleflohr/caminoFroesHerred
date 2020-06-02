@@ -69,8 +69,8 @@ export default class HomePage {
     `;
   }
 
-//.......................... FETCH WORDPRESS .................................
-//Johanne
+  //.......................... FETCH WORDPRESS .................................
+  //Johanne
   fetchDescription() {
 
     fetch("http://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=2&per_page=15")
@@ -83,7 +83,7 @@ export default class HomePage {
 
         setTimeout(() => {
           //fjerner spinner efter load.
-          loaderService.show(false); 
+          loaderService.show(false);
         }, 200);
         // console.log(loaderService.show(false));
 
@@ -160,20 +160,21 @@ export default class HomePage {
           <p id="btnSay" class="zoom" onclick="myFunctionModal(${post.acf.stageNumber})">Hvad siger du?</p>
           </div>
 
-          <section id="commentsModal${post.acf.stageNumber}" class="modal">
-    <div class="modal-content">
-    <span class="close" onclick="closeFunction(this)">&times;</span>
+        <section id="commentsModal${post.acf.stageNumber}" class="modal">
+          <div class="modal-content">
+          <span class="close" onclick="closeFunction(this)">&times;</span>
+
       <form class="postForm">
     <h2 class="h2-etape" title="${post.acf.stageNumber}">Opret et opslag for etape: ${post.acf.stageNumber}</h2>
     <input type="text" class="formName" placeholder="Dit navn" required>
-    <textarea rows="10" cols="50" name="comment" form="usrform" class="formText" onkeyup="textCountDown(${post.acf.stageNumber})" placeholder="Skriv din beretning" minlenght="1" maxlength="150" required></textarea>
-    <p class="demo-text"> /250 </p>
+    <textarea rows="10" cols="50" name="comment" form="usrform" class="formText" onkeyup="textCountDown(this, ${post.acf.stageNumber})" placeholder="Skriv din beretning" minlenght="1" maxlength="150" required></textarea>
+    <p value="0" class="demo-text"> Antal tegn: 0/250 </p>
     <input type="file" class="none imgChoose " accept="image/*" onchange="previewImage(this.files[0], ${post.acf.stageNumber})"> <!-- skjult via styling -->
     <button class="secondary" type="button" name="button" onclick="triggerChooseImg(${post.acf.stageNumber})">Vælg dit billede</button>
     <div class="div-image-preview">
-    <img class="image-preview imagePreview">
+    <img src="" class="image-preview imagePreview">
   </div>
-    <p class="btnCreate" onclick="createUser(${post.acf.stageNumber})">Opret opslag</p>
+    <p class="btnCreate" onclick="createUser(${post.acf.stageNumber}); appendPosts(${post.acf.stageNumber}); showSlides(${slideService.slideIndex}, ${post.acf.stageNumber})">Opret opslag</p>
   </form>
   </div>
       </section>

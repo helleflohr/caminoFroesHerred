@@ -62,7 +62,6 @@ class CrudService {
           <p>-${post.name}</p>
         </div>
 
-        
         <a class="prev" onclick="plusSlides(-1, ${etapeNr})">&#10094;</a>
         <a class="next" onclick="plusSlides(1, ${etapeNr})">&#10095;</a>
       <div>
@@ -94,7 +93,7 @@ class CrudService {
 
     if (file) {
       console.log(file);
-      let reader = new FileReader();
+      let reader = new FileReader();  // reads the file, gets the src to show tha it is an image tag
       reader.onload = (event) => {
         let modal = document.querySelector(`#commentsModal${number}`)
         console.log(number);
@@ -105,9 +104,9 @@ class CrudService {
     }
   }
 
-  triggerChooseImg(number) {
+  triggerChooseImg(number) { // Triggers the button "Vælg billede"
     console.log(number);
-
+    // Choose
     document.querySelector(`#commentsModal${number} .imgChoose`).click();
   }
 
@@ -115,23 +114,23 @@ class CrudService {
   //.......................... CREATE POST .................................
   //Johanne
   // add a new post to firestore (database)
-  createUser(number) {
+  createUser(number) { 
     // references to the input fields
     let stageInput = document.querySelector(`#commentsModal${number}`)
     console.log(number);
 
     let nameInput = stageInput.querySelector('.formName'); //finder queryselector som er inde i stageInput
     let textInput = stageInput.querySelector('.formText');
-    let imageInput = stageInput.querySelector('.imgChoose');
+    let imageInput = stageInput.querySelector('.imagePreview');
     console.log(nameInput.value);
     console.log(textInput.value);
-    console.log(imageInput.value);
+    console.log(imageInput.src);
 
 
     let newPost = {
       name: nameInput.value,
       text: textInput.value,
-      image: imageInput.files[0].name,
+      image: imageInput.src,
       etape: number
     };
 
@@ -142,30 +141,33 @@ class CrudService {
 
 
 
-  /* textCountDown(number) {
-  let stageInput = document.querySelector(`#commentsModal${number}`)
+  textCountDown(element, number) {
+  let lenght = element.value.length;
+  document.querySelector(`#commentsModal${number} .demo-text`).innerHTML = `Antal anslag: ${lenght} /250`;
+    /* let stageInput = document.querySelector(`#commentsModal${number}`)
   var elem = stageInput.getElementsByClassName("formText"); 
   console.log(elem);
 
   var n = elem.length;
   console.log(elem.length);
 
-  document.getElementById("demo-text").innerHTML = n;
-  } */
+  document.getElementById("demo-text").innerHTML = n; */
+  }
 
   //.......................... MODAL (modal open) .................................
   // Johanne ----------------------------------
 
-
-  // When the user clicks on the button, open the modal
+  // // Triggers button "Hvad siger du?""
   myFunctionModal(number) {
-    // Get the modal
+    // Get the correct modal with #commentsModal${number}
     let modalSay = document.getElementById(`commentsModal${number}`);
+    //show modal
     modalSay.style.display = "block";
   };
 
+   // When the user clicks on <span> (x), close the modal
   closeFunction(element) {
-    // When the user clicks on <span> (x), close the modal
+  // hide modal
     element.parentElement.parentElement.style.display = "none";
   }
   /*

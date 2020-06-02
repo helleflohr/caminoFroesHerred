@@ -32,7 +32,7 @@ export default class HomePage {
       <img src="images/ikoner/generelt.svg" alt="Kompasnål ikon">
     
       <h2>Generelt</h2>
-      <p>Ruten er 108 km, som bølger sig rundt i det gamle Frøs Herred. Den byder på flere spændende oplevelser på
+      <p>Ruten er ca. 108 km, som bølger sig rundt i det gamle Frøs Herred. Den byder på flere spændende oplevelser på
         højderyggen mellem Kongeåen og Gram Å, og grænser op til den gamle grænse fra 1864 og til 1920, som var en
         brydningstid for området </p>
         

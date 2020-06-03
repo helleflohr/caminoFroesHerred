@@ -5,6 +5,7 @@ class LoaderService {
 
   //.......................... LOADER .................................
 //Johanne
+//returns the HTML content: loader and spinner in #content
   template() {
     document.querySelector('#content').innerHTML += /*html*/ `
       <div id="loader">
@@ -12,12 +13,15 @@ class LoaderService {
       </div>
     `;
   }
-
-  show(show) {
+  
+show(show) {
+  // variable of the div "#loader" from html
     let loader = document.getElementById('loader');
+    //condition (show) to present from the start.
     if (show) {
       loader.classList.remove("hide");
     } else {
+      // else add hide
       loader.classList.add("hide");
     }
   }

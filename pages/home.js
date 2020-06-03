@@ -87,19 +87,20 @@ export default class HomePage {
         this.descriptions = json;
         this.appendPosts(json)
 
+        //Evaluates the expression after 200 milliseconds.
         setTimeout(() => {
-          //fjerner spinner efter load.
+          //fjerner spinner efter load. 
+          // When fetch is done show() is false and adds hide on #loader
           loaderService.show(false);
         }, 200);
-        // console.log(loaderService.show(false));
 
       });
   }
 
   //.......................... APPEND POSTS .................................
+  //Johanne 
   appendPosts(posts) {
     //sort the posts by acf stagenumber in ascending order
-    //Johanne 
     posts.sort(function (x, y) {
       return x.acf.stageNumber - y.acf.stageNumber;
     });
@@ -170,9 +171,9 @@ export default class HomePage {
           <div class="modal-content">
           <span class="close" onclick="closeFunction(this)">&times;</span>
 
-      <form class="postForm">
+      <form class="postForm" name="postForm">
     <h2 class="h2-etape" title="${post.acf.stageNumber}">Opret et opslag for etape: ${post.acf.stageNumber}</h2>
-    <input type="text" class="formName" placeholder="Dit navn" required>
+    <input type="text" class="formName" name="fname" placeholder="Dit navn" required>
     <textarea rows="10" cols="50" name="comment" form="usrform" class="formText" onkeyup="textCountDown(this, ${post.acf.stageNumber})" placeholder="Skriv din beretning" minlenght="1" maxlength="150" required></textarea>
     <p value="0" class="demo-text"> Antal tegn: 0/250 </p>
     <input type="file" class="none imgChoose " accept="image/*" onchange="previewImage(this.files[0], ${post.acf.stageNumber})"> <!-- skjult via styling -->
@@ -180,7 +181,7 @@ export default class HomePage {
     <div class="div-image-preview">
     <img src="" class="image-preview imagePreview">
   </div>
-    <p class="btnCreate" onclick="createUser(${post.acf.stageNumber}); appendPosts(${post.acf.stageNumber}); showSlides(${slideService.slideIndex}, ${post.acf.stageNumber})">Opret opslag</p>
+    <p class="btnCreate" onclick="createUser(${post.acf.stageNumber}); validateForm(${post.acf.stageNumber})">Opret opslag</p>
   </form>
   </div>
       </section>
@@ -195,8 +196,9 @@ export default class HomePage {
 
   };
 
-  // get the featured image url
+ 
   //Johanne
+   // gets the featured image url
   getFeaturedImageUrl(post) {
     let imageUrl = "";
     if (post._embedded['wp:featuredmedia']) {

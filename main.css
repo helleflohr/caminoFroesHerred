@@ -371,6 +371,7 @@ hr {
 #frontpageSection {
   text-align: left;
   background-color: var(--camino-blue);
+  margin-bottom: 10vh;
 }
 
 #frontpageSection div {
@@ -1459,9 +1460,4 @@ select {
     display: flex;
   }
 
-  /* .leaflet-control-layers-base label div{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  } */
 }

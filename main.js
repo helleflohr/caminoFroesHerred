@@ -8,7 +8,6 @@ import mapService from "./services/map.js";
 
 import scrollService from "./services/nav.js"
 import mapInfoService from "./services/mapInfo.js";
-import stageService from "./services/stages.js"
 import slideService from "./services/slide.js";
 
 import crudService from "./services/crud.js";
@@ -19,25 +18,15 @@ import loaderService from "./services/loader.js";
 // Declare and init pages
 let homePage = new HomePage();
 
-
-
-// init services
-// async function Load() {
-//     await fetchService.fetchDescription();
-//     await fetchService.fetchMarkers();
-// }
-// Load();
 loaderService.show(true);
 spaService.init();
 
 mapService.fetchGeoJson();
 if (window.innerWidth > 1024) {
 
-    mapInfoService.createMarkers();
+    // mapInfoService.createMarkers();
+    fetchService.fetchMarkers()
 }
-
-// mapInfoService.iconSize();
-
 
 
 window.pageChange = () => spaService.pageChange();
@@ -53,7 +42,6 @@ window.scrollToElement = (element) => scrollService.scrollToElement(element);
 window.bigImg = (image) => scrollService.bigImg(image);
 window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
-window.stageSize = () => stageService.stageSize();
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.createPost = (number) => crudService.createPost(number);
 /* window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number); */
@@ -68,6 +56,8 @@ window.showSlides = (n, number) => slideService.showSlides(n, number);
 // window.validateForm = (number) => crudService.validateForm(number);
 
 
+// ---------------  Maja ---------------
+// Set map coordinates for different devices
 export let latitude = 55.356480;
 export let longitude = 9.097975;
 export let zoom = 10;
@@ -82,13 +72,9 @@ if (window.innerWidth > 1024) {
     zoom = 11;
 }
 
-
+// create and export the map
 export let map = new L.Map("mapid", {
     center: new L.LatLng(latitude, longitude),
     zoom: zoom
-    // layers: [cities]
 });
 
-
-
-// stageService.stageSize();

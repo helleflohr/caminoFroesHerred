@@ -6,69 +6,29 @@ import fetchService from "./fetch.js"
 // import fetchService from "./../services/fetch.js"
 class MapInfoService {
     constructor() {
-        // this.createMarkers();
-        // this.iconSize();
         this.iconSizes = 29;
-
-
-
-    }
-
-    async createMarkers() {
-        loaderService.show(true)
-        await fetch("https://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=500")
-            .then(function (response) {
-                return response.json();
-            })
-            .then((json) => {
-                this.getDataForCheckbox(json);
-            });
-        loaderService.show(false)
-    }
-
-    // appendMarkers(posts) {
-    //     console.log('hi')
-    //     for (let post of posts) {
-    //         console.log(post);
-    //         document.querySelector("#grid-posts").innerHTML += `
-    //                     < article class= "grid-item" >
-    //                     <h3>${post.title.rendered}</h3>
-    //                     <h4>${post.acf.kilometer}</h4>
-    //                     <h5>${post.acf.start}</h5>
-    //                     <h5>${post.acf.slut}</h5>
-    //                     <p>${post.acf.rutebeskrivelse}</p>
-    //                     <img src="${post.acf.billeder.url}">
-    //                         <p>${post.acf.hvad_siger_andre}</p>
-    //     </br> `
-    //     }
-    // }
-
-    onLocationFound(e) {
-        var radius = e.accuracy;
-
-        L.marker(e.latlng).addTo(map)
-            .bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-        L.circle(e.latlng, radius).addTo(map);
     }
 
 
+    mapAndMarkers(json) {
 
-    getDataForCheckbox(json) {
+        // The HOT style
         let OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
         });
 
+        // The toner style
         let toner = new L.StamenTileLayer("toner");
-        map.addLayer(OpenStreetMap_HOT);
 
-        this.tilesAndControles();
 
-        // console.log(this.iconSizes, this.iconSizes / 2)
-        let iconClass = L.Icon.extend({
+        map.addLayer(OpenStreetMap_HOT); // Add HOT to the map as default
+
+        this.tilesAndControles(); // Add the map controles
+
+
+        let iconClass = L.Icon.extend({ // Icon standard
             options: {
-                // shadowUrl: 'images/and.jpg',
                 iconSize: [this.iconSizes, this.iconSizes], // size of the icon
                 shadowSize: [50, 64], // size of the shadow
                 iconAnchor: [this.iconSizes / 2, this.iconSizes / 2], // point of the icon which will correspond to marker's location
@@ -80,8 +40,8 @@ class MapInfoService {
 
 
         let Seng = new iconClass({
-                iconUrl: 'images/ikoner-map/Seng.svg'
-            }),
+            iconUrl: 'images/ikoner-map/Seng.svg'
+        }),
             Kirker = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirker.svg'
             }),
@@ -219,33 +179,29 @@ class MapInfoService {
 
 
 
-        map.on('zoomend', () => {
+        // map.on('zoomend', () => {
 
-            let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
-            let currentZoom = map.getZoom();
-            // console.log(this.iconSizes)
-            // this.iconSize();
+        //     let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
+        //     let currentZoom = map.getZoom();
 
-
-            if (currentZoom < 12) {
-                this.iconSizes = 15;
-                for (const icon of leafletIcons) {
-                    icon.style.width = `${this.iconSizes}px`;
-                    icon.style.height = `${this.iconSizes}px`;
-                }
-            } else {
-                this.iconSizes = 29;
-                for (const icon of leafletIcons) {
-                    icon.style.width = `${this.iconSizes}px`;
-                    icon.style.height = `${this.iconSizes}px`;
-                }
-            }
-            // console.log(this.iconSizes)
-        });
+        //     if (currentZoom < 12) {
+        //         this.iconSizes = 15;
+        //         for (const icon of leafletIcons) {
+        //             icon.style.width = `${this.iconSizes}px`;
+        //             icon.style.height = `${this.iconSizes}px`;
+        //         }
+        //     } else {
+        //         this.iconSizes = 29;
+        //         for (const icon of leafletIcons) {
+        //             icon.style.width = `${this.iconSizes}px`;
+        //             icon.style.height = `${this.iconSizes}px`;
+        //         }
+        //     }
+        //     // console.log(this.iconSizes)
+        // });
     }
 
     tilesAndControles() {
-
 
         L.control.locate({
             initialZoomLevel: '14',
@@ -268,8 +224,6 @@ class MapInfoService {
     // --------------- Printer function - End ---------------
 
     // --------------- Cluster marker function - Helle ---------------
-
-    // --------------- Cluster marker function - End ---------------
 
     clustermarkers(markersArr) {
 

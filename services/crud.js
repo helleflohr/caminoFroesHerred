@@ -164,16 +164,28 @@ class CrudService {
     element.parentElement.parentElement.style.display = "none";
   }
 
+  //If form fields (formName and formText) or one of them is empty, this function alerts a message, and returns false, to prevent the form from being submitted
   validateForm(number) {
     let name = document.querySelector(`form.stage-${number} .formName`).value;
-    if (name == "") {
-      alert("Name must be filled out");
+    let text = document.querySelector(`form.stage-${number} .formText`).value;
+    //form fields name and text
+    if (name == "" && text == "") {
+      alert("Navn og beskrivelse skal udfyldes");
       return false;
-    }
+    //form field name
+    } else if (name == "") {
+      alert("Navn skal udfyldes");
+      return false;
   }
+    //form field text
+  else if (text == "") {
+    alert("Beskrivelse skal udfyldes");
+    return false;
+}
 
 
 
+}
 }
 
 const crudService = new CrudService();

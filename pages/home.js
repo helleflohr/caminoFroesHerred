@@ -170,8 +170,8 @@ export default class HomePage {
         <section id="commentsModal${post.acf.stageNumber}" class="modal">
           <div class="modal-content">
           <span class="close" onclick="closeFunction(this)">&times;</span>
-
-      <form class="postForm" name="postForm" stage-${post.acf.stageNumber}>
+          
+      <form class="postForm stage-${post.acf.stageNumber}" name="postForm">
     <h2 class="h2-etape" title="${post.acf.stageNumber}">Opret et opslag for etape: ${post.acf.stageNumber}</h2>
     <input type="text" class="formName" name="fname" placeholder="Dit navn" required>
     <textarea rows="10" cols="50" name="comment" form="usrform" class="formText" onkeyup="textCountDown(this, ${post.acf.stageNumber})" placeholder="Skriv din beretning" minlenght="1" maxlength="150" required></textarea>

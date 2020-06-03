@@ -155,7 +155,7 @@ aside {
   color: var(--camino-blue);
   text-transform: uppercase;
   cursor: pointer;
-  font-size: 1.7vh;
+  font-size: 1.4vh;
   margin-left: 0;
   /* width: 30%; */
 }
@@ -1269,10 +1269,11 @@ select {
 
 @media only screen and (min-width: 500px) {
   .navigationEtape {
-
     width: 10vw;
+  }
 
-
+  .tabNav {
+    font-size: 1.7vh;
   }
 
 }

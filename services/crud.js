@@ -166,6 +166,7 @@ class CrudService {
 
   //If form fields (formName and formText) or one of them is empty, this function alerts a message, and returns false, to prevent the form from being submitted
   validateForm(number) {
+    //variables of the value of name or textarea input in the form with the correct stagenumber
     let name = document.querySelector(`form.stage-${number} .formName`).value;
     let text = document.querySelector(`form.stage-${number} .formText`).value;
     //form fields name and text

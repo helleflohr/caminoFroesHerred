@@ -117,7 +117,7 @@ class CrudService {
   //.......................... CREATE POST .................................
   //Johanne
   // add a new post to firestore (database)
-  createUser(number) { 
+  createPost(number) { 
     // references to the input fields in the modal with the correct stagenumber
     let stageInput = document.querySelector(`#commentsModal${number}`)
 

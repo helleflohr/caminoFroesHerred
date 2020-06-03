@@ -55,7 +55,7 @@ window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.stageSize = () => stageService.stageSize();
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
-window.createUser = (number) => crudService.createUser(number);
+window.createPost = (number) => crudService.createPost(number);
 /* window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number); */
 window.closeFunction = (element) => crudService.closeFunction(element);
 window.textCountDown = (element, number) => crudService.textCountDown(element, number);

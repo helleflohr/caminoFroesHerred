@@ -805,6 +805,8 @@ aside h3 {
   /* Could be more or less, depending on screen size */
   height: 80vh;
   border-radius: 25px;
+  overflow-y: scroll;
+  overflow-x: visible;
 }
 
 .postForm {

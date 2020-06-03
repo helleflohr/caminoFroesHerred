@@ -5,6 +5,7 @@ class LoaderService {
 
   //.......................... LOADER .................................
 //Johanne
+//returns the HTML content: loader and spinner in #content
   template() {
     document.querySelector('#content').innerHTML += /*html*/ `
       <div id="loader">

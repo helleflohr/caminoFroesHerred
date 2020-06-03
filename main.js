@@ -65,6 +65,8 @@ window.triggerChooseImg = (number) => crudService.triggerChooseImg(number);
 window.appendPosts = (etapeNr) => crudService.appendPosts(etapeNr);
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.showSlides = (n, number) => slideService.showSlides(n, number);
+window.validateForm = () => crudService.validateForm();
+
 
 export let latitude = 55.356480;
 export let longitude = 9.097975;

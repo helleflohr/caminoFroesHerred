@@ -26,8 +26,6 @@ html {
   height: 100%;
   text-align: left;
   width: 100%;
-  /* font-weight: 200; */
-  /* overflow: scroll; */
 }
 
 body {
@@ -48,7 +46,6 @@ h1 {
   font-size: 4em;
   letter-spacing: 3px;
   letter-spacing: 0.2em;
-  /* -webkit-text-stroke: 2px var(--camino-blue); */
 }
 
 h2 {
@@ -73,17 +70,12 @@ p {
 }
 
 .descriptionDiv li {
-  /* position: relative; */
   list-style: none;
-  /* padding-left: 0; */
-  /* list-style-position: inside; */
-  /* list-style-image: url(images/pil.png); */
   list-style-position: outside;
   margin-left: 12px;
 }
 
 .descriptionDiv {
-  /* margin-left: 1%; */
   margin: 1% 0 1% 1%;
 }
 
@@ -91,7 +83,6 @@ p {
   content: '';
   display: inline-block;
 
-  /* height: 7px; */
   width: 6px;
   background-image: url(images/pil.png);
   background-position: center;
@@ -99,9 +90,7 @@ p {
   margin-left: -12px;
   margin-right: 4px;
   padding-top: 7px;
-
 }
-
 
 
 strong {
@@ -111,10 +100,7 @@ strong {
 /* ---------- page styling ---------- */
 .page {
   display: none;
-
   animation: fadeIn 0.4s;
-  /* opacity: 0; */
-  /* height: 0; */
 }
 
 
@@ -127,7 +113,6 @@ aside {
   bottom: 0;
   right: 0;
   z-index: 9;
-  /* width: 10vw; */
 }
 
 #content {
@@ -151,13 +136,11 @@ aside {
 
 .tabNav {
   list-style: none;
-  /* display: inline; */
   color: var(--camino-blue);
   text-transform: uppercase;
   cursor: pointer;
   font-size: 1.4vh;
   margin-left: 0;
-  /* width: 30%; */
 }
 
 .tabImages {
@@ -251,7 +234,6 @@ hr {
 
 /* ---------- navigation styling ---------- */
 #logoDark {
-  /* height: 12vh; */
   max-width: 100%;
   margin: 3vh auto 0;
   cursor: pointer;
@@ -261,8 +243,6 @@ hr {
 .navigationEtape {
   height: 100vh;
   width: 10vw;
-  /* z-index: -1; */
-
 }
 
 .navbtn {
@@ -311,7 +291,6 @@ hr {
 
 
 /* ---------- home page styling ---------- */
-
 #frontpageImage {
   background-image: url(images/lake-mobile.jpg);
   background-repeat: no-repeat;
@@ -345,23 +324,19 @@ hr {
 #frontpageImage h1 {
   font-size: 5vh;
   font-weight: 100;
-  /* color: black; */
 }
 
 #frontpageImage h2 {
   font-size: 3vh;
-  /* color: black; */
 }
 
-.socialMedia{
+.socialMedia {
   margin: 0 0 2% 2%;
 }
-.socialMedia img{
-  /* margin-left: 1vw; */
+
+.socialMedia img {
   width: 2em;
   height: 2em;
-  /* position: absolute; */
-  /* bottom: 0; */
 }
 
 
@@ -370,9 +345,10 @@ hr {
 #frontpageSection {
   text-align: left;
   background-color: var(--camino-blue);
+  margin-bottom: 10vh;
 }
 
-#frontpageSection div{
+#frontpageSection div {
   width: 90%;
   margin: 0 auto 1em;
 }
@@ -427,7 +403,6 @@ h2 {
   position: relative;
   height: 100vh;
   overflow-x: hidden;
-
 }
 
 #infoBox {
@@ -439,10 +414,8 @@ h2 {
   border-radius: 25px;
   width: 13em;
   color: var(--text-color-light);
-  /* height: 200px; */
   z-index: 5;
   display: none;
-
 }
 
 #grid-posts {
@@ -454,10 +427,6 @@ aside h3 {
   font-size: 1.5vh;
   margin: 5vh 0 3vh;
 }
-
-/* img {
-  width: 100%;
-} */
 
 .boxIcon {
   display: flex;
@@ -483,10 +452,7 @@ aside h3 {
   height: 15%;
   overflow: hidden;
   align-self: center;
-
 }
-
-
 
 /* ---------- crud page styling ---------- */
 .sayArticle {
@@ -494,11 +460,6 @@ aside h3 {
   border-radius: 10px;
   height: auto;
 }
-
-/* .say {
-  display: flex;
-  flex-wrap: wrap;
-} */
 
 .sayText {
   margin-left: 10%;
@@ -529,7 +490,6 @@ aside h3 {
 }
 
 .sayBtn:hover {
-  /* color: var(--camino-yellow); */
   background-color: var(--camino-green);
 }
 
@@ -595,18 +555,6 @@ aside h3 {
   top: 0;
 }
 
-/* The dots/bullets/indicators */
-/* .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-} */
-
 .active {
   background-color: var(--camino-blue);
 }
@@ -639,10 +587,7 @@ aside h3 {
   }
 }
 
-
-
 /* ---------- Grid container styling ---------- */
-
 .grid-item {
   border: 7px solid var(--camino-green);
   border-radius: 25px;
@@ -684,8 +629,6 @@ aside h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  /* font-family: 'JosefinSans', Arial, sans-serif; */
 }
 
 
@@ -707,14 +650,11 @@ aside h3 {
 .start-end h5 {
   /* margin-top: 5%; */
   font-family: 'JosefinSans', Arial, sans-serif;
-
 }
 
 .title-distance h4 {
   margin-top: 5%;
 }
-
-
 
 .start-end {
   display: flex;
@@ -723,7 +663,6 @@ aside h3 {
   color: var(--text-color-light);
   padding-bottom: 2%;
 }
-
 
 #text-backgroundimg {
   position: absolute;
@@ -770,7 +709,6 @@ aside h3 {
 }
 
 /* ---------- modal ---------- */
-
 #btnSay {
   margin-top: 10%;
 }
@@ -859,7 +797,9 @@ aside h3 {
   font-family: 'JosefinSans';
   width: 90%;
 }
-.postForm .formText:focus, .secondary:focus  {
+
+.postForm .formText:focus,
+.secondary:focus {
   outline: none;
 }
 
@@ -882,7 +822,6 @@ aside h3 {
 .postForm input:focus {
   outline: 0;
 }
-
 
 /* The Close Button */
 .close {
@@ -941,7 +880,6 @@ form button {
 }
 
 .container {
-
   position: relative;
   top: 15%;
   left: 0;
@@ -969,14 +907,11 @@ form button {
   position: absolute;
   top: 2%;
   left: 90%;
-  /* transform: translate(-50%, -50%); */
   color: white;
   font-size: 75px;
   cursor: pointer;
   z-index: 2;
 }
-
-
 
 /* ---------- leaflet controle styling ---------- */
 .leaflet-container .leaflet-control-attribution {
@@ -1003,7 +938,6 @@ form button {
   align-items: center;
 }
 
-
 .leaflet-control-layers-expanded {
   width: 50vw !important;
   background-color: var(--camino-blue-transpartent);
@@ -1015,8 +949,6 @@ form button {
   justify-content: start;
   align-items: center;
   width: 110%;
-
-
 }
 
 .leaflet-control-layers-expanded label div span {
@@ -1029,7 +961,6 @@ form button {
   width: 80%;
   height: auto;
   background-color: transparent;
-
 }
 
 .leaflet-control-layers-expanded label div span div {
@@ -1038,8 +969,6 @@ form button {
   flex-wrap: wrap;
   width: 45%;
   height: auto;
-
-  /* background-color: #22523C; */
 }
 
 .leaflet-control-layers-expanded label div span div img {
@@ -1053,7 +982,6 @@ form button {
   font-size: 2.1vh;
   width: 45%;
   cursor: pointer;
-
 }
 
 .leaflet-control-layers-base {
@@ -1078,28 +1006,17 @@ form button {
   max-width: 100%;
 }
 
-
-
-.leaflet-control-container .leaflet-control-browser-print{
+.leaflet-control-container .leaflet-control-browser-print {
   display: none;
 }
 
-/* .fa-map-marker{
-  background-color: var(--camino-yellow);
-  
-} */
-
-/* .fa-map-marker::active{
-  background-color: var(--camino-yellow);
-
-}  */
-.leaflet-bar-part{
+.leaflet-bar-part {
   background-image: url(images/ikoner/my-location.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 50%;
-  /* background-size: cover; */
 }
+
 /* ------- Cluster ------*/
 .marker-cluster-small {
   background-color: rgba(218, 94, 94, 0.6);
@@ -1121,7 +1038,6 @@ form button {
 
 
 /* ---------- topbar styling ---------- */
-/* --------------------- Is not used for now -------------------*/
 .topbar {
   background-color: var(--green);
   color: var(--text-color-light);
@@ -1140,7 +1056,6 @@ form button {
 }
 
 /* ---------- tabbar styling ---------- */
-/* --------------------- Is not used for now -------------------*/
 .tabbar {
   background-color: var(--camino-green);
   position: fixed;
@@ -1153,7 +1068,6 @@ form button {
 }
 
 /* Style the links inside the navigation bar */
-/* --------------------- Is not used for now -------------------*/
 .tabbar a {
   display: inline-block;
   color: var(--text-color-light);
@@ -1164,7 +1078,6 @@ form button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   width: 33vw;
-
 }
 
 .tabbar img {
@@ -1173,99 +1086,14 @@ form button {
   margin: 0 auto 1vh;
 }
 
-/* Change the color of links on hover */
-/* --------------------- Is not used for now -------------------*/
-/* .tabbar a:hover {
-
-  color: var(--camino-yellow);
-} */
-
 /* Add a color to the active/current link */
-/* --------------------- Is not used for now -------------------*/
 .tabbar a.active {
-  /* background-color: var(--camino-yellow); */
   color: var(--camino-yellow);
 }
 
 .tabbar img {
   fill: var(--camino-yellow);
 }
-
-
-
-/* ---------- styling ---------- */
-/* Grid container */
-/* --------------------- Is not used for now -------------------*/
-/* .grid-container {
-  display: grid;
-  grid-template-columns: 100%;
-  padding: 10px;
-}
-
-@media (min-width: 600px) {
-  .grid-container {
-    grid-template-columns: 50% 50%;
-  }
-}
-
-@media (min-width: 992px) {
-  .grid-container {
-    grid-template-columns: 33.33% 33.33% 33.33%;
-  }
-}
-
-.grid-container>article {
-  text-align: center;
-  padding: 10px;
-}
-
-.grid-container>article img {
-  max-width: 300px;
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-iframe {
-  border: none;
-  width: 100%;
-  height: 250px;
-} */
-
-/* input form stryling */
-/* --------------------- Is not used for now -------------------*/
-/* form {
-  margin: auto;
-}
-
-form button {
-  font-weight: 200;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  padding: 12px 15px;
-  font-size: 1em;
-  border-radius: 0;
-  color: #ffffff !important;
-  background-color: rgb(38, 76, 89);
-  width: 100%;
-  max-width: 350px;
-}
-
-input,
-select {
-  -webkit-appearance: none;
-  margin: 1em auto;
-  width: 100%;
-  max-width: 350px;
-  padding: 15px 15px;
-  box-sizing: border-box;
-  display: block;
-  background: #fff;
-  border: 0;
-  border-radius: 0;
-} */
-
-
 
 @media only screen and (min-width: 500px) {
   .navigationEtape {
@@ -1275,24 +1103,17 @@ select {
   .tabNav {
     font-size: 1.7vh;
   }
-
 }
+
 @media only screen and (min-width: 720px) {
   #frontpageImage {
     background-image: url(images/lake-tablet.jpg);
-  
   }
-
 }
-
-
-
-
 
 @media only screen and (min-width: 1025px) {
   #frontpageImage {
     background-image: url(images/lake.jpg);
-  
   }
 
   #frontpageSection .arrow {
@@ -1301,11 +1122,10 @@ select {
     height: 10vh;
     overflow: visible;
   }
-  
+
   #mapid {
     width: 90vw;
     height: 100vh;
-    /* overflow: visible; */
     overflow: hidden;
   }
 
@@ -1352,13 +1172,8 @@ select {
     display: block;
   }
 
-
-
   .grid-item {
-
     margin: 1em;
-
-
   }
 
   .tabNav {
@@ -1378,7 +1193,6 @@ select {
   }
 
   #frontpageTextDiv {
-
     width: 60%;
     margin: 23% 0 0 2.5%;
   }
@@ -1390,30 +1204,27 @@ select {
   #content {
     width: 90vw;
     overflow: visible;
-
   }
-
 
   #frontpageSection {
     width: 90vw;
     height: 25vh;
-      display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
     background-color: var(--camino-green);
   }
-  
+
   #frontpageSection div {
-    width: 26%; 
-     margin: 0 2%;
+    width: 26%;
+    margin: 0 2%;
   }
-  
-  
+
   #frontpageSection h2 {
     height: 5vh;
   }
-  
+
   #frontpageSection p {
     height: 13vh;
     overflow-y: auto;
@@ -1436,21 +1247,15 @@ select {
 
   .leaflet-control-layers-expanded {
     width: 20vw !important;
-
   }
 
   .leaflet-control-layers-expanded label div span p,
   .leaflet-control-layers-base {
-
     font-size: 1.2em;
-
   }
 
   .leaflet-control-layers-expanded label div span {
-
     width: 82%;
-
-
   }
 
   .leaflet-control-locate {
@@ -1458,171 +1263,166 @@ select {
   }
 
 
-  .leaflet-control-container .leaflet-control-browser-print{
+  .leaflet-control-container .leaflet-control-browser-print {
     display: flex;
   }
 
-  /* .leaflet-control-layers-base label div{
-    display: flex;
-    flex-wrap: wrap;
+  /* ---------- modal ---------- */
+
+  #btnSay {
+    margin-top: 10%;
+  }
+
+  .modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
     width: 100%;
-  } */
+    /* Full width */
+    height: 100vh;
+    /* Full height */
+    overflow: hidden;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    z-index: 1000;
+  }
 
-/* ---------- modal ---------- */
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 75%;
+    /* Could be more or less, depending on screen size */
+    height: 65vh;
+    border-radius: 25px;
+    overflow-y: scroll;
+    overflow-x: visible;
+  }
 
-#btnSay {
-  margin-top: 10%;
+  .postForm {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5%;
+  }
+
+
+  .postForm h2,
+  .postForm input,
+  .postForm button,
+  .postForm textarea {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .postForm h2 {
+    text-align: center;
+    color: var(--camino-green);
+  }
+
+  .postForm input {
+    border-radius: 25px;
+    border-color: var(--camino-green);
+    width: 60%;
+    padding: 2% 3%;
+    margin-top: 3%;
+  }
+
+  .demo-text {
+    width: 62%;
+    margin: 0 auto;
+    text-align: right;
+    margin-bottom: 3%;
+  }
+
+  .postForm .formText {
+    border-radius: 25px;
+    border: solid 2px;
+    border-color: var(--camino-green);
+    padding: 2% 3%;
+    text-align: left;
+    margin-top: 3%;
+    font-family: 'JosefinSans';
+    width: 60%;
+  }
+
+  .postForm .formText:focus,
+  .secondary:focus {
+    outline: none;
+  }
+
+  .postForm .btnCreate {
+    text-align: center;
+    color: var(--text-color-light);
+    background-color: var(--camino-blue);
+    border-radius: 25px;
+    width: 20%;
+    margin-bottom: 1em;
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 2% 7%;
+  }
+
+  .postForm input[type=file] {
+    display: none;
+  }
+
+  .postForm input:focus {
+    outline: 0;
+  }
+
+
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .image-preview {
+    max-width: 350px;
+    width: 50%;
+    padding: 1em 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .div-image-preview {
+    width: 100%;
+  }
+
+  form button {
+    font-weight: 200;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    padding: 12px 15px;
+    font-size: 1em;
+    border-radius: 25px;
+    color: var(--text-color-light);
+    background-color: var(--camino-green);
+    width: 100%;
+    max-width: 350px;
+    margin-top: 3%;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
-
-.modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100vh;
-  /* Full height */
-  overflow: hidden;
-  /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-  z-index: 1000;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 75%;
-  /* Could be more or less, depending on screen size */
-  height: 65vh;
-  border-radius: 25px;
-  overflow-y: scroll;
-  overflow-x: visible;
-}
-
-.postForm {
-  width: 50%;
-  display: block;
-  margin: 0 auto;
-  margin-top: 5%;
-}
-
-
-.postForm h2,
-.postForm input,
-.postForm button,
-.postForm textarea {
-  display: block;
-  margin: 0 auto;
-}
-
-.postForm h2 {
-  text-align: center;
-  color: var(--camino-green);
-}
-
-.postForm input {
-  border-radius: 25px;
-  border-color: var(--camino-green);
-  width: 60%;
-  padding: 2% 3%;
-  margin-top: 3%;
-}
-
-.demo-text {
-  width: 62%;
-  margin: 0 auto;
-  text-align: right;
-  margin-bottom: 3%;
-}
-
-.postForm .formText {
-  border-radius: 25px;
-  border: solid 2px;
-  border-color: var(--camino-green);
-  padding: 2% 3%;
-  text-align: left;
-  margin-top: 3%;
-  font-family: 'JosefinSans';
-  width: 60%;
-}
-.postForm .formText:focus, .secondary:focus  {
-  outline: none;
-}
-
-.postForm .btnCreate {
-  text-align: center;
-  color: var(--text-color-light);
-  background-color: var(--camino-blue);
-  border-radius: 25px;
-  width: 20%;
-  margin-bottom: 1em;
-  cursor: pointer;
-  margin: 0 auto;
-  padding: 2% 7%;
-}
-
-.postForm input[type=file] {
-  display: none;
-}
-
-.postForm input:focus {
-  outline: 0;
-}
-
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.image-preview {
-  max-width: 350px;
-  width: 50%;
-  padding: 1em 0;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-.div-image-preview {
-  width: 100%;
-}
-
-form button {
-  font-weight: 200;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  padding: 12px 15px;
-  font-size: 1em;
-  border-radius: 25px;
-  color: var(--text-color-light);
-  background-color: var(--camino-green);
-  width: 100%;
-  max-width: 350px;
-  margin-top: 3%;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-}
-

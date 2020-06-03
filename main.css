@@ -656,7 +656,7 @@ aside h3 {
   background-color: var(--background-light);
   border-radius: 25px;
   display: none;
-  padding: 2% 2%;
+  padding: 6% 5%;
   color: var(--camino-blue);
 }
 
@@ -1362,6 +1362,7 @@ select {
 
   .tabNav {
     font-size: 0.9em;
+    font-weight: 1000;
   }
 
   /* --------------------- Frontpage -------------------*/

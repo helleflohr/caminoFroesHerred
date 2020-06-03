@@ -165,8 +165,8 @@ class CrudService {
   }
 
   validateForm(number) {
-    let x = document.forms[`postForm${number}`]["fname"]["comment"].value;
-    if (x == "") {
+    let name = document.querySelector(`form.stage-${number} .formName`).value;
+    if (name == "") {
       alert("Name must be filled out");
       return false;
     }

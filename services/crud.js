@@ -170,16 +170,29 @@ class CrudService {
     element.parentElement.parentElement.style.display = "none";
   }
 
-  // validateForm(number) {
-  //   let x = document.forms[`postForm${number}`]["fname"]["comment"].value;
-  //   if (x == "") {
-  //     alert("Name must be filled out");
-  //     return false;
-  //   }
-  // }
+  //If form fields (formName and formText) or one of them is empty, this function alerts a message, and returns false, to prevent the form from being submitted
+  validateForm(number) {
+    //variables of the value of name or textarea input in the form with the correct stagenumber
+    let name = document.querySelector(`form.stage-${number} .formName`).value;
+    let text = document.querySelector(`form.stage-${number} .formText`).value;
+    //form fields name and text
+    if (name == "" && text == "") {
+      alert("Navn og beskrivelse skal udfyldes");
+      return false;
+      //form field name
+    } else if (name == "") {
+      alert("Navn skal udfyldes");
+      return false;
+    }
+    //form field text
+    else if (text == "") {
+      alert("Beskrivelse skal udfyldes");
+      return false;
+    }
 
 
 
+  }
 }
 
 const crudService = new CrudService();

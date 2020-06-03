@@ -196,9 +196,9 @@ export default class HomePage {
 
   };
 
- 
+
   //Johanne
-   // gets the featured image url
+  // gets the featured image url
   getFeaturedImageUrl(post) {
     let imageUrl = "";
     if (post._embedded['wp:featuredmedia']) {

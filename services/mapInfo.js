@@ -1,15 +1,13 @@
 import {
     map
 } from "./../main.js";
-import loaderService from "./loader.js"
 import fetchService from "./fetch.js"
-// import fetchService from "./../services/fetch.js"
 class MapInfoService {
     constructor() {
         this.iconSizes = 29;
     }
 
-
+    // --------------- Make the map ready - Maja ---------------
     mapAndMarkers(json) {
 
         // The HOT style
@@ -38,7 +36,7 @@ class MapInfoService {
         })
 
 
-
+        // --------------- Set the icons for the differet categories ---------------
         let Seng = new iconClass({
             iconUrl: 'images/ikoner-map/Seng.svg'
         }),
@@ -87,8 +85,12 @@ class MapInfoService {
             Hvilesteder = new iconClass({
                 iconUrl: 'images/ikoner-map/Hvilesteder.svg'
             })
-        let iconArr = [];
-        let stayArr = [];
+
+
+        let iconArr = []; // all the chosen categories 
+        let stayArr = []; // all the chosen types of stay
+
+
         let OvernatningArr = [];
         let KirkerArr = [];
         let ToiletterArr = [];
@@ -104,25 +106,28 @@ class MapInfoService {
         let ParkeringArr = [];
         let HvilestederArr = [];
 
+        // --------------- Create a marker on the map for each marker in wordpress ---------------
         for (let post of json) {
-            iconArr.push(post.acf.infotype);
-
+            iconArr.push(post.acf.infotype); // add category type to array
             let name = `${post.acf.infotype}Arr`
-            if (post.acf.infotype === "Overnatning") {
+
+            if (post.acf.infotype === "Overnatning") { // if the category is stay
                 eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
-                    icon: eval(post.acf.typeOfStay)
+                    icon: eval(post.acf.typeOfStay) // use the icon for the type of stay
                 }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
-                stayArr.push(post.acf.typeOfStay)
+                stayArr.push(post.acf.typeOfStay) // push the type of stay to array
+
             } else {
                 eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
-                    icon: eval(post.acf.infotype)
+                    icon: eval(post.acf.infotype) // else use the category icon
                 }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
             }
         }
+        iconArr = [...new Set(iconArr)]; // remove dublicate category types
+        stayArr = [...new Set(stayArr)]; // remove dublicate stay types
 
-        iconArr = [...new Set(iconArr)];
-        stayArr = [...new Set(stayArr)];
 
+        // --------------- Create layers to turn on or off ---------------
         OvernatningArr = this.clustermarkers(OvernatningArr);
         KirkerArr = this.clustermarkers(KirkerArr);
         ToiletterArr = this.clustermarkers(ToiletterArr);
@@ -138,43 +143,40 @@ class MapInfoService {
         ParkeringArr = this.clustermarkers(ParkeringArr);
         HvilestederArr = this.clustermarkers(HvilestederArr);
 
+
         // --------------- Be on map from start ---------------
         for (const marker of fetchService.startMarkers) {
             let markerArr = `${marker}Arr`
             map.addLayer(eval(markerArr))
         }
 
-        let overlayMaps = {};
-        for (const icon of iconArr) {
-            let overlayLine;
-            let name = `${icon}Arr`
+        // --------------- Category checkbox ---------------
+        let overlayCategories = {};
+        for (const icon of iconArr) { // for each icon
+            let checkboxLine = "";
+            let name = `${icon}Arr` // the specific array
 
-            if (icon == "Overnatning") {
+            if (icon == "Overnatning") { // if the category is stay
                 let stayIcon = "";
                 let imageIcons = "";
-                console.log(stayArr)
-                for (const stay of stayArr) {
-                    imageIcons += `<img src='images/ikoner-map/${stay}.svg' />`
-
+                for (const stay of stayArr) { // run thrugh the array with stay types
+                    imageIcons += `<img src='images/ikoner-map/${stay}.svg' />` // and add an icon for each
                 }
-                stayIcon += `<div>${imageIcons}</div>`
-                overlayLine = `<p>${icon}</p>${stayIcon}`;
+                checkboxLine = `<p>${icon}</p><div>${imageIcons}</div>`; // Categoryname and icon
             } else {
-                overlayLine = `<p>${icon}</p><div><img src='images/ikoner-map/${icon}.svg' /></div>`;
+                checkboxLine = `<p>${icon}</p><div><img src='images/ikoner-map/${icon}.svg' /></div>`; // Categoryname and icon
             }
 
-            overlayMaps[overlayLine] = eval(name);
+            overlayCategories[checkboxLine] = eval(name); // Add property (The checkboxline) and value (the matching array) and push it to overlayCategories
+
         }
 
-
-
-
-        let baseMaps = {
+        let baseMaps = { // Different map style options
             "Farver": OpenStreetMap_HOT,
             "Gråtone": toner
         };
-        L.control.layers(baseMaps, overlayMaps, {
-            position: 'bottomleft'
+        L.control.layers(baseMaps, overlayCategories, { // add the checkboxes to the map
+            position: 'bottomleft' // in the bottom left corner
         }).addTo(map);
 
 
@@ -201,8 +203,10 @@ class MapInfoService {
         // });
     }
 
+    // --------------- Map controles ---------------
     tilesAndControles() {
 
+        // --------------- My location - Maja ---------------
         L.control.locate({
             initialZoomLevel: '14',
             flyTo: 'true'
@@ -256,20 +260,6 @@ class MapInfoService {
         return clusterGroup;
     }
     // --------------- Cluster marker function - End ---------------
-
-
-    showOrHide(arr) {
-        console.log('test')
-        let checkBox = document.querySelector('#checkToiletter');
-        console.log(checkBox.value)
-        if (checkBox.checked == true) {
-            console.log('checked')
-            // Toiletter.removeFrom(map)
-            console.log(arr)
-            map.removeLayer(ToiletterArr);
-        }
-    }
-
 
 }
 

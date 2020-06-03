@@ -23,8 +23,6 @@ spaService.init();
 
 mapService.fetchGeoJson();
 if (window.innerWidth > 1024) {
-
-    // mapInfoService.createMarkers();
     fetchService.fetchMarkers()
 }
 
@@ -40,7 +38,6 @@ window.zoomOut = () => scrollService.zoomOut();
 window.tabs = (tab, number) => scrollService.tabs(tab, number);
 window.scrollToElement = (element) => scrollService.scrollToElement(element);
 window.bigImg = (image) => scrollService.bigImg(image);
-window.showOrHide = (arr) => mapInfoService.showOrHide(arr);
 window.getFeaturedImageUrl = (post) => homePage.getFeaturedImageUrl(post);
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.createPost = (number) => crudService.createPost(number);

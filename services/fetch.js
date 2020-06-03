@@ -5,7 +5,7 @@ import loaderService from "./loader.js"
 class FetchService {
     constructor() {
         this.descriptions = [];
-        this.startMarkers;
+        this.startMarkers = [];
         this.fetchStartMarkers();
     }
 

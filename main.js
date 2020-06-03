@@ -57,9 +57,9 @@ window.stageSize = () => stageService.stageSize();
 window.plusSlides = (n, number) => slideService.plusSlides(n, number);
 window.createPost = (number) => crudService.createPost(number);
 /* window.closeOutsideModal = (event, number) => crudService.closeOutsideModal(event, number); */
-window.closeFunction = (element) => crudService.closeFunction(element);
+window.modalClose = (element) => crudService.modalClose(element);
 window.textCountDown = (element, number) => crudService.textCountDown(element, number);
-window.myFunctionModal = (number) => crudService.myFunctionModal(number);
+window.modalOpen = (number) => crudService.modalOpen(number);
 window.previewImage = (file, number) => crudService.previewImage(file, number);
 window.triggerChooseImg = (number) => crudService.triggerChooseImg(number);
 window.appendPosts = (etapeNr) => crudService.appendPosts(etapeNr);

@@ -155,7 +155,7 @@ class CrudService {
   // Johanne ----------------------------------
 
   // // Triggers button "Hvad siger du?""
-  myFunctionModal(number) {
+  modalOpen(number) {
     // Get the correct modal with #commentsModal${number}
     let modalSay = document.getElementById(`commentsModal${number}`);
     //show modal
@@ -163,7 +163,7 @@ class CrudService {
   };
 
   // When the user clicks on <span> (x), close the modal
-  closeFunction(element) {
+  modalClose(element) {
     // hide modal
     element.parentElement.parentElement.style.display = "none";
   }

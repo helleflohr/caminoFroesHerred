@@ -81,19 +81,20 @@ export default class HomePage {
         this.descriptions = json;
         this.appendPosts(json)
 
+        //Evaluates the expression after 200 milliseconds.
         setTimeout(() => {
-          //fjerner spinner efter load.
+          //fjerner spinner efter load. 
+          // When fetch is done show() is false and adds hide on #loader
           loaderService.show(false);
         }, 200);
-        // console.log(loaderService.show(false));
 
       });
   }
 
   //.......................... APPEND POSTS .................................
+  //Johanne 
   appendPosts(posts) {
     //sort the posts by acf stagenumber in ascending order
-    //Johanne 
     posts.sort(function (x, y) {
       return x.acf.stageNumber - y.acf.stageNumber;
     });
@@ -189,8 +190,9 @@ export default class HomePage {
 
   };
 
-  // get the featured image url
+ 
   //Johanne
+   // gets the featured image url
   getFeaturedImageUrl(post) {
     let imageUrl = "";
     if (post._embedded['wp:featuredmedia']) {

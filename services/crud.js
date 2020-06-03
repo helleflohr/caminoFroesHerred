@@ -1,12 +1,9 @@
 // import { map } from "./../main.js";
 class CrudService {
   constructor() {
-    this._dataRef = _db.collection("posts")
-    this.read()
-    this._posts = [];
-
-
-    // this.myFunctionModal(x) // Call listener function at run time
+    this._dataRef = _db.collection("posts") // Global variable of collection "posts" in firebase
+    this.read() // runs the function
+    this._posts = []; // global array
 
   };
 
@@ -16,12 +13,12 @@ class CrudService {
   // 1: data from firebase
   // watch the database ref for changes
   read() {
-    this._dataRef.onSnapshot(snapshotData => {
+    this._dataRef.onSnapshot(snapshotData => { //each time the contents change, another call updates the document snapshot.
       snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
         let post = doc.data(); // save the data in a variable
         // console.log(post);
         post.id = doc.id; // add the id to the data variable
-        this._posts.push(post); // push the data object to the global array  _posts
+        this._posts.push(post); // push the data object to the global array _posts
       });
     });
   }
@@ -90,25 +87,29 @@ class CrudService {
   //.......................... PREVIEW IMAGE AND TRIGGER CHOOSE IMAGE .................................
   //Johanne
 
-  previewImage(file, number) {
+  // the parameter number is used to send and get the argument post.acf.stageNumber
+  previewImage(file, number) { 
     console.log(number);
+
 
     if (file) {
       console.log(file);
-      let reader = new FileReader();  // reads the file, gets the src to show tha it is an image tag
+      let reader = new FileReader();  // reads the file, gets the src to show that it is an image tag
       reader.onload = (event) => {
+        // makes variable. Gets the correct modal and stagenumber
         let modal = document.querySelector(`#commentsModal${number}`)
         console.log(number);
 
+      //adds the specified attribute to event.target.result, and gives it the specified value 'src'.
         modal.querySelector('.imagePreview').setAttribute('src', event.target.result);
       };
+      //reads the content of file
       reader.readAsDataURL(file);
     }
   }
 
   triggerChooseImg(number) { // Triggers the button "Vælg billede"
-    console.log(number);
-    // Choose
+    // click event. Choose image to the corret stage number
     document.querySelector(`#commentsModal${number} .imgChoose`).click();
   }
 
@@ -117,18 +118,15 @@ class CrudService {
   //Johanne
   // add a new post to firestore (database)
   createUser(number) { 
-    // references to the input fields
+    // references to the input fields in the modal with the correct stagenumber
     let stageInput = document.querySelector(`#commentsModal${number}`)
-    console.log(number);
 
-    let nameInput = stageInput.querySelector('.formName'); //finder queryselector som er inde i stageInput
+    //Finds the queryselector inside stageInput and makes a variable
+    let nameInput = stageInput.querySelector('.formName'); 
     let textInput = stageInput.querySelector('.formText');
     let imageInput = stageInput.querySelector('.imagePreview');
-    console.log(nameInput.value);
-    console.log(textInput.value);
-    console.log(imageInput.src);
 
-
+//object with properties
     let newPost = {
       name: nameInput.value,
       text: textInput.value,
@@ -136,26 +134,19 @@ class CrudService {
       etape: number
     };
 
-    this._dataRef.add(newPost);
-    stageInput.style.display = "none"
-
+    this._dataRef.add(newPost); //adds the elements from newPost to the existing group of collection post from firebase 
+    stageInput.style.display = "none" //when created display none on modal / close modal
   };
 
 
-
+//the parameter element is used to read .value.length. The argument (this) from html in home.js is the parameter element/textarea 
   textCountDown(element, number) {
+  //length of the value in the element
   let lenght = element.value.length;
+
+    // returns the HTML content to the corret modal stagenumber in the <p class="demo-text"> in html
   document.querySelector(`#commentsModal${number} .demo-text`).innerHTML = `Antal anslag: ${lenght} /250`;
-    /* let stageInput = document.querySelector(`#commentsModal${number}`)
-  var elem = stageInput.getElementsByClassName("formText"); 
-  console.log(elem);
-
-  var n = elem.length;
-  console.log(elem.length);
-
-  document.getElementById("demo-text").innerHTML = n; */
   }
-
   //.......................... MODAL (modal open) .................................
   // Johanne ----------------------------------
 
@@ -172,32 +163,6 @@ class CrudService {
   // hide modal
     element.parentElement.parentElement.style.display = "none";
   }
-  /*
-    triggerChooseImg() { // Trigger den knap der hedder vælg fil
-      this.$refs.fileInput.click() // knap der selv er lavet
-    }
-
-    previewImage() {
-      const imageFile = this.$refs.fileInput.files[0]
-      const fileReader = new FileReader() // læser filen, så vi kan få en src ud af den så vi kan vise det er et img tag
-      fileReader.onload = (event) => {
-        this.newPost.image = event.target.result // smider billedet ind i selve variablen
-        console.log(this.newPost.image);
-
-      }
-      fileReader.readAsDataURL(imageFile)
-    }
-
-    /* // When the user clicks anywhere outside of the modal, close it
-    closeOutsideModal(event, number) {
-     // Get the modal
-     let modalSay = document.getElementById(`commentsModal${number}`);
-    
-      if (event.target == modalSay) {
-        modalSay.style.display = "none";
-      } 
-    } */
-
 
 
 

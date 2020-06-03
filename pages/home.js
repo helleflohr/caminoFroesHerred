@@ -181,7 +181,7 @@ export default class HomePage {
     <div class="div-image-preview">
     <img src="" class="image-preview imagePreview">
   </div>
-    <p class="btnCreate" onclick="createUser(${post.acf.stageNumber}); validateForm(${post.acf.stageNumber})">Opret opslag</p>
+    <p class="btnCreate" onclick="createUser(${post.acf.stageNumber})">Opret opslag</p>
   </form>
   </div>
       </section>
@@ -196,9 +196,9 @@ export default class HomePage {
 
   };
 
- 
+
   //Johanne
-   // gets the featured image url
+  // gets the featured image url
   getFeaturedImageUrl(post) {
     let imageUrl = "";
     if (post._embedded['wp:featuredmedia']) {

@@ -213,6 +213,7 @@ class ScrollService {
         let description = document.querySelector(`#description${number}`);
         let images = document.querySelector(`#images${number}`);
         let comments = document.querySelector(`#comments${number}`);
+        console.log(`#${tab}${number}`);
 
         // Hide all tabs
         description.style.display = 'none';

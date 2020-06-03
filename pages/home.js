@@ -164,12 +164,12 @@ export default class HomePage {
           </article>
 
           <div>
-          <p id="btnSay" class="zoom" onclick="myFunctionModal(${post.acf.stageNumber})">Hvad siger du?</p>
+          <p id="btnSay" class="zoom" onclick="modalOpen(${post.acf.stageNumber})">Hvad siger du?</p>
           </div>
 
         <section id="commentsModal${post.acf.stageNumber}" class="modal">
           <div class="modal-content">
-          <span class="close" onclick="closeFunction(this)">&times;</span>
+          <span class="close" onclick="modalClose(this)">&times;</span>
           
       <form class="postForm stage-${post.acf.stageNumber}" name="postForm">
     <h2 class="h2-etape" title="${post.acf.stageNumber}">Opret et opslag for etape: ${post.acf.stageNumber}</h2>
@@ -181,7 +181,7 @@ export default class HomePage {
     <div class="div-image-preview">
     <img src="" class="image-preview imagePreview">
   </div>
-    <p class="btnCreate" onclick="createUser(${post.acf.stageNumber})">Opret opslag</p>
+    <p class="btnCreate" onclick="createPost(${post.acf.stageNumber}); validateForm(${post.acf.stageNumber})">Opret opslag</p>
   </form>
   </div>
       </section>

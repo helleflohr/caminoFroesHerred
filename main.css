@@ -117,6 +117,8 @@ strong {
   /* height: 0; */
 }
 
+
+
 aside {
   background-color: var(--camino-blue);
   text-align: center;
@@ -309,8 +311,9 @@ hr {
 
 
 /* ---------- home page styling ---------- */
+
 #frontpageImage {
-  background-image: url(/images/lake.JPG);
+  background-image: url(images/lake-mobile.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -320,6 +323,7 @@ hr {
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-end;
 }
 
 #frontpageTextDiv {
@@ -349,36 +353,37 @@ hr {
   /* color: black; */
 }
 
-#frontpageSection {
-  text-align: left;
-  width: 90vw;
-  height: 25vh;
-  background-color: var(--camino-green);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  position: relative;
+.socialMedia{
+  margin: 0 0 2% 2%;
+}
+.socialMedia img{
+  /* margin-left: 1vw; */
+  width: 2em;
+  height: 2em;
+  /* position: absolute; */
+  /* bottom: 0; */
 }
 
-#frontpageSection div {
-  width: 26%;
-  margin: 0 2%;
+
+
+
+#frontpageSection {
+  text-align: left;
+  background-color: var(--camino-blue);
+}
+
+#frontpageSection div{
+  width: 90%;
+  margin: 0 auto 1em;
 }
 
 #frontpageSection img {
-  height: 3vh;
+  height: 2em;
   margin-top: 2vh;
 }
 
 #frontpageSection h2 {
   cursor: pointer;
-  /* font-size: 15%; */
-  height: 5vh;
-}
-
-#frontpageSection p {
-  height: 13vh;
-  overflow-y: auto;
 }
 
 h2 {
@@ -1073,6 +1078,12 @@ form button {
   max-width: 100%;
 }
 
+
+
+.leaflet-control-container .leaflet-control-browser-print{
+  display: none;
+}
+
 /* .fa-map-marker{
   background-color: var(--camino-yellow);
   
@@ -1082,14 +1093,13 @@ form button {
   background-color: var(--camino-yellow);
 
 }  */
-.fa-map-marker {
-  color: #008ae6;
+.leaflet-bar-part{
+  background-image: url(images/ikoner/my-location.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  /* background-size: cover; */
 }
-
-.myPosition {
-  color: #008ae6;
-}
-
 /* ------- Cluster ------*/
 .marker-cluster-small {
   background-color: rgba(218, 94, 94, 0.6);
@@ -1266,12 +1276,24 @@ select {
   }
 
 }
+@media only screen and (min-width: 720px) {
+  #frontpageImage {
+    background-image: url(images/lake-tablet.jpg);
+  
+  }
+
+}
 
 
 
 
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1025px) {
+  #frontpageImage {
+    background-image: url(images/lake.jpg);
+  
+  }
+  
   #mapid {
     width: 90vw;
     height: 100vh;
@@ -1363,6 +1385,35 @@ select {
   }
 
 
+  #frontpageSection {
+    width: 90vw;
+    height: 25vh;
+      display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
+    background-color: var(--camino-green);
+  }
+  
+  #frontpageSection div {
+    width: 26%; 
+     margin: 0 2%;
+  }
+  
+  
+  #frontpageSection h2 {
+    height: 5vh;
+  }
+  
+  #frontpageSection p {
+    height: 13vh;
+    overflow-y: auto;
+  }
+
+  #frontpageSection img {
+    height: 3vh;
+  }
+
   /* --------------------- Leaflet (map controls) -------------------*/
   .leaflet-control-layers-toggle {
     width: 13vw !important;
@@ -1395,6 +1446,11 @@ select {
 
   .leaflet-control-locate {
     display: none;
+  }
+
+
+  .leaflet-control-container .leaflet-control-browser-print{
+    display: flex;
   }
 
   /* .leaflet-control-layers-base label div{

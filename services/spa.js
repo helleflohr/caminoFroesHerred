@@ -27,7 +27,7 @@ class SpaService {
 
   // show page or tab
   showPage(pageId) {
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth <= 1024) {
       this.hideAllPages();
       document.querySelector(`#${pageId}`).style.display = "block";
       this.setActiveTab(pageId);
@@ -92,7 +92,7 @@ class SpaService {
         // scrollService.tabs('description', scrollService.chosenNumber);
 
       } else if (page === 'home') {
-        if (window.innerWidth < 1024) {
+        if (window.innerWidth <= 1024) {
           document.querySelector('.navigationEtape').style.display = 'none';
           document.querySelector('.maparea').style.display = 'none';
         } else {

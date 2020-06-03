@@ -51,7 +51,7 @@ class MapService {
       let coordinateStart = coordinates[0];
 
       let dot = L.icon({
-        iconUrl: '../images/circle.svg',
+        iconUrl: 'images/circle.svg',
 
         iconSize: [15, 15], // size of the icon
         shadowSize: [50, 64], // size of the shadow

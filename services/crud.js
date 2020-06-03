@@ -135,7 +135,6 @@ class CrudService {
       etape: number
     };
 
-    //adds the elements from newPost to the console.log(this._posts);
     this._dataRef.add(newPost).then(() => {
       this.appendPosts(number);
       slideService.showSlides(1, number);

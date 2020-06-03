@@ -353,10 +353,11 @@ hr {
   /* color: black; */
 }
 
-.socialMedia{
+.socialMedia {
   margin: 0 0 2% 2%;
 }
-.socialMedia img{
+
+.socialMedia img {
   /* margin-left: 1vw; */
   width: 2em;
   height: 2em;
@@ -372,7 +373,7 @@ hr {
   background-color: var(--camino-blue);
 }
 
-#frontpageSection div{
+#frontpageSection div {
   width: 90%;
   margin: 0 auto 1em;
 }
@@ -391,10 +392,7 @@ h2 {
 }
 
 #frontpageSection .arrow {
-  opacity: .2;
-  position: absolute;
-  height: 10vh;
-  overflow: visible;
+  display: none;
 }
 
 #frontpageSection .descriptionArrow {
@@ -857,7 +855,9 @@ aside h3 {
   margin-top: 3%;
   font-family: 'JosefinSans';
 }
-.postForm .formText:focus, .secondary:focus  {
+
+.postForm .formText:focus,
+.secondary:focus {
   outline: none;
 }
 
@@ -1078,7 +1078,7 @@ form button {
 
 
 
-.leaflet-control-container .leaflet-control-browser-print{
+.leaflet-control-container .leaflet-control-browser-print {
   display: none;
 }
 
@@ -1091,13 +1091,14 @@ form button {
   background-color: var(--camino-yellow);
 
 }  */
-.leaflet-bar-part{
+.leaflet-bar-part {
   background-image: url(images/ikoner/my-location.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 50%;
   /* background-size: cover; */
 }
+
 /* ------- Cluster ------*/
 .marker-cluster-small {
   background-color: rgba(218, 94, 94, 0.6);
@@ -1274,10 +1275,11 @@ select {
   }
 
 }
+
 @media only screen and (min-width: 720px) {
   #frontpageImage {
     background-image: url(images/lake-tablet.jpg);
-  
+
   }
 
 }
@@ -1289,9 +1291,15 @@ select {
 @media only screen and (min-width: 1025px) {
   #frontpageImage {
     background-image: url(images/lake.jpg);
-  
   }
-  
+
+  #frontpageSection .arrow {
+    opacity: .2;
+    position: absolute;
+    height: 10vh;
+    overflow: visible;
+  }
+
   #mapid {
     width: 90vw;
     height: 100vh;
@@ -1386,23 +1394,23 @@ select {
   #frontpageSection {
     width: 90vw;
     height: 25vh;
-      display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
     background-color: var(--camino-green);
   }
-  
+
   #frontpageSection div {
-    width: 26%; 
-     margin: 0 2%;
+    width: 26%;
+    margin: 0 2%;
   }
-  
-  
+
+
   #frontpageSection h2 {
     height: 5vh;
   }
-  
+
   #frontpageSection p {
     height: 13vh;
     overflow-y: auto;
@@ -1447,7 +1455,7 @@ select {
   }
 
 
-  .leaflet-control-container .leaflet-control-browser-print{
+  .leaflet-control-container .leaflet-control-browser-print {
     display: flex;
   }
 

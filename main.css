@@ -302,13 +302,13 @@ hr {
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
 }
 
 #frontpageTextDiv {
   justify-content: start;
   width: 90%;
   margin: 0 auto;
+  text-align: center;
 }
 
 #frontpageLogoDiv {
@@ -318,7 +318,9 @@ hr {
 }
 
 #frontpageLogo {
-  width: 100%;
+  width: 70%;
+  display: block;
+  margin: 0 auto;
 }
 
 #frontpageImage h1 {
@@ -919,7 +921,7 @@ form button {
 }
 
 .leaflet-control-layers-toggle:after {
-  content: "Personliggør kortet";
+  content: "Find faciliteter på kortet";
   font-family: 'JosefinSans', Arial, sans-serif;
   font-size: 2vh;
   padding-left: .5em;
@@ -1019,7 +1021,7 @@ form button {
 
 /* ------- Cluster ------*/
 .marker-cluster-small {
-  background-color: rgba(218, 94, 94, 0.6);
+  background-color: rgba(10, 71, 5, 0.589);
   border-radius: 50%;
   text-align: center;
 }
@@ -1031,7 +1033,7 @@ form button {
 }
 
 .marker-cluster-large {
-  background-color: rgba(253, 156, 115, 0.6);
+  background-color: rgba(10, 71, 5, 0.589);
   border-radius: 50%;
   text-align: center;
 }
@@ -1123,6 +1125,10 @@ form button {
     overflow: visible;
   }
 
+  #frontpageSection {
+    margin-bottom: 0;
+  }
+
   #mapid {
     width: 90vw;
     height: 100vh;
@@ -1184,6 +1190,8 @@ form button {
   /* --------------------- Frontpage -------------------*/
   #frontpageImage {
     width: 90vw;
+    height: 70vh;
+    background-position: 50% 85%;
   }
 
   #frontpageLogoDiv {
@@ -1192,9 +1200,14 @@ form button {
     margin-top: 10vh;
   }
 
+  #frontpageLogo {
+    width: 90%;
+  }
+
   #frontpageTextDiv {
     width: 60%;
     margin: 23% 0 0 2.5%;
+    text-align: left;
   }
 
   #frontpageImage h1 {
@@ -1208,7 +1221,7 @@ form button {
 
   #frontpageSection {
     width: 90vw;
-    height: 25vh;
+    height: 30vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -1226,7 +1239,7 @@ form button {
   }
 
   #frontpageSection p {
-    height: 13vh;
+    height: 16vh;
     overflow-y: auto;
   }
 

@@ -164,8 +164,8 @@ class CrudService {
     element.parentElement.parentElement.style.display = "none";
   }
 
-  validateForm() {
-    var x = document.forms["postForm"]["fname"]["comment"].value;
+  validateForm(number) {
+    let x = document.forms[`postForm${number}`]["fname"]["comment"].value;
     if (x == "") {
       alert("Name must be filled out");
       return false;

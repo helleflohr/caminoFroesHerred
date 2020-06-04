@@ -1,74 +1,32 @@
 import {
     map
 } from "./../main.js";
-import loaderService from "./loader.js"
 import fetchService from "./fetch.js"
-// import fetchService from "./../services/fetch.js"
 class MapInfoService {
     constructor() {
-        // this.createMarkers();
-        // this.iconSize();
         this.iconSizes = 29;
-
-
-
     }
 
-    async createMarkers() {
-        loaderService.show(true)
-        await fetch("https://dittejohannejustesen.dk/wordpress/wordpress-cfh/wp-json/wp/v2/posts?_embed&categories=3&per_page=500")
-            .then(function (response) {
-                return response.json();
-            })
-            .then((json) => {
-                this.getDataForCheckbox(json);
-            });
-        loaderService.show(false)
-    }
+    // --------------- Make the map ready - Maja ---------------
+    mapAndMarkers(json) {
 
-    // appendMarkers(posts) {
-    //     console.log('hi')
-    //     for (let post of posts) {
-    //         console.log(post);
-    //         document.querySelector("#grid-posts").innerHTML += `
-    //                     < article class= "grid-item" >
-    //                     <h3>${post.title.rendered}</h3>
-    //                     <h4>${post.acf.kilometer}</h4>
-    //                     <h5>${post.acf.start}</h5>
-    //                     <h5>${post.acf.slut}</h5>
-    //                     <p>${post.acf.rutebeskrivelse}</p>
-    //                     <img src="${post.acf.billeder.url}">
-    //                         <p>${post.acf.hvad_siger_andre}</p>
-    //     </br> `
-    //     }
-    // }
-
-    onLocationFound(e) {
-        var radius = e.accuracy;
-
-        L.marker(e.latlng).addTo(map)
-            .bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-        L.circle(e.latlng, radius).addTo(map);
-    }
-
-
-
-    getDataForCheckbox(json) {
+        // The HOT style
         let OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
         });
 
+        // The toner style
         let toner = new L.StamenTileLayer("toner");
-        map.addLayer(OpenStreetMap_HOT);
 
-        this.tilesAndControles();
 
-        // console.log(this.iconSizes, this.iconSizes / 2)
-        let iconClass = L.Icon.extend({
+        map.addLayer(OpenStreetMap_HOT); // Add HOT to the map as default
+
+        this.tilesAndControles(); // Add the map controles
+
+
+        let iconClass = L.Icon.extend({ // Icon standard
             options: {
-                // shadowUrl: 'images/and.jpg',
                 iconSize: [this.iconSizes, this.iconSizes], // size of the icon
                 shadowSize: [50, 64], // size of the shadow
                 iconAnchor: [this.iconSizes / 2, this.iconSizes / 2], // point of the icon which will correspond to marker's location
@@ -78,10 +36,10 @@ class MapInfoService {
         })
 
 
-
+        // --------------- Set the icons for the differet categories ---------------
         let Seng = new iconClass({
-                iconUrl: 'images/ikoner-map/Seng.svg'
-            }),
+            iconUrl: 'images/ikoner-map/Seng.svg'
+        }),
             Kirker = new iconClass({
                 iconUrl: 'images/ikoner-map/Kirker.svg'
             }),
@@ -127,8 +85,12 @@ class MapInfoService {
             Hvilesteder = new iconClass({
                 iconUrl: 'images/ikoner-map/Hvilesteder.svg'
             })
-        let iconArr = [];
-        let stayArr = [];
+
+
+        let iconArr = []; // all the chosen categories 
+        let stayArr = []; // all the chosen types of stay
+
+
         let OvernatningArr = [];
         let KirkerArr = [];
         let ToiletterArr = [];
@@ -144,25 +106,28 @@ class MapInfoService {
         let ParkeringArr = [];
         let HvilestederArr = [];
 
+        // --------------- Create a marker on the map for each marker in wordpress ---------------
         for (let post of json) {
-            iconArr.push(post.acf.infotype);
-
+            iconArr.push(post.acf.infotype); // add category type to array
             let name = `${post.acf.infotype}Arr`
-            if (post.acf.infotype === "Overnatning") {
+
+            if (post.acf.infotype === "Overnatning") { // if the category is stay
                 eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
-                    icon: eval(post.acf.typeOfStay)
+                    icon: eval(post.acf.typeOfStay) // use the icon for the type of stay
                 }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
-                stayArr.push(post.acf.typeOfStay)
+                stayArr.push(post.acf.typeOfStay) // push the type of stay to array
+
             } else {
                 eval(name).push(L.marker([post.acf.latitude, post.acf.longitude], {
-                    icon: eval(post.acf.infotype)
+                    icon: eval(post.acf.infotype) // else use the category icon
                 }).bindPopup(`<b>${post.title.rendered}</b><br>${post.content.rendered}`));
             }
         }
+        iconArr = [...new Set(iconArr)]; // remove dublicate category types
+        stayArr = [...new Set(stayArr)]; // remove dublicate stay types
 
-        iconArr = [...new Set(iconArr)];
-        stayArr = [...new Set(stayArr)];
 
+        // --------------- Create layers to turn on or off ---------------
         OvernatningArr = this.clustermarkers(OvernatningArr);
         KirkerArr = this.clustermarkers(KirkerArr);
         ToiletterArr = this.clustermarkers(ToiletterArr);
@@ -178,75 +143,46 @@ class MapInfoService {
         ParkeringArr = this.clustermarkers(ParkeringArr);
         HvilestederArr = this.clustermarkers(HvilestederArr);
 
+
         // --------------- Be on map from start ---------------
         for (const marker of fetchService.startMarkers) {
             let markerArr = `${marker}Arr`
             map.addLayer(eval(markerArr))
         }
 
-        let overlayMaps = {};
-        for (const icon of iconArr) {
-            let overlayLine;
-            let name = `${icon}Arr`
+        // --------------- Category checkbox ---------------
+        let overlayCategories = {};
+        for (const icon of iconArr) { // for each icon
+            let checkboxLine = "";
+            let name = `${icon}Arr` // the specific array
 
-            if (icon == "Overnatning") {
+            if (icon == "Overnatning") { // if the category is stay
                 let stayIcon = "";
                 let imageIcons = "";
-                console.log(stayArr)
-                for (const stay of stayArr) {
-                    imageIcons += `<img src='images/ikoner-map/${stay}.svg' />`
-
+                for (const stay of stayArr) { // run thrugh the array with stay types
+                    imageIcons += `<img src='images/ikoner-map/${stay}.svg' />` // and add an icon for each
                 }
-                stayIcon += `<div>${imageIcons}</div>`
-                overlayLine = `<p>${icon}</p>${stayIcon}`;
+                checkboxLine = `<p>${icon}</p><div>${imageIcons}</div>`; // Categoryname and icon
             } else {
-                overlayLine = `<p>${icon}</p><div><img src='images/ikoner-map/${icon}.svg' /></div>`;
+                checkboxLine = `<p>${icon}</p><div><img src='images/ikoner-map/${icon}.svg' /></div>`; // Categoryname and icon
             }
-
-            overlayMaps[overlayLine] = eval(name);
+            overlayCategories[checkboxLine] = eval(name); // Add property (The checkboxline) and value (the matching array) and push it to overlayCategories
         }
 
-
-
-
-        let baseMaps = {
+        let baseMaps = { // Different map style options
             "Farver": OpenStreetMap_HOT,
             "Gråtone": toner
         };
-        L.control.layers(baseMaps, overlayMaps, {
-            position: 'bottomleft'
+        L.control.layers(baseMaps, overlayCategories, { // add the checkboxes to the map
+            position: 'bottomleft' // in the bottom left corner
         }).addTo(map);
 
-
-
-        map.on('zoomend', () => {
-
-            let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
-            let currentZoom = map.getZoom();
-            // console.log(this.iconSizes)
-            // this.iconSize();
-
-
-            if (currentZoom < 12) {
-                this.iconSizes = 15;
-                for (const icon of leafletIcons) {
-                    icon.style.width = `${this.iconSizes}px`;
-                    icon.style.height = `${this.iconSizes}px`;
-                }
-            } else {
-                this.iconSizes = 29;
-                for (const icon of leafletIcons) {
-                    icon.style.width = `${this.iconSizes}px`;
-                    icon.style.height = `${this.iconSizes}px`;
-                }
-            }
-            // console.log(this.iconSizes)
-        });
     }
 
+    // --------------- Map controles ---------------
     tilesAndControles() {
 
-
+        // --------------- My location - Maja ---------------
         L.control.locate({
             initialZoomLevel: '14',
             flyTo: 'true'
@@ -268,8 +204,6 @@ class MapInfoService {
     // --------------- Printer function - End ---------------
 
     // --------------- Cluster marker function - Helle ---------------
-
-    // --------------- Cluster marker function - End ---------------
 
     clustermarkers(markersArr) {
 
@@ -302,20 +236,6 @@ class MapInfoService {
         return clusterGroup;
     }
     // --------------- Cluster marker function - End ---------------
-
-
-    showOrHide(arr) {
-        console.log('test')
-        let checkBox = document.querySelector('#checkToiletter');
-        console.log(checkBox.value)
-        if (checkBox.checked == true) {
-            console.log('checked')
-            // Toiletter.removeFrom(map)
-            console.log(arr)
-            map.removeLayer(ToiletterArr);
-        }
-    }
-
 
 }
 

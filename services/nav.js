@@ -1,3 +1,4 @@
+// ---------------  Maja ---------------
 import {
     map,
     latitude,
@@ -18,8 +19,6 @@ class ScrollService {
         this.numberDescriptionCounter = [];
 
         this.chosenNumber;
-
-        this.descriptions = fetchService.getDescriptions();
     }
 
     // Scroll to a specific element
@@ -208,12 +207,10 @@ class ScrollService {
     //.......................... Stage tab navigation .................................
     tabs(tab, number) {
 
-        console.log(tab, number, this.trWidth[0])
         // Tab variables
         let description = document.querySelector(`#description${number}`);
         let images = document.querySelector(`#images${number}`);
         let comments = document.querySelector(`#comments${number}`);
-        console.log(`#${tab}${number}`);
 
         // Hide all tabs
         description.style.display = 'none';

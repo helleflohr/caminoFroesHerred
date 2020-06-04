@@ -1,4 +1,4 @@
-// --------------- Helle ---------------
+// --------------- Helle & Maja ---------------
 
 import fetchService from "./fetch.js"
 import {
@@ -11,42 +11,49 @@ class MapService {
     this.descriptions;
   }
 
+  // ---------------  Get GPX files and draw lines based on geoJSON ---------------
   async fetchGeoJson() {
-    this.descriptions = await fetchService.getDescriptions();
-    let numberOfStages = this.descriptions.length
+    this.descriptions = await fetchService.getDescriptions(); // Get the stages from wordpress api
+    let numberOfStages = this.descriptions.length // Get save the number of stages
 
-    for (let i = 1; i < (numberOfStages + 1); i++) {
-      fetch(`geojson/Camino-Frøs-Herred-${i}.gpx`)
+    for (let i = 1; i < (numberOfStages + 1); i++) { // for each stage...
+      fetch(`geojson/Camino-Frøs-Herred-${i}.gpx`) // get the matching gpx-file
         .then(function (response) {
           return response.text();
         })
         .then((gpxData) => {
           let gpx = new gpxParser();
-          gpx.parse(gpxData);
+          gpx.parse(gpxData); // Use the gpxParser to make the data ready
 
-          this.drawTrack(gpx.tracks[0], i);
+          this.drawTrack(gpx.tracks[0], i); // Then draw the track
         });
     }
   }
 
 
 
+  // ---------------  Draw the stages on the map ---------------
   drawTrack(track, number) {
     if (track) {
 
+      // Track position and styling
       let coordinates = track.points.map(p => [p.lat.toFixed(5), p.lon.toFixed(5)]);
       let poly = L.polyline(coordinates, {
         weight: 5,
         color: 'var(--camino-blue)',
-        className: `line${number}`,
+        className: `line${number}`, // add a class, to be able to controle the lines
         lineCap: 'round'
       })
+
+      // Save the coorninates for the lines to be able to do a direct zoom onclik of a button
       this.fitBounds.push({
         number: number,
         southWest: poly._bounds._southWest,
         northEast: poly._bounds._northEast
       })
-      poly.addTo(map);
+
+      poly.addTo(map); // Add the lines to the map
+
 
       let coordinateStart = coordinates[0];
 

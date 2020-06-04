@@ -1,8 +1,9 @@
 import scrollService from "./nav.js"
 import slideService from './slide.js'
+import firebaseService from "./firebase.js";
 class CrudService {
   constructor() {
-    this._dataRef = _db.collection("posts") // Global variable of collection "posts" in firebase
+    this._dataRef = firebaseService.getPostRef() // Global variable of collection "posts" in firebase
     this.read() // runs the function
     this._posts = []; // global array
 
@@ -116,7 +117,7 @@ class CrudService {
   //.......................... CREATE POST .................................
   //Johanne
   // add a new post to firestore (database)
-  createPost(number) { 
+  createPost(number) {
     // references to the input fields in the modal with the correct stagenumber
     let stageInput = document.querySelector(`#commentsModal${number}`)
 

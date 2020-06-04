@@ -166,9 +166,7 @@ class MapInfoService {
             } else {
                 checkboxLine = `<p>${icon}</p><div><img src='images/ikoner-map/${icon}.svg' /></div>`; // Categoryname and icon
             }
-
             overlayCategories[checkboxLine] = eval(name); // Add property (The checkboxline) and value (the matching array) and push it to overlayCategories
-
         }
 
         let baseMaps = { // Different map style options
@@ -179,28 +177,6 @@ class MapInfoService {
             position: 'bottomleft' // in the bottom left corner
         }).addTo(map);
 
-
-
-        // map.on('zoomend', () => {
-
-        //     let leafletIcons = document.querySelectorAll('.leaflet-marker-icon');
-        //     let currentZoom = map.getZoom();
-
-        //     if (currentZoom < 12) {
-        //         this.iconSizes = 15;
-        //         for (const icon of leafletIcons) {
-        //             icon.style.width = `${this.iconSizes}px`;
-        //             icon.style.height = `${this.iconSizes}px`;
-        //         }
-        //     } else {
-        //         this.iconSizes = 29;
-        //         for (const icon of leafletIcons) {
-        //             icon.style.width = `${this.iconSizes}px`;
-        //             icon.style.height = `${this.iconSizes}px`;
-        //         }
-        //     }
-        //     // console.log(this.iconSizes)
-        // });
     }
 
     // --------------- Map controles ---------------

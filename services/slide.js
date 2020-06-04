@@ -6,13 +6,10 @@ class SlideService {
     this.slideIndex = 1;
   }
 
-
-
   // Function that works on the next and previous controls
   plusSlides(n, number) {
     showSlides(this.slideIndex += n, number);
   }
-
 
   // n = slideIndex, number = stageNumber
   // If slideindex is heigher than the, the the total amount of slides is 1, and it is not posibne to slide
@@ -37,9 +34,6 @@ class SlideService {
     slides[this.slideIndex - 1].style.display = "block";
   }
 }
-
-
-
 
 const slideService = new SlideService();
 export default slideService;

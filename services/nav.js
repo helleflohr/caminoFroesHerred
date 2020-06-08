@@ -200,7 +200,7 @@ class ScrollService {
 
 
         }
-        loaderService.show(false)
+        // loaderService.show(false)
     }
 
 

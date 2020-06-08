@@ -3,7 +3,9 @@ import mapService from "./map.js";
 import scrollService from "./nav.js"
 import loaderService from "./loader.js"
 import fetchService from "./fetch.js"
-import { map } from "./../main.js";
+import {
+  map
+} from "./../main.js";
 class SpaService {
   constructor() {
     this.defaultPage = "home";
@@ -83,6 +85,7 @@ class SpaService {
         if (this.visitedPages[0] !== page) {
           scrollService.createFirstTabUnderline(scrollService.chosenNumber) // Create a underline, if this page wasn´t loaded first
         }
+        loaderService.show(false) // turn off the loader
 
 
       } else if (page === 'home') {
@@ -102,7 +105,7 @@ class SpaService {
         if (this.visitedPages[0] !== page) { // if map wasn´t the first page
           map._onResize(); // run the map
         }
-
+        loaderService.show(false) // turn off the loader
         if (this.counter === 0) { // create markers the first time, the map is visited
           // mapInfoService.createMarkers();
           fetchService.fetchMarkers()

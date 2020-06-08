@@ -1108,6 +1108,11 @@ form button {
 }
 
 @media only screen and (min-width: 720px) {
+  #frontpageLogo {
+    width: 50%;}
+}
+
+@media only screen and (min-width: 720px) {
   #frontpageImage {
     background-image: url(images/lake-tablet.jpg);
   }

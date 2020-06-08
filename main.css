@@ -240,7 +240,7 @@ hr {
 }
 
 .navigationEtape {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 10vw;
 }
 
@@ -296,7 +296,7 @@ hr {
   background-position: center;
   background-size: cover;
   width: 100vw;
-  height: 75vh;
+  height: calc(var(--vh, 1vh) * 75);
   margin: 0;
   overflow: hidden;
   display: flex;
@@ -313,7 +313,7 @@ hr {
 #frontpageLogoDiv {
   width: 70%;
   margin-left: 15%;
-  margin-top: 4vh;
+  margin-top: calc(var(--vh, 1vh) * 4);
 }
 
 #frontpageLogo {
@@ -323,12 +323,12 @@ hr {
 }
 
 #frontpageImage h1 {
-  font-size: 5vh;
+  font-size: calc(var(--vh, 1vh) * 5);
   font-weight: 100;
 }
 
 #frontpageImage h2 {
-  font-size: 3vh;
+  font-size: calc(var(--vh, 1vh) * 3);
 }
 
 .socialMedia {
@@ -346,7 +346,7 @@ hr {
 #frontpageSection {
   text-align: left;
   background-color: var(--camino-blue);
-  margin-bottom: 10vh;
+  margin-bottom: calc(var(--vh, 1vh) * 10);
 }
 
 #frontpageSection div {
@@ -356,7 +356,7 @@ hr {
 
 #frontpageSection img {
   height: 2em;
-  margin-top: 2vh;
+  margin-top: calc(var(--vh, 1vh) * 2);
 }
 
 #frontpageSection h2 {
@@ -374,13 +374,13 @@ h2 {
 
 #frontpageSection .descriptionArrow {
   right: 0;
-  top: 7vh;
+  top: calc(var(--vh, 1vh) * 7);
   transform: rotate(90deg) scaleY(-1);
 }
 
 #frontpageSection .mapArrow {
   left: 27vw;
-  top: 7vh;
+  top: calc(var(--vh, 1vh) * 7);
   transform: rotate(90deg);
 }
 
@@ -402,7 +402,7 @@ h2 {
 
 .maparea {
   position: relative;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow-x: hidden;
 }
 
@@ -420,13 +420,13 @@ h2 {
 }
 
 #grid-posts {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 90vw;
 }
 
 aside h3 {
-  font-size: 1.5vh;
-  margin: 5vh 0 3vh;
+  font-size: calc(var(--vh, 1vh) * 1.5);
+  margin: calc(var(--vh, 1vh) * 5) 0 calc(var(--vh, 1vh) * 3);
 }
 
 .boxIcon {
@@ -622,7 +622,7 @@ aside h3 {
   max-width: 100%;
 
   /* Height untill bodyLoad */
-  height: 30vh;
+  height: calc(var(--vh, 1vh) * 30);
   cursor: pointer;
 }
 
@@ -725,7 +725,7 @@ aside h3 {
   top: 0;
   width: 100%;
   /* Full width */
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   /* Full height */
   overflow: hidden;
   /* Enable scroll if needed */
@@ -745,7 +745,7 @@ aside h3 {
   border: 1px solid #888;
   width: 75%;
   /* Could be more or less, depending on screen size */
-  height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
   border-radius: 25px;
   overflow-y: scroll;
   overflow-x: visible;
@@ -872,10 +872,10 @@ form button {
 .imagePopup {
   position: fixed;
   display: none;
-  top: 45vh;
+  top: calc(var(--vh, 1vh) * 45);
   left: 0;
   width: 90vw;
-  height: 55vh;
+  height: calc(var(--vh, 1vh) * 55);
   background-color: rgba(0, 0, 0, 0.662);
   z-index: 2;
 }
@@ -916,13 +916,13 @@ form button {
 
 /* ---------- leaflet controle styling ---------- */
 .leaflet-container .leaflet-control-attribution {
-  font-size: .9vh;
+  font-size: calc(var(--vh, 1vh) * .9);
 }
 
 .leaflet-control-layers-toggle:after {
   content: "Find faciliteter på kortet";
   font-family: 'JosefinSans', Arial, sans-serif;
-  font-size: 2vh;
+  font-size: calc(var(--vh, 1vh) * 2);
   padding-left: .5em;
   color: #000;
 }
@@ -980,7 +980,7 @@ form button {
 .leaflet-control-layers-expanded label div span p {
   color: var(--camino-blue);
   font-family: 'JosefinSans', Arial, sans-serif;
-  font-size: 2.1vh;
+  font-size: calc(var(--vh, 1vh) * 2.1);
   width: 45%;
   cursor: pointer;
 }
@@ -988,7 +988,7 @@ form button {
 .leaflet-control-layers-base {
   color: var(--camino-blue);
   font-family: 'JosefinSans', Arial, sans-serif;
-  font-size: 2.1vh;
+  font-size: calc(var(--vh, 1vh) * 2.1);
   width: 120%;
   cursor: pointer;
   display: flex;
@@ -1073,18 +1073,18 @@ form button {
   display: inline-block;
   color: var(--text-color-light);
   text-align: center;
-  padding: 2vh;
+  padding: calc(var(--vh, 1vh) * 2);
   text-decoration: none;
-  font-size: 2vh;
+  font-size: calc(var(--vh, 1vh) * 2);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   width: 33vw;
 }
 
 .tabbar img {
-  height: 3vh;
+  height: calc(var(--vh, 1vh) * 3);
   display: block;
-  margin: 0 auto 1vh;
+  margin: 0 auto calc(var(--vh, 1vh) * 1);
 }
 
 /* Add a color to the active/current link */
@@ -1102,13 +1102,14 @@ form button {
   }
 
   .tabNav {
-    font-size: 1.7vh;
+    font-size: calc(var(--vh, 1vh) * 1.7);
   }
 }
 
 @media only screen and (min-width: 720px) {
   #frontpageLogo {
-    width: 50%;}
+    width: 50%;
+  }
 }
 
 @media only screen and (min-width: 720px) {
@@ -1125,7 +1126,7 @@ form button {
   #frontpageSection .arrow {
     opacity: .2;
     position: absolute;
-    height: 10vh;
+    height: calc(var(--vh, 1vh) * 10);
     overflow: visible;
   }
 
@@ -1135,17 +1136,17 @@ form button {
 
   #mapid {
     width: 90vw;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
   }
 
   #grid-posts {
     position: absolute;
-    height: 90vh;
+    height: calc(var(--vh, 1vh) * 90);
     overflow-y: scroll;
     overflow-x: visible;
     right: 3em;
-    margin-top: 5vh;
+    margin-top: calc(var(--vh, 1vh) *);
     width: 30vw;
   }
 
@@ -1160,7 +1161,7 @@ form button {
   .imagePopup {
     top: 0;
     width: 50vw;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
   }
 
   .container {
@@ -1172,11 +1173,11 @@ form button {
   }
 
   aside h3 {
-    font-size: 3vh;
+    font-size: calc(var(--vh, 1vh) * 3);
   }
 
   #logoDark {
-    height: 12vh;
+    height: calc(var(--vh, 1vh) * 12);
     margin: 3vh auto 0;
     cursor: pointer;
     display: block;
@@ -1194,14 +1195,14 @@ form button {
   /* --------------------- Frontpage -------------------*/
   #frontpageImage {
     width: 90vw;
-    height: 70vh;
+    height: calc(var(--vh, 1vh) * 70);
     background-position: 50% 85%;
   }
 
   #frontpageLogoDiv {
     width: 30%;
     margin-left: 5%;
-    margin-top: 10vh;
+    margin-top: calc(var(--vh, 1vh) * 10);
   }
 
   #frontpageLogo {
@@ -1215,7 +1216,7 @@ form button {
   }
 
   #frontpageImage h1 {
-    font-size: 10vh;
+    font-size: calc(var(--vh, 1vh) * 10);
   }
 
   #content {
@@ -1225,7 +1226,7 @@ form button {
 
   #frontpageSection {
     width: 90vw;
-    height: 30vh;
+    height: calc(var(--vh, 1vh) * 30);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -1239,16 +1240,16 @@ form button {
   }
 
   #frontpageSection h2 {
-    height: 5vh;
+    height: calc(var(--vh, 1vh) * 5);
   }
 
   #frontpageSection p {
-    height: 16vh;
+    height: calc(var(--vh, 1vh) * 16);
     overflow-y: auto;
   }
 
   #frontpageSection img {
-    height: 3vh;
+    height: calc(var(--vh, 1vh) * 3);
   }
 
   /* --------------------- Leaflet (map controls) -------------------*/
@@ -1301,7 +1302,7 @@ form button {
     top: 0;
     width: 100%;
     /* Full width */
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     /* Full height */
     overflow: hidden;
     /* Enable scroll if needed */
@@ -1321,7 +1322,7 @@ form button {
     border: 1px solid #888;
     width: 75%;
     /* Could be more or less, depending on screen size */
-    height: 65vh;
+    height: calc(var(--vh, 1vh) * 65);
     border-radius: 25px;
     overflow-y: scroll;
     overflow-x: visible;

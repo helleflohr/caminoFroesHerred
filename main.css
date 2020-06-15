@@ -116,7 +116,7 @@ aside {
 
 #content {
   width: 100vw;
-  height: calc(var(--vh, 1vh) * 91);
+  height: calc(var(--vh, 1vh) * 91)-10vh;
   overflow: auto;
   background-color: var(--camino-blue);
 }
@@ -402,7 +402,7 @@ h2 {
 
 .maparea {
   position: relative;
-  height: calc(var(--vh, 1vh) * 100);
+  height: calc(var(--vh, 1vh) * 90);
   overflow-x: hidden;
 }
 
@@ -420,7 +420,7 @@ h2 {
 }
 
 #grid-posts {
-  height: calc(var(--vh, 1vh) * 100);
+  height: calc(var(--vh, 1vh) * 90);
   width: 90vw;
 }
 
@@ -1060,6 +1060,7 @@ form button {
 .tabbar {
   background-color: var(--camino-green);
   position: fixed;
+  height: calc(var(--vh, 1vh) * 9);
   bottom: 0;
   left: 0;
   right: 0;
@@ -1140,13 +1141,16 @@ form button {
     overflow: hidden;
   }
 
+  .maparea {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+
   #grid-posts {
     position: absolute;
-    height: calc(var(--vh, 1vh) * 90);
     overflow-y: scroll;
     overflow-x: visible;
     right: 3em;
-    margin-top: calc(var(--vh, 1vh) *);
+    margin-top: calc(var(--vh, 1vh) *5);
     width: 30vw;
   }
 

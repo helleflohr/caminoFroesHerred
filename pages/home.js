@@ -40,7 +40,7 @@ export default class HomePage {
       <h2>Generelt</h2>
       <p>Ruten er ca. 108 km, som bølger sig rundt i det gamle Frøs Herred. Den byder på flere spændende oplevelser på
         højderyggen mellem Kongeåen og Gram Å, og grænser op til den gamle grænse fra 1864 og til 1920, som var en
-        brydningstid for området </p>
+        brydningstid for området.</p>
         
     </div>
     <img class="arrow generalArrow" src="images/ikoner/nyPilGenerelt.png" alt="pil">
@@ -51,7 +51,7 @@ export default class HomePage {
       <h2 onclick="scrollToElement('mapid')">Kort</h2>
       <p>Du kan nemt få et overblik over hele Caminoen på kortet. Her kan du se alle 11 etaper, og vælge hvilken etape
         du ønsker information om. Du har også mulighed for at få et overblik og rutens faciliteter. Du kan også printe
-        kortet hjemmefra og medbringe til turen </p>
+        kortet hjemmefra og medbringe til turen.</p>
     </div>
     <img class="arrow descriptionArrow" src="images/ikoner/nyPilGenerelt.png">
     <div>
@@ -60,7 +60,7 @@ export default class HomePage {
       <h2 onclick="scrollToElement('stage1')">Rutebeskrivelser</h2>
       <p>Caminoen er inddelt i 11 etaper, som giver muligheden for at gå noget af ruten og derved træne op til at kunne
         gå hele Caminoen en dag. For hver etape er der rutebeskrivelser som udførligt vejleder dig gennem turen. Der er
-        også billeder og udtalelser fra andre vandrere</p>
+        også billeder og udtalelser fra andre vandrere.</p>
     </div>
   </section>
 
@@ -72,6 +72,7 @@ export default class HomePage {
         
           <div id="mapid" class="page"></div>
           <div id="grid-posts" class="grid-container page"></div>
+      </div>
     `;
   }
 

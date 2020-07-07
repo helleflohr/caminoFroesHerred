@@ -1206,6 +1206,10 @@ form button {
     width: 30vw;
   }
 
+  #frontpageImage h2 {
+    font-size: calc(var(--vh, 1vh) * 4);
+  }
+
   .tabbar {
     display: none;
   }
